@@ -1,0 +1,269 @@
+import os
+import random
+import pandas as pd
+
+from experiments.generic_task import GenericTask, GenericTrial
+
+
+default_config = {
+    'alphabet': ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm',
+                 'n', 'p', 'r', 's', 't', 'v', 'w', 'x', 'z'],
+    'trials': {
+        'n_trials_per_condition': 3,
+        'list_lengths': [4, 5, 6, 7, 8],
+        'shuffle': True,
+    },
+    'practice': {
+        'n_trials_per_condition': 1,
+        'list_lengths': [3, 4, 5],
+        'shuffle': False,
+    },
+    'key_map': {
+        False: 'left',
+        True: 'right',
+    },
+    'max_list_length': 8, # this is only relevant for the result frame. changing it won't work with the R-script!
+}
+
+
+class SentenceSpanTrial(GenericTrial):
+    def __init__(self, letters, sentences):
+        assert len(letters) == len(sentences)
+        
+        super().__init__()
+        self.letters = letters
+        self.sentences = sentences
+
+        self.current_presentation_step = -1
+        self.current_recall_step = -1
+
+        self.letter_resps = [None] * len(letters)
+        self.letter_rts = [None] * len(letters)
+        self.sentence_resps = [None] * len(sentences)
+        self.sentence_rts = [None] * len(sentences)
+
+    def get_presentation_count(self):
+        return len(self.letters)
+
+    def get_next_letter(self):
+        return self.letters[self.current_presentation_step]
+
+    def get_next_sentence(self):
+        self.current_presentation_step += 1
+        return self.sentences[self.current_presentation_step]
+
+    def get_next_recall_letter(self):
+        self.current_recall_step += 1
+        return self.letters[self.current_recall_step]
+
+    def save_letter_response(self, response, response_time):
+        self.letter_resps[self.current_recall_step] = response
+        self.letter_rts[self.current_recall_step] = response_time
+
+    def save_sentence_response(self, response, response_time):
+        self.sentence_resps[self.current_presentation_step] = int(response)
+        self.sentence_rts[self.current_presentation_step] = response_time
+
+
+class SentenceSpanSentence:
+    def __init__(self, sentence_string, correct):
+        self.sentence_string = sentence_string
+        self.correct = correct
+
+    def __str__(self):
+        return self.sentence_string
+
+    
+class SentenceSpanTrialFactory:
+    def __init__(self, alphabet, true_sentences, false_sentences):
+        self.alphabet = alphabet
+        self.true_sentences = true_sentences
+        self.false_sentences = false_sentences
+
+    def generate(self, list_lengths, n_trials_per_condition, shuffle=True):
+        n_trials = len(list_lengths) * n_trials_per_condition
+        trial_list_lengths = list_lengths * n_trials_per_condition
+
+        true_sentences = self.true_sentences.copy()
+        false_sentences = self.false_sentences.copy()
+
+        if shuffle:
+            random.shuffle(trial_list_lengths)
+            random.shuffle(true_sentences)
+            random.shuffle(false_sentences)
+
+        trials = []
+        for list_length in trial_list_lengths:
+            trial_letters = self.alphabet.copy()
+            random.shuffle(trial_letters)
+            trial_letters = trial_letters[:list_length]
+
+            # on odd list lengths there will be one true sentence more
+            n_true = list_length // 2 + list_length % 2
+            n_false = list_length // 2
+
+            trial_sentences = []
+            for _ in range(n_true):
+                sentence_string = true_sentences.pop()
+                sentence = SentenceSpanSentence(sentence_string, True)
+                trial_sentences.append(sentence)
+            for _ in range(n_false):
+                sentence_string = false_sentences.pop()
+                sentence = SentenceSpanSentence(sentence_string, False)
+                trial_sentences.append(sentence)
+
+            if shuffle:
+                random.shuffle(trial_sentences)
+
+            trial = SentenceSpanTrial(trial_letters, trial_sentences)
+            trials.append(trial)
+        return trials
+
+
+class SentenceSpanTask(GenericTask):
+    def __init__(self, language, seed, config=None , encoding='ISO-8859-1'):
+        super().__init__()
+
+        random.seed(seed)
+        self.name = 'SS'
+        self.language = language
+
+        if config is None:
+            config = default_config
+        self.config = config
+        
+        self.key_map = config['key_map']
+        self.inv_key_map = {v: k for k, v in config['key_map'].items()}
+        
+        self.load_sentences(language, encoding)
+        self.init_trials(config)
+        self.init_results(config)
+
+    def load_sentences(self, language, encoding):
+        language_dirpath = os.path.join('languages', language)
+        true_sentences_filepath = os.path.join(
+            language_dirpath, 'SS_SentencesTrue.txt')
+        false_sentences_filepath = os.path.join(
+            language_dirpath, 'SS_SentencesFalse.txt')
+        true_practice_sentences_filepath = os.path.join(
+            language_dirpath, 'SS_SentencesTruePractice.txt')
+        false_practice_sentences_filepath = os.path.join(
+            language_dirpath, 'SS_SentencesFalsePractice.txt')
+
+        self.sentences = {
+            'trials': {
+                True: self.load_sentences_(true_sentences_filepath, encoding),
+                False: self.load_sentences_(false_sentences_filepath, encoding),
+            },
+            'practice': {
+                True: self.load_sentences_(true_practice_sentences_filepath,
+                                           encoding),
+                False: self.load_sentences_(false_practice_sentences_filepath,
+                                            encoding),
+            },
+        }
+
+
+    def load_sentences_(self, filepath, encoding):
+        sentences = []
+        with open(filepath, mode='r', encoding=encoding) as f:
+            sentence_strings = f.readlines()
+        for sentence_string in sentence_strings:
+            sentence = sentence_string.rstrip('\n')
+            sentences.append(sentence)
+        return sentences
+        
+        
+    def init_trials(self, config):
+        practice_trial_factory = SentenceSpanTrialFactory(
+            alphabet=config['alphabet'],
+            true_sentences=self.sentences['practice'][True],
+            false_sentences=self.sentences['practice'][False],
+        )
+        
+        self.practice_trials = practice_trial_factory.generate(
+            list_lengths=config['practice']['list_lengths'],
+            n_trials_per_condition=config['practice']['n_trials_per_condition'],
+            shuffle=config['practice']['shuffle'],
+        )
+        
+        trial_factory = SentenceSpanTrialFactory(
+            alphabet=config['alphabet'],
+            true_sentences=self.sentences['trials'][True],
+            false_sentences=self.sentences['trials'][False],
+        )
+        
+        self.trials = trial_factory.generate(
+            list_lengths=config['trials']['list_lengths'],
+            n_trials_per_condition=config['trials']['n_trials_per_condition'],
+            shuffle=config['trials']['shuffle'],
+        )
+
+    def init_results(self, config):
+        result_idx = range(len(self.trials))
+
+        list_length = config['max_list_length']
+
+        self.letter_cols = [f'letter_correct{i}'
+                            for i in range(list_length)]
+        self.letter_resp_cols = [f'letter_response_{i}'
+                                 for i in range(list_length)]
+        self.letter_rt_cols = [f'letter_rt_{i}' for i in range(list_length)]
+
+        self.sentence_correct_cols = [f'sentence_correct_{i}'
+                                      for i in range(list_length)]
+        self.sentence_resp_cols = [f'sentence_response_{i}'
+                                   for i in range(list_length)]
+        self.sentence_rt_cols = [f'sentence_rt_{i}'
+                                 for i in range(list_length)]
+
+        result_cols = (['list_length']
+                       + self.letter_cols
+                       + self.letter_resp_cols
+                       + self.letter_rt_cols
+                       + self.sentence_correct_cols
+                       + self.sentence_resp_cols
+                       + self.sentence_rt_cols)
+
+        self.results = pd.DataFrame(data='?',
+                                    index=result_idx,
+                                    columns=result_cols,
+                                    dtype=str)
+        self.results.index.name = 'trial_id'
+
+        self.results[self.letter_cols] = '%'
+        self.results[self.letter_resp_cols] = '%'
+        self.results[self.letter_rt_cols] = '-1.000'
+
+        self.results[self.sentence_correct_cols] = '-1'
+        self.results[self.sentence_resp_cols] = '-1'
+        self.results[self.sentence_rt_cols] = '-1.000'
+
+    def finish_trial(self):
+        if self.current_trial is not None:
+            self.copy_trial_results(self.current_trial,
+                                    self.current_trial_id)
+        super().finish_trial()
+
+    def copy_trial_results(self, trial, trial_id):
+        trial_row = self.results.iloc[trial_id]
+        list_length = trial.get_presentation_count()
+        trial_row.loc['list_length'] = list_length
+
+        letters = [l.upper() for l in trial.letters]
+        trial_row.loc[self.letter_cols[:list_length]] = letters
+        letter_resps = [l.upper() for l in trial.letter_resps]
+        trial_row.loc[self.letter_resp_cols[:list_length]] = letter_resps
+        letter_rts = trial.letter_rts
+        trial_row.loc[self.letter_rt_cols[:list_length]] = letter_rts
+
+        sentences = trial.sentences
+        sentences_correct = [int(s.correct) for s in sentences]
+        trial_row.loc[self.sentence_correct_cols[:list_length]] = sentences_correct
+        sentence_resps = trial.sentence_resps
+        trial_row.loc[self.sentence_resp_cols[:list_length]] = sentence_resps
+        sentence_rts = trial.sentence_rts
+        trial_row.loc[self.sentence_rt_cols[:list_length]] = sentence_rts
+
+    def get_sentence_keys(self):
+        return list(self.key_map.values())
