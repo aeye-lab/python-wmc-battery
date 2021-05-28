@@ -1,0 +1,16 @@
+Geben Sie Ihre Probandennummer ein (gefolgt von Enter oder Return):
+Drücken Sie die Leertaste um die Übungsdurchgänge zu starten
+Drücken Sie die Leertaste um die Aufgabe zu starten
+Drücken Sie die Leertaste um den folgenden Durchgang zu starten
+Drücken Sie die Leertaste nach einer Pause
+Aufgabe abgeschlossen: Mit Leertaste zur nächsten Aufgabe
+Bitte warten… die Sätze werden geladen
+Experiment abgeschlossen: Melden Sie sich beim Versuchsleiter
+Drücken Sie die Leertaste um fort zu fahren
+Daten gespeichert - Drücken Sie die Leertaste um abzuschliessen
+Markieren Sie die Punkte
+Weiter
+Ende
+nix
+Block beendet - Weiter mit Leertaste
+Bitte warten … Wörter werden geladen
