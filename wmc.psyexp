@@ -1011,7 +1011,7 @@
         <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Begin Routine" val="sentence = current_trial.get_next_sentence()&amp;#10;sentence_string = str(sentence)&amp;#10;correct_key = current_task.key_map[sentence.correct]&amp;#10;&amp;#10;thisExp.addData('is_practice', current_task.do_practice)&amp;#10;thisExp.addData('ss_key_resp_sentence.sentence_string', equation_string)&amp;#10;thisExp.addData('ss_key_resp_sentence.sentence_correct', equation.correct)&amp;#10;thisExp.addData('ss_key_resp_sentence.correct_answer', correct_key)&amp;#10;" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Routine" val="sentence = current_trial.get_next_sentence()&amp;#10;sentence_string = str(sentence)&amp;#10;correct_key = current_task.key_map[sentence.correct]&amp;#10;&amp;#10;thisExp.addData('is_practice', current_task.do_practice)&amp;#10;thisExp.addData('ss_key_resp_sentence.sentence_string', sentence_string)&amp;#10;thisExp.addData('ss_key_resp_sentence.sentence_correct', sentence.correct)&amp;#10;thisExp.addData('ss_key_resp_sentence.correct_answer', correct_key)&amp;#10;" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
         <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
@@ -1452,23 +1452,6 @@
       </KeyboardComponent>
     </Routine>
     <Routine name="sstm_task_end">
-      <CodeComponent name="code_sstm_task_end">
-        <Param name="Before Experiment" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Before JS Experiment" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Begin JS Experiment" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Begin Routine" val="detailed_output_filepath = os.path.join(output_dir, 'sstm_detailed', f'{current_task.name}-{subject_id}.dat')&amp;#10;current_task.write_results(detailed_output_filepath)&amp;#10;&amp;#10;overall_output_filepath = os.path.join(output_dir, f'{current_task.name}-{subject_id}.dat')&amp;#10;current_task.write_overall_results(overall_output_filepath)" valType="extendedCode" updates="constant"/>
-        <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
-        <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
-        <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
-        <Param name="End JS Routine" val="" valType="extendedCode" updates="constant"/>
-        <Param name="End Routine" val="" valType="extendedCode" updates="constant"/>
-        <Param name="disabled" val="False" valType="bool" updates="None"/>
-        <Param name="name" val="code_sstm_task_end" valType="code" updates="None"/>
-      </CodeComponent>
       <TextComponent name="text_sstm_task_end">
         <Param name="color" val="black" valType="str" updates="constant"/>
         <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
@@ -1493,6 +1476,23 @@
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
       </TextComponent>
+      <CodeComponent name="code_sstm_task_end">
+        <Param name="Before Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Before JS Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Begin JS Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Routine" val="detailed_output_filepath = os.path.join(output_dir, 'sstm_detailed', f'{current_task.name}-{subject_id}.dat')&amp;#10;current_task.write_results(detailed_output_filepath)&amp;#10;&amp;#10;overall_output_filepath = os.path.join(output_dir, f'{current_task.name}-{subject_id}.dat')&amp;#10;current_task.write_overall_results(overall_output_filepath)" valType="extendedCode" updates="constant"/>
+        <Param name="Code Type" val="Py" valType="str" updates="None"/>
+        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End JS Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="disabled" val="False" valType="bool" updates="None"/>
+        <Param name="name" val="code_sstm_task_end" valType="code" updates="None"/>
+      </CodeComponent>
       <KeyboardComponent name="sstm_key_resp_task_end">
         <Param name="allowedKeys" val="'space'" valType="code" updates="constant"/>
         <Param name="correctAns" val="" valType="str" updates="constant"/>

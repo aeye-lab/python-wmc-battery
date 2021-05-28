@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.2.10),
-    on Fri 28 May 2021 05:08:32 PM CEST
+    on Fri 28 May 2021 05:25:24 PM CEST
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -645,7 +645,7 @@ text_sstm_task_end = visual.TextStim(win=win, name='text_sstm_task_end',
     pos=(0, 0), height=0.05, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
-    depth=-1.0);
+    depth=0.0);
 sstm_key_resp_task_end = keyboard.Keyboard()
 
 # Initialize components for Routine "base_end"
@@ -4052,8 +4052,8 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                 correct_key = current_task.key_map[sentence.correct]
                 
                 thisExp.addData('is_practice', current_task.do_practice)
-                thisExp.addData('ss_key_resp_sentence.sentence_string', equation_string)
-                thisExp.addData('ss_key_resp_sentence.sentence_correct', equation.correct)
+                thisExp.addData('ss_key_resp_sentence.sentence_string', sentence_string)
+                thisExp.addData('ss_key_resp_sentence.sentence_correct', sentence.correct)
                 thisExp.addData('ss_key_resp_sentence.correct_answer', correct_key)
                 
                 ss_text_sentence.setText(sentence_string)
