@@ -10,12 +10,14 @@ default_config = {
                  'n', 'p', 'r', 's', 't', 'v', 'w', 'x', 'z'],
     'trials': {
         'n_trials_per_condition': 3,
-        'list_lengths': [4, 5, 6, 7, 8],
+        #'list_lengths': [4, 5, 6, 7, 8],
+        'list_lengths': [3, 4, 5, 6, 7],
         'shuffle': True,
     },
     'practice': {
         'n_trials_per_condition': 1,
-        'list_lengths': [3, 4, 5],
+        'list_lengths': [2, 3, 4],
+        #'list_lengths': [3, 4, 5],
         'shuffle': False,
     },
     'key_map': {
