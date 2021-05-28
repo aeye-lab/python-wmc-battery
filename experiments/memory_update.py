@@ -29,7 +29,7 @@ default_config = {
         'set_sizes': [2, 3],
         'n_operations': [4, 3],
     },
-    'max_set_size': 6, # this is only relevant for the result fill. changing it won't work with the R-script!
+    'max_set_size': 6, # this is only relevant for the result file. changing it won't work with the R-script!
 }
 
 
@@ -142,13 +142,24 @@ class MemoryUpdateTrial(GenericTrial):
         
         return operation, location
 
+    def get_operation_sequence_string(self, location_id):
+        sequence_string = str(self.digits[location_id])
+        for operation in self.operations:
+            if operation.location == location_id:
+                sequence_string += ' ' + str(operation)
+        return sequence_string
+
     def get_next_recall(self):
         assert self.current_recall + 1 < len(self.digits)
         self.current_recall += 1
 
         result = self.results[self.recall_order[self.current_recall]]
         location = self.locations[self.recall_order[self.current_recall]]
-        return result, location
+        location_id = self.recall_order[self.current_recall]
+        operation_sequence = self.get_operation_sequence_string(
+            self.recall_order[self.current_recall])
+        
+        return result, location, location_id, operation_sequence
 
     def save_response(self, digit):
         digit = int(digit)
