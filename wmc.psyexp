@@ -1355,7 +1355,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="current_trial.grid.show(True)&amp;#10;win.mouseVisible = True&amp;#10;sstm_mouse.setVisible(True)" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="current_trial.process_mouse_event(sstm_mouse)&amp;#10;&amp;#10;if current_trial.selected_required_count():&amp;#10;    sstm_text_next.pos = (-0.35, -0.45)&amp;#10;else:&amp;#10;    sstm_text_next.pos = (10, 10)" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="current_trial.process_mouse_event(sstm_mouse)&amp;#10;&amp;#10;if current_trial.selected_required_count():&amp;#10;    sstm_text_next.pos = (-0.35, -0.425)&amp;#10;else:&amp;#10;    sstm_text_next.pos = (10, 10)" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -1476,23 +1476,6 @@
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
       </TextComponent>
-      <CodeComponent name="code_sstm_task_end">
-        <Param name="Before Experiment" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Before JS Experiment" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Begin JS Experiment" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Begin Routine" val="detailed_output_filepath = os.path.join(output_dir, 'sstm_detailed', f'{current_task.name}-{subject_id}.dat')&amp;#10;current_task.write_results(detailed_output_filepath)&amp;#10;&amp;#10;overall_output_filepath = os.path.join(output_dir, f'{current_task.name}-{subject_id}.dat')&amp;#10;current_task.write_overall_results(overall_output_filepath)" valType="extendedCode" updates="constant"/>
-        <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
-        <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
-        <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
-        <Param name="End JS Routine" val="" valType="extendedCode" updates="constant"/>
-        <Param name="End Routine" val="" valType="extendedCode" updates="constant"/>
-        <Param name="disabled" val="False" valType="bool" updates="None"/>
-        <Param name="name" val="code_sstm_task_end" valType="code" updates="None"/>
-      </CodeComponent>
       <KeyboardComponent name="sstm_key_resp_task_end">
         <Param name="allowedKeys" val="'space'" valType="code" updates="constant"/>
         <Param name="correctAns" val="" valType="str" updates="constant"/>
@@ -1511,6 +1494,23 @@
         <Param name="storeCorrect" val="False" valType="bool" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="constant"/>
       </KeyboardComponent>
+      <CodeComponent name="code_please_wait">
+        <Param name="Before Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Before JS Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Begin JS Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Code Type" val="Py" valType="str" updates="None"/>
+        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End JS Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End Routine" val="text_please_wait.setAutoDraw(True)" valType="extendedCode" updates="constant"/>
+        <Param name="disabled" val="False" valType="bool" updates="None"/>
+        <Param name="name" val="code_please_wait" valType="code" updates="None"/>
+      </CodeComponent>
     </Routine>
     <Routine name="sstm_draw_request">
       <CodeComponent name="code_sstm_draw_request">
@@ -1554,6 +1554,49 @@
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
       </TextComponent>
+    </Routine>
+    <Routine name="sstm_task_end_2">
+      <TextComponent name="text_please_wait">
+        <Param name="color" val="black" valType="str" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="disabled" val="False" valType="bool" updates="None"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="flip" val="" valType="str" updates="constant"/>
+        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
+        <Param name="letterHeight" val="0.05" valType="code" updates="constant"/>
+        <Param name="name" val="text_please_wait" valType="code" updates="None"/>
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="pos" val="(0, 0)" valType="code" updates="constant"/>
+        <Param name="saveStartStop" val="True" valType="bool" updates="None"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="stopVal" val="" valType="code" updates="constant"/>
+        <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
+        <Param name="text" val="Please wait to calculate scores and write results" valType="extendedStr" updates="constant"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+      </TextComponent>
+      <CodeComponent name="sstm_code_write">
+        <Param name="Before Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Before JS Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Begin JS Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Begin JS Routine" val="detailed_output_filepath = os.path.join(output_dir, &quot;sstm_detailed&quot;, `${current_task.name}-${subject_id}.dat`);&amp;#10;current_task.write_results(detailed_output_filepath);&amp;#10;overall_output_filepath = os.path.join(output_dir, `${current_task.name}-${subject_id}.dat`);&amp;#10;current_task.write_overall_results(overall_output_filepath);&amp;#10;" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Routine" val="text_please_wait.setAutoDraw(True)&amp;#10;&amp;#10;iiii = 0" valType="extendedCode" updates="constant"/>
+        <Param name="Code Type" val="Py" valType="str" updates="None"/>
+        <Param name="Each Frame" val="text_please_wait.setAutoDraw(True)&amp;#10;&amp;#10;iiii += 1&amp;#10;&amp;#10;if iiii &gt;= 2:&amp;#10;    detailed_output_filepath = os.path.join(output_dir, 'sstm_detailed', f'{current_task.name}-{subject_id}.dat')&amp;#10;    current_task.write_results(detailed_output_filepath)&amp;#10;&amp;#10;    overall_output_filepath = os.path.join(output_dir, f'{current_task.name}-{subject_id}.dat')&amp;#10;    current_task.write_overall_results(overall_output_filepath)&amp;#10;&amp;#10;    continueRoutine = False" valType="extendedCode" updates="constant"/>
+        <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End JS Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End Routine" val="text_please_wait.setAutoDraw(False)&amp;#10;" valType="extendedCode" updates="constant"/>
+        <Param name="disabled" val="False" valType="bool" updates="None"/>
+        <Param name="name" val="sstm_code_write" valType="code" updates="None"/>
+      </CodeComponent>
     </Routine>
   </Routines>
   <Flow>
@@ -1916,6 +1959,7 @@
     </LoopInitiator>
     <Routine name="base_init_trial"/>
     <Routine name="sstm_init_trial"/>
+    <Routine name="sstm_empty_grid"/>
     <LoopInitiator loopType="TrialHandler" name="sstm_presentations">
       <Param name="Selected rows" val="" valType="str" updates="None"/>
       <Param name="conditions" val="None" valType="str" updates="None"/>
@@ -1950,6 +1994,7 @@
     <LoopTerminator name="sstm_trials"/>
     <LoopTerminator name="sstm_practice_dummy"/>
     <Routine name="sstm_task_end"/>
+    <Routine name="sstm_task_end_2"/>
     <LoopTerminator name="do_spatial_short_term_memory_dummy"/>
     <Routine name="base_end"/>
   </Flow>

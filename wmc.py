@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.2.10),
-    on Sat 29 May 2021 12:19:56 AM CEST
+    on Sat 29 May 2021 01:32:54 AM CEST
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -569,6 +569,16 @@ base_init_trialClock = core.Clock()
 # Initialize components for Routine "sstm_init_trial"
 sstm_init_trialClock = core.Clock()
 
+# Initialize components for Routine "sstm_empty_grid"
+sstm_empty_gridClock = core.Clock()
+sstm_text_blank = visual.TextStim(win=win, name='sstm_text_blank',
+    text=None,
+    font='Arial',
+    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
+    color='white', colorSpace='rgb', opacity=1, 
+    languageStyle='LTR',
+    depth=0.0);
+
 # Initialize components for Routine "sstm_display_dot"
 sstm_display_dotClock = core.Clock()
 sstm_polygon_display_dot = visual.Polygon(
@@ -655,6 +665,16 @@ text_sstm_task_end = visual.TextStim(win=win, name='text_sstm_task_end',
     languageStyle='LTR',
     depth=0.0);
 sstm_key_resp_task_end = keyboard.Keyboard()
+
+# Initialize components for Routine "sstm_task_end_2"
+sstm_task_end_2Clock = core.Clock()
+text_please_wait = visual.TextStim(win=win, name='text_please_wait',
+    text='Please wait to calculate scores and write results',
+    font='Arial',
+    pos=(0, 0), height=0.05, wrapWidth=None, ori=0, 
+    color='black', colorSpace='rgb', opacity=1, 
+    languageStyle='LTR',
+    depth=0.0);
 
 # Initialize components for Routine "base_end"
 base_endClock = core.Clock()
@@ -5389,6 +5409,75 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
             # the Routine "sstm_init_trial" was not non-slip safe, so reset the non-slip timer
             routineTimer.reset()
             
+            # ------Prepare to start Routine "sstm_empty_grid"-------
+            continueRoutine = True
+            routineTimer.add(0.250000)
+            # update component parameters for each repeat
+            # keep track of which components have finished
+            sstm_empty_gridComponents = [sstm_text_blank]
+            for thisComponent in sstm_empty_gridComponents:
+                thisComponent.tStart = None
+                thisComponent.tStop = None
+                thisComponent.tStartRefresh = None
+                thisComponent.tStopRefresh = None
+                if hasattr(thisComponent, 'status'):
+                    thisComponent.status = NOT_STARTED
+            # reset timers
+            t = 0
+            _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+            sstm_empty_gridClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+            frameN = -1
+            
+            # -------Run Routine "sstm_empty_grid"-------
+            while continueRoutine and routineTimer.getTime() > 0:
+                # get current time
+                t = sstm_empty_gridClock.getTime()
+                tThisFlip = win.getFutureFlipTime(clock=sstm_empty_gridClock)
+                tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+                frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+                # update/draw components on each frame
+                
+                # *sstm_text_blank* updates
+                if sstm_text_blank.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                    # keep track of start time/frame for later
+                    sstm_text_blank.frameNStart = frameN  # exact frame index
+                    sstm_text_blank.tStart = t  # local t and not account for scr refresh
+                    sstm_text_blank.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(sstm_text_blank, 'tStartRefresh')  # time at next scr refresh
+                    sstm_text_blank.setAutoDraw(True)
+                if sstm_text_blank.status == STARTED:
+                    # is it time to stop? (based on global clock, using actual start)
+                    if tThisFlipGlobal > sstm_text_blank.tStartRefresh + 0.25-frameTolerance:
+                        # keep track of stop time/frame for later
+                        sstm_text_blank.tStop = t  # not accounting for scr refresh
+                        sstm_text_blank.frameNStop = frameN  # exact frame index
+                        win.timeOnFlip(sstm_text_blank, 'tStopRefresh')  # time at next scr refresh
+                        sstm_text_blank.setAutoDraw(False)
+                
+                # check for quit (typically the Esc key)
+                if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+                    core.quit()
+                
+                # check if all components have finished
+                if not continueRoutine:  # a component has requested a forced-end of Routine
+                    break
+                continueRoutine = False  # will revert to True if at least one component still running
+                for thisComponent in sstm_empty_gridComponents:
+                    if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                        continueRoutine = True
+                        break  # at least one component has not yet finished
+                
+                # refresh the screen
+                if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+                    win.flip()
+            
+            # -------Ending Routine "sstm_empty_grid"-------
+            for thisComponent in sstm_empty_gridComponents:
+                if hasattr(thisComponent, "setAutoDraw"):
+                    thisComponent.setAutoDraw(False)
+            sstm_trials.addData('sstm_text_blank.started', sstm_text_blank.tStartRefresh)
+            sstm_trials.addData('sstm_text_blank.stopped', sstm_text_blank.tStopRefresh)
+            
             # set up handler to look after randomisation of conditions etc
             sstm_presentations = data.TrialHandler(nReps=n_presentations, method='sequential', 
                 extraInfo=expInfo, originPath=-1,
@@ -5664,7 +5753,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                 current_trial.process_mouse_event(sstm_mouse)
                 
                 if current_trial.selected_required_count():
-                    sstm_text_next.pos = (-0.35, -0.45)
+                    sstm_text_next.pos = (-0.35, -0.425)
                 else:
                     sstm_text_next.pos = (10, 10)
                 
@@ -6023,11 +6112,6 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
     # ------Prepare to start Routine "sstm_task_end"-------
     continueRoutine = True
     # update component parameters for each repeat
-    detailed_output_filepath = os.path.join(output_dir, 'sstm_detailed', f'{current_task.name}-{subject_id}.dat')
-    current_task.write_results(detailed_output_filepath)
-    
-    overall_output_filepath = os.path.join(output_dir, f'{current_task.name}-{subject_id}.dat')
-    current_task.write_overall_results(overall_output_filepath)
     sstm_key_resp_task_end.keys = []
     sstm_key_resp_task_end.rt = []
     _sstm_key_resp_task_end_allKeys = []
@@ -6117,7 +6201,87 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
         do_spatial_short_term_memory_dummy.addData('sstm_key_resp_task_end.rt', sstm_key_resp_task_end.rt)
     do_spatial_short_term_memory_dummy.addData('sstm_key_resp_task_end.started', sstm_key_resp_task_end.tStartRefresh)
     do_spatial_short_term_memory_dummy.addData('sstm_key_resp_task_end.stopped', sstm_key_resp_task_end.tStopRefresh)
+    text_please_wait.setAutoDraw(True)
     # the Routine "sstm_task_end" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset()
+    
+    # ------Prepare to start Routine "sstm_task_end_2"-------
+    continueRoutine = True
+    # update component parameters for each repeat
+    text_please_wait.setAutoDraw(True)
+    
+    iiii = 0
+    # keep track of which components have finished
+    sstm_task_end_2Components = [text_please_wait]
+    for thisComponent in sstm_task_end_2Components:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    sstm_task_end_2Clock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+    frameN = -1
+    
+    # -------Run Routine "sstm_task_end_2"-------
+    while continueRoutine:
+        # get current time
+        t = sstm_task_end_2Clock.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=sstm_task_end_2Clock)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+        
+        # *text_please_wait* updates
+        if text_please_wait.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            text_please_wait.frameNStart = frameN  # exact frame index
+            text_please_wait.tStart = t  # local t and not account for scr refresh
+            text_please_wait.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text_please_wait, 'tStartRefresh')  # time at next scr refresh
+            text_please_wait.setAutoDraw(True)
+        text_please_wait.setAutoDraw(True)
+        
+        iiii += 1
+        
+        if iiii >= 2:
+            detailed_output_filepath = os.path.join(output_dir, 'sstm_detailed', f'{current_task.name}-{subject_id}.dat')
+            current_task.write_results(detailed_output_filepath)
+        
+            overall_output_filepath = os.path.join(output_dir, f'{current_task.name}-{subject_id}.dat')
+            current_task.write_overall_results(overall_output_filepath)
+        
+            continueRoutine = False
+        
+        # check for quit (typically the Esc key)
+        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+            core.quit()
+        
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in sstm_task_end_2Components:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+    
+    # -------Ending Routine "sstm_task_end_2"-------
+    for thisComponent in sstm_task_end_2Components:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    do_spatial_short_term_memory_dummy.addData('text_please_wait.started', text_please_wait.tStartRefresh)
+    do_spatial_short_term_memory_dummy.addData('text_please_wait.stopped', text_please_wait.tStopRefresh)
+    text_please_wait.setAutoDraw(False)
+    
+    # the Routine "sstm_task_end_2" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     thisExp.nextEntry()
     
