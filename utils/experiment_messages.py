@@ -1,7 +1,7 @@
 class ExperimentMessages:
-    def __init__(self, language):
+    def __init__(self, language, encoding='ISO-8859-1'):
         filepath =  f'languages/{language}/ExpMessages.txt'
-        with open(filepath, mode='r', encoding='ISO-8859-1') as f:
+        with open(filepath, mode='r', encoding=encoding) as f:
             lines = f.readlines()
 
         lines = [line.rstrip('\n') for line in lines]

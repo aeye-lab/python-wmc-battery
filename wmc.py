@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.2.10),
-    on Fri 28 May 2021 05:47:52 PM CEST
+    on Sat 29 May 2021 12:19:56 AM CEST
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -97,7 +97,15 @@ subject_id = thisExp.extraInfo['Subject ID']
 assert subject_id is not None
 
 language = thisExp.extraInfo['Language']
-expmsgs = ExperimentMessages(language)
+
+if language.startswith('Chinese'):
+    text_font = 'Noto Serif CJK TC'
+    encoding = 'utf-16le'
+else:
+    text_font = 'Arial'
+    encoding = 'ISO-8859-1'
+
+expmsgs = ExperimentMessages(language, encoding)
 instructions = Instructions(language)
 
 do_mu_task = thisExp.extraInfo['Memory Update']
@@ -439,7 +447,7 @@ ss_text_fixation_cross = visual.TextStim(win=win, name='ss_text_fixation_cross',
 ss_sentenceClock = core.Clock()
 ss_text_sentence = visual.TextStim(win=win, name='ss_text_sentence',
     text='default text',
-    font='Arial',
+    font=text_font,
     pos=(0, 0), height=0.05, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
@@ -586,7 +594,7 @@ sstm_draw_requestClock = core.Clock()
 sstm_text_draw_string = expmsgs.draw_dots
 text_sstm_draw_dots = visual.TextStim(win=win, name='text_sstm_draw_dots',
     text=sstm_text_draw_string,
-    font='Arial',
+    font=text_font,
     pos=(0, 0), height=0.05, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
@@ -597,7 +605,7 @@ sstm_recallClock = core.Clock()
 sstm_text_next_string = expmsgs.next_trial
 sstm_text_next = visual.TextStim(win=win, name='sstm_text_next',
     text=sstm_text_next_string,
-    font='Arial',
+    font=text_font,
     pos=(10, 10), height=0.05, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
@@ -641,7 +649,7 @@ base_text_pause_after_break = visual.TextStim(win=win, name='base_text_pause_aft
 sstm_task_endClock = core.Clock()
 text_sstm_task_end = visual.TextStim(win=win, name='text_sstm_task_end',
     text=expmsgs.task_end,
-    font='Arial',
+    font=text_font,
     pos=(0, 0), height=0.05, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
@@ -652,7 +660,7 @@ sstm_key_resp_task_end = keyboard.Keyboard()
 base_endClock = core.Clock()
 base_text_end = visual.TextStim(win=win, name='base_text_end',
     text=expmsgs.end,
-    font='Arial',
+    font=text_font,
     pos=(0, 0), height=0.05, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
@@ -1044,6 +1052,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
         else:
             n_trials = current_task.get_trial_count()
         base_text_begin_task.setText(msg_task_begin)
+        base_text_begin_task.setFont(text_font)
         base_key_resp_task_begin.keys = []
         base_key_resp_task_begin.rt = []
         _base_key_resp_task_begin_allKeys = []
@@ -1917,6 +1926,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 continueRoutine = True
                 # update component parameters for each repeat
                 base_text_self_paced_break.setText(expmsgs.experiment_break)
+                base_text_self_paced_break.setFont(text_font)
                 base_key_resp_self_paced_break.keys = []
                 base_key_resp_self_paced_break.rt = []
                 _base_key_resp_self_paced_break_allKeys = []
@@ -2096,6 +2106,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
     output_filepath = os.path.join(output_dir, f'{current_task.name}-{subject_id}.dat')
     current_task.write_results(output_filepath)
     base_text_task_end.setText(expmsgs.task_end)
+    base_text_task_end.setFont(text_font)
     base_key_resp_task_end.keys = []
     base_key_resp_task_end.rt = []
     _base_key_resp_task_end_allKeys = []
@@ -2423,6 +2434,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
         else:
             n_trials = current_task.get_trial_count()
         base_text_begin_task.setText(msg_task_begin)
+        base_text_begin_task.setFont(text_font)
         base_key_resp_task_begin.keys = []
         base_key_resp_task_begin.rt = []
         _base_key_resp_task_begin_allKeys = []
@@ -3281,6 +3293,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                 continueRoutine = True
                 # update component parameters for each repeat
                 base_text_self_paced_break.setText(expmsgs.experiment_break)
+                base_text_self_paced_break.setFont(text_font)
                 base_key_resp_self_paced_break.keys = []
                 base_key_resp_self_paced_break.rt = []
                 _base_key_resp_self_paced_break_allKeys = []
@@ -3460,6 +3473,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
     output_filepath = os.path.join(output_dir, f'{current_task.name}-{subject_id}.dat')
     current_task.write_results(output_filepath)
     base_text_task_end.setText(expmsgs.task_end)
+    base_text_task_end.setFont(text_font)
     base_key_resp_task_end.keys = []
     base_key_resp_task_end.rt = []
     _base_key_resp_task_end_allKeys = []
@@ -3786,6 +3800,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
         else:
             n_trials = current_task.get_trial_count()
         base_text_begin_task.setText(msg_task_begin)
+        base_text_begin_task.setFont(text_font)
         base_key_resp_task_begin.keys = []
         base_key_resp_task_begin.rt = []
         _base_key_resp_task_begin_allKeys = []
@@ -4644,6 +4659,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                 continueRoutine = True
                 # update component parameters for each repeat
                 base_text_self_paced_break.setText(expmsgs.experiment_break)
+                base_text_self_paced_break.setFont(text_font)
                 base_key_resp_self_paced_break.keys = []
                 base_key_resp_self_paced_break.rt = []
                 _base_key_resp_self_paced_break_allKeys = []
@@ -4823,6 +4839,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
     output_filepath = os.path.join(output_dir, f'{current_task.name}-{subject_id}.dat')
     current_task.write_results(output_filepath)
     base_text_task_end.setText(expmsgs.task_end)
+    base_text_task_end.setFont(text_font)
     base_key_resp_task_end.keys = []
     base_key_resp_task_end.rt = []
     _base_key_resp_task_end_allKeys = []
@@ -5148,6 +5165,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
         else:
             n_trials = current_task.get_trial_count()
         base_text_begin_task.setText(msg_task_begin)
+        base_text_begin_task.setFont(text_font)
         base_key_resp_task_begin.keys = []
         base_key_resp_task_begin.rt = []
         _base_key_resp_task_begin_allKeys = []
@@ -5828,6 +5846,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                 continueRoutine = True
                 # update component parameters for each repeat
                 base_text_self_paced_break.setText(expmsgs.experiment_break)
+                base_text_self_paced_break.setFont(text_font)
                 base_key_resp_self_paced_break.keys = []
                 base_key_resp_self_paced_break.rt = []
                 _base_key_resp_self_paced_break_allKeys = []

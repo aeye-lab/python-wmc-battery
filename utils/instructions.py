@@ -23,6 +23,9 @@ class Instructions:
             ],
         }
 
+        if language.startswith('Chinese'):
+            self.instructions['mu'] = self.instructions['mu'][:-1]
+
     def get_instructions(self, task):
         return self.instructions[task]
 
