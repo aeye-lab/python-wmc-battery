@@ -1360,7 +1360,7 @@
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Routine" val="" valType="extendedCode" updates="constant"/>
-        <Param name="End Routine" val="win.mouseVisible = False&amp;#10;sstm_mouse.setVisible(False)&amp;#10;&amp;#10;sstm_trial_rt = sstm_mouse.time[-1]&amp;#10;current_trial.save_response(sstm_trial_rt)" valType="extendedCode" updates="constant"/>
+        <Param name="End Routine" val="win.mouseVisible = False&amp;#10;sstm_mouse.setVisible(False)&amp;#10;&amp;#10;sstm_trial_rt = sstm_mouse.time[-1]&amp;#10;current_trial.save_response(sstm_trial_rt)&amp;#10;&amp;#10;thisExp.addData('is_practice', current_task.do_practice)&amp;#10;thisExp.addData('sstm_recall.correct_dots', current_trial.sequence)&amp;#10;thisExp.addData('sstm_recall.response_dots', current_trial.response_dots)&amp;#10;thisExp.addData('sstm_recall.response_time', current_trial.response_time)" valType="extendedCode" updates="constant"/>
         <Param name="disabled" val="False" valType="bool" updates="None"/>
         <Param name="name" val="sstm_code_recall" valType="code" updates="None"/>
       </CodeComponent>

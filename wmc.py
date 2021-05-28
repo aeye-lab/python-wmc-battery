@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.2.10),
-    on Fri 28 May 2021 12:21:50 PM CEST
+    on Fri 28 May 2021 05:08:32 PM CEST
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -52,7 +52,7 @@ filename = _thisDir + os.sep + u'data/psychopy_logs/%s_%s_%s' % (expInfo['Subjec
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='/home/krakowczyk/workspace/wmc_psychopy/wmc_lastrun.py',
+    originPath='/home/krakowczyk/workspace/wmc-battery/wmc_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -2688,12 +2688,11 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                 equation_string = str(equation)
                 correct_key = current_task.key_map[equation.correct]
                 
-                '''
-                thisExp.addData('equation_string', equation_string)
-                thisExp.addData('equation_correct', equation.correct)
-                thisExp.addData('key_resp_equation.correct_answer', correct_key)
-                thisExp.addData('is_practice', do_practice)
-                '''
+                thisExp.addData('is_practice', current_task.do_practice)
+                thisExp.addData('os_key_resp_equation.equation_string', equation_string)
+                thisExp.addData('os_key_resp_equation.equation_correct', equation.correct)
+                thisExp.addData('os_key_resp_equation.correct_answer', correct_key)
+                
                 os_text_equation.setText(equation_string)
                 os_key_resp_equation.keys = []
                 os_key_resp_equation.rt = []
@@ -3002,10 +3001,9 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                 # update component parameters for each repeat
                 correct_letter = current_trial.get_next_recall_letter()
                 
-                '''
-                thisExp.addData('is_practice', do_practice)
-                thisExp.addData('key_resp_recall.correct_answer', correct_letter)
-                '''
+                thisExp.addData('is_practice', current_task.do_practice)
+                thisExp.addData('os_key_resp_recall.correct_letter', correct_letter)
+                
                 os_key_resp_recall.keys = []
                 os_key_resp_recall.rt = []
                 _os_key_resp_recall_allKeys = []
@@ -4053,12 +4051,11 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                 sentence_string = str(sentence)
                 correct_key = current_task.key_map[sentence.correct]
                 
-                '''
-                thisExp.addData('equation_string', equation_string)
-                thisExp.addData('equation_correct', equation.correct)
-                thisExp.addData('key_resp_equation.correct_answer', correct_key)
-                thisExp.addData('is_practice', do_practice)
-                '''
+                thisExp.addData('is_practice', current_task.do_practice)
+                thisExp.addData('ss_key_resp_sentence.sentence_string', equation_string)
+                thisExp.addData('ss_key_resp_sentence.sentence_correct', equation.correct)
+                thisExp.addData('ss_key_resp_sentence.correct_answer', correct_key)
+                
                 ss_text_sentence.setText(sentence_string)
                 ss_key_resp_sentence.keys = []
                 ss_key_resp_sentence.rt = []
@@ -4367,10 +4364,9 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                 # update component parameters for each repeat
                 correct_letter = current_trial.get_next_recall_letter()
                 
-                '''
-                thisExp.addData('is_practice', do_practice)
-                thisExp.addData('key_resp_recall.correct_answer', correct_letter)
-                '''
+                thisExp.addData('is_practice', current_task.do_practice)
+                thisExp.addData('ss_key_resp_recall.correct_letter', correct_letter)
+                
                 ss_key_resp_recall.keys = []
                 ss_key_resp_recall.rt = []
                 _ss_key_resp_recall_allKeys = []
@@ -5717,6 +5713,11 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
             
             sstm_trial_rt = sstm_mouse.time[-1]
             current_trial.save_response(sstm_trial_rt)
+            
+            thisExp.addData('is_practice', current_task.do_practice)
+            thisExp.addData('sstm_recall.correct_dots', current_trial.sequence)
+            thisExp.addData('sstm_recall.response_dots', current_trial.response_dots)
+            thisExp.addData('sstm_recall.response_time', current_trial.response_time)
             sstm_trials.addData('sstm_text_next.started', sstm_text_next.tStartRefresh)
             sstm_trials.addData('sstm_text_next.stopped', sstm_text_next.tStopRefresh)
             # store data for sstm_trials (TrialHandler)
