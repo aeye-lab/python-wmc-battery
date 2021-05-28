@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.2.10),
-    on Fri 28 May 2021 05:25:24 PM CEST
+    on Fri 28 May 2021 05:47:52 PM CEST
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -1635,11 +1635,13 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 # ------Prepare to start Routine "mu_recall"-------
                 continueRoutine = True
                 # update component parameters for each repeat
-                current_recall, current_recall_position = current_trial.get_next_recall()
+                current_recall, current_recall_position, current_recall_position_id, current_recall_operation_sequence = current_trial.get_next_recall()
                 
                 thisExp.addData('is_practice', current_task.do_practice)
                 thisExp.addData('mu_key_resp_recall.correct_answer', current_recall)
                 thisExp.addData('mu_key_resp_recall.recall_position', current_recall_position)
+                thisExp.addData('mu_key_resp_recall.recall_position_id', current_recall_position_id)
+                thisExp.addData('mu_key_resp_recall.recall_operation_sequence', current_recall_operation_sequence)
                 mu_text_question_mark.setPos(current_recall_position)
                 mu_key_resp_recall.keys = []
                 mu_key_resp_recall.rt = []

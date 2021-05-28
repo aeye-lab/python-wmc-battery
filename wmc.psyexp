@@ -549,7 +549,7 @@
         <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Begin Routine" val="current_recall, current_recall_position = current_trial.get_next_recall()&amp;#10;&amp;#10;thisExp.addData('is_practice', current_task.do_practice)&amp;#10;thisExp.addData('mu_key_resp_recall.correct_answer', current_recall)&amp;#10;thisExp.addData('mu_key_resp_recall.recall_position', current_recall_position)" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Routine" val="current_recall, current_recall_position, current_recall_position_id, current_recall_operation_sequence = current_trial.get_next_recall()&amp;#10;&amp;#10;thisExp.addData('is_practice', current_task.do_practice)&amp;#10;thisExp.addData('mu_key_resp_recall.correct_answer', current_recall)&amp;#10;thisExp.addData('mu_key_resp_recall.recall_position', current_recall_position)&amp;#10;thisExp.addData('mu_key_resp_recall.recall_position_id', current_recall_position_id)&amp;#10;thisExp.addData('mu_key_resp_recall.recall_operation_sequence', current_recall_operation_sequence)" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
         <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
