@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 
 class GenericTrial:
@@ -73,5 +74,9 @@ class GenericTask:
         self.current_practice_trial = None
 
     def write_results(self, filepath):
+        dirpath = os.path.dirname(filepath)
+        if not os.path.isdir(dirpath):
+            os.makedirs(dirpath)
+
         self.results.to_csv(filepath, sep=' ', header=False,
                             float_format='%.3f')

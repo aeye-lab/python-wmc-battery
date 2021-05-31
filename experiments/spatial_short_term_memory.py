@@ -1,4 +1,5 @@
 from itertools import product, permutations
+import os
 import random
 
 import numpy as np
@@ -540,6 +541,10 @@ class SpatialShortTermMemoryTask(GenericTask):
         super().finish_trial()
 
     def write_results(self, filepath):
+        dirpath = os.path.dirname(filepath)
+        if not os.path.isdir(dirpath):
+            os.makedirs(dirpath)
+
         self.scorer.compute_scores()
 
         self.scorer.trial_scores['Score'] = pd.to_numeric(
@@ -561,6 +566,10 @@ class SpatialShortTermMemoryTask(GenericTask):
         self.scorer.dot_scores.to_csv(filepath, mode='a', sep=' ')
 
     def write_overall_results(self, filepath):
+        dirpath = os.path.dirname(filepath)
+        if not os.path.isdir(dirpath):
+            os.makedirs(dirpath)
+
         max_possible_score = sum([len(trial.sequence)*2-2
                                   for trial in self.trials])
 
