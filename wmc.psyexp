@@ -96,7 +96,7 @@
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
       </ImageComponent>
       <KeyboardComponent name="base_key_resp_instruction">
-        <Param name="allowedKeys" val="'space'" valType="code" updates="constant"/>
+        <Param name="allowedKeys" val="" valType="code" updates="constant"/>
         <Param name="correctAns" val="" valType="str" updates="constant"/>
         <Param name="disabled" val="False" valType="bool" updates="None"/>
         <Param name="discard previous" val="True" valType="bool" updates="constant"/>

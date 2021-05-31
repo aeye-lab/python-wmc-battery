@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.2.10),
-    on Sat 29 May 2021 01:32:54 AM CEST
+    on Mon 31 May 2021 12:43:28 PM CEST
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -800,7 +800,7 @@ while continueRoutine:
         win.callOnFlip(base_key_resp_instruction.clock.reset)  # t=0 on next screen flip
         win.callOnFlip(base_key_resp_instruction.clearEvents, eventType='keyboard')  # clear events on next screen flip
     if base_key_resp_instruction.status == STARTED and not waitOnFlip:
-        theseKeys = base_key_resp_instruction.getKeys(keyList=['space'], waitRelease=False)
+        theseKeys = base_key_resp_instruction.getKeys(keyList=None, waitRelease=False)
         _base_key_resp_instruction_allKeys.extend(theseKeys)
         if len(_base_key_resp_instruction_allKeys):
             base_key_resp_instruction.keys = _base_key_resp_instruction_allKeys[-1].name  # just the last key pressed
@@ -992,7 +992,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 win.callOnFlip(base_key_resp_instruction.clock.reset)  # t=0 on next screen flip
                 win.callOnFlip(base_key_resp_instruction.clearEvents, eventType='keyboard')  # clear events on next screen flip
             if base_key_resp_instruction.status == STARTED and not waitOnFlip:
-                theseKeys = base_key_resp_instruction.getKeys(keyList=['space'], waitRelease=False)
+                theseKeys = base_key_resp_instruction.getKeys(keyList=None, waitRelease=False)
                 _base_key_resp_instruction_allKeys.extend(theseKeys)
                 if len(_base_key_resp_instruction_allKeys):
                     base_key_resp_instruction.keys = _base_key_resp_instruction_allKeys[-1].name  # just the last key pressed
@@ -2374,7 +2374,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                 win.callOnFlip(base_key_resp_instruction.clock.reset)  # t=0 on next screen flip
                 win.callOnFlip(base_key_resp_instruction.clearEvents, eventType='keyboard')  # clear events on next screen flip
             if base_key_resp_instruction.status == STARTED and not waitOnFlip:
-                theseKeys = base_key_resp_instruction.getKeys(keyList=['space'], waitRelease=False)
+                theseKeys = base_key_resp_instruction.getKeys(keyList=None, waitRelease=False)
                 _base_key_resp_instruction_allKeys.extend(theseKeys)
                 if len(_base_key_resp_instruction_allKeys):
                     base_key_resp_instruction.keys = _base_key_resp_instruction_allKeys[-1].name  # just the last key pressed
@@ -3740,7 +3740,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                 win.callOnFlip(base_key_resp_instruction.clock.reset)  # t=0 on next screen flip
                 win.callOnFlip(base_key_resp_instruction.clearEvents, eventType='keyboard')  # clear events on next screen flip
             if base_key_resp_instruction.status == STARTED and not waitOnFlip:
-                theseKeys = base_key_resp_instruction.getKeys(keyList=['space'], waitRelease=False)
+                theseKeys = base_key_resp_instruction.getKeys(keyList=None, waitRelease=False)
                 _base_key_resp_instruction_allKeys.extend(theseKeys)
                 if len(_base_key_resp_instruction_allKeys):
                     base_key_resp_instruction.keys = _base_key_resp_instruction_allKeys[-1].name  # just the last key pressed
@@ -5105,7 +5105,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                 win.callOnFlip(base_key_resp_instruction.clock.reset)  # t=0 on next screen flip
                 win.callOnFlip(base_key_resp_instruction.clearEvents, eventType='keyboard')  # clear events on next screen flip
             if base_key_resp_instruction.status == STARTED and not waitOnFlip:
-                theseKeys = base_key_resp_instruction.getKeys(keyList=['space'], waitRelease=False)
+                theseKeys = base_key_resp_instruction.getKeys(keyList=None, waitRelease=False)
                 _base_key_resp_instruction_allKeys.extend(theseKeys)
                 if len(_base_key_resp_instruction_allKeys):
                     base_key_resp_instruction.keys = _base_key_resp_instruction_allKeys[-1].name  # just the last key pressed
