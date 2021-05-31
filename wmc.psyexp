@@ -375,7 +375,7 @@
         <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Begin Routine" val="from experiments.memory_update import MemoryUpdateTask&amp;#10;current_task = MemoryUpdateTask(win, random_seed)&amp;#10;&amp;#10;instruction_filepaths = instructions.get_instructions('mu')&amp;#10;n_instruction_pages = instructions.get_instruction_page_count('mu')" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Routine" val="from experiments.memory_update import MemoryUpdateTask&amp;#10;current_task = MemoryUpdateTask(win, random_seed)&amp;#10;mu_allowed_keys = current_task.allowed_keys&amp;#10;&amp;#10;instruction_filepaths = instructions.get_instructions('mu')&amp;#10;n_instruction_pages = instructions.get_instruction_page_count('mu')" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
         <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
@@ -549,14 +549,14 @@
         <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Begin Routine" val="current_recall, current_recall_position, current_recall_position_id, current_recall_operation_sequence = current_trial.get_next_recall()&amp;#10;&amp;#10;thisExp.addData('is_practice', current_task.do_practice)&amp;#10;thisExp.addData('mu_key_resp_recall.correct_answer', current_recall)&amp;#10;thisExp.addData('mu_key_resp_recall.recall_position', current_recall_position)&amp;#10;thisExp.addData('mu_key_resp_recall.recall_position_id', current_recall_position_id)&amp;#10;thisExp.addData('mu_key_resp_recall.recall_operation_sequence', current_recall_operation_sequence)" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Routine" val="current_recall = current_trial.get_next_recall()&amp;#10;recall_position = current_recall['position']&amp;#10;&amp;#10;correct_answer = str(current_recall['result'])&amp;#10;if any(k.startswith('num') for k in current_task.allowed_keys):&amp;#10;    correct_answer = [correct_answer, f'num_{correct_answer}']&amp;#10;&amp;#10;thisExp.addData('is_practice', current_task.do_practice)&amp;#10;thisExp.addData('mu_key_resp_recall.correct_answer', current_recall['result'])&amp;#10;thisExp.addData('mu_key_resp_recall.position', current_recall['position'])&amp;#10;thisExp.addData('mu_key_resp_recall.position_id', current_recall['position_id'])&amp;#10;thisExp.addData('mu_key_resp_recall.operation_sequence', current_recall['operation_sequence'])" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
         <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Routine" val="" valType="extendedCode" updates="constant"/>
-        <Param name="End Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End Routine" val="keyboard_response = mu_key_resp_recall.keys.replace('num_', '')&amp;#10;is_correct = keyboard_response == str(current_recall['result'])&amp;#10;&amp;#10;thisExp.addData('mu_key_resp_recall.response', keyboard_response)&amp;#10;thisExp.addData('mu_key_resp_recall.is_correct', is_correct)&amp;#10;" valType="extendedCode" updates="constant"/>
         <Param name="disabled" val="False" valType="bool" updates="None"/>
         <Param name="name" val="mu_code_recall" valType="code" updates="None"/>
       </CodeComponent>
@@ -572,7 +572,7 @@
         <Param name="name" val="mu_text_question_mark" valType="code" updates="None"/>
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
-        <Param name="pos" val="$current_recall_position" valType="code" updates="set every repeat"/>
+        <Param name="pos" val="$recall_position" valType="code" updates="set every repeat"/>
         <Param name="saveStartStop" val="True" valType="bool" updates="None"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
@@ -585,8 +585,8 @@
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
       </TextComponent>
       <KeyboardComponent name="mu_key_resp_recall">
-        <Param name="allowedKeys" val="'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'" valType="code" updates="constant"/>
-        <Param name="correctAns" val="$current_recall" valType="str" updates="constant"/>
+        <Param name="allowedKeys" val="mu_allowed_keys" valType="code" updates="set every repeat"/>
+        <Param name="correctAns" val="$correct_answer" valType="str" updates="constant"/>
         <Param name="disabled" val="False" valType="bool" updates="None"/>
         <Param name="discard previous" val="True" valType="bool" updates="constant"/>
         <Param name="durationEstim" val="" valType="code" updates="None"/>
@@ -599,7 +599,7 @@
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
         <Param name="stopVal" val="" valType="code" updates="constant"/>
         <Param name="store" val="last key" valType="str" updates="constant"/>
-        <Param name="storeCorrect" val="True" valType="bool" updates="constant"/>
+        <Param name="storeCorrect" val="False" valType="bool" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="constant"/>
       </KeyboardComponent>
     </Routine>
@@ -610,7 +610,7 @@
         <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Begin Routine" val="keyboard_response = mu_key_resp_recall.keys&amp;#10;current_trial.save_response(keyboard_response)" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Routine" val="keyboard_response = mu_key_resp_recall.keys.replace('num_', '')&amp;#10;current_trial.save_response(keyboard_response)" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
         <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
@@ -633,7 +633,7 @@
         <Param name="name" val="mu_text_recall" valType="code" updates="None"/>
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
-        <Param name="pos" val="$current_recall_position" valType="code" updates="set every repeat"/>
+        <Param name="pos" val="$recall_position" valType="code" updates="set every repeat"/>
         <Param name="saveStartStop" val="True" valType="bool" updates="None"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>

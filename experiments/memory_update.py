@@ -7,6 +7,11 @@ from experiments.generic_task import GenericTask, GenericTrial
 
 
 default_config = {
+    'allowed_keys': [
+        '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+        'num_0', 'num_1', 'num_2', 'num_3', 'num_4',
+        'num_5', 'num_6', 'num_7', 'num_8', 'num_9'
+    ],
     'frames': {
         'width': 0.25,
         'height': 0.25,
@@ -158,11 +163,17 @@ class MemoryUpdateTrial(GenericTrial):
         location_id = self.recall_order[self.current_recall]
         operation_sequence = self.get_operation_sequence_string(
             self.recall_order[self.current_recall])
-        
-        return result, location, location_id, operation_sequence
+
+        recall = {
+            'result': result,
+            'position': location,
+            'position_id': location_id,
+            'operation_sequence': operation_sequence,
+        }
+        return recall
 
     def save_response(self, digit):
-        digit = int(digit)
+        digit = int(str(digit).replace('num_', ''))
         self.responses[self.current_recall] = digit
         correct_result = self.results[self.recall_order[self.current_recall]]
         self.is_correct[self.current_recall] = int(digit == correct_result)
@@ -204,6 +215,8 @@ class MemoryUpdateTask(GenericTask):
         if config is None:
             config = default_config
         self.config = config
+
+        self.allowed_keys = config['allowed_keys']
 
         self.init_frames(window, config)
         self.init_trials(config)

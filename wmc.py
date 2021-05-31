@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.2.10),
-    on Mon 31 May 2021 12:43:28 PM CEST
+    on Mon 31 May 2021 02:45:09 PM CEST
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -867,6 +867,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
     # update component parameters for each repeat
     from experiments.memory_update import MemoryUpdateTask
     current_task = MemoryUpdateTask(win, random_seed)
+    mu_allowed_keys = current_task.allowed_keys
     
     instruction_filepaths = instructions.get_instructions('mu')
     n_instruction_pages = instructions.get_instruction_page_count('mu')
@@ -1664,14 +1665,19 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 # ------Prepare to start Routine "mu_recall"-------
                 continueRoutine = True
                 # update component parameters for each repeat
-                current_recall, current_recall_position, current_recall_position_id, current_recall_operation_sequence = current_trial.get_next_recall()
+                current_recall = current_trial.get_next_recall()
+                recall_position = current_recall['position']
+                
+                correct_answer = str(current_recall['result'])
+                if any(k.startswith('num') for k in current_task.allowed_keys):
+                    correct_answer = [correct_answer, f'num_{correct_answer}']
                 
                 thisExp.addData('is_practice', current_task.do_practice)
-                thisExp.addData('mu_key_resp_recall.correct_answer', current_recall)
-                thisExp.addData('mu_key_resp_recall.recall_position', current_recall_position)
-                thisExp.addData('mu_key_resp_recall.recall_position_id', current_recall_position_id)
-                thisExp.addData('mu_key_resp_recall.recall_operation_sequence', current_recall_operation_sequence)
-                mu_text_question_mark.setPos(current_recall_position)
+                thisExp.addData('mu_key_resp_recall.correct_answer', current_recall['result'])
+                thisExp.addData('mu_key_resp_recall.position', current_recall['position'])
+                thisExp.addData('mu_key_resp_recall.position_id', current_recall['position_id'])
+                thisExp.addData('mu_key_resp_recall.operation_sequence', current_recall['operation_sequence'])
+                mu_text_question_mark.setPos(recall_position)
                 mu_key_resp_recall.keys = []
                 mu_key_resp_recall.rt = []
                 _mu_key_resp_recall_allKeys = []
@@ -1717,21 +1723,25 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                         mu_key_resp_recall.tStartRefresh = tThisFlipGlobal  # on global time
                         win.timeOnFlip(mu_key_resp_recall, 'tStartRefresh')  # time at next scr refresh
                         mu_key_resp_recall.status = STARTED
+                        # AllowedKeys looks like a variable named `mu_allowed_keys`
+                        if not type(mu_allowed_keys) in [list, tuple, np.ndarray]:
+                            if not isinstance(mu_allowed_keys, str):
+                                logging.error('AllowedKeys variable `mu_allowed_keys` is not string- or list-like.')
+                                core.quit()
+                            elif not ',' in mu_allowed_keys:
+                                mu_allowed_keys = (mu_allowed_keys,)
+                            else:
+                                mu_allowed_keys = eval(mu_allowed_keys)
                         # keyboard checking is just starting
                         waitOnFlip = True
                         win.callOnFlip(mu_key_resp_recall.clock.reset)  # t=0 on next screen flip
                         win.callOnFlip(mu_key_resp_recall.clearEvents, eventType='keyboard')  # clear events on next screen flip
                     if mu_key_resp_recall.status == STARTED and not waitOnFlip:
-                        theseKeys = mu_key_resp_recall.getKeys(keyList=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'], waitRelease=False)
+                        theseKeys = mu_key_resp_recall.getKeys(keyList=list(mu_allowed_keys), waitRelease=False)
                         _mu_key_resp_recall_allKeys.extend(theseKeys)
                         if len(_mu_key_resp_recall_allKeys):
                             mu_key_resp_recall.keys = _mu_key_resp_recall_allKeys[-1].name  # just the last key pressed
                             mu_key_resp_recall.rt = _mu_key_resp_recall_allKeys[-1].rt
-                            # was this correct?
-                            if (mu_key_resp_recall.keys == str(current_recall)) or (mu_key_resp_recall.keys == current_recall):
-                                mu_key_resp_recall.corr = 1
-                            else:
-                                mu_key_resp_recall.corr = 0
                             # a response ends the routine
                             continueRoutine = False
                     
@@ -1756,19 +1766,18 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 for thisComponent in mu_recallComponents:
                     if hasattr(thisComponent, "setAutoDraw"):
                         thisComponent.setAutoDraw(False)
+                keyboard_response = mu_key_resp_recall.keys.replace('num_', '')
+                is_correct = keyboard_response == str(current_recall['result'])
+                
+                thisExp.addData('mu_key_resp_recall.response', keyboard_response)
+                thisExp.addData('mu_key_resp_recall.is_correct', is_correct)
+                
                 mu_recalls.addData('mu_text_question_mark.started', mu_text_question_mark.tStartRefresh)
                 mu_recalls.addData('mu_text_question_mark.stopped', mu_text_question_mark.tStopRefresh)
                 # check responses
                 if mu_key_resp_recall.keys in ['', [], None]:  # No response was made
                     mu_key_resp_recall.keys = None
-                    # was no response the correct answer?!
-                    if str(current_recall).lower() == 'none':
-                       mu_key_resp_recall.corr = 1;  # correct non-response
-                    else:
-                       mu_key_resp_recall.corr = 0;  # failed to respond (incorrectly)
-                # store data for mu_recalls (TrialHandler)
                 mu_recalls.addData('mu_key_resp_recall.keys',mu_key_resp_recall.keys)
-                mu_recalls.addData('mu_key_resp_recall.corr', mu_key_resp_recall.corr)
                 if mu_key_resp_recall.keys != None:  # we had a response
                     mu_recalls.addData('mu_key_resp_recall.rt', mu_key_resp_recall.rt)
                 mu_recalls.addData('mu_key_resp_recall.started', mu_key_resp_recall.tStartRefresh)
@@ -1780,9 +1789,9 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 continueRoutine = True
                 routineTimer.add(1.000000)
                 # update component parameters for each repeat
-                keyboard_response = mu_key_resp_recall.keys
+                keyboard_response = mu_key_resp_recall.keys.replace('num_', '')
                 current_trial.save_response(keyboard_response)
-                mu_text_recall.setPos(current_recall_position)
+                mu_text_recall.setPos(recall_position)
                 mu_text_recall.setText(keyboard_response)
                 # keep track of which components have finished
                 mu_display_recallComponents = [mu_text_recall]
