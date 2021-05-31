@@ -11,7 +11,7 @@ default_config = {
     'trials': {
         'n_trials_per_condition': 3,
         #'list_lengths': [4, 5, 6, 7, 8],
-        'list_lengths': [3, 4, 5, 6, 7],
+        'list_lengths': [3, 4, 5, 6],
         'shuffle': True,
     },
     'practice': {
@@ -123,7 +123,7 @@ class SentenceSpanTrialFactory:
 
 
 class SentenceSpanTask(GenericTask):
-    def __init__(self, language, seed, config=None , encoding='ISO-8859-1'):
+    def __init__(self, language, seed, config=None, encoding='ISO-8859-1'):
         super().__init__()
 
         random.seed(seed)

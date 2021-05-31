@@ -139,7 +139,7 @@
         <Param name="Before JS Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Experiment" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Begin JS Routine" val="mu_task.clean_trial();&amp;#10;" valType="extendedCode" updates="constant"/>
+        <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="current_task.finish_trial()" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
         <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
@@ -371,12 +371,12 @@
     <Routine name="mu_init">
       <CodeComponent name="mu_init_code">
         <Param name="Before Experiment" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Before JS Experiment" val="import * as random from 'random';&amp;#10;import * as csv from 'csv';&amp;#10;var input_file, num_items, num_test;&amp;#10;random.seed();&amp;#10;input_file = &quot;stimuli/operation_span/consonants.csv&quot;;&amp;#10;num_test = 12;&amp;#10;num_items = 12;&amp;#10;" valType="extendedCode" updates="constant"/>
+        <Param name="Before JS Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="from experiments.memory_update import MemoryUpdateTask&amp;#10;current_task = MemoryUpdateTask(win, random_seed)&amp;#10;mu_allowed_keys = current_task.allowed_keys&amp;#10;&amp;#10;instruction_filepaths = instructions.get_instructions('mu')&amp;#10;n_instruction_pages = instructions.get_instruction_page_count('mu')" valType="extendedCode" updates="constant"/>
-        <Param name="Code Type" val="Py" valType="str" updates="None"/>
+        <Param name="Code Type" val="JS" valType="str" updates="None"/>
         <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -393,9 +393,9 @@
         <Param name="Before JS Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Experiment" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Begin JS Routine" val="random.shuffle(alphabet);&amp;#10;current_step = (- 1);&amp;#10;" valType="extendedCode" updates="constant"/>
+        <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="n_digits = current_trial.get_n_digits()&amp;#10;n_operations = current_trial.get_n_operations()" valType="extendedCode" updates="constant"/>
-        <Param name="Code Type" val="Py" valType="str" updates="None"/>
+        <Param name="Code Type" val="JS" valType="str" updates="None"/>
         <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -905,9 +905,9 @@
         <Param name="Before JS Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Experiment" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Begin JS Routine" val="consonant = alphabet.pop();&amp;#10;" valType="extendedCode" updates="constant"/>
+        <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="letter = current_trial.get_next_letter().upper()" valType="extendedCode" updates="constant"/>
-        <Param name="Code Type" val="Py" valType="str" updates="None"/>
+        <Param name="Code Type" val="JS" valType="str" updates="None"/>
         <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -948,9 +948,9 @@
         <Param name="Before JS Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Experiment" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Begin JS Routine" val="import {MemoryUpdateTask} from 'experiments/memory_update';&amp;#10;var current_task, instruction_filepaths, n_instruction_pages;&amp;#10;current_task = new MemoryUpdateTask(win, random_seed);&amp;#10;instruction_filepaths = instructions.get_instructions(&quot;mu&quot;);&amp;#10;n_instruction_pages = instructions.get_instruction_page_count(&quot;mu&quot;);&amp;#10;" valType="extendedCode" updates="constant"/>
-        <Param name="Begin Routine" val="from experiments.sentence_span import SentenceSpanTask&amp;#10;current_task = SentenceSpanTask(language, random_seed)&amp;#10;sentence_keys = current_task.get_sentence_keys()&amp;#10;&amp;#10;instruction_filepaths = instructions.get_instructions('ss')&amp;#10;n_instruction_pages = instructions.get_instruction_page_count('ss')" valType="extendedCode" updates="constant"/>
-        <Param name="Code Type" val="Py" valType="str" updates="None"/>
+        <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Routine" val="from experiments.sentence_span import SentenceSpanTask&amp;#10;&amp;#10;if language.startswith('English'):&amp;#10;    encoding = 'us-ascii'&amp;#10;elif language == 'Deutsch':&amp;#10;    encoding = 'utf-8'&amp;#10;elif language.startswith('Chinese'):&amp;#10;    encoding = 'utf-16le'&amp;#10;&amp;#10;current_task = SentenceSpanTask(language, random_seed, encoding=encoding)&amp;#10;sentence_keys = current_task.get_sentence_keys()&amp;#10;&amp;#10;instruction_filepaths = instructions.get_instructions('ss')&amp;#10;n_instruction_pages = instructions.get_instruction_page_count('ss')" valType="extendedCode" updates="constant"/>
+        <Param name="Code Type" val="JS" valType="str" updates="None"/>
         <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -1028,7 +1028,7 @@
         <Param name="disabled" val="False" valType="bool" updates="None"/>
         <Param name="durationEstim" val="" valType="code" updates="None"/>
         <Param name="flip" val="" valType="str" updates="constant"/>
-        <Param name="font" val="$text_font" valType="str" updates="constant"/>
+        <Param name="font" val="$text_font" valType="str" updates="set every repeat"/>
         <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
         <Param name="letterHeight" val="0.05" valType="code" updates="constant"/>
         <Param name="name" val="ss_text_sentence" valType="code" updates="None"/>
@@ -1370,7 +1370,7 @@
         <Param name="disabled" val="False" valType="bool" updates="None"/>
         <Param name="durationEstim" val="" valType="code" updates="None"/>
         <Param name="flip" val="" valType="str" updates="constant"/>
-        <Param name="font" val="$text_font" valType="str" updates="constant"/>
+        <Param name="font" val="$text_font" valType="str" updates="set every repeat"/>
         <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
         <Param name="letterHeight" val="0.05" valType="code" updates="constant"/>
         <Param name="name" val="sstm_text_next" valType="code" updates="None"/>
@@ -1414,7 +1414,7 @@
         <Param name="disabled" val="False" valType="bool" updates="None"/>
         <Param name="durationEstim" val="" valType="code" updates="None"/>
         <Param name="flip" val="" valType="str" updates="constant"/>
-        <Param name="font" val="$text_font" valType="str" updates="constant"/>
+        <Param name="font" val="$text_font" valType="str" updates="set every repeat"/>
         <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
         <Param name="letterHeight" val="0.05" valType="code" updates="constant"/>
         <Param name="name" val="base_text_end" valType="code" updates="None"/>
@@ -1458,7 +1458,7 @@
         <Param name="disabled" val="False" valType="bool" updates="None"/>
         <Param name="durationEstim" val="" valType="code" updates="None"/>
         <Param name="flip" val="" valType="str" updates="constant"/>
-        <Param name="font" val="$text_font" valType="str" updates="constant"/>
+        <Param name="font" val="$text_font" valType="str" updates="set every repeat"/>
         <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
         <Param name="letterHeight" val="0.05" valType="code" updates="constant"/>
         <Param name="name" val="text_sstm_task_end" valType="code" updates="None"/>
@@ -1536,7 +1536,7 @@
         <Param name="disabled" val="False" valType="bool" updates="None"/>
         <Param name="durationEstim" val="" valType="code" updates="None"/>
         <Param name="flip" val="" valType="str" updates="constant"/>
-        <Param name="font" val="$text_font" valType="str" updates="constant"/>
+        <Param name="font" val="$text_font" valType="str" updates="set every repeat"/>
         <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
         <Param name="letterHeight" val="0.05" valType="code" updates="constant"/>
         <Param name="name" val="text_sstm_draw_dots" valType="code" updates="None"/>

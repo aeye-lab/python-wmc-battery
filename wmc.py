@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.2.10),
-    on Mon 31 May 2021 02:45:09 PM CEST
+    on Mon 31 May 2021 04:06:30 PM CEST
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -447,7 +447,7 @@ ss_text_fixation_cross = visual.TextStim(win=win, name='ss_text_fixation_cross',
 ss_sentenceClock = core.Clock()
 ss_text_sentence = visual.TextStim(win=win, name='ss_text_sentence',
     text='default text',
-    font=text_font,
+    font='Arial',
     pos=(0, 0), height=0.05, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
@@ -604,7 +604,7 @@ sstm_draw_requestClock = core.Clock()
 sstm_text_draw_string = expmsgs.draw_dots
 text_sstm_draw_dots = visual.TextStim(win=win, name='text_sstm_draw_dots',
     text=sstm_text_draw_string,
-    font=text_font,
+    font='Arial',
     pos=(0, 0), height=0.05, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
@@ -615,7 +615,7 @@ sstm_recallClock = core.Clock()
 sstm_text_next_string = expmsgs.next_trial
 sstm_text_next = visual.TextStim(win=win, name='sstm_text_next',
     text=sstm_text_next_string,
-    font=text_font,
+    font='Arial',
     pos=(10, 10), height=0.05, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
@@ -659,7 +659,7 @@ base_text_pause_after_break = visual.TextStim(win=win, name='base_text_pause_aft
 sstm_task_endClock = core.Clock()
 text_sstm_task_end = visual.TextStim(win=win, name='text_sstm_task_end',
     text=expmsgs.task_end,
-    font=text_font,
+    font='Arial',
     pos=(0, 0), height=0.05, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
@@ -680,7 +680,7 @@ text_please_wait = visual.TextStim(win=win, name='text_please_wait',
 base_endClock = core.Clock()
 base_text_end = visual.TextStim(win=win, name='base_text_end',
     text=expmsgs.end,
-    font=text_font,
+    font='Arial',
     pos=(0, 0), height=0.05, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
@@ -3622,7 +3622,15 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
     continueRoutine = True
     # update component parameters for each repeat
     from experiments.sentence_span import SentenceSpanTask
-    current_task = SentenceSpanTask(language, random_seed)
+    
+    if language.startswith('English'):
+        encoding = 'us-ascii'
+    elif language == 'Deutsch':
+        encoding = 'utf-8'
+    elif language.startswith('Chinese'):
+        encoding = 'utf-16le'
+    
+    current_task = SentenceSpanTask(language, random_seed, encoding=encoding)
     sentence_keys = current_task.get_sentence_keys()
     
     instruction_filepaths = instructions.get_instructions('ss')
@@ -4103,6 +4111,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                 thisExp.addData('ss_key_resp_sentence.correct_answer', correct_key)
                 
                 ss_text_sentence.setText(sentence_string)
+                ss_text_sentence.setFont(text_font)
                 ss_key_resp_sentence.keys = []
                 ss_key_resp_sentence.rt = []
                 _ss_key_resp_sentence_allKeys = []
@@ -5655,6 +5664,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
             routineTimer.add(1.000000)
             # update component parameters for each repeat
             current_trial.grid.show(False)
+            text_sstm_draw_dots.setFont(text_font)
             # keep track of which components have finished
             sstm_draw_requestComponents = [text_sstm_draw_dots]
             for thisComponent in sstm_draw_requestComponents:
@@ -5726,6 +5736,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
             current_trial.grid.show(True)
             win.mouseVisible = True
             sstm_mouse.setVisible(True)
+            sstm_text_next.setFont(text_font)
             # setup some python lists for storing info about the sstm_mouse
             sstm_mouse.x = []
             sstm_mouse.y = []
@@ -6121,6 +6132,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
     # ------Prepare to start Routine "sstm_task_end"-------
     continueRoutine = True
     # update component parameters for each repeat
+    text_sstm_task_end.setFont(text_font)
     sstm_key_resp_task_end.keys = []
     sstm_key_resp_task_end.rt = []
     _sstm_key_resp_task_end_allKeys = []
@@ -6300,6 +6312,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
 # ------Prepare to start Routine "base_end"-------
 continueRoutine = True
 # update component parameters for each repeat
+base_text_end.setFont(text_font)
 base_key_resp_end.keys = []
 base_key_resp_end.rt = []
 _base_key_resp_end_allKeys = []
