@@ -1,4 +1,4 @@
-<?xml version="1.0" ?>
+﻿<?xml version="1.0" ?>
 <PsychoPy2experiment version="2020.2.10" encoding="utf-8">
   <Settings>
     <Param name="Audio latency priority" val="use prefs" valType="str" updates="None"/>
@@ -949,7 +949,7 @@
         <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Begin Routine" val="from tasks.sentence_span import SentenceSpanTask&amp;#10;&amp;#10;if language.startswith('English'):&amp;#10;    encoding = 'us-ascii'&amp;#10;elif language == 'Deutsch':&amp;#10;    encoding = 'utf-8'&amp;#10;elif language.startswith('Chinese'):&amp;#10;    encoding = 'utf-16le'&amp;#10;&amp;#10;current_task = SentenceSpanTask(language=language, seed=random_seed, config=config.sentence_span, encoding=encoding)&amp;#10;sentence_keys = current_task.get_sentence_keys()&amp;#10;&amp;#10;instruction_filepaths = instructions.get_instructions('ss')&amp;#10;n_instruction_pages = instructions.get_instruction_page_count('ss')" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Routine" val="from tasks.sentence_span import SentenceSpanTask&amp;#10;&amp;#10;current_task = SentenceSpanTask(language=language, seed=random_seed, config=config.sentence_span)&amp;#10;sentence_keys = current_task.get_sentence_keys()&amp;#10;&amp;#10;instruction_filepaths = instructions.get_instructions('ss')&amp;#10;n_instruction_pages = instructions.get_instruction_page_count('ss')" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
         <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>

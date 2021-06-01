@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.2.10),
-    on Tue 01 Jun 2021 06:26:26 PM CEST
+    on Tue 01 Jun 2021 07:02:21 PM CEST
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -3636,14 +3636,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
     # update component parameters for each repeat
     from tasks.sentence_span import SentenceSpanTask
     
-    if language.startswith('English'):
-        encoding = 'us-ascii'
-    elif language == 'Deutsch':
-        encoding = 'utf-8'
-    elif language.startswith('Chinese'):
-        encoding = 'utf-16le'
-    
-    current_task = SentenceSpanTask(language=language, seed=random_seed, config=config.sentence_span, encoding=encoding)
+    current_task = SentenceSpanTask(language=language, seed=random_seed, config=config.sentence_span)
     sentence_keys = current_task.get_sentence_keys()
     
     instruction_filepaths = instructions.get_instructions('ss')

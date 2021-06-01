@@ -31,5 +31,22 @@ class WMCConfig:
         self.merge_language_config(language_config)
 
     def merge_language_config(self, language_config):
-        pass
+        if 'memory_update' in language_config.keys():
+            self.merge_dict(self.memory_update,
+                            language_config.memory_update)
+        if 'operation_span' in language_config.keys():
+            self.merge_dict(self.operation_span,
+                            language_config.operation_span)
+        if 'sentence_span' in language_config.keys():
+            self.merge_dict(self.sentence_span,
+                            language_config.sentence_span)
+        if 'spatial_short_term_memory' in language_config.keys():
+            self.merge_dict(self.spatial_short_term_memory,
+                            language_config.spatial_short_term_memory)
 
+    def merge_dict(self, base_dict, new_dict):
+        for key in new_dict.keys():
+            if hasattr(base_dict[key], 'keys'):
+                merge_dict(base_dict[key], new_dict[key])
+            else:
+                base_dict[key] = new_dict[key]

@@ -3,3 +3,5 @@ experiment_messages:
   height: 0.05
   encoding: 'ISO-8859-1'
 
+sentence_span:
+  encoding: 'utf-8'

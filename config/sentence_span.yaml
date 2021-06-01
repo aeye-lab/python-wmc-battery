@@ -27,3 +27,6 @@ timing:
   recall: 0.2               # onscreen duration of recalled response
   intertrial: 1.0           # blank screen duration between each trial
   after_break: 2.0          # blank screen duration after self paced break
+
+encoding: 'us-ascii'        # defines encoding of sentence file
+

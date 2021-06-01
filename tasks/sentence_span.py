@@ -100,7 +100,7 @@ class SentenceSpanTrialFactory:
 
 
 class SentenceSpanTask(GenericTask):
-    def __init__(self, language, seed, config, encoding='ISO-8859-1'):
+    def __init__(self, language, seed, config):
         super().__init__()
 
         random.seed(seed)
@@ -112,7 +112,7 @@ class SentenceSpanTask(GenericTask):
         self.key_map = config['key_map']
         self.inv_key_map = {v: k for k, v in config['key_map'].items()}
         
-        self.load_sentences(language, encoding)
+        self.load_sentences(language, config.encoding)
         self.init_trials(config)
         self.init_results(config)
 
