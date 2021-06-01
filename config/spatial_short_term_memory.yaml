@@ -1,0 +1,23 @@
+grid:
+    n_rows: 10
+    n_cols: 10
+
+cell:
+    height:  0.075
+    width: 0.075
+
+dots:
+    padding: 1
+
+practice:
+    [[[1, 4], [5, 7]],
+     [[3, 3], [0, 1]]]
+    
+trials:
+    n_dots_list: [2, 3, 4, 5, 6, 7]
+    n_far: 3
+    n_near: 3
+
+date_format: '%Y/%m/%d %H:%M'
+
+

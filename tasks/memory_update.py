@@ -220,7 +220,7 @@ class MemoryUpdateTask(GenericTask):
     def init_results(self, config):
         result_idx = range(len(config['trials']['set_sizes']))
 
-        set_size = config['max_set_size']
+        set_size = config['trials']['max_set_size']
         self.response_cols = [f'response_{i}' for i in range(set_size)]
         self.is_correct_cols = [f'is_correct_{i}' for i in range(set_size)]
         result_cols = self.response_cols + self.is_correct_cols

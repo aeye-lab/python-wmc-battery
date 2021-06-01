@@ -176,7 +176,7 @@ class OperationSpanTask(GenericTask):
     def init_results(self, config):
         result_idx = range(len(self.trials))
 
-        list_length = config['max_list_length']
+        list_length = config['trials']['max_list_length']
 
         self.letter_cols = [f'letter_correct{i}'
                             for i in range(list_length)]
