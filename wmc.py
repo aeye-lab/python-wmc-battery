@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.2.10),
-    on Mon 31 May 2021 04:06:30 PM CEST
+    on Tue 01 Jun 2021 09:53:42 AM CEST
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -86,8 +86,8 @@ base_initClock = core.Clock()
 import datetime
 import os
 
-from utils.experiment_messages import ExperimentMessages
-from utils.instructions import Instructions
+from common.experiment_messages import ExperimentMessages
+from common.instructions import Instructions
 
 output_dir = os.path.join(os.getcwd(), 'data')
 
