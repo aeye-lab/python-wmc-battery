@@ -1,0 +1,4 @@
+experiment_messages:
+  font: 'Noto Serif CJK TC'
+  height: 0.05
+  encoding: 'utf-16le'

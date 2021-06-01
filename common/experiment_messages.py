@@ -1,6 +1,10 @@
+from common.config import load_config
+
 class ExperimentMessages:
-    def __init__(self, language, encoding='ISO-8859-1'):
-        filepath =  f'languages/{language}/ExpMessages.txt'
+    def __init__(self, language, encoding,
+                 filepath_pattern='languages/{language}/ExpMessages.txt'):
+
+        filepath = filepath_pattern.format(language=language)
         with open(filepath, mode='r', encoding=encoding) as f:
             lines = f.readlines()
 
