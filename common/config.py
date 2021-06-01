@@ -1,3 +1,4 @@
+from dotmap import DotMap
 import yaml
 
 def load_config(filepath):
@@ -15,11 +16,11 @@ class WMCConfig:
     ):
         self.language = language
 
-        self.memory_update = load_config(
-            memory_update_config_path)
-        self.operation_span = load_config(
-            operation_span_config_path)
-        self.sentence_span = load_config(
-            sentence_span_config_path)
-        self.spatial_short_term_memory = load_config(
-            spatial_short_term_memory_config_path)
+        self.memory_update = DotMap(load_config(
+            memory_update_config_path))
+        self.operation_span = DotMap(load_config(
+            operation_span_config_path))
+        self.sentence_span = DotMap(load_config(
+            sentence_span_config_path))
+        self.spatial_short_term_memory = DotMap(load_config(
+            spatial_short_term_memory_config_path))

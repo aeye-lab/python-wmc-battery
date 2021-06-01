@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.2.10),
-    on Tue 01 Jun 2021 10:26:03 AM CEST
+    on Tue 01 Jun 2021 03:30:41 PM CEST
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -1248,7 +1248,6 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
             
             # ------Prepare to start Routine "mu_init_trial"-------
             continueRoutine = True
-            routineTimer.add(1.000000)
             # update component parameters for each repeat
             n_digits = current_trial.get_n_digits()
             n_operations = current_trial.get_n_operations()
@@ -1268,7 +1267,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
             frameN = -1
             
             # -------Run Routine "mu_init_trial"-------
-            while continueRoutine and routineTimer.getTime() > 0:
+            while continueRoutine:
                 # get current time
                 t = mu_init_trialClock.getTime()
                 tThisFlip = win.getFutureFlipTime(clock=mu_init_trialClock)
@@ -1286,7 +1285,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                     mu_text_blank.setAutoDraw(True)
                 if mu_text_blank.status == STARTED:
                     # is it time to stop? (based on global clock, using actual start)
-                    if tThisFlipGlobal > mu_text_blank.tStartRefresh + 1.0-frameTolerance:
+                    if tThisFlipGlobal > mu_text_blank.tStartRefresh + current_task.config.timing.init_trial-frameTolerance:
                         # keep track of stop time/frame for later
                         mu_text_blank.tStop = t  # not accounting for scr refresh
                         mu_text_blank.frameNStop = frameN  # exact frame index
@@ -1316,6 +1315,8 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                     thisComponent.setAutoDraw(False)
             mu_trials.addData('mu_text_blank.started', mu_text_blank.tStartRefresh)
             mu_trials.addData('mu_text_blank.stopped', mu_text_blank.tStopRefresh)
+            # the Routine "mu_init_trial" was not non-slip safe, so reset the non-slip timer
+            routineTimer.reset()
             
             # set up handler to look after randomisation of conditions etc
             mu_presentations = data.TrialHandler(nReps=n_digits, method='random', 
@@ -1338,7 +1339,6 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 
                 # ------Prepare to start Routine "mu_display_digit"-------
                 continueRoutine = True
-                routineTimer.add(1.000000)
                 # update component parameters for each repeat
                 current_digit, current_digit_position = current_trial.get_next_digit()
                 mu_text_digit.setPos(current_digit_position)
@@ -1359,7 +1359,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 frameN = -1
                 
                 # -------Run Routine "mu_display_digit"-------
-                while continueRoutine and routineTimer.getTime() > 0:
+                while continueRoutine:
                     # get current time
                     t = mu_display_digitClock.getTime()
                     tThisFlip = win.getFutureFlipTime(clock=mu_display_digitClock)
@@ -1377,7 +1377,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                         mu_text_digit.setAutoDraw(True)
                     if mu_text_digit.status == STARTED:
                         # is it time to stop? (based on global clock, using actual start)
-                        if tThisFlipGlobal > mu_text_digit.tStartRefresh + 1-frameTolerance:
+                        if tThisFlipGlobal > mu_text_digit.tStartRefresh + current_task.config.timing.digit-frameTolerance:
                             # keep track of stop time/frame for later
                             mu_text_digit.tStop = t  # not accounting for scr refresh
                             mu_text_digit.frameNStop = frameN  # exact frame index
@@ -1407,10 +1407,11 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                         thisComponent.setAutoDraw(False)
                 mu_presentations.addData('mu_text_digit.started', mu_text_digit.tStartRefresh)
                 mu_presentations.addData('mu_text_digit.stopped', mu_text_digit.tStopRefresh)
+                # the Routine "mu_display_digit" was not non-slip safe, so reset the non-slip timer
+                routineTimer.reset()
                 
                 # ------Prepare to start Routine "mu_empty_cells"-------
                 continueRoutine = True
-                routineTimer.add(0.250000)
                 # update component parameters for each repeat
                 # keep track of which components have finished
                 mu_empty_cellsComponents = [mu_text_blank_2]
@@ -1428,7 +1429,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 frameN = -1
                 
                 # -------Run Routine "mu_empty_cells"-------
-                while continueRoutine and routineTimer.getTime() > 0:
+                while continueRoutine:
                     # get current time
                     t = mu_empty_cellsClock.getTime()
                     tThisFlip = win.getFutureFlipTime(clock=mu_empty_cellsClock)
@@ -1446,7 +1447,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                         mu_text_blank_2.setAutoDraw(True)
                     if mu_text_blank_2.status == STARTED:
                         # is it time to stop? (based on global clock, using actual start)
-                        if tThisFlipGlobal > mu_text_blank_2.tStartRefresh + 0.25-frameTolerance:
+                        if tThisFlipGlobal > mu_text_blank_2.tStartRefresh + current_task.config.timing.inter_presentation-frameTolerance:
                             # keep track of stop time/frame for later
                             mu_text_blank_2.tStop = t  # not accounting for scr refresh
                             mu_text_blank_2.frameNStop = frameN  # exact frame index
@@ -1476,6 +1477,8 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                         thisComponent.setAutoDraw(False)
                 mu_presentations.addData('mu_text_blank_2.started', mu_text_blank_2.tStartRefresh)
                 mu_presentations.addData('mu_text_blank_2.stopped', mu_text_blank_2.tStopRefresh)
+                # the Routine "mu_empty_cells" was not non-slip safe, so reset the non-slip timer
+                routineTimer.reset()
                 thisExp.nextEntry()
                 
             # completed n_digits repeats of 'mu_presentations'
@@ -1502,7 +1505,6 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 
                 # ------Prepare to start Routine "mu_display_operation"-------
                 continueRoutine = True
-                routineTimer.add(1.300000)
                 # update component parameters for each repeat
                 current_operation, current_operation_position = current_trial.get_next_operation()
                 mu_text_operation.setPos(current_operation_position)
@@ -1523,7 +1525,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 frameN = -1
                 
                 # -------Run Routine "mu_display_operation"-------
-                while continueRoutine and routineTimer.getTime() > 0:
+                while continueRoutine:
                     # get current time
                     t = mu_display_operationClock.getTime()
                     tThisFlip = win.getFutureFlipTime(clock=mu_display_operationClock)
@@ -1541,7 +1543,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                         mu_text_operation.setAutoDraw(True)
                     if mu_text_operation.status == STARTED:
                         # is it time to stop? (based on global clock, using actual start)
-                        if tThisFlipGlobal > mu_text_operation.tStartRefresh + 1.3-frameTolerance:
+                        if tThisFlipGlobal > mu_text_operation.tStartRefresh + current_task.config.timing.operation-frameTolerance:
                             # keep track of stop time/frame for later
                             mu_text_operation.tStop = t  # not accounting for scr refresh
                             mu_text_operation.frameNStop = frameN  # exact frame index
@@ -1571,10 +1573,11 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                         thisComponent.setAutoDraw(False)
                 mu_operations.addData('mu_text_operation.started', mu_text_operation.tStartRefresh)
                 mu_operations.addData('mu_text_operation.stopped', mu_text_operation.tStopRefresh)
+                # the Routine "mu_display_operation" was not non-slip safe, so reset the non-slip timer
+                routineTimer.reset()
                 
                 # ------Prepare to start Routine "mu_empty_cells"-------
                 continueRoutine = True
-                routineTimer.add(0.250000)
                 # update component parameters for each repeat
                 # keep track of which components have finished
                 mu_empty_cellsComponents = [mu_text_blank_2]
@@ -1592,7 +1595,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 frameN = -1
                 
                 # -------Run Routine "mu_empty_cells"-------
-                while continueRoutine and routineTimer.getTime() > 0:
+                while continueRoutine:
                     # get current time
                     t = mu_empty_cellsClock.getTime()
                     tThisFlip = win.getFutureFlipTime(clock=mu_empty_cellsClock)
@@ -1610,7 +1613,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                         mu_text_blank_2.setAutoDraw(True)
                     if mu_text_blank_2.status == STARTED:
                         # is it time to stop? (based on global clock, using actual start)
-                        if tThisFlipGlobal > mu_text_blank_2.tStartRefresh + 0.25-frameTolerance:
+                        if tThisFlipGlobal > mu_text_blank_2.tStartRefresh + current_task.config.timing.inter_presentation-frameTolerance:
                             # keep track of stop time/frame for later
                             mu_text_blank_2.tStop = t  # not accounting for scr refresh
                             mu_text_blank_2.frameNStop = frameN  # exact frame index
@@ -1640,6 +1643,8 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                         thisComponent.setAutoDraw(False)
                 mu_operations.addData('mu_text_blank_2.started', mu_text_blank_2.tStartRefresh)
                 mu_operations.addData('mu_text_blank_2.stopped', mu_text_blank_2.tStopRefresh)
+                # the Routine "mu_empty_cells" was not non-slip safe, so reset the non-slip timer
+                routineTimer.reset()
                 thisExp.nextEntry()
                 
             # completed n_operations repeats of 'mu_operations'
@@ -1789,7 +1794,6 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 
                 # ------Prepare to start Routine "mu_display_recall"-------
                 continueRoutine = True
-                routineTimer.add(1.000000)
                 # update component parameters for each repeat
                 keyboard_response = mu_key_resp_recall.keys.replace('num_', '')
                 current_trial.save_response(keyboard_response)
@@ -1811,7 +1815,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 frameN = -1
                 
                 # -------Run Routine "mu_display_recall"-------
-                while continueRoutine and routineTimer.getTime() > 0:
+                while continueRoutine:
                     # get current time
                     t = mu_display_recallClock.getTime()
                     tThisFlip = win.getFutureFlipTime(clock=mu_display_recallClock)
@@ -1829,7 +1833,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                         mu_text_recall.setAutoDraw(True)
                     if mu_text_recall.status == STARTED:
                         # is it time to stop? (based on global clock, using actual start)
-                        if tThisFlipGlobal > mu_text_recall.tStartRefresh + 1-frameTolerance:
+                        if tThisFlipGlobal > mu_text_recall.tStartRefresh + current_task.config.timing.recall-frameTolerance:
                             # keep track of stop time/frame for later
                             mu_text_recall.tStop = t  # not accounting for scr refresh
                             mu_text_recall.frameNStop = frameN  # exact frame index
@@ -1859,6 +1863,8 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                         thisComponent.setAutoDraw(False)
                 mu_recalls.addData('mu_text_recall.started', mu_text_recall.tStartRefresh)
                 mu_recalls.addData('mu_text_recall.stopped', mu_text_recall.tStopRefresh)
+                # the Routine "mu_display_recall" was not non-slip safe, so reset the non-slip timer
+                routineTimer.reset()
                 thisExp.nextEntry()
                 
             # completed n_digits repeats of 'mu_recalls'
@@ -1866,7 +1872,6 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
             
             # ------Prepare to start Routine "base_intertrial"-------
             continueRoutine = True
-            routineTimer.add(1.000000)
             # update component parameters for each repeat
             current_task.finish_trial()
             # keep track of which components have finished
@@ -1885,7 +1890,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
             frameN = -1
             
             # -------Run Routine "base_intertrial"-------
-            while continueRoutine and routineTimer.getTime() > 0:
+            while continueRoutine:
                 # get current time
                 t = base_intertrialClock.getTime()
                 tThisFlip = win.getFutureFlipTime(clock=base_intertrialClock)
@@ -1903,7 +1908,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                     base_text_intertrial.setAutoDraw(True)
                 if base_text_intertrial.status == STARTED:
                     # is it time to stop? (based on global clock, using actual start)
-                    if tThisFlipGlobal > base_text_intertrial.tStartRefresh + 1-frameTolerance:
+                    if tThisFlipGlobal > base_text_intertrial.tStartRefresh + current_task.config.timing.intertrial-frameTolerance:
                         # keep track of stop time/frame for later
                         base_text_intertrial.tStop = t  # not accounting for scr refresh
                         base_text_intertrial.frameNStop = frameN  # exact frame index
@@ -1933,6 +1938,8 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                     thisComponent.setAutoDraw(False)
             mu_trials.addData('base_text_intertrial.started', base_text_intertrial.tStartRefresh)
             mu_trials.addData('base_text_intertrial.stopped', base_text_intertrial.tStopRefresh)
+            # the Routine "base_intertrial" was not non-slip safe, so reset the non-slip timer
+            routineTimer.reset()
             
             # set up handler to look after randomisation of conditions etc
             mu_break_dummy = data.TrialHandler(nReps=do_break, method='random', 
@@ -2052,7 +2059,6 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 
                 # ------Prepare to start Routine "base_after_break_pause"-------
                 continueRoutine = True
-                routineTimer.add(2.000000)
                 # update component parameters for each repeat
                 # keep track of which components have finished
                 base_after_break_pauseComponents = [base_text_pause_after_break]
@@ -2070,7 +2076,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 frameN = -1
                 
                 # -------Run Routine "base_after_break_pause"-------
-                while continueRoutine and routineTimer.getTime() > 0:
+                while continueRoutine:
                     # get current time
                     t = base_after_break_pauseClock.getTime()
                     tThisFlip = win.getFutureFlipTime(clock=base_after_break_pauseClock)
@@ -2088,7 +2094,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                         base_text_pause_after_break.setAutoDraw(True)
                     if base_text_pause_after_break.status == STARTED:
                         # is it time to stop? (based on global clock, using actual start)
-                        if tThisFlipGlobal > base_text_pause_after_break.tStartRefresh + 2-frameTolerance:
+                        if tThisFlipGlobal > base_text_pause_after_break.tStartRefresh + current_task.config.timing.after_break-frameTolerance:
                             # keep track of stop time/frame for later
                             base_text_pause_after_break.tStop = t  # not accounting for scr refresh
                             base_text_pause_after_break.frameNStop = frameN  # exact frame index
@@ -2118,6 +2124,8 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                         thisComponent.setAutoDraw(False)
                 mu_break_dummy.addData('base_text_pause_after_break.started', base_text_pause_after_break.tStartRefresh)
                 mu_break_dummy.addData('base_text_pause_after_break.stopped', base_text_pause_after_break.tStopRefresh)
+                # the Routine "base_after_break_pause" was not non-slip safe, so reset the non-slip timer
+                routineTimer.reset()
                 thisExp.nextEntry()
                 
             # completed do_break repeats of 'mu_break_dummy'
@@ -2638,7 +2646,6 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
             
             # ------Prepare to start Routine "os_init_trial"-------
             continueRoutine = True
-            routineTimer.add(1.500000)
             # update component parameters for each repeat
             n_presentations = current_trial.get_presentation_count()
             # keep track of which components have finished
@@ -2657,7 +2664,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
             frameN = -1
             
             # -------Run Routine "os_init_trial"-------
-            while continueRoutine and routineTimer.getTime() > 0:
+            while continueRoutine:
                 # get current time
                 t = os_init_trialClock.getTime()
                 tThisFlip = win.getFutureFlipTime(clock=os_init_trialClock)
@@ -2675,7 +2682,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                     os_text_fixation_cross.setAutoDraw(True)
                 if os_text_fixation_cross.status == STARTED:
                     # is it time to stop? (based on global clock, using actual start)
-                    if tThisFlipGlobal > os_text_fixation_cross.tStartRefresh + 1.5-frameTolerance:
+                    if tThisFlipGlobal > os_text_fixation_cross.tStartRefresh + current_task.config.timing.init_trial-frameTolerance:
                         # keep track of stop time/frame for later
                         os_text_fixation_cross.tStop = t  # not accounting for scr refresh
                         os_text_fixation_cross.frameNStop = frameN  # exact frame index
@@ -2705,6 +2712,8 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                     thisComponent.setAutoDraw(False)
             os_trials.addData('os_text_fixation_cross.started', os_text_fixation_cross.tStartRefresh)
             os_trials.addData('os_text_fixation_cross.stopped', os_text_fixation_cross.tStopRefresh)
+            # the Routine "os_init_trial" was not non-slip safe, so reset the non-slip timer
+            routineTimer.reset()
             
             # set up handler to look after randomisation of conditions etc
             os_presentations = data.TrialHandler(nReps=n_presentations, method='random', 
@@ -2727,7 +2736,6 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                 
                 # ------Prepare to start Routine "os_equation"-------
                 continueRoutine = True
-                routineTimer.add(3.000000)
                 # update component parameters for each repeat
                 equation = current_trial.get_next_equation()
                 equation_string = str(equation)
@@ -2758,7 +2766,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                 frameN = -1
                 
                 # -------Run Routine "os_equation"-------
-                while continueRoutine and routineTimer.getTime() > 0:
+                while continueRoutine:
                     # get current time
                     t = os_equationClock.getTime()
                     tThisFlip = win.getFutureFlipTime(clock=os_equationClock)
@@ -2776,7 +2784,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                         os_text_equation.setAutoDraw(True)
                     if os_text_equation.status == STARTED:
                         # is it time to stop? (based on global clock, using actual start)
-                        if tThisFlipGlobal > os_text_equation.tStartRefresh + 3-frameTolerance:
+                        if tThisFlipGlobal > os_text_equation.tStartRefresh + current_task.config.timing.equation-frameTolerance:
                             # keep track of stop time/frame for later
                             os_text_equation.tStop = t  # not accounting for scr refresh
                             os_text_equation.frameNStop = frameN  # exact frame index
@@ -2807,7 +2815,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                         win.callOnFlip(os_key_resp_equation.clearEvents, eventType='keyboard')  # clear events on next screen flip
                     if os_key_resp_equation.status == STARTED:
                         # is it time to stop? (based on global clock, using actual start)
-                        if tThisFlipGlobal > os_key_resp_equation.tStartRefresh + 3-frameTolerance:
+                        if tThisFlipGlobal > os_key_resp_equation.tStartRefresh + current_task.config.timing.equation-frameTolerance:
                             # keep track of stop time/frame for later
                             os_key_resp_equation.tStop = t  # not accounting for scr refresh
                             os_key_resp_equation.frameNStop = frameN  # exact frame index
@@ -2877,10 +2885,11 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                     os_presentations.addData('os_key_resp_equation.rt', os_key_resp_equation.rt)
                 os_presentations.addData('os_key_resp_equation.started', os_key_resp_equation.tStartRefresh)
                 os_presentations.addData('os_key_resp_equation.stopped', os_key_resp_equation.tStopRefresh)
+                # the Routine "os_equation" was not non-slip safe, so reset the non-slip timer
+                routineTimer.reset()
                 
                 # ------Prepare to start Routine "os_letter"-------
                 continueRoutine = True
-                routineTimer.add(1.000000)
                 # update component parameters for each repeat
                 letter = current_trial.get_next_letter().upper()
                 os_text_letter.setText(letter)
@@ -2900,7 +2909,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                 frameN = -1
                 
                 # -------Run Routine "os_letter"-------
-                while continueRoutine and routineTimer.getTime() > 0:
+                while continueRoutine:
                     # get current time
                     t = os_letterClock.getTime()
                     tThisFlip = win.getFutureFlipTime(clock=os_letterClock)
@@ -2918,7 +2927,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                         os_text_letter.setAutoDraw(True)
                     if os_text_letter.status == STARTED:
                         # is it time to stop? (based on global clock, using actual start)
-                        if tThisFlipGlobal > os_text_letter.tStartRefresh + 1.0-frameTolerance:
+                        if tThisFlipGlobal > os_text_letter.tStartRefresh + current_task.config.timing.letter-frameTolerance:
                             # keep track of stop time/frame for later
                             os_text_letter.tStop = t  # not accounting for scr refresh
                             os_text_letter.frameNStop = frameN  # exact frame index
@@ -2948,10 +2957,11 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                         thisComponent.setAutoDraw(False)
                 os_presentations.addData('os_text_letter.started', os_text_letter.tStartRefresh)
                 os_presentations.addData('os_text_letter.stopped', os_text_letter.tStopRefresh)
+                # the Routine "os_letter" was not non-slip safe, so reset the non-slip timer
+                routineTimer.reset()
                 
                 # ------Prepare to start Routine "os_blank"-------
                 continueRoutine = True
-                routineTimer.add(0.100000)
                 # update component parameters for each repeat
                 # keep track of which components have finished
                 os_blankComponents = [os_text_blank]
@@ -2969,7 +2979,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                 frameN = -1
                 
                 # -------Run Routine "os_blank"-------
-                while continueRoutine and routineTimer.getTime() > 0:
+                while continueRoutine:
                     # get current time
                     t = os_blankClock.getTime()
                     tThisFlip = win.getFutureFlipTime(clock=os_blankClock)
@@ -2987,7 +2997,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                         os_text_blank.setAutoDraw(True)
                     if os_text_blank.status == STARTED:
                         # is it time to stop? (based on global clock, using actual start)
-                        if tThisFlipGlobal > os_text_blank.tStartRefresh + 0.1-frameTolerance:
+                        if tThisFlipGlobal > os_text_blank.tStartRefresh + current_task.config.timing.inter_presentation-frameTolerance:
                             # keep track of stop time/frame for later
                             os_text_blank.tStop = t  # not accounting for scr refresh
                             os_text_blank.frameNStop = frameN  # exact frame index
@@ -3017,6 +3027,8 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                         thisComponent.setAutoDraw(False)
                 os_presentations.addData('os_text_blank.started', os_text_blank.tStartRefresh)
                 os_presentations.addData('os_text_blank.stopped', os_text_blank.tStopRefresh)
+                # the Routine "os_blank" was not non-slip safe, so reset the non-slip timer
+                routineTimer.reset()
                 thisExp.nextEntry()
                 
             # completed n_presentations repeats of 'os_presentations'
@@ -3155,7 +3167,6 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                 
                 # ------Prepare to start Routine "os_display_recall"-------
                 continueRoutine = True
-                routineTimer.add(0.200000)
                 # update component parameters for each repeat
                 letter_response = os_key_resp_recall.keys
                 letter_rt = os_key_resp_recall.rt
@@ -3178,7 +3189,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                 frameN = -1
                 
                 # -------Run Routine "os_display_recall"-------
-                while continueRoutine and routineTimer.getTime() > 0:
+                while continueRoutine:
                     # get current time
                     t = os_display_recallClock.getTime()
                     tThisFlip = win.getFutureFlipTime(clock=os_display_recallClock)
@@ -3196,7 +3207,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                         os_text_recall.setAutoDraw(True)
                     if os_text_recall.status == STARTED:
                         # is it time to stop? (based on global clock, using actual start)
-                        if tThisFlipGlobal > os_text_recall.tStartRefresh + 0.2-frameTolerance:
+                        if tThisFlipGlobal > os_text_recall.tStartRefresh + current_task.config.timing.recall-frameTolerance:
                             # keep track of stop time/frame for later
                             os_text_recall.tStop = t  # not accounting for scr refresh
                             os_text_recall.frameNStop = frameN  # exact frame index
@@ -3226,6 +3237,8 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                         thisComponent.setAutoDraw(False)
                 os_recalls.addData('os_text_recall.started', os_text_recall.tStartRefresh)
                 os_recalls.addData('os_text_recall.stopped', os_text_recall.tStopRefresh)
+                # the Routine "os_display_recall" was not non-slip safe, so reset the non-slip timer
+                routineTimer.reset()
                 thisExp.nextEntry()
                 
             # completed n_presentations repeats of 'os_recalls'
@@ -3233,7 +3246,6 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
             
             # ------Prepare to start Routine "base_intertrial"-------
             continueRoutine = True
-            routineTimer.add(1.000000)
             # update component parameters for each repeat
             current_task.finish_trial()
             # keep track of which components have finished
@@ -3252,7 +3264,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
             frameN = -1
             
             # -------Run Routine "base_intertrial"-------
-            while continueRoutine and routineTimer.getTime() > 0:
+            while continueRoutine:
                 # get current time
                 t = base_intertrialClock.getTime()
                 tThisFlip = win.getFutureFlipTime(clock=base_intertrialClock)
@@ -3270,7 +3282,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                     base_text_intertrial.setAutoDraw(True)
                 if base_text_intertrial.status == STARTED:
                     # is it time to stop? (based on global clock, using actual start)
-                    if tThisFlipGlobal > base_text_intertrial.tStartRefresh + 1-frameTolerance:
+                    if tThisFlipGlobal > base_text_intertrial.tStartRefresh + current_task.config.timing.intertrial-frameTolerance:
                         # keep track of stop time/frame for later
                         base_text_intertrial.tStop = t  # not accounting for scr refresh
                         base_text_intertrial.frameNStop = frameN  # exact frame index
@@ -3300,6 +3312,8 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                     thisComponent.setAutoDraw(False)
             os_trials.addData('base_text_intertrial.started', base_text_intertrial.tStartRefresh)
             os_trials.addData('base_text_intertrial.stopped', base_text_intertrial.tStopRefresh)
+            # the Routine "base_intertrial" was not non-slip safe, so reset the non-slip timer
+            routineTimer.reset()
             
             # set up handler to look after randomisation of conditions etc
             os_break_dummy = data.TrialHandler(nReps=do_break, method='random', 
@@ -3419,7 +3433,6 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                 
                 # ------Prepare to start Routine "base_after_break_pause"-------
                 continueRoutine = True
-                routineTimer.add(2.000000)
                 # update component parameters for each repeat
                 # keep track of which components have finished
                 base_after_break_pauseComponents = [base_text_pause_after_break]
@@ -3437,7 +3450,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                 frameN = -1
                 
                 # -------Run Routine "base_after_break_pause"-------
-                while continueRoutine and routineTimer.getTime() > 0:
+                while continueRoutine:
                     # get current time
                     t = base_after_break_pauseClock.getTime()
                     tThisFlip = win.getFutureFlipTime(clock=base_after_break_pauseClock)
@@ -3455,7 +3468,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                         base_text_pause_after_break.setAutoDraw(True)
                     if base_text_pause_after_break.status == STARTED:
                         # is it time to stop? (based on global clock, using actual start)
-                        if tThisFlipGlobal > base_text_pause_after_break.tStartRefresh + 2-frameTolerance:
+                        if tThisFlipGlobal > base_text_pause_after_break.tStartRefresh + current_task.config.timing.after_break-frameTolerance:
                             # keep track of stop time/frame for later
                             base_text_pause_after_break.tStop = t  # not accounting for scr refresh
                             base_text_pause_after_break.frameNStop = frameN  # exact frame index
@@ -3485,6 +3498,8 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                         thisComponent.setAutoDraw(False)
                 os_break_dummy.addData('base_text_pause_after_break.started', base_text_pause_after_break.tStartRefresh)
                 os_break_dummy.addData('base_text_pause_after_break.stopped', base_text_pause_after_break.tStopRefresh)
+                # the Routine "base_after_break_pause" was not non-slip safe, so reset the non-slip timer
+                routineTimer.reset()
                 thisExp.nextEntry()
                 
             # completed do_break repeats of 'os_break_dummy'
@@ -4012,7 +4027,6 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
             
             # ------Prepare to start Routine "ss_init_trial"-------
             continueRoutine = True
-            routineTimer.add(1.500000)
             # update component parameters for each repeat
             n_presentations = current_trial.get_presentation_count()
             # keep track of which components have finished
@@ -4031,7 +4045,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
             frameN = -1
             
             # -------Run Routine "ss_init_trial"-------
-            while continueRoutine and routineTimer.getTime() > 0:
+            while continueRoutine:
                 # get current time
                 t = ss_init_trialClock.getTime()
                 tThisFlip = win.getFutureFlipTime(clock=ss_init_trialClock)
@@ -4049,7 +4063,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                     ss_text_fixation_cross.setAutoDraw(True)
                 if ss_text_fixation_cross.status == STARTED:
                     # is it time to stop? (based on global clock, using actual start)
-                    if tThisFlipGlobal > ss_text_fixation_cross.tStartRefresh + 1.5-frameTolerance:
+                    if tThisFlipGlobal > ss_text_fixation_cross.tStartRefresh + current_task.config.timing.init_trial-frameTolerance:
                         # keep track of stop time/frame for later
                         ss_text_fixation_cross.tStop = t  # not accounting for scr refresh
                         ss_text_fixation_cross.frameNStop = frameN  # exact frame index
@@ -4079,6 +4093,8 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                     thisComponent.setAutoDraw(False)
             ss_trials.addData('ss_text_fixation_cross.started', ss_text_fixation_cross.tStartRefresh)
             ss_trials.addData('ss_text_fixation_cross.stopped', ss_text_fixation_cross.tStopRefresh)
+            # the Routine "ss_init_trial" was not non-slip safe, so reset the non-slip timer
+            routineTimer.reset()
             
             # set up handler to look after randomisation of conditions etc
             ss_presentations = data.TrialHandler(nReps=n_presentations, method='random', 
@@ -4101,7 +4117,6 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                 
                 # ------Prepare to start Routine "ss_sentence"-------
                 continueRoutine = True
-                routineTimer.add(5.000000)
                 # update component parameters for each repeat
                 sentence = current_trial.get_next_sentence()
                 sentence_string = str(sentence)
@@ -4133,7 +4148,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                 frameN = -1
                 
                 # -------Run Routine "ss_sentence"-------
-                while continueRoutine and routineTimer.getTime() > 0:
+                while continueRoutine:
                     # get current time
                     t = ss_sentenceClock.getTime()
                     tThisFlip = win.getFutureFlipTime(clock=ss_sentenceClock)
@@ -4151,7 +4166,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                         ss_text_sentence.setAutoDraw(True)
                     if ss_text_sentence.status == STARTED:
                         # is it time to stop? (based on global clock, using actual start)
-                        if tThisFlipGlobal > ss_text_sentence.tStartRefresh + 5-frameTolerance:
+                        if tThisFlipGlobal > ss_text_sentence.tStartRefresh + current_task.config.timing.sentence-frameTolerance:
                             # keep track of stop time/frame for later
                             ss_text_sentence.tStop = t  # not accounting for scr refresh
                             ss_text_sentence.frameNStop = frameN  # exact frame index
@@ -4182,7 +4197,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                         win.callOnFlip(ss_key_resp_sentence.clearEvents, eventType='keyboard')  # clear events on next screen flip
                     if ss_key_resp_sentence.status == STARTED:
                         # is it time to stop? (based on global clock, using actual start)
-                        if tThisFlipGlobal > ss_key_resp_sentence.tStartRefresh + 5-frameTolerance:
+                        if tThisFlipGlobal > ss_key_resp_sentence.tStartRefresh + current_task.config.timing.sentence-frameTolerance:
                             # keep track of stop time/frame for later
                             ss_key_resp_sentence.tStop = t  # not accounting for scr refresh
                             ss_key_resp_sentence.frameNStop = frameN  # exact frame index
@@ -4252,10 +4267,11 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                     ss_presentations.addData('ss_key_resp_sentence.rt', ss_key_resp_sentence.rt)
                 ss_presentations.addData('ss_key_resp_sentence.started', ss_key_resp_sentence.tStartRefresh)
                 ss_presentations.addData('ss_key_resp_sentence.stopped', ss_key_resp_sentence.tStopRefresh)
+                # the Routine "ss_sentence" was not non-slip safe, so reset the non-slip timer
+                routineTimer.reset()
                 
                 # ------Prepare to start Routine "ss_letter"-------
                 continueRoutine = True
-                routineTimer.add(1.000000)
                 # update component parameters for each repeat
                 letter = current_trial.get_next_letter().upper()
                 ss_text_letter.setText(letter)
@@ -4275,7 +4291,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                 frameN = -1
                 
                 # -------Run Routine "ss_letter"-------
-                while continueRoutine and routineTimer.getTime() > 0:
+                while continueRoutine:
                     # get current time
                     t = ss_letterClock.getTime()
                     tThisFlip = win.getFutureFlipTime(clock=ss_letterClock)
@@ -4293,7 +4309,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                         ss_text_letter.setAutoDraw(True)
                     if ss_text_letter.status == STARTED:
                         # is it time to stop? (based on global clock, using actual start)
-                        if tThisFlipGlobal > ss_text_letter.tStartRefresh + 1.-frameTolerance:
+                        if tThisFlipGlobal > ss_text_letter.tStartRefresh + current_task.config.timing.letter-frameTolerance:
                             # keep track of stop time/frame for later
                             ss_text_letter.tStop = t  # not accounting for scr refresh
                             ss_text_letter.frameNStop = frameN  # exact frame index
@@ -4323,10 +4339,11 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                         thisComponent.setAutoDraw(False)
                 ss_presentations.addData('ss_text_letter.started', ss_text_letter.tStartRefresh)
                 ss_presentations.addData('ss_text_letter.stopped', ss_text_letter.tStopRefresh)
+                # the Routine "ss_letter" was not non-slip safe, so reset the non-slip timer
+                routineTimer.reset()
                 
                 # ------Prepare to start Routine "ss_blank"-------
                 continueRoutine = True
-                routineTimer.add(0.100000)
                 # update component parameters for each repeat
                 # keep track of which components have finished
                 ss_blankComponents = [ss_text_blank]
@@ -4344,7 +4361,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                 frameN = -1
                 
                 # -------Run Routine "ss_blank"-------
-                while continueRoutine and routineTimer.getTime() > 0:
+                while continueRoutine:
                     # get current time
                     t = ss_blankClock.getTime()
                     tThisFlip = win.getFutureFlipTime(clock=ss_blankClock)
@@ -4362,7 +4379,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                         ss_text_blank.setAutoDraw(True)
                     if ss_text_blank.status == STARTED:
                         # is it time to stop? (based on global clock, using actual start)
-                        if tThisFlipGlobal > ss_text_blank.tStartRefresh + 0.1-frameTolerance:
+                        if tThisFlipGlobal > ss_text_blank.tStartRefresh + current_task.config.timing.inter_presentation-frameTolerance:
                             # keep track of stop time/frame for later
                             ss_text_blank.tStop = t  # not accounting for scr refresh
                             ss_text_blank.frameNStop = frameN  # exact frame index
@@ -4392,6 +4409,8 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                         thisComponent.setAutoDraw(False)
                 ss_presentations.addData('ss_text_blank.started', ss_text_blank.tStartRefresh)
                 ss_presentations.addData('ss_text_blank.stopped', ss_text_blank.tStopRefresh)
+                # the Routine "ss_blank" was not non-slip safe, so reset the non-slip timer
+                routineTimer.reset()
                 thisExp.nextEntry()
                 
             # completed n_presentations repeats of 'ss_presentations'
@@ -4530,7 +4549,6 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                 
                 # ------Prepare to start Routine "ss_display_recall"-------
                 continueRoutine = True
-                routineTimer.add(0.200000)
                 # update component parameters for each repeat
                 letter_response = ss_key_resp_recall.keys
                 letter_rt = ss_key_resp_recall.rt
@@ -4553,7 +4571,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                 frameN = -1
                 
                 # -------Run Routine "ss_display_recall"-------
-                while continueRoutine and routineTimer.getTime() > 0:
+                while continueRoutine:
                     # get current time
                     t = ss_display_recallClock.getTime()
                     tThisFlip = win.getFutureFlipTime(clock=ss_display_recallClock)
@@ -4571,7 +4589,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                         ss_text_display_recall.setAutoDraw(True)
                     if ss_text_display_recall.status == STARTED:
                         # is it time to stop? (based on global clock, using actual start)
-                        if tThisFlipGlobal > ss_text_display_recall.tStartRefresh + 0.2-frameTolerance:
+                        if tThisFlipGlobal > ss_text_display_recall.tStartRefresh + current_task.config.timing.recall-frameTolerance:
                             # keep track of stop time/frame for later
                             ss_text_display_recall.tStop = t  # not accounting for scr refresh
                             ss_text_display_recall.frameNStop = frameN  # exact frame index
@@ -4601,6 +4619,8 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                         thisComponent.setAutoDraw(False)
                 ss_recalls.addData('ss_text_display_recall.started', ss_text_display_recall.tStartRefresh)
                 ss_recalls.addData('ss_text_display_recall.stopped', ss_text_display_recall.tStopRefresh)
+                # the Routine "ss_display_recall" was not non-slip safe, so reset the non-slip timer
+                routineTimer.reset()
                 thisExp.nextEntry()
                 
             # completed n_presentations repeats of 'ss_recalls'
@@ -4608,7 +4628,6 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
             
             # ------Prepare to start Routine "base_intertrial"-------
             continueRoutine = True
-            routineTimer.add(1.000000)
             # update component parameters for each repeat
             current_task.finish_trial()
             # keep track of which components have finished
@@ -4627,7 +4646,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
             frameN = -1
             
             # -------Run Routine "base_intertrial"-------
-            while continueRoutine and routineTimer.getTime() > 0:
+            while continueRoutine:
                 # get current time
                 t = base_intertrialClock.getTime()
                 tThisFlip = win.getFutureFlipTime(clock=base_intertrialClock)
@@ -4645,7 +4664,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                     base_text_intertrial.setAutoDraw(True)
                 if base_text_intertrial.status == STARTED:
                     # is it time to stop? (based on global clock, using actual start)
-                    if tThisFlipGlobal > base_text_intertrial.tStartRefresh + 1-frameTolerance:
+                    if tThisFlipGlobal > base_text_intertrial.tStartRefresh + current_task.config.timing.intertrial-frameTolerance:
                         # keep track of stop time/frame for later
                         base_text_intertrial.tStop = t  # not accounting for scr refresh
                         base_text_intertrial.frameNStop = frameN  # exact frame index
@@ -4675,6 +4694,8 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                     thisComponent.setAutoDraw(False)
             ss_trials.addData('base_text_intertrial.started', base_text_intertrial.tStartRefresh)
             ss_trials.addData('base_text_intertrial.stopped', base_text_intertrial.tStopRefresh)
+            # the Routine "base_intertrial" was not non-slip safe, so reset the non-slip timer
+            routineTimer.reset()
             
             # set up handler to look after randomisation of conditions etc
             ss_break_dummy = data.TrialHandler(nReps=do_break, method='random', 
@@ -4794,7 +4815,6 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                 
                 # ------Prepare to start Routine "base_after_break_pause"-------
                 continueRoutine = True
-                routineTimer.add(2.000000)
                 # update component parameters for each repeat
                 # keep track of which components have finished
                 base_after_break_pauseComponents = [base_text_pause_after_break]
@@ -4812,7 +4832,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                 frameN = -1
                 
                 # -------Run Routine "base_after_break_pause"-------
-                while continueRoutine and routineTimer.getTime() > 0:
+                while continueRoutine:
                     # get current time
                     t = base_after_break_pauseClock.getTime()
                     tThisFlip = win.getFutureFlipTime(clock=base_after_break_pauseClock)
@@ -4830,7 +4850,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                         base_text_pause_after_break.setAutoDraw(True)
                     if base_text_pause_after_break.status == STARTED:
                         # is it time to stop? (based on global clock, using actual start)
-                        if tThisFlipGlobal > base_text_pause_after_break.tStartRefresh + 2-frameTolerance:
+                        if tThisFlipGlobal > base_text_pause_after_break.tStartRefresh + current_task.config.timing.after_break-frameTolerance:
                             # keep track of stop time/frame for later
                             base_text_pause_after_break.tStop = t  # not accounting for scr refresh
                             base_text_pause_after_break.frameNStop = frameN  # exact frame index
@@ -4860,6 +4880,8 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                         thisComponent.setAutoDraw(False)
                 ss_break_dummy.addData('base_text_pause_after_break.started', base_text_pause_after_break.tStartRefresh)
                 ss_break_dummy.addData('base_text_pause_after_break.stopped', base_text_pause_after_break.tStopRefresh)
+                # the Routine "base_after_break_pause" was not non-slip safe, so reset the non-slip timer
+                routineTimer.reset()
                 thisExp.nextEntry()
                 
             # completed do_break repeats of 'ss_break_dummy'
@@ -5431,7 +5453,6 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
             
             # ------Prepare to start Routine "sstm_empty_grid"-------
             continueRoutine = True
-            routineTimer.add(0.250000)
             # update component parameters for each repeat
             # keep track of which components have finished
             sstm_empty_gridComponents = [sstm_text_blank]
@@ -5449,7 +5470,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
             frameN = -1
             
             # -------Run Routine "sstm_empty_grid"-------
-            while continueRoutine and routineTimer.getTime() > 0:
+            while continueRoutine:
                 # get current time
                 t = sstm_empty_gridClock.getTime()
                 tThisFlip = win.getFutureFlipTime(clock=sstm_empty_gridClock)
@@ -5467,7 +5488,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                     sstm_text_blank.setAutoDraw(True)
                 if sstm_text_blank.status == STARTED:
                     # is it time to stop? (based on global clock, using actual start)
-                    if tThisFlipGlobal > sstm_text_blank.tStartRefresh + 0.25-frameTolerance:
+                    if tThisFlipGlobal > sstm_text_blank.tStartRefresh + current_task.config.timing.init_trial-frameTolerance:
                         # keep track of stop time/frame for later
                         sstm_text_blank.tStop = t  # not accounting for scr refresh
                         sstm_text_blank.frameNStop = frameN  # exact frame index
@@ -5497,6 +5518,8 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                     thisComponent.setAutoDraw(False)
             sstm_trials.addData('sstm_text_blank.started', sstm_text_blank.tStartRefresh)
             sstm_trials.addData('sstm_text_blank.stopped', sstm_text_blank.tStopRefresh)
+            # the Routine "sstm_empty_grid" was not non-slip safe, so reset the non-slip timer
+            routineTimer.reset()
             
             # set up handler to look after randomisation of conditions etc
             sstm_presentations = data.TrialHandler(nReps=n_presentations, method='sequential', 
@@ -5519,7 +5542,6 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                 
                 # ------Prepare to start Routine "sstm_display_dot"-------
                 continueRoutine = True
-                routineTimer.add(1.000000)
                 # update component parameters for each repeat
                 current_dot = current_trial.get_next_presentation()
                 sstm_polygon_display_dot.setPos(current_dot)
@@ -5539,7 +5561,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                 frameN = -1
                 
                 # -------Run Routine "sstm_display_dot"-------
-                while continueRoutine and routineTimer.getTime() > 0:
+                while continueRoutine:
                     # get current time
                     t = sstm_display_dotClock.getTime()
                     tThisFlip = win.getFutureFlipTime(clock=sstm_display_dotClock)
@@ -5557,7 +5579,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                         sstm_polygon_display_dot.setAutoDraw(True)
                     if sstm_polygon_display_dot.status == STARTED:
                         # is it time to stop? (based on global clock, using actual start)
-                        if tThisFlipGlobal > sstm_polygon_display_dot.tStartRefresh + 1.0-frameTolerance:
+                        if tThisFlipGlobal > sstm_polygon_display_dot.tStartRefresh + current_task.config.timing.dot-frameTolerance:
                             # keep track of stop time/frame for later
                             sstm_polygon_display_dot.tStop = t  # not accounting for scr refresh
                             sstm_polygon_display_dot.frameNStop = frameN  # exact frame index
@@ -5587,10 +5609,11 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                         thisComponent.setAutoDraw(False)
                 sstm_presentations.addData('sstm_polygon_display_dot.started', sstm_polygon_display_dot.tStartRefresh)
                 sstm_presentations.addData('sstm_polygon_display_dot.stopped', sstm_polygon_display_dot.tStopRefresh)
+                # the Routine "sstm_display_dot" was not non-slip safe, so reset the non-slip timer
+                routineTimer.reset()
                 
                 # ------Prepare to start Routine "sstm_empty_grid"-------
                 continueRoutine = True
-                routineTimer.add(0.250000)
                 # update component parameters for each repeat
                 # keep track of which components have finished
                 sstm_empty_gridComponents = [sstm_text_blank]
@@ -5608,7 +5631,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                 frameN = -1
                 
                 # -------Run Routine "sstm_empty_grid"-------
-                while continueRoutine and routineTimer.getTime() > 0:
+                while continueRoutine:
                     # get current time
                     t = sstm_empty_gridClock.getTime()
                     tThisFlip = win.getFutureFlipTime(clock=sstm_empty_gridClock)
@@ -5626,7 +5649,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                         sstm_text_blank.setAutoDraw(True)
                     if sstm_text_blank.status == STARTED:
                         # is it time to stop? (based on global clock, using actual start)
-                        if tThisFlipGlobal > sstm_text_blank.tStartRefresh + 0.25-frameTolerance:
+                        if tThisFlipGlobal > sstm_text_blank.tStartRefresh + current_task.config.timing.init_trial-frameTolerance:
                             # keep track of stop time/frame for later
                             sstm_text_blank.tStop = t  # not accounting for scr refresh
                             sstm_text_blank.frameNStop = frameN  # exact frame index
@@ -5656,6 +5679,8 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                         thisComponent.setAutoDraw(False)
                 sstm_presentations.addData('sstm_text_blank.started', sstm_text_blank.tStartRefresh)
                 sstm_presentations.addData('sstm_text_blank.stopped', sstm_text_blank.tStopRefresh)
+                # the Routine "sstm_empty_grid" was not non-slip safe, so reset the non-slip timer
+                routineTimer.reset()
                 thisExp.nextEntry()
                 
             # completed n_presentations repeats of 'sstm_presentations'
@@ -5663,7 +5688,6 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
             
             # ------Prepare to start Routine "sstm_draw_request"-------
             continueRoutine = True
-            routineTimer.add(1.000000)
             # update component parameters for each repeat
             current_trial.grid.show(False)
             text_sstm_draw_dots.setFont(text_font)
@@ -5683,7 +5707,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
             frameN = -1
             
             # -------Run Routine "sstm_draw_request"-------
-            while continueRoutine and routineTimer.getTime() > 0:
+            while continueRoutine:
                 # get current time
                 t = sstm_draw_requestClock.getTime()
                 tThisFlip = win.getFutureFlipTime(clock=sstm_draw_requestClock)
@@ -5701,7 +5725,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                     text_sstm_draw_dots.setAutoDraw(True)
                 if text_sstm_draw_dots.status == STARTED:
                     # is it time to stop? (based on global clock, using actual start)
-                    if tThisFlipGlobal > text_sstm_draw_dots.tStartRefresh + 1-frameTolerance:
+                    if tThisFlipGlobal > text_sstm_draw_dots.tStartRefresh + current_task.config.timing.draw_request-frameTolerance:
                         # keep track of stop time/frame for later
                         text_sstm_draw_dots.tStop = t  # not accounting for scr refresh
                         text_sstm_draw_dots.frameNStop = frameN  # exact frame index
@@ -5731,6 +5755,8 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                     thisComponent.setAutoDraw(False)
             sstm_trials.addData('text_sstm_draw_dots.started', text_sstm_draw_dots.tStartRefresh)
             sstm_trials.addData('text_sstm_draw_dots.stopped', text_sstm_draw_dots.tStopRefresh)
+            # the Routine "sstm_draw_request" was not non-slip safe, so reset the non-slip timer
+            routineTimer.reset()
             
             # ------Prepare to start Routine "sstm_recall"-------
             continueRoutine = True
@@ -5866,7 +5892,6 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
             
             # ------Prepare to start Routine "base_intertrial"-------
             continueRoutine = True
-            routineTimer.add(1.000000)
             # update component parameters for each repeat
             current_task.finish_trial()
             # keep track of which components have finished
@@ -5885,7 +5910,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
             frameN = -1
             
             # -------Run Routine "base_intertrial"-------
-            while continueRoutine and routineTimer.getTime() > 0:
+            while continueRoutine:
                 # get current time
                 t = base_intertrialClock.getTime()
                 tThisFlip = win.getFutureFlipTime(clock=base_intertrialClock)
@@ -5903,7 +5928,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                     base_text_intertrial.setAutoDraw(True)
                 if base_text_intertrial.status == STARTED:
                     # is it time to stop? (based on global clock, using actual start)
-                    if tThisFlipGlobal > base_text_intertrial.tStartRefresh + 1-frameTolerance:
+                    if tThisFlipGlobal > base_text_intertrial.tStartRefresh + current_task.config.timing.intertrial-frameTolerance:
                         # keep track of stop time/frame for later
                         base_text_intertrial.tStop = t  # not accounting for scr refresh
                         base_text_intertrial.frameNStop = frameN  # exact frame index
@@ -5933,6 +5958,8 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                     thisComponent.setAutoDraw(False)
             sstm_trials.addData('base_text_intertrial.started', base_text_intertrial.tStartRefresh)
             sstm_trials.addData('base_text_intertrial.stopped', base_text_intertrial.tStopRefresh)
+            # the Routine "base_intertrial" was not non-slip safe, so reset the non-slip timer
+            routineTimer.reset()
             
             # set up handler to look after randomisation of conditions etc
             sstm_break_dummy = data.TrialHandler(nReps=do_break, method='random', 
@@ -6052,7 +6079,6 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                 
                 # ------Prepare to start Routine "base_after_break_pause"-------
                 continueRoutine = True
-                routineTimer.add(2.000000)
                 # update component parameters for each repeat
                 # keep track of which components have finished
                 base_after_break_pauseComponents = [base_text_pause_after_break]
@@ -6070,7 +6096,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                 frameN = -1
                 
                 # -------Run Routine "base_after_break_pause"-------
-                while continueRoutine and routineTimer.getTime() > 0:
+                while continueRoutine:
                     # get current time
                     t = base_after_break_pauseClock.getTime()
                     tThisFlip = win.getFutureFlipTime(clock=base_after_break_pauseClock)
@@ -6088,7 +6114,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                         base_text_pause_after_break.setAutoDraw(True)
                     if base_text_pause_after_break.status == STARTED:
                         # is it time to stop? (based on global clock, using actual start)
-                        if tThisFlipGlobal > base_text_pause_after_break.tStartRefresh + 2-frameTolerance:
+                        if tThisFlipGlobal > base_text_pause_after_break.tStartRefresh + current_task.config.timing.after_break-frameTolerance:
                             # keep track of stop time/frame for later
                             base_text_pause_after_break.tStop = t  # not accounting for scr refresh
                             base_text_pause_after_break.frameNStop = frameN  # exact frame index
@@ -6118,6 +6144,8 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                         thisComponent.setAutoDraw(False)
                 sstm_break_dummy.addData('base_text_pause_after_break.started', base_text_pause_after_break.tStartRefresh)
                 sstm_break_dummy.addData('base_text_pause_after_break.stopped', base_text_pause_after_break.tStopRefresh)
+                # the Routine "base_after_break_pause" was not non-slip safe, so reset the non-slip timer
+                routineTimer.reset()
                 thisExp.nextEntry()
                 
             # completed do_break repeats of 'sstm_break_dummy'

@@ -169,7 +169,7 @@
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
-        <Param name="stopVal" val="1" valType="code" updates="constant"/>
+        <Param name="stopVal" val="current_task.config.timing.intertrial" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="" valType="extendedStr" updates="constant"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
@@ -239,7 +239,7 @@
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
-        <Param name="stopVal" val="2" valType="code" updates="constant"/>
+        <Param name="stopVal" val="current_task.config.timing.after_break" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="" valType="extendedStr" updates="constant"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
@@ -423,7 +423,7 @@
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
-        <Param name="stopVal" val="1.0" valType="code" updates="constant"/>
+        <Param name="stopVal" val="current_task.config.timing.init_trial" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val=" " valType="extendedStr" updates="constant"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
@@ -466,7 +466,7 @@
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
-        <Param name="stopVal" val="1" valType="code" updates="constant"/>
+        <Param name="stopVal" val="current_task.config.timing.digit" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="$current_digit" valType="extendedStr" updates="set every repeat"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
@@ -492,7 +492,7 @@
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
-        <Param name="stopVal" val="0.25" valType="code" updates="constant"/>
+        <Param name="stopVal" val="current_task.config.timing.inter_presentation" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="" valType="extendedStr" updates="constant"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
@@ -535,7 +535,7 @@
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
-        <Param name="stopVal" val="1.3" valType="code" updates="constant"/>
+        <Param name="stopVal" val="current_task.config.timing.operation" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="$current_operation" valType="extendedStr" updates="set every repeat"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
@@ -639,7 +639,7 @@
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
-        <Param name="stopVal" val="1" valType="code" updates="constant"/>
+        <Param name="stopVal" val="current_task.config.timing.recall" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="$keyboard_response" valType="extendedStr" updates="set every repeat"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
@@ -701,7 +701,7 @@
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
-        <Param name="stopVal" val="1.5" valType="code" updates="constant"/>
+        <Param name="stopVal" val="current_task.config.timing.init_trial" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="+" valType="extendedStr" updates="constant"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
@@ -727,7 +727,7 @@
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
-        <Param name="stopVal" val="0.1" valType="code" updates="constant"/>
+        <Param name="stopVal" val="current_task.config.timing.inter_presentation" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="" valType="extendedStr" updates="constant"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
@@ -770,7 +770,7 @@
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
-        <Param name="stopVal" val="3" valType="code" updates="constant"/>
+        <Param name="stopVal" val="current_task.config.timing.equation" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="$equation_string" valType="extendedStr" updates="set every repeat"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
@@ -789,7 +789,7 @@
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
-        <Param name="stopVal" val="3" valType="code" updates="constant"/>
+        <Param name="stopVal" val="current_task.config.timing.equation" valType="code" updates="constant"/>
         <Param name="store" val="last key" valType="str" updates="constant"/>
         <Param name="storeCorrect" val="True" valType="bool" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="constant"/>
@@ -892,7 +892,7 @@
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
-        <Param name="stopVal" val="0.2" valType="code" updates="constant"/>
+        <Param name="stopVal" val="current_task.config.timing.recall" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="$letter_response.upper()" valType="extendedStr" updates="set every repeat"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
@@ -935,7 +935,7 @@
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0." valType="code" updates="None"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
-        <Param name="stopVal" val="1.0" valType="code" updates="constant"/>
+        <Param name="stopVal" val="current_task.config.timing.letter" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="$letter" valType="extendedStr" updates="set every repeat"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
@@ -997,7 +997,7 @@
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
-        <Param name="stopVal" val="1.5" valType="code" updates="constant"/>
+        <Param name="stopVal" val="current_task.config.timing.init_trial" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="+" valType="extendedStr" updates="constant"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
@@ -1040,7 +1040,7 @@
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
-        <Param name="stopVal" val="5" valType="code" updates="constant"/>
+        <Param name="stopVal" val="current_task.config.timing.sentence" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="$sentence_string" valType="extendedStr" updates="set every repeat"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
@@ -1059,7 +1059,7 @@
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
-        <Param name="stopVal" val="5" valType="code" updates="constant"/>
+        <Param name="stopVal" val="current_task.config.timing.sentence" valType="code" updates="constant"/>
         <Param name="store" val="last key" valType="str" updates="constant"/>
         <Param name="storeCorrect" val="True" valType="bool" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="constant"/>
@@ -1101,7 +1101,7 @@
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
-        <Param name="stopVal" val="1." valType="code" updates="constant"/>
+        <Param name="stopVal" val="current_task.config.timing.letter" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="$letter" valType="extendedStr" updates="set every repeat"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
@@ -1127,7 +1127,7 @@
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
-        <Param name="stopVal" val="0.1" valType="code" updates="constant"/>
+        <Param name="stopVal" val="current_task.config.timing.inter_presentation" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="" valType="extendedStr" updates="constant"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
@@ -1231,7 +1231,7 @@
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
-        <Param name="stopVal" val="0.2" valType="code" updates="constant"/>
+        <Param name="stopVal" val="current_task.config.timing.recall" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="$letter_response.upper()" valType="extendedStr" updates="set every repeat"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
@@ -1315,7 +1315,7 @@
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
-        <Param name="stopVal" val="1.0" valType="code" updates="constant"/>
+        <Param name="stopVal" val="current_task.config.timing.dot" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
       </PolygonComponent>
@@ -1339,7 +1339,7 @@
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
-        <Param name="stopVal" val="0.25" valType="code" updates="constant"/>
+        <Param name="stopVal" val="current_task.config.timing.init_trial" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="" valType="extendedStr" updates="constant"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
@@ -1548,7 +1548,7 @@
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
-        <Param name="stopVal" val="1" valType="code" updates="constant"/>
+        <Param name="stopVal" val="current_task.config.timing.draw_request" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="$sstm_text_draw_string" valType="extendedStr" updates="constant"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>

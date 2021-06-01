@@ -18,6 +18,11 @@ trials:
     n_far: 3
     n_near: 3
 
-date_format: '%Y/%m/%d %H:%M'
+date_format: '%Y/%m/%d %H:%M'   # this is only relevant for the result file
 
-
+timing:
+  init_trial: 0.25          # blank grid duration before presentation
+  dot: 1.0                  # onscreen duration of each presented dot
+  draw_request: 1.0         # onscreen duration of draw request text
+  intertrial: 1.0           # blank screen duration between each trial
+  after_break: 2.0          # blank screen duration after self paced break
