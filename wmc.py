@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.2.10),
-    on Tue 01 Jun 2021 09:53:42 AM CEST
+    on Tue 01 Jun 2021 09:58:41 AM CEST
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -865,7 +865,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
     # ------Prepare to start Routine "mu_init"-------
     continueRoutine = True
     # update component parameters for each repeat
-    from experiments.memory_update import MemoryUpdateTask
+    from tasks.memory_update import MemoryUpdateTask
     current_task = MemoryUpdateTask(win, random_seed)
     mu_allowed_keys = current_task.allowed_keys
     
@@ -2254,7 +2254,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
     # ------Prepare to start Routine "os_init"-------
     continueRoutine = True
     # update component parameters for each repeat
-    from experiments.operation_span import OperationSpanTask
+    from tasks.operation_span import OperationSpanTask
     
     current_task = OperationSpanTask(random_seed)
     equation_keys = current_task.get_equation_keys()
@@ -3621,7 +3621,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
     # ------Prepare to start Routine "ss_init"-------
     continueRoutine = True
     # update component parameters for each repeat
-    from experiments.sentence_span import SentenceSpanTask
+    from tasks.sentence_span import SentenceSpanTask
     
     if language.startswith('English'):
         encoding = 'us-ascii'
@@ -4996,7 +4996,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
     # ------Prepare to start Routine "sstm_init"-------
     continueRoutine = True
     # update component parameters for each repeat
-    from experiments.spatial_short_term_memory import SpatialShortTermMemoryTask
+    from tasks.spatial_short_term_memory import SpatialShortTermMemoryTask
     current_task = SpatialShortTermMemoryTask(win, random_seed, thisExp)
     
     instruction_filepaths = instructions.get_instructions('sstm')

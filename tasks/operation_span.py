@@ -2,7 +2,7 @@ import operator as op
 import random
 import pandas as pd
 
-from experiments.generic_task import GenericTask, GenericTrial
+from tasks.generic_task import GenericTask, GenericTrial
 
 
 default_config = {

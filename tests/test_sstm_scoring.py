@@ -3,7 +3,7 @@ import pandas as pd
 from psychopy import data, visual
 import pytest
 
-import experiments.spatial_short_term_memory as sstm
+import tasks.spatial_short_term_memory as sstm
 
 
 score_filenames = [

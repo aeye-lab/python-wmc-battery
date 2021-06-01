@@ -375,8 +375,8 @@
         <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Begin Routine" val="from experiments.memory_update import MemoryUpdateTask&amp;#10;current_task = MemoryUpdateTask(win, random_seed)&amp;#10;mu_allowed_keys = current_task.allowed_keys&amp;#10;&amp;#10;instruction_filepaths = instructions.get_instructions('mu')&amp;#10;n_instruction_pages = instructions.get_instruction_page_count('mu')" valType="extendedCode" updates="constant"/>
-        <Param name="Code Type" val="JS" valType="str" updates="None"/>
+        <Param name="Begin Routine" val="from tasks.memory_update import MemoryUpdateTask&amp;#10;current_task = MemoryUpdateTask(win, random_seed)&amp;#10;mu_allowed_keys = current_task.allowed_keys&amp;#10;&amp;#10;instruction_filepaths = instructions.get_instructions('mu')&amp;#10;n_instruction_pages = instructions.get_instruction_page_count('mu')" valType="extendedCode" updates="constant"/>
+        <Param name="Code Type" val="Py" valType="str" updates="None"/>
         <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -653,7 +653,7 @@
         <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Begin Routine" val="from experiments.operation_span import OperationSpanTask&amp;#10;&amp;#10;current_task = OperationSpanTask(random_seed)&amp;#10;equation_keys = current_task.get_equation_keys()&amp;#10;&amp;#10;instruction_filepaths = instructions.get_instructions('os')&amp;#10;n_instruction_pages = instructions.get_instruction_page_count('os')" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Routine" val="from tasks.operation_span import OperationSpanTask&amp;#10;&amp;#10;current_task = OperationSpanTask(random_seed)&amp;#10;equation_keys = current_task.get_equation_keys()&amp;#10;&amp;#10;instruction_filepaths = instructions.get_instructions('os')&amp;#10;n_instruction_pages = instructions.get_instruction_page_count('os')" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
         <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
@@ -949,7 +949,7 @@
         <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Begin Routine" val="from experiments.sentence_span import SentenceSpanTask&amp;#10;&amp;#10;if language.startswith('English'):&amp;#10;    encoding = 'us-ascii'&amp;#10;elif language == 'Deutsch':&amp;#10;    encoding = 'utf-8'&amp;#10;elif language.startswith('Chinese'):&amp;#10;    encoding = 'utf-16le'&amp;#10;&amp;#10;current_task = SentenceSpanTask(language, random_seed, encoding=encoding)&amp;#10;sentence_keys = current_task.get_sentence_keys()&amp;#10;&amp;#10;instruction_filepaths = instructions.get_instructions('ss')&amp;#10;n_instruction_pages = instructions.get_instruction_page_count('ss')" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Routine" val="from tasks.sentence_span import SentenceSpanTask&amp;#10;&amp;#10;if language.startswith('English'):&amp;#10;    encoding = 'us-ascii'&amp;#10;elif language == 'Deutsch':&amp;#10;    encoding = 'utf-8'&amp;#10;elif language.startswith('Chinese'):&amp;#10;    encoding = 'utf-16le'&amp;#10;&amp;#10;current_task = SentenceSpanTask(language, random_seed, encoding=encoding)&amp;#10;sentence_keys = current_task.get_sentence_keys()&amp;#10;&amp;#10;instruction_filepaths = instructions.get_instructions('ss')&amp;#10;n_instruction_pages = instructions.get_instruction_page_count('ss')" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="JS" valType="str" updates="None"/>
         <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
@@ -1245,7 +1245,7 @@
         <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Begin Routine" val="from experiments.spatial_short_term_memory import SpatialShortTermMemoryTask&amp;#10;current_task = SpatialShortTermMemoryTask(win, random_seed, thisExp)&amp;#10;&amp;#10;instruction_filepaths = instructions.get_instructions('sstm')&amp;#10;n_instruction_pages = instructions.get_instruction_page_count('sstm')" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Routine" val="from tasks.spatial_short_term_memory import SpatialShortTermMemoryTask&amp;#10;current_task = SpatialShortTermMemoryTask(win, random_seed, thisExp)&amp;#10;&amp;#10;instruction_filepaths = instructions.get_instructions('sstm')&amp;#10;n_instruction_pages = instructions.get_instruction_page_count('sstm')" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
         <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>

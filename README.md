@@ -13,6 +13,6 @@ pip install -U https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-16
 sudo apt install libxcb-xinerama0
 ```
 
-## Run experiments
+## Run WMC Battery
 
 `python3 wmc.py`

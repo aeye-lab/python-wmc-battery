@@ -8,7 +8,7 @@ import pandas as pd
 from psychopy.visual import Rect, Polygon
 from psychopy.event import Mouse
 
-from experiments.generic_task import GenericTask, GenericTrial
+from tasks.generic_task import GenericTask, GenericTrial
 
 
 default_config = {
