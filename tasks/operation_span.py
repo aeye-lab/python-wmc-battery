@@ -5,36 +5,6 @@ import pandas as pd
 from tasks.generic_task import GenericTask, GenericTrial
 
 
-default_config = {
-    'alphabet': ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm',
-                 'n', 'p', 'r', 's', 't', 'v', 'w', 'x', 'z'],
-    'trials': {
-        'n_trials_per_condition': 3,
-        'list_lengths': [4, 5, 6, 7, 8],
-        'shuffle': True,
-    },
-    'practice': {
-        'n_trials_per_condition': 1,
-        'list_lengths': [3, 4, 5],
-        'shuffle': False,
-    },
-    'equations': {
-        'operators': ['+', '-'],
-        'operand_left_min': 1,
-        'operand_left_max': 10,
-        'operand_right_min': 1,
-        'operand_right_max': 10,
-        'valid_result_min': 1,
-        'valid_result_max': 20,
-    },
-    'key_map': {
-        False: 'left',
-        True: 'right',
-    },
-    'max_list_length': 8, # this is only relevant for the result frame. changing it won't work with the R-script!
-}    
-    
-
 operator_map = {
     '+': op.add,
     '-': op.sub,
@@ -165,18 +135,17 @@ class OperationSpanTrialFactory():
 
 
 class OperationSpanTask(GenericTask):
-    def __init__(self, seed, config=None):
+    def __init__(self, seed, config):
         super().__init__()
         
         random.seed(seed)
         self.name = 'OS'
 
-        if config is None:
-            config = default_config
         self.config = config
         
         self.key_map = config['key_map']
         self.inv_key_map = {v: k for k, v in config['key_map'].items()}
+
         self.init_trials(config)
         self.init_results(config)
         

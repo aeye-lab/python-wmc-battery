@@ -5,29 +5,6 @@ import pandas as pd
 from tasks.generic_task import GenericTask, GenericTrial
 
 
-default_config = {
-    'alphabet': ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm',
-                 'n', 'p', 'r', 's', 't', 'v', 'w', 'x', 'z'],
-    'trials': {
-        'n_trials_per_condition': 3,
-        #'list_lengths': [4, 5, 6, 7, 8],
-        'list_lengths': [3, 4, 5, 6],
-        'shuffle': True,
-    },
-    'practice': {
-        'n_trials_per_condition': 1,
-        'list_lengths': [2, 3, 4],
-        #'list_lengths': [3, 4, 5],
-        'shuffle': False,
-    },
-    'key_map': {
-        False: 'left',
-        True: 'right',
-    },
-    'max_list_length': 8, # this is only relevant for the result frame. changing it won't work with the R-script!
-}
-
-
 class SentenceSpanTrial(GenericTrial):
     def __init__(self, letters, sentences):
         assert len(letters) == len(sentences)
@@ -123,15 +100,13 @@ class SentenceSpanTrialFactory:
 
 
 class SentenceSpanTask(GenericTask):
-    def __init__(self, language, seed, config=None, encoding='ISO-8859-1'):
+    def __init__(self, language, seed, config, encoding='ISO-8859-1'):
         super().__init__()
 
         random.seed(seed)
         self.name = 'SS'
         self.language = language
 
-        if config is None:
-            config = default_config
         self.config = config
         
         self.key_map = config['key_map']

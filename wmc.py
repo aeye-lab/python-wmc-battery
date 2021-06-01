@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.2.10),
-    on Tue 01 Jun 2021 09:58:41 AM CEST
+    on Tue 01 Jun 2021 10:26:03 AM CEST
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -86,6 +86,7 @@ base_initClock = core.Clock()
 import datetime
 import os
 
+from common.config import WMCConfig
 from common.experiment_messages import ExperimentMessages
 from common.instructions import Instructions
 
@@ -104,7 +105,8 @@ if language.startswith('Chinese'):
 else:
     text_font = 'Arial'
     encoding = 'ISO-8859-1'
-
+    
+config = WMCConfig(language)
 expmsgs = ExperimentMessages(language, encoding)
 instructions = Instructions(language)
 
@@ -866,7 +868,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
     continueRoutine = True
     # update component parameters for each repeat
     from tasks.memory_update import MemoryUpdateTask
-    current_task = MemoryUpdateTask(win, random_seed)
+    current_task = MemoryUpdateTask(window=win, seed=random_seed, config=config.memory_update)
     mu_allowed_keys = current_task.allowed_keys
     
     instruction_filepaths = instructions.get_instructions('mu')
@@ -2256,7 +2258,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
     # update component parameters for each repeat
     from tasks.operation_span import OperationSpanTask
     
-    current_task = OperationSpanTask(random_seed)
+    current_task = OperationSpanTask(random_seed, config.operation_span)
     equation_keys = current_task.get_equation_keys()
     
     instruction_filepaths = instructions.get_instructions('os')
@@ -3630,7 +3632,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
     elif language.startswith('Chinese'):
         encoding = 'utf-16le'
     
-    current_task = SentenceSpanTask(language, random_seed, encoding=encoding)
+    current_task = SentenceSpanTask(language=language, seed=random_seed, config=config.sentence_span, encoding=encoding)
     sentence_keys = current_task.get_sentence_keys()
     
     instruction_filepaths = instructions.get_instructions('ss')
@@ -4997,7 +4999,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
     continueRoutine = True
     # update component parameters for each repeat
     from tasks.spatial_short_term_memory import SpatialShortTermMemoryTask
-    current_task = SpatialShortTermMemoryTask(win, random_seed, thisExp)
+    current_task = SpatialShortTermMemoryTask(window=win, seed=random_seed, experiment_data=thisExp, config=config.spatial_short_term_memory)
     
     instruction_filepaths = instructions.get_instructions('sstm')
     n_instruction_pages = instructions.get_instruction_page_count('sstm')

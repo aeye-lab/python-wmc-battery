@@ -6,46 +6,14 @@ import pandas as pd
 from tasks.generic_task import GenericTask, GenericTrial
 
 
-default_config = {
-    'allowed_keys': [
-        '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
-        'num_0', 'num_1', 'num_2', 'num_3', 'num_4',
-        'num_5', 'num_6', 'num_7', 'num_8', 'num_9'
-    ],
-    'frames': {
-        'width': 0.25,
-        'height': 0.25,
-        'locations': {
-            2: [(-0.25, 0), (0.25, 0)],
-            3: [(-0.4, 0), (0, 0), (0.4, 0)],
-            4: [(-0.25, 0.175), (0.25, 0.175), (-0.25, -0.175),
-                (0.25, -0.175)],
-            5: [(-0.4, 0.175), (0, 0.175), (0.4, 0.175), (-0.25, -0.175),
-                (0.25, -0.175)],
-            6: [(-0.4, 0.175), (0, 0.175), (0.4, 0.175), (-0.4, -0.175),
-                (0, -0.175), (0.4, -0.175)],
-        },
-    },
-    'trials': {
-        'set_sizes': [3, 4, 3, 4, 5, 4, 5, 3, 5, 3, 3, 5, 4, 4, 5],
-        'n_operations': [3, 4, 6, 5, 5, 3, 2, 2, 3, 5, 4, 4, 6, 2, 6],
-    },
-    'practice': {
-        'set_sizes': [2, 3],
-        'n_operations': [4, 3],
-    },
-    'max_set_size': 6, # this is only relevant for the result file. changing it won't work with the R-script!
+operator_string_map = {
+    op.add: '+',
+    op.sub: '-',
 }
 
-
 class MemoryUpdateOperation:
-    operator_string_map = {
-        op.add: '+',
-        op.sub: '-',
-    }
-    
     def __init__(self, operator, operand_right, location):
-        self.operator_str = self.operator_string_map[operator]
+        self.operator_str = operator_string_map[operator]
         self.operator = operator
         self.operand_right = operand_right
         self.location = location
@@ -207,15 +175,12 @@ class MemoryUpdateTrialFactory:
 
 
 class MemoryUpdateTask(GenericTask):
-    def __init__(self, window, seed, config=None):
+    def __init__(self, window, seed, config):
         super().__init__()
         random.seed(seed)
         self.name = 'MU'
         
-        if config is None:
-            config = default_config
         self.config = config
-
         self.allowed_keys = config['allowed_keys']
 
         self.init_frames(window, config)

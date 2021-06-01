@@ -11,28 +11,6 @@ from psychopy.event import Mouse
 from tasks.generic_task import GenericTask, GenericTrial
 
 
-default_config = {
-    'grid': {
-        'n_rows': 10,
-        'n_cols': 10,
-    },
-    'cell': {
-        'height':  0.075,
-        'width': 0.075,
-    },
-    'dots': {
-        'padding': 1,
-    },
-    'practice': [[(1, 4), (5, 7)], [(3, 3), (0, 1)]],
-    'trials': {
-        'n_dots_list': range(2, 7),
-        'n_far': 3,
-        'n_near': 3,
-    },
-    'date_format': '%Y/%m/%d %H:%M',
-}
-
-
 class SpatialShortTermMemoryGrid:
     def __init__(self, window, n_rows, n_cols, cell_height, cell_width):
         self.window = window
@@ -489,13 +467,11 @@ class SpatialShortTermMemoryScorer:
         
 
 class SpatialShortTermMemoryTask(GenericTask):
-    def __init__(self, window, seed, experiment_data, config=None):
+    def __init__(self, window, seed, experiment_data, config):
         super().__init__()
         random.seed(seed)
         self.name = 'SSTM'
         
-        if config is None:
-            config = default_config
         self.config = config
 
         self.grid = SpatialShortTermMemoryGrid(
