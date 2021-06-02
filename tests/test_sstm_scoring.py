@@ -1,8 +1,10 @@
+from datetime import datetime
 from itertools import product, permutations
 import pandas as pd
 from psychopy import data, visual
 import pytest
 
+from common.config import WMCConfig
 import tasks.spatial_short_term_memory as sstm
 
 
@@ -46,16 +48,9 @@ def extract_dot_responses(df):
 
 
 def create_trials(sequences, response_times):
-    window = visual.Window(
-        size=[1680, 1050], fullscr=True, screen=0, 
-        winType='pyglet', allowGUI=False, allowStencil=False,
-        monitor='testMonitor', color='white', colorSpace='rgb',
-        blendMode='avg', useFBO=True, 
-        units='height')
-
-    config = sstm.default_config
+    config = WMCConfig('English').spatial_short_term_memory
     grid = sstm.SpatialShortTermMemoryGrid(
-        window=window,
+        window=None,
         n_rows=config['grid']['n_rows'],
         n_cols=config['grid']['n_cols'],
         cell_height=config['cell']['height'],
@@ -67,7 +62,6 @@ def create_trials(sequences, response_times):
     for trial, response_time in zip(trials, response_times):
         trial.response_time = response_time
 
-    window.close()
     return trials
 
 
@@ -174,10 +168,11 @@ def test_example_score_file_equivalence(parameter_dict):
     for trial in trials:
         assert len(trial.sequence) == len(trial.response_dots)
 
-    participant_id = df_trials_example.index.get_level_values('ID')[0]
+    subject_id = df_trials_example.index.get_level_values('ID')[0]
     experiment_data = data.ExperimentHandler(
-        name='test', extraInfo={'Participant': participant_id,
-                                'date': None}
+        name='test', extraInfo={'Subject ID': subject_id,
+                                'date': None,
+                                'datetime': datetime.now()}
     )
     
     scorer = sstm.SpatialShortTermMemoryScorer(trials, experiment_data)

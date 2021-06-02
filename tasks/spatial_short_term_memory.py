@@ -40,15 +40,16 @@ class SpatialShortTermMemoryGrid:
                              top_row - row * cell_height)
             self.position_map[(row, col)] = cell_position
 
-            this_cell = Rect(
-                win=window, name=f'cell_{row}_{col}',
-                width=cell_width,
-                height=cell_height,
-                ori=0, pos=cell_position,
-                lineWidth=1, lineColor='black', lineColorSpace='rgb',
-                fillColor=[1,1,1], fillColorSpace='rgb',
-                opacity=1, depth=-1.0, interpolate=True)
-            self.cells[row][col] = this_cell
+            if window is not None:  # None only for testing
+                this_cell = Rect(
+                    win=window, name=f'cell_{row}_{col}',
+                    width=cell_width,
+                    height=cell_height,
+                    ori=0, pos=cell_position,
+                    lineWidth=1, lineColor='black', lineColorSpace='rgb',
+                    fillColor=[1,1,1], fillColorSpace='rgb',
+                    opacity=1, depth=-1.0, interpolate=True)
+                self.cells[row][col] = this_cell
 
     def get_grid_positions(self):
         row_col_product = product(range(self.n_rows), range(self.n_cols))
@@ -60,6 +61,9 @@ class SpatialShortTermMemoryGrid:
         return self.position_map
 
     def show(self, show=True):
+        if self.window is None:  # None only for testing
+            return
+        
         for row in range(self.n_rows):
             for col in range(self.n_cols):
                 self.cells[row][col].setAutoDraw(show)
@@ -81,15 +85,16 @@ class SpatialShortTermMemoryTrial(GenericTrial):
     def init_dot_reserve(self, window, n_dots):
         self.dot_reserve = []
         for i in range(n_dots):
-            dot = Polygon(
-                win=window, name=f'selected_dot_{i}',
-                edges=128, size=(0.04, 0.04),
-                ori=0, pos=[0,0],
-                lineWidth=1, lineColor=[1,1,1], lineColorSpace='rgb',
-                fillColor='black', fillColorSpace='rgb',
-                opacity=1, depth=-1.0, interpolate=True)
-            dot.setAutoDraw(False)
-            self.dot_reserve.append(dot)
+            if window is not None:  # None only for Testing
+                dot = Polygon(
+                    win=window, name=f'selected_dot_{i}',
+                    edges=128, size=(0.04, 0.04),
+                    ori=0, pos=[0,0],
+                    lineWidth=1, lineColor=[1,1,1], lineColorSpace='rgb',
+                    fillColor='black', fillColorSpace='rgb',
+                    opacity=1, depth=-1.0, interpolate=True)
+                dot.setAutoDraw(False)
+                self.dot_reserve.append(dot)
 
     def init_cell_selection(self, grid):
         self.cell_selection = {
@@ -351,7 +356,7 @@ class SpatialShortTermMemoryScorer:
         trial_score = self.trial_scores.loc[self.subject_id, trial_id + 1].copy()
         trial_score.loc['RT'] = trial.response_time
         trial_dot_scores = self.dot_scores.loc[trial_id + 1, :]
-        trial_score.loc['Score'] = trial_dot_scores['Score'].sum() - 2
+        trial_score.loc['Score'] = trial_dot_scores['Score'].sum()
         self.trial_scores.loc[self.subject_id, trial_id + 1] = trial_score
 
 
