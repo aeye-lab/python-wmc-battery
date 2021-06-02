@@ -1,11 +1,12 @@
 alphabet:
   [b, c, d, f, g, h, j, k, l, m, n, p, r, s, t, v, w, x, z]
 
+allowed_keys:
+  [a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z]
+
 trials:
   n_trials_per_condition: 3
-  # list_lengths: [4, 5, 6, 7, 8]
-  list_lengths: [3, 4, 5, 6]
-  shuffle: True
+  list_lengths: [3, 4, 5, 6, 7]
   # this is only relevant for the result file.
   # changing it won't work with the R-script!
   max_list_length: 8
@@ -13,7 +14,6 @@ trials:
 practice:
   n_trials_per_condition: 1
   list_lengths: [2, 3, 4]
-  shuffle: False
 
 key_map:
   False: left
@@ -23,9 +23,9 @@ timing:
   init_trial: 1.5           # fixation cross duration before first presentation
   sentence: 5.0             # maximum display duration for each sentence response
   letter: 1.0               # onscreen duration of each presented letter
-  inter_presentation: 0.1   # blank screen duration between letter and sentence
+  inter_item: 0.1           # blank screen duration between letter and sentence
   recall: 0.2               # onscreen duration of recalled response
-  intertrial: 1.0           # blank screen duration between each trial
+  inter_trial: 0.5          # blank screen duration between each trial
   after_break: 2.0          # blank screen duration after self paced break
 
 encoding: 'us-ascii'        # defines encoding of sentence file

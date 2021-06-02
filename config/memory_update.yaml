@@ -31,7 +31,7 @@ timing:
   init_trial: 1.0            # blank frame duration before first presentation
   digit: 1.0                 # onscreen duration of each presented digit
   operation: 1.3             # onscreen duration of each presented operation
-  inter_presentation: 0.25   # blank frame duration between each presentation
+  inter_item: 0.25           # blank frame duration between each presentation
   recall: 1.0                # onscreen duration of recalled response
-  intertrial: 1.0            # blank screen duration between each trial
+  inter_trial: 1.0           # blank screen duration between each trial
   after_break: 2.0           # blank screen duration after self paced break

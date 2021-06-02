@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.2.10),
-    on Tue 01 Jun 2021 07:02:21 PM CEST
+    on Wed 02 Jun 2021 11:49:07 AM CEST
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -1442,7 +1442,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                         mu_text_blank_2.setAutoDraw(True)
                     if mu_text_blank_2.status == STARTED:
                         # is it time to stop? (based on global clock, using actual start)
-                        if tThisFlipGlobal > mu_text_blank_2.tStartRefresh + current_task.config.timing.inter_presentation-frameTolerance:
+                        if tThisFlipGlobal > mu_text_blank_2.tStartRefresh + current_task.config.timing.inter_item-frameTolerance:
                             # keep track of stop time/frame for later
                             mu_text_blank_2.tStop = t  # not accounting for scr refresh
                             mu_text_blank_2.frameNStop = frameN  # exact frame index
@@ -1608,7 +1608,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                         mu_text_blank_2.setAutoDraw(True)
                     if mu_text_blank_2.status == STARTED:
                         # is it time to stop? (based on global clock, using actual start)
-                        if tThisFlipGlobal > mu_text_blank_2.tStartRefresh + current_task.config.timing.inter_presentation-frameTolerance:
+                        if tThisFlipGlobal > mu_text_blank_2.tStartRefresh + current_task.config.timing.inter_item-frameTolerance:
                             # keep track of stop time/frame for later
                             mu_text_blank_2.tStop = t  # not accounting for scr refresh
                             mu_text_blank_2.frameNStop = frameN  # exact frame index
@@ -1903,7 +1903,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                     base_text_intertrial.setAutoDraw(True)
                 if base_text_intertrial.status == STARTED:
                     # is it time to stop? (based on global clock, using actual start)
-                    if tThisFlipGlobal > base_text_intertrial.tStartRefresh + current_task.config.timing.intertrial-frameTolerance:
+                    if tThisFlipGlobal > base_text_intertrial.tStartRefresh + current_task.config.timing.inter_trial-frameTolerance:
                         # keep track of stop time/frame for later
                         base_text_intertrial.tStop = t  # not accounting for scr refresh
                         base_text_intertrial.frameNStop = frameN  # exact frame index
@@ -2993,7 +2993,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                         os_text_blank.setAutoDraw(True)
                     if os_text_blank.status == STARTED:
                         # is it time to stop? (based on global clock, using actual start)
-                        if tThisFlipGlobal > os_text_blank.tStartRefresh + current_task.config.timing.inter_presentation-frameTolerance:
+                        if tThisFlipGlobal > os_text_blank.tStartRefresh + current_task.config.timing.inter_item-frameTolerance:
                             # keep track of stop time/frame for later
                             os_text_blank.tStop = t  # not accounting for scr refresh
                             os_text_blank.frameNStop = frameN  # exact frame index
@@ -3057,6 +3057,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                 thisExp.addData('is_practice', current_task.do_practice)
                 thisExp.addData('os_key_resp_recall.correct_letter', correct_letter)
                 
+                os_allowed_keys = current_task.config.allowed_keys
                 os_key_resp_recall.keys = []
                 os_key_resp_recall.rt = []
                 _os_key_resp_recall_allKeys = []
@@ -3102,12 +3103,21 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                         os_key_resp_recall.tStartRefresh = tThisFlipGlobal  # on global time
                         win.timeOnFlip(os_key_resp_recall, 'tStartRefresh')  # time at next scr refresh
                         os_key_resp_recall.status = STARTED
+                        # AllowedKeys looks like a variable named `os_allowed_keys`
+                        if not type(os_allowed_keys) in [list, tuple, np.ndarray]:
+                            if not isinstance(os_allowed_keys, str):
+                                logging.error('AllowedKeys variable `os_allowed_keys` is not string- or list-like.')
+                                core.quit()
+                            elif not ',' in os_allowed_keys:
+                                os_allowed_keys = (os_allowed_keys,)
+                            else:
+                                os_allowed_keys = eval(os_allowed_keys)
                         # keyboard checking is just starting
                         waitOnFlip = True
                         win.callOnFlip(os_key_resp_recall.clock.reset)  # t=0 on next screen flip
                         win.callOnFlip(os_key_resp_recall.clearEvents, eventType='keyboard')  # clear events on next screen flip
                     if os_key_resp_recall.status == STARTED and not waitOnFlip:
-                        theseKeys = os_key_resp_recall.getKeys(keyList=['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'], waitRelease=False)
+                        theseKeys = os_key_resp_recall.getKeys(keyList=list(os_allowed_keys), waitRelease=False)
                         _os_key_resp_recall_allKeys.extend(theseKeys)
                         if len(_os_key_resp_recall_allKeys):
                             os_key_resp_recall.keys = _os_key_resp_recall_allKeys[-1].name  # just the last key pressed
@@ -3278,7 +3288,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                     base_text_intertrial.setAutoDraw(True)
                 if base_text_intertrial.status == STARTED:
                     # is it time to stop? (based on global clock, using actual start)
-                    if tThisFlipGlobal > base_text_intertrial.tStartRefresh + current_task.config.timing.intertrial-frameTolerance:
+                    if tThisFlipGlobal > base_text_intertrial.tStartRefresh + current_task.config.timing.inter_trial-frameTolerance:
                         # keep track of stop time/frame for later
                         base_text_intertrial.tStop = t  # not accounting for scr refresh
                         base_text_intertrial.frameNStop = frameN  # exact frame index
@@ -4369,7 +4379,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                         ss_text_blank.setAutoDraw(True)
                     if ss_text_blank.status == STARTED:
                         # is it time to stop? (based on global clock, using actual start)
-                        if tThisFlipGlobal > ss_text_blank.tStartRefresh + current_task.config.timing.inter_presentation-frameTolerance:
+                        if tThisFlipGlobal > ss_text_blank.tStartRefresh + current_task.config.timing.inter_item-frameTolerance:
                             # keep track of stop time/frame for later
                             ss_text_blank.tStop = t  # not accounting for scr refresh
                             ss_text_blank.frameNStop = frameN  # exact frame index
@@ -4433,6 +4443,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                 thisExp.addData('is_practice', current_task.do_practice)
                 thisExp.addData('ss_key_resp_recall.correct_letter', correct_letter)
                 
+                ss_allowed_keys = current_task.config.allowed_keys
                 ss_key_resp_recall.keys = []
                 ss_key_resp_recall.rt = []
                 _ss_key_resp_recall_allKeys = []
@@ -4478,12 +4489,21 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                         ss_key_resp_recall.tStartRefresh = tThisFlipGlobal  # on global time
                         win.timeOnFlip(ss_key_resp_recall, 'tStartRefresh')  # time at next scr refresh
                         ss_key_resp_recall.status = STARTED
+                        # AllowedKeys looks like a variable named `ss_allowed_keys`
+                        if not type(ss_allowed_keys) in [list, tuple, np.ndarray]:
+                            if not isinstance(ss_allowed_keys, str):
+                                logging.error('AllowedKeys variable `ss_allowed_keys` is not string- or list-like.')
+                                core.quit()
+                            elif not ',' in ss_allowed_keys:
+                                ss_allowed_keys = (ss_allowed_keys,)
+                            else:
+                                ss_allowed_keys = eval(ss_allowed_keys)
                         # keyboard checking is just starting
                         waitOnFlip = True
                         win.callOnFlip(ss_key_resp_recall.clock.reset)  # t=0 on next screen flip
                         win.callOnFlip(ss_key_resp_recall.clearEvents, eventType='keyboard')  # clear events on next screen flip
                     if ss_key_resp_recall.status == STARTED and not waitOnFlip:
-                        theseKeys = ss_key_resp_recall.getKeys(keyList=['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'], waitRelease=False)
+                        theseKeys = ss_key_resp_recall.getKeys(keyList=list(ss_allowed_keys), waitRelease=False)
                         _ss_key_resp_recall_allKeys.extend(theseKeys)
                         if len(_ss_key_resp_recall_allKeys):
                             ss_key_resp_recall.keys = _ss_key_resp_recall_allKeys[-1].name  # just the last key pressed
@@ -4654,7 +4674,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                     base_text_intertrial.setAutoDraw(True)
                 if base_text_intertrial.status == STARTED:
                     # is it time to stop? (based on global clock, using actual start)
-                    if tThisFlipGlobal > base_text_intertrial.tStartRefresh + current_task.config.timing.intertrial-frameTolerance:
+                    if tThisFlipGlobal > base_text_intertrial.tStartRefresh + current_task.config.timing.inter_trial-frameTolerance:
                         # keep track of stop time/frame for later
                         base_text_intertrial.tStop = t  # not accounting for scr refresh
                         base_text_intertrial.frameNStop = frameN  # exact frame index
@@ -5919,7 +5939,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                     base_text_intertrial.setAutoDraw(True)
                 if base_text_intertrial.status == STARTED:
                     # is it time to stop? (based on global clock, using actual start)
-                    if tThisFlipGlobal > base_text_intertrial.tStartRefresh + current_task.config.timing.intertrial-frameTolerance:
+                    if tThisFlipGlobal > base_text_intertrial.tStartRefresh + current_task.config.timing.inter_trial-frameTolerance:
                         # keep track of stop time/frame for later
                         base_text_intertrial.tStop = t  # not accounting for scr refresh
                         base_text_intertrial.frameNStop = frameN  # exact frame index

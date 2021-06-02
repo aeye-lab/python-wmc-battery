@@ -169,7 +169,7 @@
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
-        <Param name="stopVal" val="current_task.config.timing.intertrial" valType="code" updates="constant"/>
+        <Param name="stopVal" val="current_task.config.timing.inter_trial" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="" valType="extendedStr" updates="constant"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
@@ -492,7 +492,7 @@
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
-        <Param name="stopVal" val="current_task.config.timing.inter_presentation" valType="code" updates="constant"/>
+        <Param name="stopVal" val="current_task.config.timing.inter_item" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="" valType="extendedStr" updates="constant"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
@@ -727,7 +727,7 @@
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
-        <Param name="stopVal" val="current_task.config.timing.inter_presentation" valType="code" updates="constant"/>
+        <Param name="stopVal" val="current_task.config.timing.inter_item" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="" valType="extendedStr" updates="constant"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
@@ -802,7 +802,7 @@
         <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Begin Routine" val="correct_letter = current_trial.get_next_recall_letter()&amp;#10;&amp;#10;thisExp.addData('is_practice', current_task.do_practice)&amp;#10;thisExp.addData('os_key_resp_recall.correct_letter', correct_letter)&amp;#10;" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Routine" val="correct_letter = current_trial.get_next_recall_letter()&amp;#10;&amp;#10;thisExp.addData('is_practice', current_task.do_practice)&amp;#10;thisExp.addData('os_key_resp_recall.correct_letter', correct_letter)&amp;#10;&amp;#10;os_allowed_keys = current_task.config.allowed_keys" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
         <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
@@ -838,7 +838,7 @@
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
       </TextComponent>
       <KeyboardComponent name="os_key_resp_recall">
-        <Param name="allowedKeys" val="'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'" valType="code" updates="constant"/>
+        <Param name="allowedKeys" val="os_allowed_keys" valType="code" updates="set every repeat"/>
         <Param name="correctAns" val="$correct_letter" valType="str" updates="constant"/>
         <Param name="disabled" val="False" valType="bool" updates="None"/>
         <Param name="discard previous" val="True" valType="bool" updates="constant"/>
@@ -1127,7 +1127,7 @@
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
-        <Param name="stopVal" val="current_task.config.timing.inter_presentation" valType="code" updates="constant"/>
+        <Param name="stopVal" val="current_task.config.timing.inter_item" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="" valType="extendedStr" updates="constant"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
@@ -1141,7 +1141,7 @@
         <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Begin Routine" val="correct_letter = current_trial.get_next_recall_letter()&amp;#10;&amp;#10;thisExp.addData('is_practice', current_task.do_practice)&amp;#10;thisExp.addData('ss_key_resp_recall.correct_letter', correct_letter)&amp;#10;" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Routine" val="correct_letter = current_trial.get_next_recall_letter()&amp;#10;&amp;#10;thisExp.addData('is_practice', current_task.do_practice)&amp;#10;thisExp.addData('ss_key_resp_recall.correct_letter', correct_letter)&amp;#10;&amp;#10;ss_allowed_keys = current_task.config.allowed_keys" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
         <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
@@ -1177,7 +1177,7 @@
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
       </TextComponent>
       <KeyboardComponent name="ss_key_resp_recall">
-        <Param name="allowedKeys" val="'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'" valType="code" updates="constant"/>
+        <Param name="allowedKeys" val="ss_allowed_keys" valType="code" updates="set every repeat"/>
         <Param name="correctAns" val="$correct_letter" valType="str" updates="constant"/>
         <Param name="disabled" val="False" valType="bool" updates="None"/>
         <Param name="discard previous" val="True" valType="bool" updates="constant"/>
