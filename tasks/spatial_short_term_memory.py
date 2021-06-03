@@ -36,7 +36,7 @@ class SpatialShortTermMemoryGrid:
         }
 
         for row, col in product(range(self.n_rows), (range(self.n_cols))):
-            cell_position = (left_col + col * cell_width,
+            cell_position = (left_col + (col + 1) * cell_width,
                              top_row - row * cell_height)
             self.position_map[(row, col)] = cell_position
 
@@ -78,7 +78,7 @@ class SpatialShortTermMemoryTrial(GenericTrial):
         self.current_dot = -1
         self.was_pressed = None
         self.init_cell_selection(grid)
-        self.init_dot_reserve(grid.window, n_dots=6)
+        self.init_dot_reserve(grid.window, n_dots=len(sequence)+1)
         self.response_dots = None
         self.response_time = None
 
@@ -506,20 +506,6 @@ class SpatialShortTermMemoryTask(GenericTask):
             n_dots_list=config['trials']['n_dots_list'],
             n_far=config['trials']['n_far'],
             n_near=config['trials']['n_near'])
-
-    def start_new_trial(self):
-        super().start_new_trial()
-        self.grid.show(True)
-        return self.current_trial
-
-    def start_new_practice_trial(self):
-        super().start_new_practice_trial()
-        self.grid.show(True)
-        return self.current_practice_trial
-
-    def finish_trial(self):
-        self.grid.show(False)
-        super().finish_trial()
 
     def write_results(self, filepath):
         dirpath = os.path.dirname(filepath)
