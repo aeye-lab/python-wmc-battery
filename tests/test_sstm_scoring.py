@@ -1,8 +1,9 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 from itertools import product, permutations
 import pandas as pd
-from psychopy import data, visual
+from psychopy import data
 import pytest
+import warnings
 
 from common.config import WMCConfig
 import tasks.spatial_short_term_memory as sstm
@@ -12,17 +13,17 @@ score_filenames = [
     'tests/SSTM-01-1-1975.txt',
 ]
 
-def load_score_file(filename):
+def load_score_file(filename, nrows_trials, nrows_dots, skiprows):
     index_cols = ['ID', 'Trial']
-    df_trials = pd.read_csv(filename, sep=r'\s+', header=1, nrows=14,
-                            index_col=index_cols)
+    df_trials = pd.read_csv(filename, sep=r'\s+', header=1,
+                            nrows=nrows_trials, index_col=index_cols)
 
     dot_cols = ['Dot', 'ResRow', 'ResCol', 'TrasfResRow', 'TrasfResCol',
                 'AnsRow', 'AnsCol', 'Score', 'InTrial#']
     index_cols = ['InTrial#', 'Dot']
     df_dots = pd.read_csv(filename, sep=r'\s+', header=None,
                           names=dot_cols, index_col=index_cols,
-                          nrows=52, skiprows=20)
+                          nrows=nrows_dots, skiprows=skiprows)
 
     return df_trials, df_dots
 
@@ -126,7 +127,8 @@ def set_trial_responses(trials, responses):
 def generate_all_equivalence_parameters(filename):
     parameters = []
     
-    df_trials_example, df_dots_example = load_score_file(filename)
+    df_trials_example, df_dots_example = load_score_file(
+        filename, nrows_trials=14, nrows_dots=52, skiprows=20)
 
     assert df_trials_example.shape == (14, 3)
     assert df_dots_example.shape == (52, 7)
@@ -170,9 +172,10 @@ def test_example_score_file_equivalence(parameter_dict):
 
     subject_id = df_trials_example.index.get_level_values('ID')[0]
     experiment_data = data.ExperimentHandler(
-        name='test', extraInfo={'Subject ID': subject_id,
-                                'date': None,
-                                'datetime': datetime.now()}
+        name='test',
+        extraInfo={'Subject ID': subject_id,
+                   'date': None,
+                   'datetime': datetime.now()}
     )
     
     scorer = sstm.SpatialShortTermMemoryScorer(trials, experiment_data)
@@ -210,16 +213,9 @@ def test_single_trial_sequence():
     response_dots = [(4, 9), (2, 9), (8, 6), (3, 2), (6, 9)]
     response_time = 4.7139999999999995
 
-    window = visual.Window(
-        size=[1680, 1050], fullscr=True, screen=0, 
-        winType='pyglet', allowGUI=False, allowStencil=False,
-        monitor='testMonitor', color='white', colorSpace='rgb',
-        blendMode='avg', useFBO=True, 
-        units='height')
-
-    config = sstm.default_config
+    config = WMCConfig('English').spatial_short_term_memory
     grid = sstm.SpatialShortTermMemoryGrid(
-        window=window,
+        window=None,
         n_rows=config['grid']['n_rows'],
         n_cols=config['grid']['n_cols'],
         cell_height=config['cell']['height'],
@@ -230,10 +226,10 @@ def test_single_trial_sequence():
     trial.response_time = response_time
     trials = [trial]
 
-    window.close()
-
     experiment_data = data.ExperimentHandler(
-        name='test', extraInfo={'Participant': 1, 'date': None}
+        name='test', extraInfo={'Subject ID': 1,
+                                'date': None,
+                                'datetime': datetime.now()}
     )
     
     scorer = sstm.SpatialShortTermMemoryScorer(trials, experiment_data)
@@ -241,3 +237,38 @@ def test_single_trial_sequence():
 
     assert scorer.dot_scores.Score.sum() == 6, (
         f'{scorer.dot_scores}')
+
+
+def test_scoring_computation_duration():
+    max_duration = timedelta(seconds=1)
+    filename = 'tests/SSTM-2.dat'
+    df_trials_example, df_dots_example = load_score_file(
+        filename, nrows_trials=30, nrows_dots=120, skiprows=36)
+
+    correct_dots = extract_dot_sequences(df_dots_example)
+    response_dots = extract_dot_responses(df_dots_example)
+
+    print(correct_dots)
+    print(response_dots)
+
+    trials = create_trials(correct_dots, df_trials_example.RT)
+    trials = set_trial_responses(trials, response_dots)
+    
+    for trial in trials:
+        assert len(trial.sequence) == len(trial.response_dots)
+
+    subject_id = df_trials_example.index.get_level_values('ID')[0]
+    
+    experiment_data = data.ExperimentHandler(
+        name='test', extraInfo={'Subject ID': subject_id,
+                                'date': None,
+                                'datetime': datetime.now()}
+    )
+
+    start_time = datetime.now()
+    
+    scorer = sstm.SpatialShortTermMemoryScorer(trials, experiment_data)
+    scorer.compute_scores()
+
+    duration = datetime.now() - start_time
+    assert duration <= max_duration

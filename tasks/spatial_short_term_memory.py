@@ -9,7 +9,7 @@ from psychopy.visual import Rect, Polygon
 from psychopy.event import Mouse
 
 from tasks.generic_task import GenericTask, GenericTrial
-
+from tasks.spatial_short_term_memory_scorer import SpatialShortTermMemoryScorer
 
 class SpatialShortTermMemoryGrid:
     def __init__(self, window, n_rows, n_cols, cell_height, cell_width):
@@ -303,174 +303,6 @@ class SpatialShortTermMemoryTrialFactory:
         return spot
 
 
-class SpatialShortTermMemoryScorer:
-    def __init__(self, trials, experiment_data):
-        self.trials = trials
-        self.experiment_data = experiment_data
-        
-        self.init_dot_scores(trials)
-        self.init_trial_scores(trials, experiment_data)
-        self.date = experiment_data.extraInfo['datetime']
-        
-    def init_dot_scores(self, trials):
-        columns = ['ResRow', 'ResCol',
-                   'TrasfResRow', 'TrasfResCol',
-                   'AnsRow', 'AnsCol', 'Score']
-        index_names = ['InTrial#', 'Dot']
-        # index values start with 1
-        index_tuples = [(trial_id + 1, dot_id + 1)
-                        for trial_id, trial in enumerate(trials)
-                        for dot_id in range(len((trial.sequence)))]
-        index = pd.MultiIndex.from_tuples(index_tuples,
-                                          names=index_names)
-
-        self.dot_scores = pd.DataFrame(index=index,
-                                       columns=columns,
-                                       data=-1, dtype=int)
-        
-        dot_scores_ans = [(row, col) for trial in trials
-                          for row, col in trial.sequence]
-        self.dot_scores['AnsRow'] = [ds[0] for ds in dot_scores_ans]
-        self.dot_scores['AnsCol'] = [ds[1] for ds in dot_scores_ans]
-
-    def init_trial_scores(self, trials, experiment_data):
-        self.subject_id = experiment_data.extraInfo['Subject ID']
-        
-        columns = ['Score', 'RT', 'NumDot']
-        index_names = ['ID', 'Trial']
-        # index values start with 1
-        index_tuples = [(self.subject_id, trial_id + 1)
-                        for trial_id in range(len((trials)))]
-        index = pd.MultiIndex.from_tuples(index_tuples,
-                                          names=index_names)
-
-        self.trial_scores = pd.DataFrame(index=index,
-                                         columns=columns,
-                                         data=-1)
-        self.trial_scores['NumDot'] = [len(t.sequence) for t in trials]
-        self.trial_scores['RT'] = 0.1
-
-    def compute_trial_scores(self, trial_id):
-        trial = self.trials[trial_id]
-            
-        trial_score = self.trial_scores.loc[self.subject_id, trial_id + 1].copy()
-        trial_score.loc['RT'] = trial.response_time
-        trial_dot_scores = self.dot_scores.loc[trial_id + 1, :]
-        trial_score.loc['Score'] = trial_dot_scores['Score'].sum()
-        self.trial_scores.loc[self.subject_id, trial_id + 1] = trial_score
-
-
-    def compute_dot_scores(self, trial_id):
-        def are_neighbours(a, b):
-            if abs(a[0] - b[0]) > 1:
-                return False
-            elif abs(a[1] - b[1]) > 1:
-                return False
-            else:
-                return True
-
-        class ScoreCandidate:
-            def __init__(self, correct, response):
-                self.correct = correct
-                self.response = response
-
-                # offset between first correct dot and first response dot
-                offset = tuple(a - b for a, b in zip(correct[0], response[0]))
-                self.shifted_response = [
-                    tuple(a + b for a, b in zip(response_dot, offset))
-                    for response_dot in response
-                ]
-                self.offset = offset
-                
-        trial = self.trials[trial_id]
-        response_dots = trial.response_dots
-        correct_dots = trial.sequence
-            
-        candidates = []
-        for j in range(len(correct_dots)):
-            corr_candidate = correct_dots.copy()
-            if j > 0: # swap first positions
-                corr_candidate[0] = correct_dots[j]
-                corr_candidate[j] = correct_dots[0]
-
-            for k in range(len(response_dots)):
-                resp_candidate = response_dots.copy()
-                if k > 0: # swap first positions
-                    resp_candidate[0] = response_dots[k]
-                    resp_candidate[k] = response_dots[0]
-
-                for resp_candidate_perm in permutations(resp_candidate[1:]):
-                    resp_candidate_perm = ([resp_candidate[0]]
-                                           + list(resp_candidate_perm))
-                    candidate = ScoreCandidate(corr_candidate,
-                                               resp_candidate_perm)
-                    candidates.append(candidate)
-
-                    #if candidate.shifted_response[0] == (5,9):
-                        #print('#', candidate.shifted_response)
-                    #if candidate.shifted_response == [(5,9), (3,9), (9,6), (4,2), (7,9)]:
-                    #    #print(candidate.shifted_response)
-        
-        best_trial_score = -1
-        best_dot_score_list = None
-        best_candidate = None
-        for resp_candidate in candidates:
-            shifted_resp = resp_candidate.shifted_response
-            #print('§', shifted_resp[0])
-            dot_permutations = permutations(correct_dots)
-            for corr_dots_perm in dot_permutations:
-
-                # calculate dot scores
-                dot_scores = []
-                for resp_dot, corr_dot in zip(shifted_resp, corr_dots_perm):
-                    if resp_dot == corr_dot:
-                        dot_score = 2
-                    elif are_neighbours(resp_dot, corr_dot):
-                        dot_score = 1
-                    else:
-                        dot_score = 0
-                    dot_scores.append(dot_score)
-
-                #print('%', shifted_resp[0])
-                #if shifted_resp[0][0] == 5:
-                #print('$', shifted_resp, corr_dots_perm, dot_score)
-
-
-                # save candidate if best up to now
-                trial_score = sum(dot_scores)
-                if trial_score > best_trial_score:
-                    best_trial_score = trial_score
-                    best_dot_score_list = dot_scores
-                    resp_candidate.correct = corr_dots_perm
-                    best_candidate = resp_candidate
-
-        # we now have found the best candidate with a corresponding permutation
-        # now save the information into the dot score data frame
-        # remember, trial ids start with 1 for legacy reasons
-        self.dot_scores.loc[trial_id + 1, 'Score'] = best_dot_score_list
-        
-        correct_dots_rows = [dot[0] for dot in best_candidate.correct]
-        correct_dots_cols = [dot[1] for dot in best_candidate.correct]
-        self.dot_scores.loc[trial_id + 1, 'AnsRow'] = correct_dots_rows
-        self.dot_scores.loc[trial_id + 1, 'AnsCol'] = correct_dots_cols
-
-        response_rows = [dot[0] for dot in best_candidate.response]
-        response_cols = [dot[1] for dot in best_candidate.response]
-        self.dot_scores.loc[trial_id + 1, 'ResRow'] = response_rows
-        self.dot_scores.loc[trial_id + 1, 'ResCol'] = response_cols
-
-        shifted_response = best_candidate.shifted_response
-        shifted_resp_rows = [dot[0] for dot in shifted_response]
-        shifted_resp_cols = [dot[1] for dot in shifted_response]
-        self.dot_scores.loc[trial_id + 1, 'TrasfResRow'] = shifted_resp_rows
-        self.dot_scores.loc[trial_id + 1, 'TrasfResCol'] = shifted_resp_cols
-
-    def compute_scores(self):
-        for trial_id, _ in enumerate(self.trials):
-            self.compute_dot_scores(trial_id)
-            self.compute_trial_scores(trial_id)
-        
-
 class SpatialShortTermMemoryTask(GenericTask):
     def __init__(self, window, seed, experiment_data, config):
         super().__init__()
@@ -489,8 +321,7 @@ class SpatialShortTermMemoryTask(GenericTask):
         self.date_format = config['date_format']
         
         self.init_trials(config)
-        self.scorer = SpatialShortTermMemoryScorer(self.trials,
-                                                   experiment_data)
+        self.scorer = SpatialShortTermMemoryScorer(self.trials, experiment_data)
 
     def init_trials(self, config):
         trial_factory = SpatialShortTermMemoryTrialFactory(
