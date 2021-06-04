@@ -36,5 +36,5 @@ timing:
   letter: 1.0               # onscreen duration of presented letter
   inter_item: 0.1           # blank screen duration between letter and equation
   recall: 0.2               # onscreen duration of recalled response
-  inter_trial: 1.0          # blank screen duration between each trial
+  inter_trial: 0.5          # blank screen duration between each trial
   after_break: 2.0          # blank screen duration after self paced break

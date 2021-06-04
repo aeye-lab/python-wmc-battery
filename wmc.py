@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.2.10),
-    on Wed 02 Jun 2021 11:49:07 AM CEST
+    on Thu 03 Jun 2021 03:48:44 PM CEST
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -159,7 +159,7 @@ mu_init_trialClock = core.Clock()
 mu_text_blank = visual.TextStim(win=win, name='mu_text_blank',
     text=None,
     font='Arial',
-    pos=(0, 0), height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -169,7 +169,7 @@ mu_display_digitClock = core.Clock()
 mu_text_digit = visual.TextStim(win=win, name='mu_text_digit',
     text='default text',
     font='Arial',
-    pos=[0,0], height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=[0,0], height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -179,7 +179,7 @@ mu_empty_cellsClock = core.Clock()
 mu_text_blank_2 = visual.TextStim(win=win, name='mu_text_blank_2',
     text=None,
     font='Arial',
-    pos=(0, 0), height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=0.0);
@@ -189,7 +189,7 @@ mu_display_operationClock = core.Clock()
 mu_text_operation = visual.TextStim(win=win, name='mu_text_operation',
     text='default text',
     font='Arial',
-    pos=[0,0], height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=[0,0], height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -199,7 +199,7 @@ mu_empty_cellsClock = core.Clock()
 mu_text_blank_2 = visual.TextStim(win=win, name='mu_text_blank_2',
     text=None,
     font='Arial',
-    pos=(0, 0), height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=0.0);
@@ -209,7 +209,7 @@ mu_recallClock = core.Clock()
 mu_text_question_mark = visual.TextStim(win=win, name='mu_text_question_mark',
     text='?',
     font='Arial',
-    pos=[0,0], height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=[0,0], height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -220,7 +220,7 @@ mu_display_recallClock = core.Clock()
 mu_text_recall = visual.TextStim(win=win, name='mu_text_recall',
     text='default text',
     font='Arial',
-    pos=[0,0], height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=[0,0], height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -230,7 +230,7 @@ base_intertrialClock = core.Clock()
 base_text_intertrial = visual.TextStim(win=win, name='base_text_intertrial',
     text=None,
     font='Arial',
-    pos=(0, 0), height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -240,7 +240,7 @@ base_self_paced_breakClock = core.Clock()
 base_text_self_paced_break = visual.TextStim(win=win, name='base_text_self_paced_break',
     text='default text',
     font='Arial',
-    pos=(0, 0), height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=0.0);
@@ -251,7 +251,7 @@ base_after_break_pauseClock = core.Clock()
 base_text_pause_after_break = visual.TextStim(win=win, name='base_text_pause_after_break',
     text=None,
     font='Arial',
-    pos=(0, 0), height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=0.0);
@@ -261,7 +261,7 @@ base_task_endClock = core.Clock()
 base_text_task_end = visual.TextStim(win=win, name='base_text_task_end',
     text='default text',
     font='Arial',
-    pos=(0, 0), height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -301,7 +301,7 @@ os_init_trialClock = core.Clock()
 os_text_fixation_cross = visual.TextStim(win=win, name='os_text_fixation_cross',
     text='+',
     font='Arial',
-    pos=(0, 0), height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -311,7 +311,7 @@ os_equationClock = core.Clock()
 os_text_equation = visual.TextStim(win=win, name='os_text_equation',
     text='default text',
     font='Arial',
-    pos=(0, 0), height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -322,7 +322,7 @@ os_letterClock = core.Clock()
 os_text_letter = visual.TextStim(win=win, name='os_text_letter',
     text='default text',
     font='Arial',
-    pos=(0, 0), height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -332,7 +332,7 @@ os_blankClock = core.Clock()
 os_text_blank = visual.TextStim(win=win, name='os_text_blank',
     text=None,
     font='Arial',
-    pos=(0, 0), height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=0.0);
@@ -342,7 +342,7 @@ os_recallClock = core.Clock()
 os_text_question_mark = visual.TextStim(win=win, name='os_text_question_mark',
     text='?',
     font='Arial',
-    pos=(0, 0), height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -353,7 +353,7 @@ os_display_recallClock = core.Clock()
 os_text_recall = visual.TextStim(win=win, name='os_text_recall',
     text='default text',
     font='Arial',
-    pos=(0, 0), height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -363,7 +363,7 @@ base_intertrialClock = core.Clock()
 base_text_intertrial = visual.TextStim(win=win, name='base_text_intertrial',
     text=None,
     font='Arial',
-    pos=(0, 0), height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -373,7 +373,7 @@ base_self_paced_breakClock = core.Clock()
 base_text_self_paced_break = visual.TextStim(win=win, name='base_text_self_paced_break',
     text='default text',
     font='Arial',
-    pos=(0, 0), height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=0.0);
@@ -384,7 +384,7 @@ base_after_break_pauseClock = core.Clock()
 base_text_pause_after_break = visual.TextStim(win=win, name='base_text_pause_after_break',
     text=None,
     font='Arial',
-    pos=(0, 0), height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=0.0);
@@ -394,7 +394,7 @@ base_task_endClock = core.Clock()
 base_text_task_end = visual.TextStim(win=win, name='base_text_task_end',
     text='default text',
     font='Arial',
-    pos=(0, 0), height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -434,7 +434,7 @@ ss_init_trialClock = core.Clock()
 ss_text_fixation_cross = visual.TextStim(win=win, name='ss_text_fixation_cross',
     text='+',
     font='Arial',
-    pos=(0, 0), height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -444,7 +444,7 @@ ss_sentenceClock = core.Clock()
 ss_text_sentence = visual.TextStim(win=win, name='ss_text_sentence',
     text='default text',
     font='Arial',
-    pos=(0, 0), height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -455,7 +455,7 @@ ss_letterClock = core.Clock()
 ss_text_letter = visual.TextStim(win=win, name='ss_text_letter',
     text='default text',
     font='Arial',
-    pos=(0, 0), height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -465,7 +465,7 @@ ss_blankClock = core.Clock()
 ss_text_blank = visual.TextStim(win=win, name='ss_text_blank',
     text=None,
     font='Arial',
-    pos=(0, 0), height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=0.0);
@@ -475,7 +475,7 @@ ss_recallClock = core.Clock()
 ss_text_question_mark = visual.TextStim(win=win, name='ss_text_question_mark',
     text='?',
     font='Arial',
-    pos=(0, 0), height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -486,7 +486,7 @@ ss_display_recallClock = core.Clock()
 ss_text_display_recall = visual.TextStim(win=win, name='ss_text_display_recall',
     text='default text',
     font='Arial',
-    pos=(0, 0), height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -496,7 +496,7 @@ base_intertrialClock = core.Clock()
 base_text_intertrial = visual.TextStim(win=win, name='base_text_intertrial',
     text=None,
     font='Arial',
-    pos=(0, 0), height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -506,7 +506,7 @@ base_self_paced_breakClock = core.Clock()
 base_text_self_paced_break = visual.TextStim(win=win, name='base_text_self_paced_break',
     text='default text',
     font='Arial',
-    pos=(0, 0), height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=0.0);
@@ -517,7 +517,7 @@ base_after_break_pauseClock = core.Clock()
 base_text_pause_after_break = visual.TextStim(win=win, name='base_text_pause_after_break',
     text=None,
     font='Arial',
-    pos=(0, 0), height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=0.0);
@@ -527,7 +527,7 @@ base_task_endClock = core.Clock()
 base_text_task_end = visual.TextStim(win=win, name='base_text_task_end',
     text='default text',
     font='Arial',
-    pos=(0, 0), height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -564,16 +564,23 @@ base_init_trialClock = core.Clock()
 
 # Initialize components for Routine "sstm_init_trial"
 sstm_init_trialClock = core.Clock()
+sstm_text_fixation_cross = visual.TextStim(win=win, name='sstm_text_fixation_cross',
+    text='+',
+    font='Arial',
+    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    color='black', colorSpace='rgb', opacity=1, 
+    languageStyle='LTR',
+    depth=-1.0);
 
 # Initialize components for Routine "sstm_empty_grid"
 sstm_empty_gridClock = core.Clock()
 sstm_text_blank = visual.TextStim(win=win, name='sstm_text_blank',
     text=None,
     font='Arial',
-    pos=(0, 0), height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
-    depth=0.0);
+    depth=-1.0);
 
 # Initialize components for Routine "sstm_display_dot"
 sstm_display_dotClock = core.Clock()
@@ -585,12 +592,12 @@ sstm_polygon_display_dot = visual.Polygon(
     fillColor='black', fillColorSpace='rgb',
     opacity=1, depth=-1.0, interpolate=True)
 
-# Initialize components for Routine "sstm_empty_grid"
-sstm_empty_gridClock = core.Clock()
-sstm_text_blank = visual.TextStim(win=win, name='sstm_text_blank',
+# Initialize components for Routine "sstm_after_display_dot"
+sstm_after_display_dotClock = core.Clock()
+sstm_text_after_display_dot = visual.TextStim(win=win, name='sstm_text_after_display_dot',
     text=None,
     font='Arial',
-    pos=(0, 0), height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=0.0);
@@ -601,7 +608,7 @@ sstm_text_draw_string = expmsgs.draw_dots
 text_sstm_draw_dots = visual.TextStim(win=win, name='text_sstm_draw_dots',
     text=sstm_text_draw_string,
     font='Arial',
-    pos=(0, 0), height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -612,7 +619,7 @@ sstm_text_next_string = expmsgs.next_trial
 sstm_text_next = visual.TextStim(win=win, name='sstm_text_next',
     text=sstm_text_next_string,
     font='Arial',
-    pos=(10, 10), height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=(10, 10), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -625,7 +632,7 @@ base_intertrialClock = core.Clock()
 base_text_intertrial = visual.TextStim(win=win, name='base_text_intertrial',
     text=None,
     font='Arial',
-    pos=(0, 0), height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -635,7 +642,7 @@ base_self_paced_breakClock = core.Clock()
 base_text_self_paced_break = visual.TextStim(win=win, name='base_text_self_paced_break',
     text='default text',
     font='Arial',
-    pos=(0, 0), height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=0.0);
@@ -646,7 +653,7 @@ base_after_break_pauseClock = core.Clock()
 base_text_pause_after_break = visual.TextStim(win=win, name='base_text_pause_after_break',
     text=None,
     font='Arial',
-    pos=(0, 0), height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=0.0);
@@ -656,7 +663,7 @@ sstm_task_endClock = core.Clock()
 text_sstm_task_end = visual.TextStim(win=win, name='text_sstm_task_end',
     text=expmsgs.task_end,
     font='Arial',
-    pos=(0, 0), height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=0.0);
@@ -667,7 +674,7 @@ sstm_task_end_2Clock = core.Clock()
 text_please_wait = visual.TextStim(win=win, name='text_please_wait',
     text='Please wait to calculate scores and write results',
     font='Arial',
-    pos=(0, 0), height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=0.0);
@@ -677,7 +684,7 @@ base_endClock = core.Clock()
 base_text_end = visual.TextStim(win=win, name='base_text_end',
     text=expmsgs.end,
     font='Arial',
-    pos=(0, 0), height=config.experiment_messages.height, wrapWidth=None, ori=0, 
+    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=0.0);
@@ -1246,6 +1253,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
             # update component parameters for each repeat
             n_digits = current_trial.get_n_digits()
             n_operations = current_trial.get_n_operations()
+            mu_text_blank.setHeight(config.experiment_messages.height)
             # keep track of which components have finished
             mu_init_trialComponents = [mu_text_blank]
             for thisComponent in mu_init_trialComponents:
@@ -1338,6 +1346,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 current_digit, current_digit_position = current_trial.get_next_digit()
                 mu_text_digit.setPos(current_digit_position)
                 mu_text_digit.setText(current_digit)
+                mu_text_digit.setHeight(config.experiment_messages.height)
                 # keep track of which components have finished
                 mu_display_digitComponents = [mu_text_digit]
                 for thisComponent in mu_display_digitComponents:
@@ -1408,6 +1417,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 # ------Prepare to start Routine "mu_empty_cells"-------
                 continueRoutine = True
                 # update component parameters for each repeat
+                mu_text_blank_2.setHeight(config.experiment_messages.height)
                 # keep track of which components have finished
                 mu_empty_cellsComponents = [mu_text_blank_2]
                 for thisComponent in mu_empty_cellsComponents:
@@ -1504,6 +1514,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 current_operation, current_operation_position = current_trial.get_next_operation()
                 mu_text_operation.setPos(current_operation_position)
                 mu_text_operation.setText(current_operation)
+                mu_text_operation.setHeight(config.experiment_messages.height)
                 # keep track of which components have finished
                 mu_display_operationComponents = [mu_text_operation]
                 for thisComponent in mu_display_operationComponents:
@@ -1574,6 +1585,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 # ------Prepare to start Routine "mu_empty_cells"-------
                 continueRoutine = True
                 # update component parameters for each repeat
+                mu_text_blank_2.setHeight(config.experiment_messages.height)
                 # keep track of which components have finished
                 mu_empty_cellsComponents = [mu_text_blank_2]
                 for thisComponent in mu_empty_cellsComponents:
@@ -1680,6 +1692,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 thisExp.addData('mu_key_resp_recall.position_id', current_recall['position_id'])
                 thisExp.addData('mu_key_resp_recall.operation_sequence', current_recall['operation_sequence'])
                 mu_text_question_mark.setPos(recall_position)
+                mu_text_question_mark.setHeight(config.experiment_messages.height)
                 mu_key_resp_recall.keys = []
                 mu_key_resp_recall.rt = []
                 _mu_key_resp_recall_allKeys = []
@@ -1794,6 +1807,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 current_trial.save_response(keyboard_response)
                 mu_text_recall.setPos(recall_position)
                 mu_text_recall.setText(keyboard_response)
+                mu_text_recall.setHeight(config.experiment_messages.height)
                 # keep track of which components have finished
                 mu_display_recallComponents = [mu_text_recall]
                 for thisComponent in mu_display_recallComponents:
@@ -1869,6 +1883,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
             continueRoutine = True
             # update component parameters for each repeat
             current_task.finish_trial()
+            base_text_intertrial.setHeight(config.experiment_messages.height)
             # keep track of which components have finished
             base_intertrialComponents = [base_text_intertrial]
             for thisComponent in base_intertrialComponents:
@@ -1960,6 +1975,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 # update component parameters for each repeat
                 base_text_self_paced_break.setText(expmsgs.experiment_break)
                 base_text_self_paced_break.setFont(config.experiment_messages.font)
+                base_text_self_paced_break.setHeight(config.experiment_messages.height)
                 base_key_resp_self_paced_break.keys = []
                 base_key_resp_self_paced_break.rt = []
                 _base_key_resp_self_paced_break_allKeys = []
@@ -2055,6 +2071,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 # ------Prepare to start Routine "base_after_break_pause"-------
                 continueRoutine = True
                 # update component parameters for each repeat
+                base_text_pause_after_break.setHeight(config.experiment_messages.height)
                 # keep track of which components have finished
                 base_after_break_pauseComponents = [base_text_pause_after_break]
                 for thisComponent in base_after_break_pauseComponents:
@@ -2141,6 +2158,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
     current_task.write_results(output_filepath)
     base_text_task_end.setText(expmsgs.task_end)
     base_text_task_end.setFont(config.experiment_messages.font)
+    base_text_task_end.setHeight(config.experiment_messages.height)
     base_key_resp_task_end.keys = []
     base_key_resp_task_end.rt = []
     _base_key_resp_task_end_allKeys = []
@@ -2644,6 +2662,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
             continueRoutine = True
             # update component parameters for each repeat
             n_presentations = current_trial.get_presentation_count()
+            os_text_fixation_cross.setHeight(config.experiment_messages.height)
             # keep track of which components have finished
             os_init_trialComponents = [os_text_fixation_cross]
             for thisComponent in os_init_trialComponents:
@@ -2743,6 +2762,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                 thisExp.addData('os_key_resp_equation.correct_answer', correct_key)
                 
                 os_text_equation.setText(equation_string)
+                os_text_equation.setHeight(config.experiment_messages.height)
                 os_key_resp_equation.keys = []
                 os_key_resp_equation.rt = []
                 _os_key_resp_equation_allKeys = []
@@ -2889,6 +2909,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                 # update component parameters for each repeat
                 letter = current_trial.get_next_letter().upper()
                 os_text_letter.setText(letter)
+                os_text_letter.setHeight(config.experiment_messages.height)
                 # keep track of which components have finished
                 os_letterComponents = [os_text_letter]
                 for thisComponent in os_letterComponents:
@@ -2959,6 +2980,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                 # ------Prepare to start Routine "os_blank"-------
                 continueRoutine = True
                 # update component parameters for each repeat
+                os_text_blank.setHeight(config.experiment_messages.height)
                 # keep track of which components have finished
                 os_blankComponents = [os_text_blank]
                 for thisComponent in os_blankComponents:
@@ -3058,6 +3080,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                 thisExp.addData('os_key_resp_recall.correct_letter', correct_letter)
                 
                 os_allowed_keys = current_task.config.allowed_keys
+                os_text_question_mark.setHeight(config.experiment_messages.height)
                 os_key_resp_recall.keys = []
                 os_key_resp_recall.rt = []
                 _os_key_resp_recall_allKeys = []
@@ -3179,6 +3202,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                 current_trial.save_letter_response(letter_response, letter_rt)
                 
                 os_text_recall.setText(letter_response.upper())
+                os_text_recall.setHeight(config.experiment_messages.height)
                 # keep track of which components have finished
                 os_display_recallComponents = [os_text_recall]
                 for thisComponent in os_display_recallComponents:
@@ -3254,6 +3278,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
             continueRoutine = True
             # update component parameters for each repeat
             current_task.finish_trial()
+            base_text_intertrial.setHeight(config.experiment_messages.height)
             # keep track of which components have finished
             base_intertrialComponents = [base_text_intertrial]
             for thisComponent in base_intertrialComponents:
@@ -3345,6 +3370,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                 # update component parameters for each repeat
                 base_text_self_paced_break.setText(expmsgs.experiment_break)
                 base_text_self_paced_break.setFont(config.experiment_messages.font)
+                base_text_self_paced_break.setHeight(config.experiment_messages.height)
                 base_key_resp_self_paced_break.keys = []
                 base_key_resp_self_paced_break.rt = []
                 _base_key_resp_self_paced_break_allKeys = []
@@ -3440,6 +3466,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                 # ------Prepare to start Routine "base_after_break_pause"-------
                 continueRoutine = True
                 # update component parameters for each repeat
+                base_text_pause_after_break.setHeight(config.experiment_messages.height)
                 # keep track of which components have finished
                 base_after_break_pauseComponents = [base_text_pause_after_break]
                 for thisComponent in base_after_break_pauseComponents:
@@ -3526,6 +3553,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
     current_task.write_results(output_filepath)
     base_text_task_end.setText(expmsgs.task_end)
     base_text_task_end.setFont(config.experiment_messages.font)
+    base_text_task_end.setHeight(config.experiment_messages.height)
     base_key_resp_task_end.keys = []
     base_key_resp_task_end.rt = []
     _base_key_resp_task_end_allKeys = []
@@ -4029,6 +4057,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
             continueRoutine = True
             # update component parameters for each repeat
             n_presentations = current_trial.get_presentation_count()
+            ss_text_fixation_cross.setHeight(config.experiment_messages.height)
             # keep track of which components have finished
             ss_init_trialComponents = [ss_text_fixation_cross]
             for thisComponent in ss_init_trialComponents:
@@ -4129,6 +4158,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                 
                 ss_text_sentence.setText(sentence_string)
                 ss_text_sentence.setFont(config.experiment_messages.font)
+                ss_text_sentence.setHeight(config.experiment_messages.height)
                 ss_key_resp_sentence.keys = []
                 ss_key_resp_sentence.rt = []
                 _ss_key_resp_sentence_allKeys = []
@@ -4275,6 +4305,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                 # update component parameters for each repeat
                 letter = current_trial.get_next_letter().upper()
                 ss_text_letter.setText(letter)
+                ss_text_letter.setHeight(config.experiment_messages.height)
                 # keep track of which components have finished
                 ss_letterComponents = [ss_text_letter]
                 for thisComponent in ss_letterComponents:
@@ -4345,6 +4376,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                 # ------Prepare to start Routine "ss_blank"-------
                 continueRoutine = True
                 # update component parameters for each repeat
+                ss_text_blank.setHeight(config.experiment_messages.height)
                 # keep track of which components have finished
                 ss_blankComponents = [ss_text_blank]
                 for thisComponent in ss_blankComponents:
@@ -4444,6 +4476,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                 thisExp.addData('ss_key_resp_recall.correct_letter', correct_letter)
                 
                 ss_allowed_keys = current_task.config.allowed_keys
+                ss_text_question_mark.setHeight(config.experiment_messages.height)
                 ss_key_resp_recall.keys = []
                 ss_key_resp_recall.rt = []
                 _ss_key_resp_recall_allKeys = []
@@ -4565,6 +4598,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                 current_trial.save_letter_response(letter_response, letter_rt)
                 
                 ss_text_display_recall.setText(letter_response.upper())
+                ss_text_display_recall.setHeight(config.experiment_messages.height)
                 # keep track of which components have finished
                 ss_display_recallComponents = [ss_text_display_recall]
                 for thisComponent in ss_display_recallComponents:
@@ -4640,6 +4674,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
             continueRoutine = True
             # update component parameters for each repeat
             current_task.finish_trial()
+            base_text_intertrial.setHeight(config.experiment_messages.height)
             # keep track of which components have finished
             base_intertrialComponents = [base_text_intertrial]
             for thisComponent in base_intertrialComponents:
@@ -4731,6 +4766,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                 # update component parameters for each repeat
                 base_text_self_paced_break.setText(expmsgs.experiment_break)
                 base_text_self_paced_break.setFont(config.experiment_messages.font)
+                base_text_self_paced_break.setHeight(config.experiment_messages.height)
                 base_key_resp_self_paced_break.keys = []
                 base_key_resp_self_paced_break.rt = []
                 _base_key_resp_self_paced_break_allKeys = []
@@ -4826,6 +4862,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                 # ------Prepare to start Routine "base_after_break_pause"-------
                 continueRoutine = True
                 # update component parameters for each repeat
+                base_text_pause_after_break.setHeight(config.experiment_messages.height)
                 # keep track of which components have finished
                 base_after_break_pauseComponents = [base_text_pause_after_break]
                 for thisComponent in base_after_break_pauseComponents:
@@ -4912,6 +4949,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
     current_task.write_results(output_filepath)
     base_text_task_end.setText(expmsgs.task_end)
     base_text_task_end.setFont(config.experiment_messages.font)
+    base_text_task_end.setHeight(config.experiment_messages.height)
     base_key_resp_task_end.keys = []
     base_key_resp_task_end.rt = []
     _base_key_resp_task_end_allKeys = []
@@ -5414,8 +5452,9 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
             # update component parameters for each repeat
             n_presentations = current_trial.get_presentation_count()
             
+            sstm_text_fixation_cross.setHeight(config.experiment_messages.height)
             # keep track of which components have finished
-            sstm_init_trialComponents = []
+            sstm_init_trialComponents = [sstm_text_fixation_cross]
             for thisComponent in sstm_init_trialComponents:
                 thisComponent.tStart = None
                 thisComponent.tStop = None
@@ -5438,6 +5477,23 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                 frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                 # update/draw components on each frame
                 
+                # *sstm_text_fixation_cross* updates
+                if sstm_text_fixation_cross.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                    # keep track of start time/frame for later
+                    sstm_text_fixation_cross.frameNStart = frameN  # exact frame index
+                    sstm_text_fixation_cross.tStart = t  # local t and not account for scr refresh
+                    sstm_text_fixation_cross.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(sstm_text_fixation_cross, 'tStartRefresh')  # time at next scr refresh
+                    sstm_text_fixation_cross.setAutoDraw(True)
+                if sstm_text_fixation_cross.status == STARTED:
+                    # is it time to stop? (based on global clock, using actual start)
+                    if tThisFlipGlobal > sstm_text_fixation_cross.tStartRefresh + current_task.config.timing.fixation_cross-frameTolerance:
+                        # keep track of stop time/frame for later
+                        sstm_text_fixation_cross.tStop = t  # not accounting for scr refresh
+                        sstm_text_fixation_cross.frameNStop = frameN  # exact frame index
+                        win.timeOnFlip(sstm_text_fixation_cross, 'tStopRefresh')  # time at next scr refresh
+                        sstm_text_fixation_cross.setAutoDraw(False)
+                
                 # check for quit (typically the Esc key)
                 if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
                     core.quit()
@@ -5459,12 +5515,16 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
             for thisComponent in sstm_init_trialComponents:
                 if hasattr(thisComponent, "setAutoDraw"):
                     thisComponent.setAutoDraw(False)
+            sstm_trials.addData('sstm_text_fixation_cross.started', sstm_text_fixation_cross.tStartRefresh)
+            sstm_trials.addData('sstm_text_fixation_cross.stopped', sstm_text_fixation_cross.tStopRefresh)
             # the Routine "sstm_init_trial" was not non-slip safe, so reset the non-slip timer
             routineTimer.reset()
             
             # ------Prepare to start Routine "sstm_empty_grid"-------
             continueRoutine = True
             # update component parameters for each repeat
+            current_trial.grid.show(True)
+            sstm_text_blank.setHeight(config.experiment_messages.height)
             # keep track of which components have finished
             sstm_empty_gridComponents = [sstm_text_blank]
             for thisComponent in sstm_empty_gridComponents:
@@ -5623,12 +5683,12 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                 # the Routine "sstm_display_dot" was not non-slip safe, so reset the non-slip timer
                 routineTimer.reset()
                 
-                # ------Prepare to start Routine "sstm_empty_grid"-------
+                # ------Prepare to start Routine "sstm_after_display_dot"-------
                 continueRoutine = True
                 # update component parameters for each repeat
                 # keep track of which components have finished
-                sstm_empty_gridComponents = [sstm_text_blank]
-                for thisComponent in sstm_empty_gridComponents:
+                sstm_after_display_dotComponents = [sstm_text_after_display_dot]
+                for thisComponent in sstm_after_display_dotComponents:
                     thisComponent.tStart = None
                     thisComponent.tStop = None
                     thisComponent.tStartRefresh = None
@@ -5638,34 +5698,34 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                 # reset timers
                 t = 0
                 _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-                sstm_empty_gridClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+                sstm_after_display_dotClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
                 frameN = -1
                 
-                # -------Run Routine "sstm_empty_grid"-------
+                # -------Run Routine "sstm_after_display_dot"-------
                 while continueRoutine:
                     # get current time
-                    t = sstm_empty_gridClock.getTime()
-                    tThisFlip = win.getFutureFlipTime(clock=sstm_empty_gridClock)
+                    t = sstm_after_display_dotClock.getTime()
+                    tThisFlip = win.getFutureFlipTime(clock=sstm_after_display_dotClock)
                     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                     # update/draw components on each frame
                     
-                    # *sstm_text_blank* updates
-                    if sstm_text_blank.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                    # *sstm_text_after_display_dot* updates
+                    if sstm_text_after_display_dot.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
                         # keep track of start time/frame for later
-                        sstm_text_blank.frameNStart = frameN  # exact frame index
-                        sstm_text_blank.tStart = t  # local t and not account for scr refresh
-                        sstm_text_blank.tStartRefresh = tThisFlipGlobal  # on global time
-                        win.timeOnFlip(sstm_text_blank, 'tStartRefresh')  # time at next scr refresh
-                        sstm_text_blank.setAutoDraw(True)
-                    if sstm_text_blank.status == STARTED:
+                        sstm_text_after_display_dot.frameNStart = frameN  # exact frame index
+                        sstm_text_after_display_dot.tStart = t  # local t and not account for scr refresh
+                        sstm_text_after_display_dot.tStartRefresh = tThisFlipGlobal  # on global time
+                        win.timeOnFlip(sstm_text_after_display_dot, 'tStartRefresh')  # time at next scr refresh
+                        sstm_text_after_display_dot.setAutoDraw(True)
+                    if sstm_text_after_display_dot.status == STARTED:
                         # is it time to stop? (based on global clock, using actual start)
-                        if tThisFlipGlobal > sstm_text_blank.tStartRefresh + current_task.config.timing.init_trial-frameTolerance:
+                        if tThisFlipGlobal > sstm_text_after_display_dot.tStartRefresh + current_task.config.timing.inter_item-frameTolerance:
                             # keep track of stop time/frame for later
-                            sstm_text_blank.tStop = t  # not accounting for scr refresh
-                            sstm_text_blank.frameNStop = frameN  # exact frame index
-                            win.timeOnFlip(sstm_text_blank, 'tStopRefresh')  # time at next scr refresh
-                            sstm_text_blank.setAutoDraw(False)
+                            sstm_text_after_display_dot.tStop = t  # not accounting for scr refresh
+                            sstm_text_after_display_dot.frameNStop = frameN  # exact frame index
+                            win.timeOnFlip(sstm_text_after_display_dot, 'tStopRefresh')  # time at next scr refresh
+                            sstm_text_after_display_dot.setAutoDraw(False)
                     
                     # check for quit (typically the Esc key)
                     if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -5675,7 +5735,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                     if not continueRoutine:  # a component has requested a forced-end of Routine
                         break
                     continueRoutine = False  # will revert to True if at least one component still running
-                    for thisComponent in sstm_empty_gridComponents:
+                    for thisComponent in sstm_after_display_dotComponents:
                         if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
                             continueRoutine = True
                             break  # at least one component has not yet finished
@@ -5684,13 +5744,13 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                     if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
                         win.flip()
                 
-                # -------Ending Routine "sstm_empty_grid"-------
-                for thisComponent in sstm_empty_gridComponents:
+                # -------Ending Routine "sstm_after_display_dot"-------
+                for thisComponent in sstm_after_display_dotComponents:
                     if hasattr(thisComponent, "setAutoDraw"):
                         thisComponent.setAutoDraw(False)
-                sstm_presentations.addData('sstm_text_blank.started', sstm_text_blank.tStartRefresh)
-                sstm_presentations.addData('sstm_text_blank.stopped', sstm_text_blank.tStopRefresh)
-                # the Routine "sstm_empty_grid" was not non-slip safe, so reset the non-slip timer
+                sstm_presentations.addData('sstm_text_after_display_dot.started', sstm_text_after_display_dot.tStartRefresh)
+                sstm_presentations.addData('sstm_text_after_display_dot.stopped', sstm_text_after_display_dot.tStopRefresh)
+                # the Routine "sstm_after_display_dot" was not non-slip safe, so reset the non-slip timer
                 routineTimer.reset()
                 thisExp.nextEntry()
                 
@@ -5702,6 +5762,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
             # update component parameters for each repeat
             current_trial.grid.show(False)
             text_sstm_draw_dots.setFont(config.experiment_messages.font)
+            text_sstm_draw_dots.setHeight(config.experiment_messages.height)
             # keep track of which components have finished
             sstm_draw_requestComponents = [text_sstm_draw_dots]
             for thisComponent in sstm_draw_requestComponents:
@@ -5776,6 +5837,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
             win.mouseVisible = True
             sstm_mouse.setVisible(True)
             sstm_text_next.setFont(config.experiment_messages.font)
+            sstm_text_next.setHeight(config.experiment_messages.height)
             # setup some python lists for storing info about the sstm_mouse
             sstm_mouse.x = []
             sstm_mouse.y = []
@@ -5812,7 +5874,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                 current_trial.process_mouse_event(sstm_mouse)
                 
                 if current_trial.selected_required_count():
-                    sstm_text_next.pos = (-0.35, -0.425)
+                    sstm_text_next.pos = (-0.325, -0.425)
                 else:
                     sstm_text_next.pos = (10, 10)
                 
@@ -5876,6 +5938,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
             for thisComponent in sstm_recallComponents:
                 if hasattr(thisComponent, "setAutoDraw"):
                     thisComponent.setAutoDraw(False)
+            current_trial.grid.show(False)
             win.mouseVisible = False
             sstm_mouse.setVisible(False)
             
@@ -5905,6 +5968,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
             continueRoutine = True
             # update component parameters for each repeat
             current_task.finish_trial()
+            base_text_intertrial.setHeight(config.experiment_messages.height)
             # keep track of which components have finished
             base_intertrialComponents = [base_text_intertrial]
             for thisComponent in base_intertrialComponents:
@@ -5996,6 +6060,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                 # update component parameters for each repeat
                 base_text_self_paced_break.setText(expmsgs.experiment_break)
                 base_text_self_paced_break.setFont(config.experiment_messages.font)
+                base_text_self_paced_break.setHeight(config.experiment_messages.height)
                 base_key_resp_self_paced_break.keys = []
                 base_key_resp_self_paced_break.rt = []
                 _base_key_resp_self_paced_break_allKeys = []
@@ -6091,6 +6156,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                 # ------Prepare to start Routine "base_after_break_pause"-------
                 continueRoutine = True
                 # update component parameters for each repeat
+                base_text_pause_after_break.setHeight(config.experiment_messages.height)
                 # keep track of which components have finished
                 base_after_break_pauseComponents = [base_text_pause_after_break]
                 for thisComponent in base_after_break_pauseComponents:
@@ -6174,6 +6240,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
     continueRoutine = True
     # update component parameters for each repeat
     text_sstm_task_end.setFont(config.experiment_messages.font)
+    text_sstm_task_end.setHeight(config.experiment_messages.height)
     sstm_key_resp_task_end.keys = []
     sstm_key_resp_task_end.rt = []
     _sstm_key_resp_task_end_allKeys = []
@@ -6270,6 +6337,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
     # ------Prepare to start Routine "sstm_task_end_2"-------
     continueRoutine = True
     # update component parameters for each repeat
+    text_please_wait.setHeight(config.experiment_messages.height)
     text_please_wait.setAutoDraw(True)
     
     iiii = 0
@@ -6354,6 +6422,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
 continueRoutine = True
 # update component parameters for each repeat
 base_text_end.setFont(config.experiment_messages.font)
+base_text_end.setHeight(config.experiment_messages.height)
 base_key_resp_end.keys = []
 base_key_resp_end.rt = []
 _base_key_resp_end_allKeys = []
