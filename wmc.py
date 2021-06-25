@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.2.10),
-    on Wed 30 Jun 2021 11:22:02 AM CEST
+    on Wed 30 Jun 2021 11:41:01 AM CEST
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -603,7 +603,7 @@ sstm_text_blank = visual.TextStim(win=win, name='sstm_text_blank',
 sstm_display_dotClock = core.Clock()
 sstm_polygon_display_dot = visual.Polygon(
     win=win, name='sstm_polygon_display_dot',units='height', 
-    edges=128, size=(0.04, 0.04),
+    edges=128, size=[1.0, 1.0],
     ori=0, pos=[0,0],
     lineWidth=1, lineColor=[1,1,1], lineColorSpace='rgb',
     fillColor='black', fillColorSpace='rgb',
@@ -5617,6 +5617,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                 # update component parameters for each repeat
                 current_dot = current_trial.get_next_presentation()
                 sstm_polygon_display_dot.setPos(current_dot)
+                sstm_polygon_display_dot.setSize((current_task.config.dots.size, current_task.config.dots.size))
                 # keep track of which components have finished
                 sstm_display_dotComponents = [sstm_polygon_display_dot]
                 for thisComponent in sstm_display_dotComponents:

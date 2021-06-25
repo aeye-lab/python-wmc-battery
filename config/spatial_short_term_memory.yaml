@@ -1,22 +1,23 @@
 grid:
-    n_rows: 10
-    n_cols: 10
+  n_rows: 10
+  n_cols: 10
 
 cell:
-    height:  0.075
-    width: 0.075
+  height:  0.075
+  width: 0.075
 
 dots:
-    padding: 1
+  size: 0.065                # dot size
+      
+sequences:
+  padding: 1                # min distance of generated dot from grid border
 
-practice:
-    [[[1, 4], [5, 7]],
-     [[3, 3], [0, 1]]]
+practice: [[[1, 4], [5, 7]], [[3, 3], [0, 1]]]
     
 trials:
-    n_dots_list: [2, 3, 4, 5, 6]
-    n_far: 3
-    n_near: 3
+  n_dots_list: [2, 3, 4, 5, 6]
+  n_far: 3
+  n_near: 3
 
 date_format: '%Y/%m/%d %H:%M'   # this is only relevant for the result file
 

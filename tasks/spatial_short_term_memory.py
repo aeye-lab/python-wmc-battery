@@ -70,25 +70,28 @@ class SpatialShortTermMemoryGrid:
 
 
 class SpatialShortTermMemoryTrial(GenericTrial):
-    def __init__(self, sequence, grid):
+    def __init__(self, sequence, grid, dot_size):
         super().__init__()
 
         self.sequence = sequence
         self.grid = grid
+        
         self.current_dot = -1
         self.was_pressed = None
         self.init_cell_selection(grid)
-        self.init_dot_reserve(grid.window, n_dots=len(sequence)+1)
+        self.init_dot_reserve(window=grid.window,
+                              n_dots=len(sequence)+1,
+                              dot_size=dot_size)
         self.response_dots = None
         self.response_time = None
 
-    def init_dot_reserve(self, window, n_dots):
+    def init_dot_reserve(self, window, n_dots, dot_size):
         self.dot_reserve = []
         for i in range(n_dots):
             if window is not None:  # None only for Testing
                 dot = Polygon(
                     win=window, name=f'selected_dot_{i}',
-                    edges=128, size=(0.04, 0.04),
+                    edges=128, size=(dot_size, dot_size),
                     ori=0, pos=[0,0],
                     lineWidth=1, lineColor=[1,1,1], lineColorSpace='rgb',
                     fillColor='black', fillColorSpace='rgb',
@@ -180,8 +183,9 @@ class SpatialShortTermMemoryTrial(GenericTrial):
 
 
 class SpatialShortTermMemoryTrialFactory:
-    def __init__(self, grid, padding):
+    def __init__(self, grid, padding, dot_size):
         self.grid = grid
+        self.dot_size = dot_size
         grid_positions = self.grid.get_grid_positions()
         self.valid_positions = self.shrink_grid(grid_positions, padding)
 
@@ -190,12 +194,14 @@ class SpatialShortTermMemoryTrialFactory:
         for n_dots in n_dots_list:
             for _ in range(n_far):
                 sequence = self.generate_far_stimuli(n_dots)
-                trial = SpatialShortTermMemoryTrial(sequence, self.grid)
+                trial = SpatialShortTermMemoryTrial(
+                    sequence, self.grid, self.dot_size)
                 trials.append(trial)
 
             for _ in range(n_near):
                 sequence = self.generate_near_stimuli(n_dots)
-                trial = SpatialShortTermMemoryTrial(sequence, self.grid)
+                trial = SpatialShortTermMemoryTrial(
+                    sequence, self.grid, self.dot_size)
                 trials.append(trial)
 
         assert random.shuffle(trials) is None
@@ -328,12 +334,16 @@ class SpatialShortTermMemoryTask(GenericTask):
     def init_trials(self, config):
         trial_factory = SpatialShortTermMemoryTrialFactory(
             grid=self.grid,
-            padding=config['dots']['padding'])
+            padding=config['sequences']['padding'],
+            dot_size=config['dots']['size'])
 
         practice_dot_sequences = config['practice']
-        self.practice_trials = [SpatialShortTermMemoryTrial(dot_sequence,
-                                                            self.grid)
-                                for dot_sequence in practice_dot_sequences]
+        self.practice_trials = [
+            SpatialShortTermMemoryTrial(
+                sequence=dot_sequence,
+                grid=self.grid,
+                dot_size=config['dots']['size'])
+            for dot_sequence in practice_dot_sequences]
 
         self.trials = trial_factory.generate(
             n_dots_list=config['trials']['n_dots_list'],
