@@ -42,7 +42,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="#current_task.clean_trial()&amp;#10;&amp;#10;if current_task.do_practice:&amp;#10;    current_trial = current_task.start_new_practice_trial()&amp;#10;else:&amp;#10;    current_trial = current_task.start_new_trial()&amp;#10;&amp;#10;do_break = current_task.has_pause()" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -61,7 +61,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="instruction_filepath = instruction_filepaths.pop(0)" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -118,12 +118,12 @@
       <CodeComponent name="base_code_init">
         <Param name="Before Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Before JS Experiment" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Begin Experiment" val="import datetime&amp;#10;import os&amp;#10;&amp;#10;from psychopy.hardware.keyboard import Keyboard&amp;#10;&amp;#10;from common.config import WMCConfig&amp;#10;from common.experiment_messages import ExperimentMessages&amp;#10;from common.instructions import Instructions&amp;#10;&amp;#10;# for catching experiment quit key&amp;#10;experiment_keyboard = Keyboard()&amp;#10;&amp;#10;output_dir = os.path.join(os.getcwd(), 'data')&amp;#10;&amp;#10;thisExp.extraInfo['datetime'] = datetime.datetime.today()&amp;#10;&amp;#10;subject_id = thisExp.extraInfo['Subject ID']&amp;#10;assert subject_id is not None, 'Please specify a subject id'&amp;#10;assert subject_id is not '', 'Please specify a subject id'&amp;#10;&amp;#10;language = thisExp.extraInfo['Language']&amp;#10;&amp;#10;config = WMCConfig(language=language)&amp;#10;expmsgs = ExperimentMessages(language=language,&amp;#10;                             encoding=config.experiment_messages.encoding)&amp;#10;instructions = Instructions(language)&amp;#10;&amp;#10;do_mu_task = thisExp.extraInfo['Memory Update']&amp;#10;do_os_task = thisExp.extraInfo['Operation Span']&amp;#10;do_ss_task = thisExp.extraInfo['Sentence Span']&amp;#10;do_sstm_task = thisExp.extraInfo['Spatial Short Term Memory']&amp;#10;&amp;#10;random_seed = thisExp.extraInfo['Random Seed']&amp;#10;if random_seed is None or random_seed == '':&amp;#10;    random_seed = subject_id" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Experiment" val="import datetime&amp;#10;import os&amp;#10;&amp;#10;from psychopy.hardware.keyboard import Keyboard&amp;#10;&amp;#10;from common.config import WMCConfig&amp;#10;from common.experiment_messages import ExperimentMessages&amp;#10;from common.instructions import Instructions&amp;#10;&amp;#10;# for catching experiment quit key&amp;#10;experiment_keyboard = Keyboard()&amp;#10;&amp;#10;output_dir = os.path.join(os.getcwd(), 'data')&amp;#10;&amp;#10;thisExp.extraInfo['datetime'] = datetime.datetime.today()&amp;#10;&amp;#10;subject_id = thisExp.extraInfo['Subject ID']&amp;#10;assert subject_id is not None, 'Please specify a subject id'&amp;#10;assert subject_id != '', 'Please specify a subject id'&amp;#10;&amp;#10;language = thisExp.extraInfo['Language']&amp;#10;&amp;#10;config = WMCConfig(language=language)&amp;#10;expmsgs = ExperimentMessages(language=language,&amp;#10;                             encoding=config.experiment_messages.encoding)&amp;#10;instructions = Instructions(language)&amp;#10;&amp;#10;do_mu_task = thisExp.extraInfo['Memory Update']&amp;#10;do_os_task = thisExp.extraInfo['Operation Span']&amp;#10;do_ss_task = thisExp.extraInfo['Sentence Span']&amp;#10;do_sstm_task = thisExp.extraInfo['Spatial Short Term Memory']&amp;#10;&amp;#10;random_seed = thisExp.extraInfo['Random Seed']&amp;#10;if random_seed is None or random_seed == '':&amp;#10;    random_seed = subject_id" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="instruction_filepaths = instructions.get_instructions('init')&amp;#10;win.mouseVisible = False&amp;#10;sstm_mouse.setVisible(False)" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -142,7 +142,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="current_task.finish_trial()" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -185,7 +185,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -246,7 +246,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -289,7 +289,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="# set begin task message depending on practice&amp;#10;if current_task.do_practice:&amp;#10;    msg_task_begin = expmsgs.begin_practice&amp;#10;else:&amp;#10;    msg_task_begin = expmsgs.begin_task&amp;#10;&amp;#10;# choose practice or trial conditions&amp;#10;if current_task.do_practice:&amp;#10;    n_trials = current_task.get_practice_trial_count()&amp;#10;else:&amp;#10;    n_trials = current_task.get_trial_count()" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -350,7 +350,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="output_filepath = os.path.join(output_dir, f'{current_task.name}-{subject_id}.dat')&amp;#10;current_task.write_results(output_filepath)" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -411,7 +411,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="from tasks.memory_update import MemoryUpdateTask&amp;#10;current_task = MemoryUpdateTask(window=win, seed=random_seed, config=config.memory_update)&amp;#10;mu_allowed_keys = current_task.allowed_keys&amp;#10;&amp;#10;instruction_filepaths = instructions.get_instructions('mu')&amp;#10;n_instruction_pages = instructions.get_instruction_page_count('mu')" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -430,7 +430,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="n_digits = current_trial.get_n_digits()&amp;#10;n_operations = current_trial.get_n_operations()" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -473,7 +473,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="current_digit, current_digit_position = current_trial.get_next_digit()" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -516,7 +516,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -559,7 +559,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="current_operation, current_operation_position = current_trial.get_next_operation()" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -602,7 +602,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="current_recall = current_trial.get_next_recall()&amp;#10;recall_position = current_recall['position']&amp;#10;&amp;#10;correct_answer = str(current_recall['result'])&amp;#10;if any(k.startswith('num') for k in current_task.allowed_keys):&amp;#10;    correct_answer = [correct_answer, f'num_{correct_answer}']&amp;#10;&amp;#10;thisExp.addData('is_practice', current_task.do_practice)&amp;#10;thisExp.addData('mu_key_resp_recall.correct_answer', current_recall['result'])&amp;#10;thisExp.addData('mu_key_resp_recall.position', current_recall['position'])&amp;#10;thisExp.addData('mu_key_resp_recall.position_id', current_recall['position_id'])&amp;#10;thisExp.addData('mu_key_resp_recall.operation_sequence', current_recall['operation_sequence'])" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -663,7 +663,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="keyboard_response = mu_key_resp_recall.keys.replace('num_', '')&amp;#10;current_trial.save_response(keyboard_response)" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -706,7 +706,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="from tasks.operation_span import OperationSpanTask&amp;#10;&amp;#10;current_task = OperationSpanTask(random_seed, config.operation_span)&amp;#10;equation_keys = current_task.get_equation_keys()&amp;#10;&amp;#10;instruction_filepaths = instructions.get_instructions('os')&amp;#10;n_instruction_pages = instructions.get_instruction_page_count('os')" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -725,7 +725,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="n_presentations = current_trial.get_presentation_count()" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -768,7 +768,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -811,7 +811,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="equation = current_trial.get_next_equation()&amp;#10;equation_string = str(equation)&amp;#10;correct_key = current_task.key_map[equation.correct]&amp;#10;&amp;#10;thisExp.addData('is_practice', current_task.do_practice)&amp;#10;thisExp.addData('os_key_resp_equation.equation_string', equation_string)&amp;#10;thisExp.addData('os_key_resp_equation.equation_correct', equation.correct)&amp;#10;thisExp.addData('os_key_resp_equation.correct_answer', correct_key)&amp;#10;" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -872,7 +872,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="correct_letter = current_trial.get_next_recall_letter()&amp;#10;&amp;#10;thisExp.addData('is_practice', current_task.do_practice)&amp;#10;thisExp.addData('os_key_resp_recall.correct_letter', correct_letter)&amp;#10;&amp;#10;os_allowed_keys = current_task.config.allowed_keys" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -933,7 +933,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="letter_response = os_key_resp_recall.keys&amp;#10;letter_rt = os_key_resp_recall.rt&amp;#10;current_trial.save_letter_response(letter_response, letter_rt)&amp;#10;" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -976,7 +976,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="letter = current_trial.get_next_letter().upper()" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -1019,7 +1019,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="from tasks.sentence_span import SentenceSpanTask&amp;#10;&amp;#10;current_task = SentenceSpanTask(language=language, seed=random_seed, config=config.sentence_span)&amp;#10;sentence_keys = current_task.get_sentence_keys()&amp;#10;&amp;#10;instruction_filepaths = instructions.get_instructions('ss')&amp;#10;n_instruction_pages = instructions.get_instruction_page_count('ss')" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -1038,7 +1038,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="n_presentations = current_trial.get_presentation_count()" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -1081,7 +1081,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="sentence = current_trial.get_next_sentence()&amp;#10;sentence_string = str(sentence)&amp;#10;correct_key = current_task.key_map[sentence.correct]&amp;#10;&amp;#10;thisExp.addData('is_practice', current_task.do_practice)&amp;#10;thisExp.addData('ss_key_resp_sentence.sentence_string', sentence_string)&amp;#10;thisExp.addData('ss_key_resp_sentence.sentence_correct', sentence.correct)&amp;#10;thisExp.addData('ss_key_resp_sentence.correct_answer', correct_key)&amp;#10;" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -1142,7 +1142,7 @@
         <Param name="Begin JS Routine" val="letter = current_trial.get_next_letter().upper();&amp;#10;" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="letter = current_trial.get_next_letter().upper()" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -1185,7 +1185,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -1228,7 +1228,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="correct_letter = current_trial.get_next_recall_letter()&amp;#10;&amp;#10;thisExp.addData('is_practice', current_task.do_practice)&amp;#10;thisExp.addData('ss_key_resp_recall.correct_letter', correct_letter)&amp;#10;&amp;#10;ss_allowed_keys = current_task.config.allowed_keys" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -1289,7 +1289,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="letter_response = ss_key_resp_recall.keys&amp;#10;letter_rt = ss_key_resp_recall.rt&amp;#10;current_trial.save_letter_response(letter_response, letter_rt)&amp;#10;" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -1332,7 +1332,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="from tasks.spatial_short_term_memory import SpatialShortTermMemoryTask&amp;#10;current_task = SpatialShortTermMemoryTask(window=win, seed=random_seed, experiment_data=thisExp, config=config.spatial_short_term_memory)&amp;#10;&amp;#10;instruction_filepaths = instructions.get_instructions('sstm')&amp;#10;n_instruction_pages = instructions.get_instruction_page_count('sstm')" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -1351,7 +1351,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="n_presentations = current_trial.get_presentation_count()&amp;#10;" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -1394,7 +1394,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="current_dot = current_trial.get_next_presentation()" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -1438,7 +1438,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="current_trial.grid.show(True)" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -1481,7 +1481,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="current_trial.grid.show(True)&amp;#10;win.mouseVisible = True&amp;#10;sstm_mouse.setVisible(True)" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()&amp;#10;    &amp;#10;current_trial.process_mouse_event(sstm_mouse)&amp;#10;&amp;#10;if current_trial.selected_required_count():&amp;#10;    sstm_text_next.pos = (-0.325, -0.425)&amp;#10;else:&amp;#10;    sstm_text_next.pos = (10, 10)" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()&amp;#10;    &amp;#10;current_trial.process_mouse_event(sstm_mouse)&amp;#10;&amp;#10;if current_trial.selected_required_count():&amp;#10;    sstm_text_next.pos = (-0.325, -0.425)&amp;#10;else:&amp;#10;    sstm_text_next.pos = (10, 10)" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -1542,7 +1542,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -1603,7 +1603,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="detailed_output_filepath = os.path.join(output_dir, 'sstm_detailed', f'{current_task.name}-{subject_id}.dat')&amp;#10;current_task.write_results(detailed_output_filepath)&amp;#10;&amp;#10;overall_output_filepath = os.path.join(output_dir, f'{current_task.name}-{subject_id}.dat')&amp;#10;current_task.write_overall_results(overall_output_filepath)" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -1664,7 +1664,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="current_trial.grid.show(False)" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -1707,7 +1707,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
