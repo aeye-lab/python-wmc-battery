@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.2.10),
-    on Wed 30 Jun 2021 08:58:26 AM CEST
+    on Wed 30 Jun 2021 09:20:39 AM CEST
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -248,7 +248,7 @@ base_text_next_trial = visual.TextStim(win=win, name='base_text_next_trial',
     pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
-    depth=0.0);
+    depth=-1.0);
 base_next_trial_key_resp = keyboard.Keyboard()
 
 # Initialize components for Routine "base_intertrial"
@@ -913,7 +913,6 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
     # update component parameters for each repeat
     from tasks.memory_update import MemoryUpdateTask
     current_task = MemoryUpdateTask(window=win, seed=random_seed, config=config.memory_update)
-    mu_allowed_keys = current_task.allowed_keys
     
     instruction_filepaths = instructions.get_instructions('mu')
     n_instruction_pages = instructions.get_instruction_page_count('mu')
@@ -1742,9 +1741,8 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 current_recall = current_trial.get_next_recall()
                 recall_position = current_recall['position']
                 
-                correct_answer = str(current_recall['result'])
-                if any(k.startswith('num') for k in current_task.allowed_keys):
-                    correct_answer = [correct_answer, f'num_{correct_answer}']
+                correct_answer_digit = str(current_recall['result'])
+                correct_answer = [correct_answer_digit, f'num_{correct_answer_digit}']
                 
                 thisExp.addData('is_practice', current_task.do_practice)
                 thisExp.addData('mu_key_resp_recall.correct_answer', current_recall['result'])
@@ -1801,21 +1799,12 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                         mu_key_resp_recall.tStartRefresh = tThisFlipGlobal  # on global time
                         win.timeOnFlip(mu_key_resp_recall, 'tStartRefresh')  # time at next scr refresh
                         mu_key_resp_recall.status = STARTED
-                        # AllowedKeys looks like a variable named `mu_allowed_keys`
-                        if not type(mu_allowed_keys) in [list, tuple, np.ndarray]:
-                            if not isinstance(mu_allowed_keys, str):
-                                logging.error('AllowedKeys variable `mu_allowed_keys` is not string- or list-like.')
-                                core.quit()
-                            elif not ',' in mu_allowed_keys:
-                                mu_allowed_keys = (mu_allowed_keys,)
-                            else:
-                                mu_allowed_keys = eval(mu_allowed_keys)
                         # keyboard checking is just starting
                         waitOnFlip = True
                         win.callOnFlip(mu_key_resp_recall.clock.reset)  # t=0 on next screen flip
                         win.callOnFlip(mu_key_resp_recall.clearEvents, eventType='keyboard')  # clear events on next screen flip
                     if mu_key_resp_recall.status == STARTED and not waitOnFlip:
-                        theseKeys = mu_key_resp_recall.getKeys(keyList=list(mu_allowed_keys), waitRelease=False)
+                        theseKeys = mu_key_resp_recall.getKeys(keyList=None, waitRelease=False)
                         _mu_key_resp_recall_allKeys.extend(theseKeys)
                         if len(_mu_key_resp_recall_allKeys):
                             mu_key_resp_recall.keys = _mu_key_resp_recall_allKeys[-1].name  # just the last key pressed
@@ -1863,6 +1852,11 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 continueRoutine = True
                 # update component parameters for each repeat
                 keyboard_response = mu_key_resp_recall.keys.replace('num_', '')
+                if keyboard_response.isspace():
+                    keyboard_response = '.'
+                if len(keyboard_response) > 1:
+                    keyboard_response = '.'
+                keyboard_response = keyboard_response.upper()
                 current_trial.save_response(keyboard_response)
                 mu_text_recall.setPos(recall_position)
                 mu_text_recall.setText(keyboard_response)
@@ -1990,6 +1984,8 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                     # update/draw components on each frame
+                    if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):
+                        core.quit()
                     
                     # *base_text_next_trial* updates
                     if base_text_next_trial.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:

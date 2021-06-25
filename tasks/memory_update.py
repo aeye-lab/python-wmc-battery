@@ -144,7 +144,10 @@ class MemoryUpdateTrial(GenericTrial):
         return len(self.digits) - self.current_recall - 1
 
     def save_response(self, digit):
-        digit = int(str(digit).replace('num_', ''))
+        try:
+            digit = int(str(digit).replace('num_', ''))
+        except ValueError:
+            digit = -1
         self.responses[self.current_recall] = digit
         correct_result = self.results[self.recall_order[self.current_recall]]
         self.is_correct[self.current_recall] = int(digit == correct_result)
@@ -184,8 +187,6 @@ class MemoryUpdateTask(GenericTask):
         self.name = 'MU'
         
         self.config = config
-        self.allowed_keys = config['allowed_keys']
-
         self.init_frames(window, config)
         self.init_trials(config)
         self.init_results(config)
