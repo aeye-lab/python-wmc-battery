@@ -59,14 +59,14 @@
         <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Begin Routine" val="instruction_filepath = instruction_filepaths.pop(0)" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Routine" val="instruction_filepath = instruction_filepaths.pop(0)&amp;#10;&amp;#10;# the following is just needed because of a bug in psychopy&amp;#10;# where images will get a grey border. a workaround is&amp;#10;# setting up an aperture to hide these borders.&amp;#10;&amp;#10;from PIL import Image&amp;#10;instr_img_size = Image.open(instruction_filepath).size&amp;#10;&amp;#10;# set aperture parameters from image size in pixels&amp;#10;aperture_padding = 4&amp;#10;aperture_width = instr_img_size[0] - aperture_padding&amp;#10;aperture_height = instr_img_size[1] - aperture_padding&amp;#10;&amp;#10;# height scaling only scales by screen height to keep aspect ratio&amp;#10;aperture_right = aperture_width / 2 / win.size[1]&amp;#10;aperture_top = aperture_height / 2 / win.size[1]&amp;#10;&amp;#10;# setup rectangle vertices&amp;#10;aperture_vertices = [&amp;#10;    [aperture_right, aperture_top],&amp;#10;    [aperture_right, -aperture_top],&amp;#10;    [-aperture_right, -aperture_top],&amp;#10;    [-aperture_right, aperture_top],&amp;#10;]&amp;#10;&amp;#10;aperture_instruction = visual.Aperture(win, size=1, shape=aperture_vertices, units='height')&amp;#10;" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
         <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Routine" val="" valType="extendedCode" updates="constant"/>
-        <Param name="End Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End Routine" val="del aperture_instruction" valType="extendedCode" updates="constant"/>
         <Param name="disabled" val="False" valType="bool" updates="None"/>
         <Param name="name" val="base_code_instruction" valType="code" updates="None"/>
       </CodeComponent>
@@ -85,7 +85,7 @@
         <Param name="ori" val="0" valType="code" updates="constant"/>
         <Param name="pos" val="(0, 0)" valType="code" updates="constant"/>
         <Param name="saveStartStop" val="True" valType="bool" updates="None"/>
-        <Param name="size" val="(0.8, 0.8)" valType="code" updates="constant"/>
+        <Param name="size" val="instr_img_size" valType="code" updates="set every repeat"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
         <Param name="startVal" val="0.0" valType="code" updates="None"/>
@@ -93,7 +93,7 @@
         <Param name="stopVal" val="" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="texture resolution" val="128" valType="code" updates="constant"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="units" val="pix" valType="str" updates="None"/>
       </ImageComponent>
       <KeyboardComponent name="base_key_resp_instruction">
         <Param name="allowedKeys" val="" valType="code" updates="constant"/>
@@ -113,6 +113,21 @@
         <Param name="storeCorrect" val="False" valType="bool" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="constant"/>
       </KeyboardComponent>
+      <ApertureComponent name="base_aperture_instruction">
+        <Param name="disabled" val="False" valType="bool" updates="None"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="name" val="base_aperture_instruction" valType="code" updates="None"/>
+        <Param name="pos" val="(0, 0)" valType="code" updates="constant"/>
+        <Param name="saveStartStop" val="True" valType="bool" updates="None"/>
+        <Param name="size" val="10" valType="code" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="stopVal" val="" valType="code" updates="constant"/>
+        <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
+        <Param name="units" val="height" valType="str" updates="None"/>
+      </ApertureComponent>
     </Routine>
     <Routine name="base_init">
       <CodeComponent name="base_code_init">

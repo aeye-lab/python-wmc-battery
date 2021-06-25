@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.2.10),
-    on Mon 28 Jun 2021 11:39:31 AM CEST
+    on Tue 29 Jun 2021 03:22:45 PM CEST
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -65,7 +65,7 @@ frameTolerance = 0.001  # how close to onset before 'same' frame
 # Setup the Window
 win = visual.Window(
     size=[1680, 1050], fullscr=True, screen=0, 
-    winType='pyglet', allowGUI=False, allowStencil=False,
+    winType='pyglet', allowGUI=False, allowStencil=True,
     monitor='testMonitor', color='white', colorSpace='rgb',
     blendMode='avg', useFBO=True, 
     units='height')
@@ -121,13 +121,17 @@ if random_seed is None or random_seed == '':
 base_instructionClock = core.Clock()
 base_image_instruction = visual.ImageStim(
     win=win,
-    name='base_image_instruction', 
+    name='base_image_instruction', units='pix', 
     image='sin', mask=None,
-    ori=0, pos=(0, 0), size=(0.8, 0.8),
+    ori=0, pos=(0, 0), size=1.0,
     color=[1,1,1], colorSpace='rgb', opacity=1,
     flipHoriz=False, flipVert=False,
     texRes=128, interpolate=True, depth=-1.0)
 base_key_resp_instruction = keyboard.Keyboard()
+base_aperture_instruction = visual.Aperture(
+    win=win, name='base_aperture_instruction',
+    units='height', size=10, pos=(0, 0))
+base_aperture_instruction.disable()  # disable until its actually used
 
 # Initialize components for Routine "mu_init"
 mu_initClock = core.Clock()
@@ -136,13 +140,17 @@ mu_initClock = core.Clock()
 base_instructionClock = core.Clock()
 base_image_instruction = visual.ImageStim(
     win=win,
-    name='base_image_instruction', 
+    name='base_image_instruction', units='pix', 
     image='sin', mask=None,
-    ori=0, pos=(0, 0), size=(0.8, 0.8),
+    ori=0, pos=(0, 0), size=1.0,
     color=[1,1,1], colorSpace='rgb', opacity=1,
     flipHoriz=False, flipVert=False,
     texRes=128, interpolate=True, depth=-1.0)
 base_key_resp_instruction = keyboard.Keyboard()
+base_aperture_instruction = visual.Aperture(
+    win=win, name='base_aperture_instruction',
+    units='height', size=10, pos=(0, 0))
+base_aperture_instruction.disable()  # disable until its actually used
 
 # Initialize components for Routine "base_init_task"
 base_init_taskClock = core.Clock()
@@ -278,13 +286,17 @@ os_initClock = core.Clock()
 base_instructionClock = core.Clock()
 base_image_instruction = visual.ImageStim(
     win=win,
-    name='base_image_instruction', 
+    name='base_image_instruction', units='pix', 
     image='sin', mask=None,
-    ori=0, pos=(0, 0), size=(0.8, 0.8),
+    ori=0, pos=(0, 0), size=1.0,
     color=[1,1,1], colorSpace='rgb', opacity=1,
     flipHoriz=False, flipVert=False,
     texRes=128, interpolate=True, depth=-1.0)
 base_key_resp_instruction = keyboard.Keyboard()
+base_aperture_instruction = visual.Aperture(
+    win=win, name='base_aperture_instruction',
+    units='height', size=10, pos=(0, 0))
+base_aperture_instruction.disable()  # disable until its actually used
 
 # Initialize components for Routine "base_init_task"
 base_init_taskClock = core.Clock()
@@ -411,13 +423,17 @@ ss_initClock = core.Clock()
 base_instructionClock = core.Clock()
 base_image_instruction = visual.ImageStim(
     win=win,
-    name='base_image_instruction', 
+    name='base_image_instruction', units='pix', 
     image='sin', mask=None,
-    ori=0, pos=(0, 0), size=(0.8, 0.8),
+    ori=0, pos=(0, 0), size=1.0,
     color=[1,1,1], colorSpace='rgb', opacity=1,
     flipHoriz=False, flipVert=False,
     texRes=128, interpolate=True, depth=-1.0)
 base_key_resp_instruction = keyboard.Keyboard()
+base_aperture_instruction = visual.Aperture(
+    win=win, name='base_aperture_instruction',
+    units='height', size=10, pos=(0, 0))
+base_aperture_instruction.disable()  # disable until its actually used
 
 # Initialize components for Routine "base_init_task"
 base_init_taskClock = core.Clock()
@@ -544,13 +560,17 @@ sstm_initClock = core.Clock()
 base_instructionClock = core.Clock()
 base_image_instruction = visual.ImageStim(
     win=win,
-    name='base_image_instruction', 
+    name='base_image_instruction', units='pix', 
     image='sin', mask=None,
-    ori=0, pos=(0, 0), size=(0.8, 0.8),
+    ori=0, pos=(0, 0), size=1.0,
     color=[1,1,1], colorSpace='rgb', opacity=1,
     flipHoriz=False, flipVert=False,
     texRes=128, interpolate=True, depth=-1.0)
 base_key_resp_instruction = keyboard.Keyboard()
+base_aperture_instruction = visual.Aperture(
+    win=win, name='base_aperture_instruction',
+    units='height', size=10, pos=(0, 0))
+base_aperture_instruction.disable()  # disable until its actually used
 
 # Initialize components for Routine "base_init_task"
 base_init_taskClock = core.Clock()
@@ -744,12 +764,40 @@ routineTimer.reset()
 continueRoutine = True
 # update component parameters for each repeat
 instruction_filepath = instruction_filepaths.pop(0)
+
+# the following is just needed because of a bug in psychopy
+# where images will get a grey border. a workaround is
+# setting up an aperture to hide these borders.
+
+from PIL import Image
+instr_img_size = Image.open(instruction_filepath).size
+
+# set aperture parameters from image size in pixels
+aperture_padding = 4
+aperture_width = instr_img_size[0] - aperture_padding
+aperture_height = instr_img_size[1] - aperture_padding
+
+# height scaling only scales by screen height to keep aspect ratio
+aperture_right = aperture_width / 2 / win.size[1]
+aperture_top = aperture_height / 2 / win.size[1]
+
+# setup rectangle vertices
+aperture_vertices = [
+    [aperture_right, aperture_top],
+    [aperture_right, -aperture_top],
+    [-aperture_right, -aperture_top],
+    [-aperture_right, aperture_top],
+]
+
+aperture_instruction = visual.Aperture(win, size=1, shape=aperture_vertices, units='height')
+
+base_image_instruction.setSize(instr_img_size)
 base_image_instruction.setImage(instruction_filepath)
 base_key_resp_instruction.keys = []
 base_key_resp_instruction.rt = []
 _base_key_resp_instruction_allKeys = []
 # keep track of which components have finished
-base_instructionComponents = [base_image_instruction, base_key_resp_instruction]
+base_instructionComponents = [base_image_instruction, base_key_resp_instruction, base_aperture_instruction]
 for thisComponent in base_instructionComponents:
     thisComponent.tStart = None
     thisComponent.tStop = None
@@ -805,6 +853,15 @@ while continueRoutine:
             # a response ends the routine
             continueRoutine = False
     
+    # *base_aperture_instruction* updates
+    if base_aperture_instruction.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        base_aperture_instruction.frameNStart = frameN  # exact frame index
+        base_aperture_instruction.tStart = t  # local t and not account for scr refresh
+        base_aperture_instruction.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(base_aperture_instruction, 'tStartRefresh')  # time at next scr refresh
+        base_aperture_instruction.enabled = True
+    
     # check if all components have finished
     if not continueRoutine:  # a component has requested a forced-end of Routine
         break
@@ -822,6 +879,7 @@ while continueRoutine:
 for thisComponent in base_instructionComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
+del aperture_instruction
 thisExp.addData('base_image_instruction.started', base_image_instruction.tStartRefresh)
 thisExp.addData('base_image_instruction.stopped', base_image_instruction.tStopRefresh)
 # check responses
@@ -833,6 +891,9 @@ if base_key_resp_instruction.keys != None:  # we had a response
 thisExp.addData('base_key_resp_instruction.started', base_key_resp_instruction.tStartRefresh)
 thisExp.addData('base_key_resp_instruction.stopped', base_key_resp_instruction.tStopRefresh)
 thisExp.nextEntry()
+base_aperture_instruction.enabled = False  # just in case it was left enabled
+thisExp.addData('base_aperture_instruction.started', base_aperture_instruction.tStartRefresh)
+thisExp.addData('base_aperture_instruction.stopped', base_aperture_instruction.tStopRefresh)
 # the Routine "base_instruction" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
@@ -933,12 +994,40 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
         continueRoutine = True
         # update component parameters for each repeat
         instruction_filepath = instruction_filepaths.pop(0)
+        
+        # the following is just needed because of a bug in psychopy
+        # where images will get a grey border. a workaround is
+        # setting up an aperture to hide these borders.
+        
+        from PIL import Image
+        instr_img_size = Image.open(instruction_filepath).size
+        
+        # set aperture parameters from image size in pixels
+        aperture_padding = 4
+        aperture_width = instr_img_size[0] - aperture_padding
+        aperture_height = instr_img_size[1] - aperture_padding
+        
+        # height scaling only scales by screen height to keep aspect ratio
+        aperture_right = aperture_width / 2 / win.size[1]
+        aperture_top = aperture_height / 2 / win.size[1]
+        
+        # setup rectangle vertices
+        aperture_vertices = [
+            [aperture_right, aperture_top],
+            [aperture_right, -aperture_top],
+            [-aperture_right, -aperture_top],
+            [-aperture_right, aperture_top],
+        ]
+        
+        aperture_instruction = visual.Aperture(win, size=1, shape=aperture_vertices, units='height')
+        
+        base_image_instruction.setSize(instr_img_size)
         base_image_instruction.setImage(instruction_filepath)
         base_key_resp_instruction.keys = []
         base_key_resp_instruction.rt = []
         _base_key_resp_instruction_allKeys = []
         # keep track of which components have finished
-        base_instructionComponents = [base_image_instruction, base_key_resp_instruction]
+        base_instructionComponents = [base_image_instruction, base_key_resp_instruction, base_aperture_instruction]
         for thisComponent in base_instructionComponents:
             thisComponent.tStart = None
             thisComponent.tStop = None
@@ -994,6 +1083,15 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                     # a response ends the routine
                     continueRoutine = False
             
+            # *base_aperture_instruction* updates
+            if base_aperture_instruction.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                # keep track of start time/frame for later
+                base_aperture_instruction.frameNStart = frameN  # exact frame index
+                base_aperture_instruction.tStart = t  # local t and not account for scr refresh
+                base_aperture_instruction.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(base_aperture_instruction, 'tStartRefresh')  # time at next scr refresh
+                base_aperture_instruction.enabled = True
+            
             # check if all components have finished
             if not continueRoutine:  # a component has requested a forced-end of Routine
                 break
@@ -1011,6 +1109,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
         for thisComponent in base_instructionComponents:
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
+        del aperture_instruction
         mu_instruction_pages.addData('base_image_instruction.started', base_image_instruction.tStartRefresh)
         mu_instruction_pages.addData('base_image_instruction.stopped', base_image_instruction.tStopRefresh)
         # check responses
@@ -1021,6 +1120,9 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
             mu_instruction_pages.addData('base_key_resp_instruction.rt', base_key_resp_instruction.rt)
         mu_instruction_pages.addData('base_key_resp_instruction.started', base_key_resp_instruction.tStartRefresh)
         mu_instruction_pages.addData('base_key_resp_instruction.stopped', base_key_resp_instruction.tStopRefresh)
+        base_aperture_instruction.enabled = False  # just in case it was left enabled
+        mu_instruction_pages.addData('base_aperture_instruction.started', base_aperture_instruction.tStartRefresh)
+        mu_instruction_pages.addData('base_aperture_instruction.stopped', base_aperture_instruction.tStopRefresh)
         # the Routine "base_instruction" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
         thisExp.nextEntry()
@@ -2313,12 +2415,40 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
         continueRoutine = True
         # update component parameters for each repeat
         instruction_filepath = instruction_filepaths.pop(0)
+        
+        # the following is just needed because of a bug in psychopy
+        # where images will get a grey border. a workaround is
+        # setting up an aperture to hide these borders.
+        
+        from PIL import Image
+        instr_img_size = Image.open(instruction_filepath).size
+        
+        # set aperture parameters from image size in pixels
+        aperture_padding = 4
+        aperture_width = instr_img_size[0] - aperture_padding
+        aperture_height = instr_img_size[1] - aperture_padding
+        
+        # height scaling only scales by screen height to keep aspect ratio
+        aperture_right = aperture_width / 2 / win.size[1]
+        aperture_top = aperture_height / 2 / win.size[1]
+        
+        # setup rectangle vertices
+        aperture_vertices = [
+            [aperture_right, aperture_top],
+            [aperture_right, -aperture_top],
+            [-aperture_right, -aperture_top],
+            [-aperture_right, aperture_top],
+        ]
+        
+        aperture_instruction = visual.Aperture(win, size=1, shape=aperture_vertices, units='height')
+        
+        base_image_instruction.setSize(instr_img_size)
         base_image_instruction.setImage(instruction_filepath)
         base_key_resp_instruction.keys = []
         base_key_resp_instruction.rt = []
         _base_key_resp_instruction_allKeys = []
         # keep track of which components have finished
-        base_instructionComponents = [base_image_instruction, base_key_resp_instruction]
+        base_instructionComponents = [base_image_instruction, base_key_resp_instruction, base_aperture_instruction]
         for thisComponent in base_instructionComponents:
             thisComponent.tStart = None
             thisComponent.tStop = None
@@ -2374,6 +2504,15 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                     # a response ends the routine
                     continueRoutine = False
             
+            # *base_aperture_instruction* updates
+            if base_aperture_instruction.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                # keep track of start time/frame for later
+                base_aperture_instruction.frameNStart = frameN  # exact frame index
+                base_aperture_instruction.tStart = t  # local t and not account for scr refresh
+                base_aperture_instruction.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(base_aperture_instruction, 'tStartRefresh')  # time at next scr refresh
+                base_aperture_instruction.enabled = True
+            
             # check if all components have finished
             if not continueRoutine:  # a component has requested a forced-end of Routine
                 break
@@ -2391,6 +2530,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
         for thisComponent in base_instructionComponents:
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
+        del aperture_instruction
         os_instruction_pages.addData('base_image_instruction.started', base_image_instruction.tStartRefresh)
         os_instruction_pages.addData('base_image_instruction.stopped', base_image_instruction.tStopRefresh)
         # check responses
@@ -2401,6 +2541,9 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
             os_instruction_pages.addData('base_key_resp_instruction.rt', base_key_resp_instruction.rt)
         os_instruction_pages.addData('base_key_resp_instruction.started', base_key_resp_instruction.tStartRefresh)
         os_instruction_pages.addData('base_key_resp_instruction.stopped', base_key_resp_instruction.tStopRefresh)
+        base_aperture_instruction.enabled = False  # just in case it was left enabled
+        os_instruction_pages.addData('base_aperture_instruction.started', base_aperture_instruction.tStartRefresh)
+        os_instruction_pages.addData('base_aperture_instruction.stopped', base_aperture_instruction.tStopRefresh)
         # the Routine "base_instruction" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
         thisExp.nextEntry()
@@ -3680,12 +3823,40 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
         continueRoutine = True
         # update component parameters for each repeat
         instruction_filepath = instruction_filepaths.pop(0)
+        
+        # the following is just needed because of a bug in psychopy
+        # where images will get a grey border. a workaround is
+        # setting up an aperture to hide these borders.
+        
+        from PIL import Image
+        instr_img_size = Image.open(instruction_filepath).size
+        
+        # set aperture parameters from image size in pixels
+        aperture_padding = 4
+        aperture_width = instr_img_size[0] - aperture_padding
+        aperture_height = instr_img_size[1] - aperture_padding
+        
+        # height scaling only scales by screen height to keep aspect ratio
+        aperture_right = aperture_width / 2 / win.size[1]
+        aperture_top = aperture_height / 2 / win.size[1]
+        
+        # setup rectangle vertices
+        aperture_vertices = [
+            [aperture_right, aperture_top],
+            [aperture_right, -aperture_top],
+            [-aperture_right, -aperture_top],
+            [-aperture_right, aperture_top],
+        ]
+        
+        aperture_instruction = visual.Aperture(win, size=1, shape=aperture_vertices, units='height')
+        
+        base_image_instruction.setSize(instr_img_size)
         base_image_instruction.setImage(instruction_filepath)
         base_key_resp_instruction.keys = []
         base_key_resp_instruction.rt = []
         _base_key_resp_instruction_allKeys = []
         # keep track of which components have finished
-        base_instructionComponents = [base_image_instruction, base_key_resp_instruction]
+        base_instructionComponents = [base_image_instruction, base_key_resp_instruction, base_aperture_instruction]
         for thisComponent in base_instructionComponents:
             thisComponent.tStart = None
             thisComponent.tStop = None
@@ -3741,6 +3912,15 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                     # a response ends the routine
                     continueRoutine = False
             
+            # *base_aperture_instruction* updates
+            if base_aperture_instruction.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                # keep track of start time/frame for later
+                base_aperture_instruction.frameNStart = frameN  # exact frame index
+                base_aperture_instruction.tStart = t  # local t and not account for scr refresh
+                base_aperture_instruction.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(base_aperture_instruction, 'tStartRefresh')  # time at next scr refresh
+                base_aperture_instruction.enabled = True
+            
             # check if all components have finished
             if not continueRoutine:  # a component has requested a forced-end of Routine
                 break
@@ -3758,6 +3938,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
         for thisComponent in base_instructionComponents:
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
+        del aperture_instruction
         ss_instruction_pages.addData('base_image_instruction.started', base_image_instruction.tStartRefresh)
         ss_instruction_pages.addData('base_image_instruction.stopped', base_image_instruction.tStopRefresh)
         # check responses
@@ -3768,6 +3949,9 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
             ss_instruction_pages.addData('base_key_resp_instruction.rt', base_key_resp_instruction.rt)
         ss_instruction_pages.addData('base_key_resp_instruction.started', base_key_resp_instruction.tStartRefresh)
         ss_instruction_pages.addData('base_key_resp_instruction.stopped', base_key_resp_instruction.tStopRefresh)
+        base_aperture_instruction.enabled = False  # just in case it was left enabled
+        ss_instruction_pages.addData('base_aperture_instruction.started', base_aperture_instruction.tStartRefresh)
+        ss_instruction_pages.addData('base_aperture_instruction.stopped', base_aperture_instruction.tStopRefresh)
         # the Routine "base_instruction" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
         thisExp.nextEntry()
@@ -5046,12 +5230,40 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
         continueRoutine = True
         # update component parameters for each repeat
         instruction_filepath = instruction_filepaths.pop(0)
+        
+        # the following is just needed because of a bug in psychopy
+        # where images will get a grey border. a workaround is
+        # setting up an aperture to hide these borders.
+        
+        from PIL import Image
+        instr_img_size = Image.open(instruction_filepath).size
+        
+        # set aperture parameters from image size in pixels
+        aperture_padding = 4
+        aperture_width = instr_img_size[0] - aperture_padding
+        aperture_height = instr_img_size[1] - aperture_padding
+        
+        # height scaling only scales by screen height to keep aspect ratio
+        aperture_right = aperture_width / 2 / win.size[1]
+        aperture_top = aperture_height / 2 / win.size[1]
+        
+        # setup rectangle vertices
+        aperture_vertices = [
+            [aperture_right, aperture_top],
+            [aperture_right, -aperture_top],
+            [-aperture_right, -aperture_top],
+            [-aperture_right, aperture_top],
+        ]
+        
+        aperture_instruction = visual.Aperture(win, size=1, shape=aperture_vertices, units='height')
+        
+        base_image_instruction.setSize(instr_img_size)
         base_image_instruction.setImage(instruction_filepath)
         base_key_resp_instruction.keys = []
         base_key_resp_instruction.rt = []
         _base_key_resp_instruction_allKeys = []
         # keep track of which components have finished
-        base_instructionComponents = [base_image_instruction, base_key_resp_instruction]
+        base_instructionComponents = [base_image_instruction, base_key_resp_instruction, base_aperture_instruction]
         for thisComponent in base_instructionComponents:
             thisComponent.tStart = None
             thisComponent.tStop = None
@@ -5107,6 +5319,15 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                     # a response ends the routine
                     continueRoutine = False
             
+            # *base_aperture_instruction* updates
+            if base_aperture_instruction.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                # keep track of start time/frame for later
+                base_aperture_instruction.frameNStart = frameN  # exact frame index
+                base_aperture_instruction.tStart = t  # local t and not account for scr refresh
+                base_aperture_instruction.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(base_aperture_instruction, 'tStartRefresh')  # time at next scr refresh
+                base_aperture_instruction.enabled = True
+            
             # check if all components have finished
             if not continueRoutine:  # a component has requested a forced-end of Routine
                 break
@@ -5124,6 +5345,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
         for thisComponent in base_instructionComponents:
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
+        del aperture_instruction
         sstm_instruction_pages.addData('base_image_instruction.started', base_image_instruction.tStartRefresh)
         sstm_instruction_pages.addData('base_image_instruction.stopped', base_image_instruction.tStopRefresh)
         # check responses
@@ -5134,6 +5356,9 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
             sstm_instruction_pages.addData('base_key_resp_instruction.rt', base_key_resp_instruction.rt)
         sstm_instruction_pages.addData('base_key_resp_instruction.started', base_key_resp_instruction.tStartRefresh)
         sstm_instruction_pages.addData('base_key_resp_instruction.stopped', base_key_resp_instruction.tStopRefresh)
+        base_aperture_instruction.enabled = False  # just in case it was left enabled
+        sstm_instruction_pages.addData('base_aperture_instruction.started', base_aperture_instruction.tStartRefresh)
+        sstm_instruction_pages.addData('base_aperture_instruction.stopped', base_aperture_instruction.tStopRefresh)
         # the Routine "base_instruction" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
         thisExp.nextEntry()
