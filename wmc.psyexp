@@ -40,7 +40,7 @@
         <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Begin Routine" val="#current_task.clean_trial()&amp;#10;&amp;#10;if current_task.do_practice:&amp;#10;    current_trial = current_task.start_new_practice_trial()&amp;#10;else:&amp;#10;    current_trial = current_task.start_new_trial()&amp;#10;&amp;#10;do_break = current_task.has_pause()" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Routine" val="current_trial = current_task.start_new_trial()&amp;#10;do_break = current_task.has_pause()" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
         <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
@@ -302,7 +302,7 @@
         <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Begin Routine" val="# set begin task message depending on practice&amp;#10;if current_task.do_practice:&amp;#10;    msg_task_begin = expmsgs.begin_practice&amp;#10;else:&amp;#10;    msg_task_begin = expmsgs.begin_task&amp;#10;&amp;#10;# choose practice or trial conditions&amp;#10;if current_task.do_practice:&amp;#10;    n_trials = current_task.get_practice_trial_count()&amp;#10;else:&amp;#10;    n_trials = current_task.get_trial_count()" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Routine" val="# set begin task message depending on practice&amp;#10;if current_task.do_practice:&amp;#10;    msg_task_begin = expmsgs.begin_practice&amp;#10;else:&amp;#10;    msg_task_begin = expmsgs.begin_task&amp;#10;&amp;#10;n_trials = current_task.get_trial_count()" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
         <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
@@ -683,7 +683,7 @@
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Routine" val="" valType="extendedCode" updates="constant"/>
-        <Param name="End Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End Routine" val="if current_trial.get_left_recalls() == 0:&amp;#10;    current_task.hide_frames()" valType="extendedCode" updates="constant"/>
         <Param name="disabled" val="False" valType="bool" updates="None"/>
         <Param name="name" val="mu_code_display_recall" valType="code" updates="None"/>
       </CodeComponent>
@@ -1491,7 +1491,7 @@
       <CodeComponent name="sstm_code_recall">
         <Param name="Before Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Before JS Experiment" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Begin Experiment" val="sstm_text_next_string = expmsgs.next_trial" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="current_trial.grid.show(True)&amp;#10;win.mouseVisible = True&amp;#10;sstm_mouse.setVisible(True)" valType="extendedCode" updates="constant"/>
@@ -1525,7 +1525,7 @@
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
         <Param name="stopVal" val="" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
-        <Param name="text" val="$sstm_text_next_string" valType="extendedStr" updates="constant"/>
+        <Param name="text" val="$expmsgs.next" valType="extendedStr" updates="set every repeat"/>
         <Param name="units" val="height" valType="str" updates="None"/>
         <Param name="wrapWidth" val="text_wrap_width" valType="code" updates="constant"/>
       </TextComponent>
@@ -1756,6 +1756,50 @@
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
       </TextComponent>
     </Routine>
+    <Routine name="base_next_trial">
+      <TextComponent name="base_text_next_trial">
+        <Param name="color" val="black" valType="str" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="disabled" val="False" valType="bool" updates="None"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="flip" val="" valType="str" updates="constant"/>
+        <Param name="font" val="$config.experiment_messages.font" valType="str" updates="set every repeat"/>
+        <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
+        <Param name="letterHeight" val="$config.experiment_messages.height" valType="code" updates="set every repeat"/>
+        <Param name="name" val="base_text_next_trial" valType="code" updates="None"/>
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="pos" val="(0, 0)" valType="code" updates="constant"/>
+        <Param name="saveStartStop" val="True" valType="bool" updates="None"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="stopVal" val="" valType="code" updates="constant"/>
+        <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
+        <Param name="text" val="$expmsgs.next_trial" valType="extendedStr" updates="set every repeat"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+      </TextComponent>
+      <KeyboardComponent name="base_next_trial_key_resp">
+        <Param name="allowedKeys" val="'space'" valType="code" updates="constant"/>
+        <Param name="correctAns" val="" valType="str" updates="constant"/>
+        <Param name="disabled" val="False" valType="bool" updates="None"/>
+        <Param name="discard previous" val="True" valType="bool" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="forceEndRoutine" val="True" valType="bool" updates="constant"/>
+        <Param name="name" val="base_next_trial_key_resp" valType="code" updates="None"/>
+        <Param name="saveStartStop" val="True" valType="bool" updates="None"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="stopVal" val="" valType="code" updates="constant"/>
+        <Param name="store" val="last key" valType="str" updates="constant"/>
+        <Param name="storeCorrect" val="False" valType="bool" updates="constant"/>
+        <Param name="syncScreenRefresh" val="True" valType="bool" updates="constant"/>
+      </KeyboardComponent>
+    </Routine>
   </Routines>
   <Flow>
     <Routine name="base_init"/>
@@ -1852,21 +1896,20 @@
     <Routine name="mu_recall"/>
     <Routine name="mu_display_recall"/>
     <LoopTerminator name="mu_recalls"/>
-    <Routine name="base_intertrial"/>
-    <LoopInitiator loopType="TrialHandler" name="mu_break_dummy">
+    <LoopInitiator loopType="TrialHandler" name="mu_base_next_trial_dummy">
       <Param name="Selected rows" val="" valType="str" updates="None"/>
       <Param name="conditions" val="None" valType="str" updates="None"/>
       <Param name="conditionsFile" val="" valType="str" updates="None"/>
       <Param name="endPoints" val="[0, 1]" valType="num" updates="None"/>
       <Param name="isTrials" val="True" valType="bool" updates="None"/>
       <Param name="loopType" val="random" valType="str" updates="None"/>
-      <Param name="nReps" val="$do_break" valType="code" updates="None"/>
-      <Param name="name" val="mu_break_dummy" valType="code" updates="None"/>
+      <Param name="nReps" val="current_task.get_left_trials() &gt; 0" valType="code" updates="None"/>
+      <Param name="name" val="mu_base_next_trial_dummy" valType="code" updates="None"/>
       <Param name="random seed" val="" valType="code" updates="None"/>
     </LoopInitiator>
-    <Routine name="base_self_paced_break"/>
-    <Routine name="base_after_break_pause"/>
-    <LoopTerminator name="mu_break_dummy"/>
+    <Routine name="base_next_trial"/>
+    <LoopTerminator name="mu_base_next_trial_dummy"/>
+    <Routine name="base_intertrial"/>
     <LoopTerminator name="mu_trials"/>
     <LoopTerminator name="mu_practice_dummy"/>
     <Routine name="base_task_end"/>

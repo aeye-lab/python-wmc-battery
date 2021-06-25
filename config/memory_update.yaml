@@ -35,7 +35,6 @@ timing:
   inter_item: 0.25           # blank frame duration between each presentation
   recall: 1.0                # onscreen duration of recalled response
   inter_trial: 1.0           # blank screen duration between each trial
-  after_break: 2.0           # blank screen duration after self paced break
 
 text:
   font: 'Arial'

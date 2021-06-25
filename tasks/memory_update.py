@@ -140,6 +140,9 @@ class MemoryUpdateTrial(GenericTrial):
         }
         return recall
 
+    def get_left_recalls(self):
+        return len(self.digits) - self.current_recall - 1
+
     def save_response(self, digit):
         digit = int(str(digit).replace('num_', ''))
         self.responses[self.current_recall] = digit
@@ -238,20 +241,12 @@ class MemoryUpdateTask(GenericTask):
 
     def start_new_trial(self):
         trial = super().start_new_trial()
-        self.show_frames(self.current_trial.get_n_digits(), show=True)
-        return trial
-
-    def start_new_practice_trial(self):
-        trial = super().start_new_practice_trial()
-        self.show_frames(self.current_practice_trial.get_n_digits())
+        self.show_frames(trial.get_n_digits(), show=True)
         return trial
 
     def finish_trial(self):
         if self.current_trial is not None:
             self.copy_trial_results(self.current_trial)
-        
-        for n_frames in self.frames.keys():
-            self.show_frames(n_frames, show=False)
         super().finish_trial()
 
     def copy_trial_results(self, trial):
@@ -260,6 +255,10 @@ class MemoryUpdateTask(GenericTask):
         trial_row.loc[self.response_cols[:len(responses)]] = responses
         is_correct = trial.is_correct
         trial_row.loc[self.is_correct_cols[:len(is_correct)]] = is_correct
+
+    def hide_frames(self):
+        for n_frames in self.frames.keys():
+            self.show_frames(n_frames, show=False)
 
     def show_frames(self, n_frames, show=True):
         assert n_frames in self.frames.keys()

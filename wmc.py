@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.2.10),
-    on Wed 30 Jun 2021 07:45:26 AM CEST
+    on Wed 30 Jun 2021 08:58:26 AM CEST
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -240,30 +240,20 @@ mu_text_recall = visual.TextStim(win=win, name='mu_text_recall',
     languageStyle='LTR',
     depth=-1.0);
 
+# Initialize components for Routine "base_next_trial"
+base_next_trialClock = core.Clock()
+base_text_next_trial = visual.TextStim(win=win, name='base_text_next_trial',
+    text='default text',
+    font='Arial',
+    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    color='black', colorSpace='rgb', opacity=1, 
+    languageStyle='LTR',
+    depth=0.0);
+base_next_trial_key_resp = keyboard.Keyboard()
+
 # Initialize components for Routine "base_intertrial"
 base_intertrialClock = core.Clock()
 base_text_intertrial = visual.TextStim(win=win, name='base_text_intertrial',
-    text=None,
-    font='Arial',
-    units='height', pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1, 
-    languageStyle='LTR',
-    depth=-1.0);
-
-# Initialize components for Routine "base_self_paced_break"
-base_self_paced_breakClock = core.Clock()
-base_text_self_paced_break = visual.TextStim(win=win, name='base_text_self_paced_break',
-    text='default text',
-    font='Arial',
-    units='height', pos=(0, 0), height=1.0, wrapWidth=text_wrap_width, ori=0, 
-    color='black', colorSpace='rgb', opacity=1, 
-    languageStyle='LTR',
-    depth=-1.0);
-base_key_resp_self_paced_break = keyboard.Keyboard()
-
-# Initialize components for Routine "base_after_break_pause"
-base_after_break_pauseClock = core.Clock()
-base_text_pause_after_break = visual.TextStim(win=win, name='base_text_pause_after_break',
     text=None,
     font='Arial',
     units='height', pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
@@ -642,9 +632,8 @@ text_sstm_draw_dots = visual.TextStim(win=win, name='text_sstm_draw_dots',
 
 # Initialize components for Routine "sstm_recall"
 sstm_recallClock = core.Clock()
-sstm_text_next_string = expmsgs.next_trial
 sstm_text_next = visual.TextStim(win=win, name='sstm_text_next',
-    text=sstm_text_next_string,
+    text='default text',
     font='Arial',
     units='height', pos=(10, 10), height=1.0, wrapWidth=text_wrap_width, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
@@ -1161,11 +1150,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
         else:
             msg_task_begin = expmsgs.begin_task
         
-        # choose practice or trial conditions
-        if current_task.do_practice:
-            n_trials = current_task.get_practice_trial_count()
-        else:
-            n_trials = current_task.get_trial_count()
+        n_trials = current_task.get_trial_count()
         base_text_begin_task.setText(msg_task_begin)
         base_text_begin_task.setFont(config.experiment_messages.font)
         base_text_begin_task.setHeight(config.experiment_messages.height)
@@ -1281,13 +1266,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
             # ------Prepare to start Routine "base_init_trial"-------
             continueRoutine = True
             # update component parameters for each repeat
-            #current_task.clean_trial()
-            
-            if current_task.do_practice:
-                current_trial = current_task.start_new_practice_trial()
-            else:
-                current_trial = current_task.start_new_trial()
-            
+            current_trial = current_task.start_new_trial()
             do_break = current_task.has_pause()
             # keep track of which components have finished
             base_init_trialComponents = []
@@ -1949,6 +1928,8 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 for thisComponent in mu_display_recallComponents:
                     if hasattr(thisComponent, "setAutoDraw"):
                         thisComponent.setAutoDraw(False)
+                if current_trial.get_left_recalls() == 0:
+                    current_task.hide_frames()
                 mu_recalls.addData('mu_text_recall.started', mu_text_recall.tStartRefresh)
                 mu_recalls.addData('mu_text_recall.stopped', mu_text_recall.tStopRefresh)
                 # the Routine "mu_display_recall" was not non-slip safe, so reset the non-slip timer
@@ -1956,6 +1937,123 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 thisExp.nextEntry()
                 
             # completed n_digits repeats of 'mu_recalls'
+            
+            
+            # set up handler to look after randomisation of conditions etc
+            mu_base_next_trial_dummy = data.TrialHandler(nReps=current_task.get_left_trials() > 0, method='random', 
+                extraInfo=expInfo, originPath=-1,
+                trialList=[None],
+                seed=None, name='mu_base_next_trial_dummy')
+            thisExp.addLoop(mu_base_next_trial_dummy)  # add the loop to the experiment
+            thisMu_base_next_trial_dummy = mu_base_next_trial_dummy.trialList[0]  # so we can initialise stimuli with some values
+            # abbreviate parameter names if possible (e.g. rgb = thisMu_base_next_trial_dummy.rgb)
+            if thisMu_base_next_trial_dummy != None:
+                for paramName in thisMu_base_next_trial_dummy:
+                    exec('{} = thisMu_base_next_trial_dummy[paramName]'.format(paramName))
+            
+            for thisMu_base_next_trial_dummy in mu_base_next_trial_dummy:
+                currentLoop = mu_base_next_trial_dummy
+                # abbreviate parameter names if possible (e.g. rgb = thisMu_base_next_trial_dummy.rgb)
+                if thisMu_base_next_trial_dummy != None:
+                    for paramName in thisMu_base_next_trial_dummy:
+                        exec('{} = thisMu_base_next_trial_dummy[paramName]'.format(paramName))
+                
+                # ------Prepare to start Routine "base_next_trial"-------
+                continueRoutine = True
+                # update component parameters for each repeat
+                base_text_next_trial.setText(expmsgs.next_trial)
+                base_text_next_trial.setFont(config.experiment_messages.font)
+                base_text_next_trial.setHeight(config.experiment_messages.height)
+                base_next_trial_key_resp.keys = []
+                base_next_trial_key_resp.rt = []
+                _base_next_trial_key_resp_allKeys = []
+                # keep track of which components have finished
+                base_next_trialComponents = [base_text_next_trial, base_next_trial_key_resp]
+                for thisComponent in base_next_trialComponents:
+                    thisComponent.tStart = None
+                    thisComponent.tStop = None
+                    thisComponent.tStartRefresh = None
+                    thisComponent.tStopRefresh = None
+                    if hasattr(thisComponent, 'status'):
+                        thisComponent.status = NOT_STARTED
+                # reset timers
+                t = 0
+                _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+                base_next_trialClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+                frameN = -1
+                
+                # -------Run Routine "base_next_trial"-------
+                while continueRoutine:
+                    # get current time
+                    t = base_next_trialClock.getTime()
+                    tThisFlip = win.getFutureFlipTime(clock=base_next_trialClock)
+                    tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+                    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+                    # update/draw components on each frame
+                    
+                    # *base_text_next_trial* updates
+                    if base_text_next_trial.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                        # keep track of start time/frame for later
+                        base_text_next_trial.frameNStart = frameN  # exact frame index
+                        base_text_next_trial.tStart = t  # local t and not account for scr refresh
+                        base_text_next_trial.tStartRefresh = tThisFlipGlobal  # on global time
+                        win.timeOnFlip(base_text_next_trial, 'tStartRefresh')  # time at next scr refresh
+                        base_text_next_trial.setAutoDraw(True)
+                    
+                    # *base_next_trial_key_resp* updates
+                    waitOnFlip = False
+                    if base_next_trial_key_resp.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                        # keep track of start time/frame for later
+                        base_next_trial_key_resp.frameNStart = frameN  # exact frame index
+                        base_next_trial_key_resp.tStart = t  # local t and not account for scr refresh
+                        base_next_trial_key_resp.tStartRefresh = tThisFlipGlobal  # on global time
+                        win.timeOnFlip(base_next_trial_key_resp, 'tStartRefresh')  # time at next scr refresh
+                        base_next_trial_key_resp.status = STARTED
+                        # keyboard checking is just starting
+                        waitOnFlip = True
+                        win.callOnFlip(base_next_trial_key_resp.clock.reset)  # t=0 on next screen flip
+                        win.callOnFlip(base_next_trial_key_resp.clearEvents, eventType='keyboard')  # clear events on next screen flip
+                    if base_next_trial_key_resp.status == STARTED and not waitOnFlip:
+                        theseKeys = base_next_trial_key_resp.getKeys(keyList=['space'], waitRelease=False)
+                        _base_next_trial_key_resp_allKeys.extend(theseKeys)
+                        if len(_base_next_trial_key_resp_allKeys):
+                            base_next_trial_key_resp.keys = _base_next_trial_key_resp_allKeys[-1].name  # just the last key pressed
+                            base_next_trial_key_resp.rt = _base_next_trial_key_resp_allKeys[-1].rt
+                            # a response ends the routine
+                            continueRoutine = False
+                    
+                    # check if all components have finished
+                    if not continueRoutine:  # a component has requested a forced-end of Routine
+                        break
+                    continueRoutine = False  # will revert to True if at least one component still running
+                    for thisComponent in base_next_trialComponents:
+                        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                            continueRoutine = True
+                            break  # at least one component has not yet finished
+                    
+                    # refresh the screen
+                    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+                        win.flip()
+                
+                # -------Ending Routine "base_next_trial"-------
+                for thisComponent in base_next_trialComponents:
+                    if hasattr(thisComponent, "setAutoDraw"):
+                        thisComponent.setAutoDraw(False)
+                mu_base_next_trial_dummy.addData('base_text_next_trial.started', base_text_next_trial.tStartRefresh)
+                mu_base_next_trial_dummy.addData('base_text_next_trial.stopped', base_text_next_trial.tStopRefresh)
+                # check responses
+                if base_next_trial_key_resp.keys in ['', [], None]:  # No response was made
+                    base_next_trial_key_resp.keys = None
+                mu_base_next_trial_dummy.addData('base_next_trial_key_resp.keys',base_next_trial_key_resp.keys)
+                if base_next_trial_key_resp.keys != None:  # we had a response
+                    mu_base_next_trial_dummy.addData('base_next_trial_key_resp.rt', base_next_trial_key_resp.rt)
+                mu_base_next_trial_dummy.addData('base_next_trial_key_resp.started', base_next_trial_key_resp.tStartRefresh)
+                mu_base_next_trial_dummy.addData('base_next_trial_key_resp.stopped', base_next_trial_key_resp.tStopRefresh)
+                # the Routine "base_next_trial" was not non-slip safe, so reset the non-slip timer
+                routineTimer.reset()
+                thisExp.nextEntry()
+                
+            # completed current_task.get_left_trials() > 0 repeats of 'mu_base_next_trial_dummy'
             
             
             # ------Prepare to start Routine "base_intertrial"-------
@@ -2027,194 +2125,6 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
             mu_trials.addData('base_text_intertrial.stopped', base_text_intertrial.tStopRefresh)
             # the Routine "base_intertrial" was not non-slip safe, so reset the non-slip timer
             routineTimer.reset()
-            
-            # set up handler to look after randomisation of conditions etc
-            mu_break_dummy = data.TrialHandler(nReps=do_break, method='random', 
-                extraInfo=expInfo, originPath=-1,
-                trialList=[None],
-                seed=None, name='mu_break_dummy')
-            thisExp.addLoop(mu_break_dummy)  # add the loop to the experiment
-            thisMu_break_dummy = mu_break_dummy.trialList[0]  # so we can initialise stimuli with some values
-            # abbreviate parameter names if possible (e.g. rgb = thisMu_break_dummy.rgb)
-            if thisMu_break_dummy != None:
-                for paramName in thisMu_break_dummy:
-                    exec('{} = thisMu_break_dummy[paramName]'.format(paramName))
-            
-            for thisMu_break_dummy in mu_break_dummy:
-                currentLoop = mu_break_dummy
-                # abbreviate parameter names if possible (e.g. rgb = thisMu_break_dummy.rgb)
-                if thisMu_break_dummy != None:
-                    for paramName in thisMu_break_dummy:
-                        exec('{} = thisMu_break_dummy[paramName]'.format(paramName))
-                
-                # ------Prepare to start Routine "base_self_paced_break"-------
-                continueRoutine = True
-                # update component parameters for each repeat
-                base_text_self_paced_break.setText(expmsgs.experiment_break)
-                base_text_self_paced_break.setFont(config.experiment_messages.font)
-                base_text_self_paced_break.setHeight(config.experiment_messages.height)
-                base_key_resp_self_paced_break.keys = []
-                base_key_resp_self_paced_break.rt = []
-                _base_key_resp_self_paced_break_allKeys = []
-                # keep track of which components have finished
-                base_self_paced_breakComponents = [base_text_self_paced_break, base_key_resp_self_paced_break]
-                for thisComponent in base_self_paced_breakComponents:
-                    thisComponent.tStart = None
-                    thisComponent.tStop = None
-                    thisComponent.tStartRefresh = None
-                    thisComponent.tStopRefresh = None
-                    if hasattr(thisComponent, 'status'):
-                        thisComponent.status = NOT_STARTED
-                # reset timers
-                t = 0
-                _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-                base_self_paced_breakClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
-                frameN = -1
-                
-                # -------Run Routine "base_self_paced_break"-------
-                while continueRoutine:
-                    # get current time
-                    t = base_self_paced_breakClock.getTime()
-                    tThisFlip = win.getFutureFlipTime(clock=base_self_paced_breakClock)
-                    tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-                    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-                    # update/draw components on each frame
-                    if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):
-                        core.quit()
-                    
-                    # *base_text_self_paced_break* updates
-                    if base_text_self_paced_break.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                        # keep track of start time/frame for later
-                        base_text_self_paced_break.frameNStart = frameN  # exact frame index
-                        base_text_self_paced_break.tStart = t  # local t and not account for scr refresh
-                        base_text_self_paced_break.tStartRefresh = tThisFlipGlobal  # on global time
-                        win.timeOnFlip(base_text_self_paced_break, 'tStartRefresh')  # time at next scr refresh
-                        base_text_self_paced_break.setAutoDraw(True)
-                    
-                    # *base_key_resp_self_paced_break* updates
-                    waitOnFlip = False
-                    if base_key_resp_self_paced_break.status == NOT_STARTED and tThisFlip >= 0-frameTolerance:
-                        # keep track of start time/frame for later
-                        base_key_resp_self_paced_break.frameNStart = frameN  # exact frame index
-                        base_key_resp_self_paced_break.tStart = t  # local t and not account for scr refresh
-                        base_key_resp_self_paced_break.tStartRefresh = tThisFlipGlobal  # on global time
-                        win.timeOnFlip(base_key_resp_self_paced_break, 'tStartRefresh')  # time at next scr refresh
-                        base_key_resp_self_paced_break.status = STARTED
-                        # keyboard checking is just starting
-                        waitOnFlip = True
-                        win.callOnFlip(base_key_resp_self_paced_break.clock.reset)  # t=0 on next screen flip
-                        win.callOnFlip(base_key_resp_self_paced_break.clearEvents, eventType='keyboard')  # clear events on next screen flip
-                    if base_key_resp_self_paced_break.status == STARTED and not waitOnFlip:
-                        theseKeys = base_key_resp_self_paced_break.getKeys(keyList=['space'], waitRelease=False)
-                        _base_key_resp_self_paced_break_allKeys.extend(theseKeys)
-                        if len(_base_key_resp_self_paced_break_allKeys):
-                            base_key_resp_self_paced_break.keys = _base_key_resp_self_paced_break_allKeys[-1].name  # just the last key pressed
-                            base_key_resp_self_paced_break.rt = _base_key_resp_self_paced_break_allKeys[-1].rt
-                            # a response ends the routine
-                            continueRoutine = False
-                    
-                    # check if all components have finished
-                    if not continueRoutine:  # a component has requested a forced-end of Routine
-                        break
-                    continueRoutine = False  # will revert to True if at least one component still running
-                    for thisComponent in base_self_paced_breakComponents:
-                        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                            continueRoutine = True
-                            break  # at least one component has not yet finished
-                    
-                    # refresh the screen
-                    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-                        win.flip()
-                
-                # -------Ending Routine "base_self_paced_break"-------
-                for thisComponent in base_self_paced_breakComponents:
-                    if hasattr(thisComponent, "setAutoDraw"):
-                        thisComponent.setAutoDraw(False)
-                mu_break_dummy.addData('base_text_self_paced_break.started', base_text_self_paced_break.tStartRefresh)
-                mu_break_dummy.addData('base_text_self_paced_break.stopped', base_text_self_paced_break.tStopRefresh)
-                # check responses
-                if base_key_resp_self_paced_break.keys in ['', [], None]:  # No response was made
-                    base_key_resp_self_paced_break.keys = None
-                mu_break_dummy.addData('base_key_resp_self_paced_break.keys',base_key_resp_self_paced_break.keys)
-                if base_key_resp_self_paced_break.keys != None:  # we had a response
-                    mu_break_dummy.addData('base_key_resp_self_paced_break.rt', base_key_resp_self_paced_break.rt)
-                mu_break_dummy.addData('base_key_resp_self_paced_break.started', base_key_resp_self_paced_break.tStartRefresh)
-                mu_break_dummy.addData('base_key_resp_self_paced_break.stopped', base_key_resp_self_paced_break.tStopRefresh)
-                # the Routine "base_self_paced_break" was not non-slip safe, so reset the non-slip timer
-                routineTimer.reset()
-                
-                # ------Prepare to start Routine "base_after_break_pause"-------
-                continueRoutine = True
-                # update component parameters for each repeat
-                base_text_pause_after_break.setHeight(config.experiment_messages.height)
-                # keep track of which components have finished
-                base_after_break_pauseComponents = [base_text_pause_after_break]
-                for thisComponent in base_after_break_pauseComponents:
-                    thisComponent.tStart = None
-                    thisComponent.tStop = None
-                    thisComponent.tStartRefresh = None
-                    thisComponent.tStopRefresh = None
-                    if hasattr(thisComponent, 'status'):
-                        thisComponent.status = NOT_STARTED
-                # reset timers
-                t = 0
-                _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-                base_after_break_pauseClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
-                frameN = -1
-                
-                # -------Run Routine "base_after_break_pause"-------
-                while continueRoutine:
-                    # get current time
-                    t = base_after_break_pauseClock.getTime()
-                    tThisFlip = win.getFutureFlipTime(clock=base_after_break_pauseClock)
-                    tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-                    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-                    # update/draw components on each frame
-                    if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):
-                        core.quit()
-                    
-                    # *base_text_pause_after_break* updates
-                    if base_text_pause_after_break.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                        # keep track of start time/frame for later
-                        base_text_pause_after_break.frameNStart = frameN  # exact frame index
-                        base_text_pause_after_break.tStart = t  # local t and not account for scr refresh
-                        base_text_pause_after_break.tStartRefresh = tThisFlipGlobal  # on global time
-                        win.timeOnFlip(base_text_pause_after_break, 'tStartRefresh')  # time at next scr refresh
-                        base_text_pause_after_break.setAutoDraw(True)
-                    if base_text_pause_after_break.status == STARTED:
-                        # is it time to stop? (based on global clock, using actual start)
-                        if tThisFlipGlobal > base_text_pause_after_break.tStartRefresh + current_task.config.timing.after_break-frameTolerance:
-                            # keep track of stop time/frame for later
-                            base_text_pause_after_break.tStop = t  # not accounting for scr refresh
-                            base_text_pause_after_break.frameNStop = frameN  # exact frame index
-                            win.timeOnFlip(base_text_pause_after_break, 'tStopRefresh')  # time at next scr refresh
-                            base_text_pause_after_break.setAutoDraw(False)
-                    
-                    # check if all components have finished
-                    if not continueRoutine:  # a component has requested a forced-end of Routine
-                        break
-                    continueRoutine = False  # will revert to True if at least one component still running
-                    for thisComponent in base_after_break_pauseComponents:
-                        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                            continueRoutine = True
-                            break  # at least one component has not yet finished
-                    
-                    # refresh the screen
-                    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-                        win.flip()
-                
-                # -------Ending Routine "base_after_break_pause"-------
-                for thisComponent in base_after_break_pauseComponents:
-                    if hasattr(thisComponent, "setAutoDraw"):
-                        thisComponent.setAutoDraw(False)
-                mu_break_dummy.addData('base_text_pause_after_break.started', base_text_pause_after_break.tStartRefresh)
-                mu_break_dummy.addData('base_text_pause_after_break.stopped', base_text_pause_after_break.tStopRefresh)
-                # the Routine "base_after_break_pause" was not non-slip safe, so reset the non-slip timer
-                routineTimer.reset()
-                thisExp.nextEntry()
-                
-            # completed do_break repeats of 'mu_break_dummy'
-            
             thisExp.nextEntry()
             
         # completed n_trials repeats of 'mu_trials'
@@ -2588,11 +2498,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
         else:
             msg_task_begin = expmsgs.begin_task
         
-        # choose practice or trial conditions
-        if current_task.do_practice:
-            n_trials = current_task.get_practice_trial_count()
-        else:
-            n_trials = current_task.get_trial_count()
+        n_trials = current_task.get_trial_count()
         base_text_begin_task.setText(msg_task_begin)
         base_text_begin_task.setFont(config.experiment_messages.font)
         base_text_begin_task.setHeight(config.experiment_messages.height)
@@ -2708,13 +2614,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
             # ------Prepare to start Routine "base_init_trial"-------
             continueRoutine = True
             # update component parameters for each repeat
-            #current_task.clean_trial()
-            
-            if current_task.do_practice:
-                current_trial = current_task.start_new_practice_trial()
-            else:
-                current_trial = current_task.start_new_trial()
-            
+            current_trial = current_task.start_new_trial()
             do_break = current_task.has_pause()
             # keep track of which components have finished
             base_init_trialComponents = []
@@ -3996,11 +3896,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
         else:
             msg_task_begin = expmsgs.begin_task
         
-        # choose practice or trial conditions
-        if current_task.do_practice:
-            n_trials = current_task.get_practice_trial_count()
-        else:
-            n_trials = current_task.get_trial_count()
+        n_trials = current_task.get_trial_count()
         base_text_begin_task.setText(msg_task_begin)
         base_text_begin_task.setFont(config.experiment_messages.font)
         base_text_begin_task.setHeight(config.experiment_messages.height)
@@ -4116,13 +4012,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
             # ------Prepare to start Routine "base_init_trial"-------
             continueRoutine = True
             # update component parameters for each repeat
-            #current_task.clean_trial()
-            
-            if current_task.do_practice:
-                current_trial = current_task.start_new_practice_trial()
-            else:
-                current_trial = current_task.start_new_trial()
-            
+            current_trial = current_task.start_new_trial()
             do_break = current_task.has_pause()
             # keep track of which components have finished
             base_init_trialComponents = []
@@ -5403,11 +5293,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
         else:
             msg_task_begin = expmsgs.begin_task
         
-        # choose practice or trial conditions
-        if current_task.do_practice:
-            n_trials = current_task.get_practice_trial_count()
-        else:
-            n_trials = current_task.get_trial_count()
+        n_trials = current_task.get_trial_count()
         base_text_begin_task.setText(msg_task_begin)
         base_text_begin_task.setFont(config.experiment_messages.font)
         base_text_begin_task.setHeight(config.experiment_messages.height)
@@ -5523,13 +5409,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
             # ------Prepare to start Routine "base_init_trial"-------
             continueRoutine = True
             # update component parameters for each repeat
-            #current_task.clean_trial()
-            
-            if current_task.do_practice:
-                current_trial = current_task.start_new_practice_trial()
-            else:
-                current_trial = current_task.start_new_trial()
-            
+            current_trial = current_task.start_new_trial()
             do_break = current_task.has_pause()
             # keep track of which components have finished
             base_init_trialComponents = []
@@ -5956,6 +5836,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
             current_trial.grid.show(True)
             win.mouseVisible = True
             sstm_mouse.setVisible(True)
+            sstm_text_next.setText(expmsgs.next)
             sstm_text_next.setFont(config.experiment_messages.font)
             sstm_text_next.setHeight(config.experiment_messages.height)
             # setup some python lists for storing info about the sstm_mouse
