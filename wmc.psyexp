@@ -1,4 +1,4 @@
-<?xml version="1.0" ?>
+﻿<?xml version="1.0" ?>
 <PsychoPy2experiment version="2020.2.10" encoding="utf-8">
   <Settings>
     <Param name="Audio latency priority" val="use prefs" valType="str" updates="None"/>
@@ -1501,7 +1501,7 @@
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Routine" val="" valType="extendedCode" updates="constant"/>
-        <Param name="End Routine" val="current_trial.grid.show(False)&amp;#10;win.mouseVisible = False&amp;#10;sstm_mouse.setVisible(False)&amp;#10;&amp;#10;sstm_trial_rt = sstm_mouse.time[-1]&amp;#10;current_trial.save_response(sstm_trial_rt)&amp;#10;&amp;#10;thisExp.addData('is_practice', current_task.do_practice)&amp;#10;thisExp.addData('sstm_recall.correct_dots', current_trial.sequence)&amp;#10;thisExp.addData('sstm_recall.response_dots', current_trial.response_dots)&amp;#10;thisExp.addData('sstm_recall.response_time', current_trial.response_time)" valType="extendedCode" updates="constant"/>
+        <Param name="End Routine" val="win.mouseVisible = False&amp;#10;sstm_mouse.setVisible(False)&amp;#10;&amp;#10;sstm_trial_rt = sstm_mouse.time[-1]&amp;#10;current_trial.save_response(sstm_trial_rt)&amp;#10;&amp;#10;current_trial.show(False)&amp;#10;&amp;#10;thisExp.addData('is_practice', current_task.do_practice)&amp;#10;thisExp.addData('sstm_recall.correct_dots', current_trial.sequence)&amp;#10;thisExp.addData('sstm_recall.response_dots', current_trial.response_dots)&amp;#10;thisExp.addData('sstm_recall.response_time', current_trial.response_time)" valType="extendedCode" updates="constant"/>
         <Param name="disabled" val="False" valType="bool" updates="None"/>
         <Param name="name" val="sstm_code_recall" valType="code" updates="None"/>
       </CodeComponent>
@@ -2194,21 +2194,20 @@
     <LoopTerminator name="sstm_presentations"/>
     <Routine name="sstm_draw_request"/>
     <Routine name="sstm_recall"/>
-    <Routine name="base_intertrial"/>
-    <LoopInitiator loopType="TrialHandler" name="sstm_break_dummy">
+    <LoopInitiator loopType="TrialHandler" name="sstm_next_trial_dummy">
       <Param name="Selected rows" val="" valType="str" updates="None"/>
       <Param name="conditions" val="None" valType="str" updates="None"/>
       <Param name="conditionsFile" val="" valType="str" updates="None"/>
       <Param name="endPoints" val="[0, 1]" valType="num" updates="None"/>
       <Param name="isTrials" val="True" valType="bool" updates="None"/>
       <Param name="loopType" val="random" valType="str" updates="None"/>
-      <Param name="nReps" val="$do_break" valType="code" updates="None"/>
-      <Param name="name" val="sstm_break_dummy" valType="code" updates="None"/>
+      <Param name="nReps" val="current_task.get_left_trials() &gt; 0" valType="code" updates="None"/>
+      <Param name="name" val="sstm_next_trial_dummy" valType="code" updates="None"/>
       <Param name="random seed" val="" valType="code" updates="None"/>
     </LoopInitiator>
-    <Routine name="base_self_paced_break"/>
-    <Routine name="base_after_break_pause"/>
-    <LoopTerminator name="sstm_break_dummy"/>
+    <Routine name="base_next_trial"/>
+    <LoopTerminator name="sstm_next_trial_dummy"/>
+    <Routine name="base_intertrial"/>
     <LoopTerminator name="sstm_trials"/>
     <LoopTerminator name="sstm_practice_dummy"/>
     <Routine name="sstm_task_end"/>

@@ -168,10 +168,12 @@ class SpatialShortTermMemoryTrial(GenericTrial):
         self.response_dots = self.get_selected_cells()
         self.response_time = response_time
 
-    def finish(self):
+    def show(self, show=True):
+        self.grid.show(show)
+        
         dots = list(filter(None, self.cell_selection.values()))
         for dot in dots:
-            dot.setAutoDraw(False)
+            dot.setAutoDraw(show)
             self.dot_reserve.append(dot)
         for coordinate in self.cell_selection.keys():
             self.cell_selection[coordinate] = None
@@ -337,6 +339,12 @@ class SpatialShortTermMemoryTask(GenericTask):
             n_dots_list=config['trials']['n_dots_list'],
             n_far=config['trials']['n_far'],
             n_near=config['trials']['n_near'])
+
+    def show(self, show=True):
+        self.grid.show(show)
+
+        if self.current_trial is not None:
+            self.current_trial.show(show)
 
     def write_results(self, filepath):
         dirpath = os.path.dirname(filepath)
