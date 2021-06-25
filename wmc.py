@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.2.10),
-    on Fri 25 Jun 2021 04:40:53 PM CEST
+    on Fri 25 Jun 2021 04:51:52 PM CEST
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -100,7 +100,8 @@ output_dir = os.path.join(os.getcwd(), 'data')
 thisExp.extraInfo['datetime'] = datetime.datetime.today()
 
 subject_id = thisExp.extraInfo['Subject ID']
-assert subject_id is not None
+assert subject_id is not None, 'Please specify a subject id'
+assert subject_id is not '', 'Please specify a subject id'
 
 language = thisExp.extraInfo['Language']
 
