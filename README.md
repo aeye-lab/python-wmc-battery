@@ -7,16 +7,15 @@ Python reimplementation of the WMC battery described in Lewandowsky, Oberauer, Y
 ### Ubuntu 20.04
 
 ```
-pip install numpy pandas psychopy pygame pyyaml dotmap scipy
-pip install -U https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-16.04 wxPython
+pip install psychopy==2020.2.10 pygame numpy pandas scipy dotmap pyyaml
+pip install -U -f https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-20.04 wxPython
 sudo apt install libxcb-xinerama0
 ```
 
 ### Mac OS
 
 ```
-pip install numpy pandas psychopy pygame pyyaml dotmap scipy
-pip install -U https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-16.04 wxPython
+pip install psychopy==2020.2.10 pygame wxPython numpy pandas scipy dotmap pyyaml
 ```
 
 
