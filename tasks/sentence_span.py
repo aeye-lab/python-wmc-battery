@@ -145,8 +145,9 @@ class SentenceSpanTask(GenericTask):
         with open(filepath, mode='r', encoding=encoding) as f:
             sentence_strings = f.readlines()
         for sentence_string in sentence_strings:
-            sentence = sentence_string.rstrip('\n')
-            sentences.append(sentence)
+            if not sentence_string.isspace() and len(sentence_string) > 0:
+                sentence = sentence_string.rstrip('\n')
+                sentences.append(sentence)
         return sentences
         
         
