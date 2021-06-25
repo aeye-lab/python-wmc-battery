@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.2.10),
-    on Fri 25 Jun 2021 04:51:52 PM CEST
+    on Fri 25 Jun 2021 06:22:00 PM CEST
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -58,8 +58,6 @@ thisExp = data.ExperimentHandler(name=expName, version='',
 # save a log file for detail verbose info
 logFile = logging.LogFile(filename+'.log', level=logging.EXP)
 logging.console.setLevel(logging.WARNING)  # this outputs to the screen, not a file
-
-endExpNow = False  # flag for 'escape' or other condition => quit the exp
 frameTolerance = 0.001  # how close to onset before 'same' frame
 
 # Start Code - component code to be run after the window creation
@@ -722,10 +720,6 @@ while continueRoutine:
     if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
         core.quit()
     
-    # check for quit (typically the Esc key)
-    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-        core.quit()
-    
     # check if all components have finished
     if not continueRoutine:  # a component has requested a forced-end of Routine
         break
@@ -811,10 +805,6 @@ while continueRoutine:
             # a response ends the routine
             continueRoutine = False
     
-    # check for quit (typically the Esc key)
-    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-        core.quit()
-    
     # check if all components have finished
     if not continueRoutine:  # a component has requested a forced-end of Routine
         break
@@ -898,10 +888,6 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
         if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
-            core.quit()
-        
-        # check for quit (typically the Esc key)
-        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
             core.quit()
         
         # check if all components have finished
@@ -1007,10 +993,6 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                     base_key_resp_instruction.rt = _base_key_resp_instruction_allKeys[-1].rt
                     # a response ends the routine
                     continueRoutine = False
-            
-            # check for quit (typically the Esc key)
-            if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                core.quit()
             
             # check if all components have finished
             if not continueRoutine:  # a component has requested a forced-end of Routine
@@ -1142,10 +1124,6 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                     # a response ends the routine
                     continueRoutine = False
             
-            # check for quit (typically the Esc key)
-            if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                core.quit()
-            
             # check if all components have finished
             if not continueRoutine:  # a component has requested a forced-end of Routine
                 break
@@ -1232,10 +1210,6 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
                     core.quit()
                 
-                # check for quit (typically the Esc key)
-                if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                    core.quit()
-                
                 # check if all components have finished
                 if not continueRoutine:  # a component has requested a forced-end of Routine
                     break
@@ -1304,10 +1278,6 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                         mu_text_blank.frameNStop = frameN  # exact frame index
                         win.timeOnFlip(mu_text_blank, 'tStopRefresh')  # time at next scr refresh
                         mu_text_blank.setAutoDraw(False)
-                
-                # check for quit (typically the Esc key)
-                if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                    core.quit()
                 
                 # check if all components have finished
                 if not continueRoutine:  # a component has requested a forced-end of Routine
@@ -1400,10 +1370,6 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                             win.timeOnFlip(mu_text_digit, 'tStopRefresh')  # time at next scr refresh
                             mu_text_digit.setAutoDraw(False)
                     
-                    # check for quit (typically the Esc key)
-                    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                        core.quit()
-                    
                     # check if all components have finished
                     if not continueRoutine:  # a component has requested a forced-end of Routine
                         break
@@ -1472,10 +1438,6 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                             mu_text_blank_2.frameNStop = frameN  # exact frame index
                             win.timeOnFlip(mu_text_blank_2, 'tStopRefresh')  # time at next scr refresh
                             mu_text_blank_2.setAutoDraw(False)
-                    
-                    # check for quit (typically the Esc key)
-                    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                        core.quit()
                     
                     # check if all components have finished
                     if not continueRoutine:  # a component has requested a forced-end of Routine
@@ -1572,10 +1534,6 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                             win.timeOnFlip(mu_text_operation, 'tStopRefresh')  # time at next scr refresh
                             mu_text_operation.setAutoDraw(False)
                     
-                    # check for quit (typically the Esc key)
-                    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                        core.quit()
-                    
                     # check if all components have finished
                     if not continueRoutine:  # a component has requested a forced-end of Routine
                         break
@@ -1644,10 +1602,6 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                             mu_text_blank_2.frameNStop = frameN  # exact frame index
                             win.timeOnFlip(mu_text_blank_2, 'tStopRefresh')  # time at next scr refresh
                             mu_text_blank_2.setAutoDraw(False)
-                    
-                    # check for quit (typically the Esc key)
-                    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                        core.quit()
                     
                     # check if all components have finished
                     if not continueRoutine:  # a component has requested a forced-end of Routine
@@ -1780,10 +1734,6 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                             # a response ends the routine
                             continueRoutine = False
                     
-                    # check for quit (typically the Esc key)
-                    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                        core.quit()
-                    
                     # check if all components have finished
                     if not continueRoutine:  # a component has requested a forced-end of Routine
                         break
@@ -1871,10 +1821,6 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                             win.timeOnFlip(mu_text_recall, 'tStopRefresh')  # time at next scr refresh
                             mu_text_recall.setAutoDraw(False)
                     
-                    # check for quit (typically the Esc key)
-                    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                        core.quit()
-                    
                     # check if all components have finished
                     if not continueRoutine:  # a component has requested a forced-end of Routine
                         break
@@ -1948,10 +1894,6 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                         base_text_intertrial.frameNStop = frameN  # exact frame index
                         win.timeOnFlip(base_text_intertrial, 'tStopRefresh')  # time at next scr refresh
                         base_text_intertrial.setAutoDraw(False)
-                
-                # check for quit (typically the Esc key)
-                if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                    core.quit()
                 
                 # check if all components have finished
                 if not continueRoutine:  # a component has requested a forced-end of Routine
@@ -2060,10 +2002,6 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                             # a response ends the routine
                             continueRoutine = False
                     
-                    # check for quit (typically the Esc key)
-                    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                        core.quit()
-                    
                     # check if all components have finished
                     if not continueRoutine:  # a component has requested a forced-end of Routine
                         break
@@ -2140,10 +2078,6 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                             base_text_pause_after_break.frameNStop = frameN  # exact frame index
                             win.timeOnFlip(base_text_pause_after_break, 'tStopRefresh')  # time at next scr refresh
                             base_text_pause_after_break.setAutoDraw(False)
-                    
-                    # check for quit (typically the Esc key)
-                    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                        core.quit()
                     
                     # check if all components have finished
                     if not continueRoutine:  # a component has requested a forced-end of Routine
@@ -2247,10 +2181,6 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 # a response ends the routine
                 continueRoutine = False
         
-        # check for quit (typically the Esc key)
-        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-            core.quit()
-        
         # check if all components have finished
         if not continueRoutine:  # a component has requested a forced-end of Routine
             break
@@ -2338,10 +2268,6 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
         if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
-            core.quit()
-        
-        # check for quit (typically the Esc key)
-        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
             core.quit()
         
         # check if all components have finished
@@ -2447,10 +2373,6 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                     base_key_resp_instruction.rt = _base_key_resp_instruction_allKeys[-1].rt
                     # a response ends the routine
                     continueRoutine = False
-            
-            # check for quit (typically the Esc key)
-            if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                core.quit()
             
             # check if all components have finished
             if not continueRoutine:  # a component has requested a forced-end of Routine
@@ -2582,10 +2504,6 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                     # a response ends the routine
                     continueRoutine = False
             
-            # check for quit (typically the Esc key)
-            if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                core.quit()
-            
             # check if all components have finished
             if not continueRoutine:  # a component has requested a forced-end of Routine
                 break
@@ -2672,10 +2590,6 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                 if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
                     core.quit()
                 
-                # check for quit (typically the Esc key)
-                if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                    core.quit()
-                
                 # check if all components have finished
                 if not continueRoutine:  # a component has requested a forced-end of Routine
                     break
@@ -2743,10 +2657,6 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                         os_text_fixation_cross.frameNStop = frameN  # exact frame index
                         win.timeOnFlip(os_text_fixation_cross, 'tStopRefresh')  # time at next scr refresh
                         os_text_fixation_cross.setAutoDraw(False)
-                
-                # check for quit (typically the Esc key)
-                if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                    core.quit()
                 
                 # check if all components have finished
                 if not continueRoutine:  # a component has requested a forced-end of Routine
@@ -2893,10 +2803,6 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                             # a response ends the routine
                             continueRoutine = False
                     
-                    # check for quit (typically the Esc key)
-                    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                        core.quit()
-                    
                     # check if all components have finished
                     if not continueRoutine:  # a component has requested a forced-end of Routine
                         break
@@ -2995,10 +2901,6 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                             win.timeOnFlip(os_text_letter, 'tStopRefresh')  # time at next scr refresh
                             os_text_letter.setAutoDraw(False)
                     
-                    # check for quit (typically the Esc key)
-                    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                        core.quit()
-                    
                     # check if all components have finished
                     if not continueRoutine:  # a component has requested a forced-end of Routine
                         break
@@ -3067,10 +2969,6 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                             os_text_blank.frameNStop = frameN  # exact frame index
                             win.timeOnFlip(os_text_blank, 'tStopRefresh')  # time at next scr refresh
                             os_text_blank.setAutoDraw(False)
-                    
-                    # check for quit (typically the Esc key)
-                    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                        core.quit()
                     
                     # check if all components have finished
                     if not continueRoutine:  # a component has requested a forced-end of Routine
@@ -3201,10 +3099,6 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                             # a response ends the routine
                             continueRoutine = False
                     
-                    # check for quit (typically the Esc key)
-                    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                        core.quit()
-                    
                     # check if all components have finished
                     if not continueRoutine:  # a component has requested a forced-end of Routine
                         break
@@ -3294,10 +3188,6 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                             win.timeOnFlip(os_text_recall, 'tStopRefresh')  # time at next scr refresh
                             os_text_recall.setAutoDraw(False)
                     
-                    # check for quit (typically the Esc key)
-                    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                        core.quit()
-                    
                     # check if all components have finished
                     if not continueRoutine:  # a component has requested a forced-end of Routine
                         break
@@ -3371,10 +3261,6 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                         base_text_intertrial.frameNStop = frameN  # exact frame index
                         win.timeOnFlip(base_text_intertrial, 'tStopRefresh')  # time at next scr refresh
                         base_text_intertrial.setAutoDraw(False)
-                
-                # check for quit (typically the Esc key)
-                if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                    core.quit()
                 
                 # check if all components have finished
                 if not continueRoutine:  # a component has requested a forced-end of Routine
@@ -3483,10 +3369,6 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                             # a response ends the routine
                             continueRoutine = False
                     
-                    # check for quit (typically the Esc key)
-                    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                        core.quit()
-                    
                     # check if all components have finished
                     if not continueRoutine:  # a component has requested a forced-end of Routine
                         break
@@ -3563,10 +3445,6 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                             base_text_pause_after_break.frameNStop = frameN  # exact frame index
                             win.timeOnFlip(base_text_pause_after_break, 'tStopRefresh')  # time at next scr refresh
                             base_text_pause_after_break.setAutoDraw(False)
-                    
-                    # check for quit (typically the Esc key)
-                    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                        core.quit()
                     
                     # check if all components have finished
                     if not continueRoutine:  # a component has requested a forced-end of Routine
@@ -3670,10 +3548,6 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                 # a response ends the routine
                 continueRoutine = False
         
-        # check for quit (typically the Esc key)
-        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-            core.quit()
-        
         # check if all components have finished
         if not continueRoutine:  # a component has requested a forced-end of Routine
             break
@@ -3761,10 +3635,6 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
         if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
-            core.quit()
-        
-        # check for quit (typically the Esc key)
-        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
             core.quit()
         
         # check if all components have finished
@@ -3870,10 +3740,6 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                     base_key_resp_instruction.rt = _base_key_resp_instruction_allKeys[-1].rt
                     # a response ends the routine
                     continueRoutine = False
-            
-            # check for quit (typically the Esc key)
-            if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                core.quit()
             
             # check if all components have finished
             if not continueRoutine:  # a component has requested a forced-end of Routine
@@ -4005,10 +3871,6 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                     # a response ends the routine
                     continueRoutine = False
             
-            # check for quit (typically the Esc key)
-            if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                core.quit()
-            
             # check if all components have finished
             if not continueRoutine:  # a component has requested a forced-end of Routine
                 break
@@ -4095,10 +3957,6 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                 if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
                     core.quit()
                 
-                # check for quit (typically the Esc key)
-                if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                    core.quit()
-                
                 # check if all components have finished
                 if not continueRoutine:  # a component has requested a forced-end of Routine
                     break
@@ -4166,10 +4024,6 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                         ss_text_fixation_cross.frameNStop = frameN  # exact frame index
                         win.timeOnFlip(ss_text_fixation_cross, 'tStopRefresh')  # time at next scr refresh
                         ss_text_fixation_cross.setAutoDraw(False)
-                
-                # check for quit (typically the Esc key)
-                if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                    core.quit()
                 
                 # check if all components have finished
                 if not continueRoutine:  # a component has requested a forced-end of Routine
@@ -4317,10 +4171,6 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                             # a response ends the routine
                             continueRoutine = False
                     
-                    # check for quit (typically the Esc key)
-                    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                        core.quit()
-                    
                     # check if all components have finished
                     if not continueRoutine:  # a component has requested a forced-end of Routine
                         break
@@ -4419,10 +4269,6 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                             win.timeOnFlip(ss_text_letter, 'tStopRefresh')  # time at next scr refresh
                             ss_text_letter.setAutoDraw(False)
                     
-                    # check for quit (typically the Esc key)
-                    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                        core.quit()
-                    
                     # check if all components have finished
                     if not continueRoutine:  # a component has requested a forced-end of Routine
                         break
@@ -4491,10 +4337,6 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                             ss_text_blank.frameNStop = frameN  # exact frame index
                             win.timeOnFlip(ss_text_blank, 'tStopRefresh')  # time at next scr refresh
                             ss_text_blank.setAutoDraw(False)
-                    
-                    # check for quit (typically the Esc key)
-                    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                        core.quit()
                     
                     # check if all components have finished
                     if not continueRoutine:  # a component has requested a forced-end of Routine
@@ -4625,10 +4467,6 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                             # a response ends the routine
                             continueRoutine = False
                     
-                    # check for quit (typically the Esc key)
-                    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                        core.quit()
-                    
                     # check if all components have finished
                     if not continueRoutine:  # a component has requested a forced-end of Routine
                         break
@@ -4718,10 +4556,6 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                             win.timeOnFlip(ss_text_display_recall, 'tStopRefresh')  # time at next scr refresh
                             ss_text_display_recall.setAutoDraw(False)
                     
-                    # check for quit (typically the Esc key)
-                    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                        core.quit()
-                    
                     # check if all components have finished
                     if not continueRoutine:  # a component has requested a forced-end of Routine
                         break
@@ -4795,10 +4629,6 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                         base_text_intertrial.frameNStop = frameN  # exact frame index
                         win.timeOnFlip(base_text_intertrial, 'tStopRefresh')  # time at next scr refresh
                         base_text_intertrial.setAutoDraw(False)
-                
-                # check for quit (typically the Esc key)
-                if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                    core.quit()
                 
                 # check if all components have finished
                 if not continueRoutine:  # a component has requested a forced-end of Routine
@@ -4907,10 +4737,6 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                             # a response ends the routine
                             continueRoutine = False
                     
-                    # check for quit (typically the Esc key)
-                    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                        core.quit()
-                    
                     # check if all components have finished
                     if not continueRoutine:  # a component has requested a forced-end of Routine
                         break
@@ -4987,10 +4813,6 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                             base_text_pause_after_break.frameNStop = frameN  # exact frame index
                             win.timeOnFlip(base_text_pause_after_break, 'tStopRefresh')  # time at next scr refresh
                             base_text_pause_after_break.setAutoDraw(False)
-                    
-                    # check for quit (typically the Esc key)
-                    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                        core.quit()
                     
                     # check if all components have finished
                     if not continueRoutine:  # a component has requested a forced-end of Routine
@@ -5094,10 +4916,6 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                 # a response ends the routine
                 continueRoutine = False
         
-        # check for quit (typically the Esc key)
-        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-            core.quit()
-        
         # check if all components have finished
         if not continueRoutine:  # a component has requested a forced-end of Routine
             break
@@ -5183,10 +5001,6 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
         if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
-            core.quit()
-        
-        # check for quit (typically the Esc key)
-        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
             core.quit()
         
         # check if all components have finished
@@ -5292,10 +5106,6 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                     base_key_resp_instruction.rt = _base_key_resp_instruction_allKeys[-1].rt
                     # a response ends the routine
                     continueRoutine = False
-            
-            # check for quit (typically the Esc key)
-            if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                core.quit()
             
             # check if all components have finished
             if not continueRoutine:  # a component has requested a forced-end of Routine
@@ -5427,10 +5237,6 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                     # a response ends the routine
                     continueRoutine = False
             
-            # check for quit (typically the Esc key)
-            if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                core.quit()
-            
             # check if all components have finished
             if not continueRoutine:  # a component has requested a forced-end of Routine
                 break
@@ -5517,10 +5323,6 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                 if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
                     core.quit()
                 
-                # check for quit (typically the Esc key)
-                if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                    core.quit()
-                
                 # check if all components have finished
                 if not continueRoutine:  # a component has requested a forced-end of Routine
                     break
@@ -5589,10 +5391,6 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                         sstm_text_fixation_cross.frameNStop = frameN  # exact frame index
                         win.timeOnFlip(sstm_text_fixation_cross, 'tStopRefresh')  # time at next scr refresh
                         sstm_text_fixation_cross.setAutoDraw(False)
-                
-                # check for quit (typically the Esc key)
-                if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                    core.quit()
                 
                 # check if all components have finished
                 if not continueRoutine:  # a component has requested a forced-end of Routine
@@ -5663,10 +5461,6 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                         sstm_text_blank.frameNStop = frameN  # exact frame index
                         win.timeOnFlip(sstm_text_blank, 'tStopRefresh')  # time at next scr refresh
                         sstm_text_blank.setAutoDraw(False)
-                
-                # check for quit (typically the Esc key)
-                if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                    core.quit()
                 
                 # check if all components have finished
                 if not continueRoutine:  # a component has requested a forced-end of Routine
@@ -5757,10 +5551,6 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                             win.timeOnFlip(sstm_polygon_display_dot, 'tStopRefresh')  # time at next scr refresh
                             sstm_polygon_display_dot.setAutoDraw(False)
                     
-                    # check for quit (typically the Esc key)
-                    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                        core.quit()
-                    
                     # check if all components have finished
                     if not continueRoutine:  # a component has requested a forced-end of Routine
                         break
@@ -5828,10 +5618,6 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                             sstm_text_after_display_dot.frameNStop = frameN  # exact frame index
                             win.timeOnFlip(sstm_text_after_display_dot, 'tStopRefresh')  # time at next scr refresh
                             sstm_text_after_display_dot.setAutoDraw(False)
-                    
-                    # check for quit (typically the Esc key)
-                    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                        core.quit()
                     
                     # check if all components have finished
                     if not continueRoutine:  # a component has requested a forced-end of Routine
@@ -5907,10 +5693,6 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                         text_sstm_draw_dots.frameNStop = frameN  # exact frame index
                         win.timeOnFlip(text_sstm_draw_dots, 'tStopRefresh')  # time at next scr refresh
                         text_sstm_draw_dots.setAutoDraw(False)
-                
-                # check for quit (typically the Esc key)
-                if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                    core.quit()
                 
                 # check if all components have finished
                 if not continueRoutine:  # a component has requested a forced-end of Routine
@@ -6024,10 +5806,6 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                             if gotValidClick:  # abort routine on response
                                 continueRoutine = False
                 
-                # check for quit (typically the Esc key)
-                if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                    core.quit()
-                
                 # check if all components have finished
                 if not continueRoutine:  # a component has requested a forced-end of Routine
                     break
@@ -6118,10 +5896,6 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                         base_text_intertrial.frameNStop = frameN  # exact frame index
                         win.timeOnFlip(base_text_intertrial, 'tStopRefresh')  # time at next scr refresh
                         base_text_intertrial.setAutoDraw(False)
-                
-                # check for quit (typically the Esc key)
-                if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                    core.quit()
                 
                 # check if all components have finished
                 if not continueRoutine:  # a component has requested a forced-end of Routine
@@ -6230,10 +6004,6 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                             # a response ends the routine
                             continueRoutine = False
                     
-                    # check for quit (typically the Esc key)
-                    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                        core.quit()
-                    
                     # check if all components have finished
                     if not continueRoutine:  # a component has requested a forced-end of Routine
                         break
@@ -6310,10 +6080,6 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                             base_text_pause_after_break.frameNStop = frameN  # exact frame index
                             win.timeOnFlip(base_text_pause_after_break, 'tStopRefresh')  # time at next scr refresh
                             base_text_pause_after_break.setAutoDraw(False)
-                    
-                    # check for quit (typically the Esc key)
-                    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                        core.quit()
                     
                     # check if all components have finished
                     if not continueRoutine:  # a component has requested a forced-end of Routine
@@ -6418,10 +6184,6 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                 sstm_key_resp_task_end.rt = _sstm_key_resp_task_end_allKeys[-1].rt
                 # a response ends the routine
                 continueRoutine = False
-        
-        # check for quit (typically the Esc key)
-        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-            core.quit()
         
         # check if all components have finished
         if not continueRoutine:  # a component has requested a forced-end of Routine
@@ -6529,10 +6291,6 @@ while continueRoutine:
             base_key_resp_end.rt = _base_key_resp_end_allKeys[-1].rt
             # a response ends the routine
             continueRoutine = False
-    
-    # check for quit (typically the Esc key)
-    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-        core.quit()
     
     # check if all components have finished
     if not continueRoutine:  # a component has requested a forced-end of Routine
