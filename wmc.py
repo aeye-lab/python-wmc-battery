@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.2.10),
-    on Tue 29 Jun 2021 08:54:57 PM CEST
+    on Wed 30 Jun 2021 07:45:26 AM CEST
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -1431,7 +1431,8 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 current_digit, current_digit_position = current_trial.get_next_digit()
                 mu_text_digit.setPos(current_digit_position)
                 mu_text_digit.setText(current_digit)
-                mu_text_digit.setHeight(config.experiment_messages.height)
+                mu_text_digit.setFont(config.memory_update.text.font)
+                mu_text_digit.setHeight(config.memory_update.text.size)
                 # keep track of which components have finished
                 mu_display_digitComponents = [mu_text_digit]
                 for thisComponent in mu_display_digitComponents:
@@ -1500,7 +1501,8 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 # ------Prepare to start Routine "mu_empty_cells"-------
                 continueRoutine = True
                 # update component parameters for each repeat
-                mu_text_blank_2.setHeight(config.experiment_messages.height)
+                mu_text_blank_2.setFont(config.memory_update.text.font)
+                mu_text_blank_2.setHeight(config.memory_update.text.size)
                 # keep track of which components have finished
                 mu_empty_cellsComponents = [mu_text_blank_2]
                 for thisComponent in mu_empty_cellsComponents:
@@ -1595,7 +1597,8 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 current_operation, current_operation_position = current_trial.get_next_operation()
                 mu_text_operation.setPos(current_operation_position)
                 mu_text_operation.setText(current_operation)
-                mu_text_operation.setHeight(config.experiment_messages.height)
+                mu_text_operation.setFont(config.memory_update.text.font)
+                mu_text_operation.setHeight(config.memory_update.text.size)
                 # keep track of which components have finished
                 mu_display_operationComponents = [mu_text_operation]
                 for thisComponent in mu_display_operationComponents:
@@ -1664,7 +1667,8 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 # ------Prepare to start Routine "mu_empty_cells"-------
                 continueRoutine = True
                 # update component parameters for each repeat
-                mu_text_blank_2.setHeight(config.experiment_messages.height)
+                mu_text_blank_2.setFont(config.memory_update.text.font)
+                mu_text_blank_2.setHeight(config.memory_update.text.size)
                 # keep track of which components have finished
                 mu_empty_cellsComponents = [mu_text_blank_2]
                 for thisComponent in mu_empty_cellsComponents:
@@ -1769,7 +1773,8 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 thisExp.addData('mu_key_resp_recall.position_id', current_recall['position_id'])
                 thisExp.addData('mu_key_resp_recall.operation_sequence', current_recall['operation_sequence'])
                 mu_text_question_mark.setPos(recall_position)
-                mu_text_question_mark.setHeight(config.experiment_messages.height)
+                mu_text_question_mark.setFont(config.memory_update.text.font)
+                mu_text_question_mark.setHeight(config.memory_update.text.size)
                 mu_key_resp_recall.keys = []
                 mu_key_resp_recall.rt = []
                 _mu_key_resp_recall_allKeys = []
@@ -1882,7 +1887,8 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 current_trial.save_response(keyboard_response)
                 mu_text_recall.setPos(recall_position)
                 mu_text_recall.setText(keyboard_response)
-                mu_text_recall.setHeight(config.experiment_messages.height)
+                mu_text_recall.setFont(config.memory_update.text.font)
+                mu_text_recall.setHeight(config.memory_update.text.size)
                 # keep track of which components have finished
                 mu_display_recallComponents = [mu_text_recall]
                 for thisComponent in mu_display_recallComponents:
