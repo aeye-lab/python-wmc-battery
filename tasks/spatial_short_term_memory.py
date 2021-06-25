@@ -5,36 +5,82 @@ import random
 import numpy as np
 import pandas as pd
 
-from psychopy.visual import Rect, Polygon
+from psychopy.visual import Line, Polygon, Rect
 from psychopy.event import Mouse
 
 from tasks.generic_task import GenericTask, GenericTrial
 from tasks.spatial_short_term_memory_scorer import SpatialShortTermMemoryScorer
 
 class SpatialShortTermMemoryGrid:
-    def __init__(self, window, n_rows, n_cols, cell_height, cell_width):
+    def __init__(self, window, n_rows, n_cols, grid_height, grid_width,
+                 line_width):
         self.window = window
         self.n_rows = n_rows
         self.n_cols = n_cols
 
-        self.init_cells(window, n_cols, n_rows, cell_height, cell_width)
+        self.init_cells(window=window, n_cols=n_cols, n_rows=n_rows,
+                        grid_height=grid_height, grid_width=grid_width,
+                        line_width=line_width)
 
-    def init_cells(self, window, n_cols, n_rows, cell_height, cell_width):
+    def init_cells(self, window, n_cols, n_rows, grid_height, grid_width,
+                   line_width):
         self.cells = [[0 for _ in range(self.n_cols)]
                       for _ in range(self.n_rows)]
+        self.lines = {
+            'horizontal': [0 for _ in range(self.n_rows + 1)],
+            'vertical': [0 for _ in range(self.n_cols + 1)],
+        }
         
-        grid_height = cell_height * self.n_rows
-        grid_width = cell_width * self.n_cols
+        cell_height = grid_height / self.n_rows
+        cell_width = grid_width / self.n_cols
 
-        top_row = grid_height / 2 - cell_height / 2
-        left_col = -grid_width / 2 - cell_width / 2
+        top_line = grid_height / 2
+        bottom_line = -grid_height / 2
+        left_line = -grid_width / 2
+        right_line = grid_width / 2
 
+        top_row = top_line - cell_height / 2
+        left_col = left_line - cell_width / 2
+        
         self.position_map = {
             (row, col): (0, 0)
             for col in range(self.n_cols)
             for row in range(self.n_rows)
         }
 
+        # generate horizontal lines
+        for i in range(self.n_rows + 1):
+            line_y = (top_line - i * cell_height)
+            start_position = (left_line, line_y)
+            end_position = (right_line, line_y)
+            
+            if window is not None:  # None only for testing
+                this_line = Line(
+                    win=window, name=f'horizontal_line_{i}',
+                    start=start_position,
+                    end=end_position,
+                    lineWidth=line_width,
+                    lineColor='black', lineColorSpace='rgb',
+                    opacity=1, depth=-1.0, interpolate=False)
+                self.lines['horizontal'][i] = this_line
+
+        # generate vertical lines
+        for i in range(self.n_cols + 1):
+            line_x = (left_line + i * cell_width)
+            start_position = (line_x, bottom_line)
+            end_position = (line_x, top_line)
+            
+            if window is not None:  # None only for testing
+                this_line = Line(
+                    win=window, name=f'horizontal_line_{i}',
+                    start=start_position,
+                    end=end_position,
+                    lineWidth=line_width,
+                    lineColor='black', lineColorSpace='rgb',
+                    opacity=1, depth=-1.0, interpolate=False)
+                self.lines['vertical'][i] = this_line
+
+        # generate cells
         for row, col in product(range(self.n_rows), (range(self.n_cols))):
             cell_position = (left_col + (col + 1) * cell_width,
                              top_row - row * cell_height)
@@ -46,9 +92,10 @@ class SpatialShortTermMemoryGrid:
                     width=cell_width,
                     height=cell_height,
                     ori=0, pos=cell_position,
-                    lineWidth=1, lineColor='black', lineColorSpace='rgb',
-                    fillColor=[1,1,1], fillColorSpace='rgb',
-                    opacity=1, depth=-1.0, interpolate=True)
+                    lineWidth=0,
+                    lineColor='white', lineColorSpace='rgb',
+                    fillColor='white', fillColorSpace='rgb',
+                    opacity=1, depth=-1.0, interpolate=False)
                 self.cells[row][col] = this_cell
 
     def get_grid_positions(self):
@@ -67,6 +114,12 @@ class SpatialShortTermMemoryGrid:
         for row in range(self.n_rows):
             for col in range(self.n_cols):
                 self.cells[row][col].setAutoDraw(show)
+
+        for grid_line in self.lines['horizontal']:
+            grid_line.setAutoDraw(show)
+        for grid_line in self.lines['vertical']:
+            grid_line.setAutoDraw(show)
+        
 
 
 class SpatialShortTermMemoryTrial(GenericTrial):
@@ -95,7 +148,7 @@ class SpatialShortTermMemoryTrial(GenericTrial):
                     ori=0, pos=[0,0],
                     lineWidth=1, lineColor=[1,1,1], lineColorSpace='rgb',
                     fillColor='black', fillColorSpace='rgb',
-                    opacity=1, depth=-1.0, interpolate=True)
+                    opacity=1, depth=-1.0, interpolate=False)
                 dot.setAutoDraw(False)
                 self.dot_reserve.append(dot)
 
@@ -323,8 +376,9 @@ class SpatialShortTermMemoryTask(GenericTask):
             window=window,
             n_rows=config['grid']['n_rows'],
             n_cols=config['grid']['n_cols'],
-            cell_height=config['cell']['height'],
-            cell_width=config['cell']['width'])
+            grid_height=config['grid']['height'],
+            grid_width=config['grid']['width'],
+            line_width=config['grid']['line_width'])
 
         self.date_format = config['date_format']
         

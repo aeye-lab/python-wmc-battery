@@ -1,10 +1,9 @@
 grid:
+  height: 0.825
+  width: 0.825
   n_rows: 10
   n_cols: 10
-
-cell:
-  height:  0.075
-  width: 0.075
+  line_width: 2
 
 dots:
   size: 0.065                # dot size
