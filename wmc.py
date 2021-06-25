@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.2.10),
-    on Thu 03 Jun 2021 03:48:44 PM CEST
+    on Fri 25 Jun 2021 04:40:53 PM CEST
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -86,9 +86,14 @@ base_initClock = core.Clock()
 import datetime
 import os
 
+from psychopy.hardware.keyboard import Keyboard
+
 from common.config import WMCConfig
 from common.experiment_messages import ExperimentMessages
 from common.instructions import Instructions
+
+# for catching experiment quit key
+experiment_keyboard = Keyboard()
 
 output_dir = os.path.join(os.getcwd(), 'data')
 
@@ -182,7 +187,7 @@ mu_text_blank_2 = visual.TextStim(win=win, name='mu_text_blank_2',
     pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
-    depth=0.0);
+    depth=-1.0);
 
 # Initialize components for Routine "mu_display_operation"
 mu_display_operationClock = core.Clock()
@@ -202,7 +207,7 @@ mu_text_blank_2 = visual.TextStim(win=win, name='mu_text_blank_2',
     pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
-    depth=0.0);
+    depth=-1.0);
 
 # Initialize components for Routine "mu_recall"
 mu_recallClock = core.Clock()
@@ -243,7 +248,7 @@ base_text_self_paced_break = visual.TextStim(win=win, name='base_text_self_paced
     pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
-    depth=0.0);
+    depth=-1.0);
 base_key_resp_self_paced_break = keyboard.Keyboard()
 
 # Initialize components for Routine "base_after_break_pause"
@@ -254,7 +259,7 @@ base_text_pause_after_break = visual.TextStim(win=win, name='base_text_pause_aft
     pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
-    depth=0.0);
+    depth=-1.0);
 
 # Initialize components for Routine "base_task_end"
 base_task_endClock = core.Clock()
@@ -335,7 +340,7 @@ os_text_blank = visual.TextStim(win=win, name='os_text_blank',
     pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
-    depth=0.0);
+    depth=-1.0);
 
 # Initialize components for Routine "os_recall"
 os_recallClock = core.Clock()
@@ -376,7 +381,7 @@ base_text_self_paced_break = visual.TextStim(win=win, name='base_text_self_paced
     pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
-    depth=0.0);
+    depth=-1.0);
 base_key_resp_self_paced_break = keyboard.Keyboard()
 
 # Initialize components for Routine "base_after_break_pause"
@@ -387,7 +392,7 @@ base_text_pause_after_break = visual.TextStim(win=win, name='base_text_pause_aft
     pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
-    depth=0.0);
+    depth=-1.0);
 
 # Initialize components for Routine "base_task_end"
 base_task_endClock = core.Clock()
@@ -468,7 +473,7 @@ ss_text_blank = visual.TextStim(win=win, name='ss_text_blank',
     pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
-    depth=0.0);
+    depth=-1.0);
 
 # Initialize components for Routine "ss_recall"
 ss_recallClock = core.Clock()
@@ -509,7 +514,7 @@ base_text_self_paced_break = visual.TextStim(win=win, name='base_text_self_paced
     pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
-    depth=0.0);
+    depth=-1.0);
 base_key_resp_self_paced_break = keyboard.Keyboard()
 
 # Initialize components for Routine "base_after_break_pause"
@@ -520,7 +525,7 @@ base_text_pause_after_break = visual.TextStim(win=win, name='base_text_pause_aft
     pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
-    depth=0.0);
+    depth=-1.0);
 
 # Initialize components for Routine "base_task_end"
 base_task_endClock = core.Clock()
@@ -600,7 +605,7 @@ sstm_text_after_display_dot = visual.TextStim(win=win, name='sstm_text_after_dis
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
-    depth=0.0);
+    depth=-1.0);
 
 # Initialize components for Routine "sstm_draw_request"
 sstm_draw_requestClock = core.Clock()
@@ -645,7 +650,7 @@ base_text_self_paced_break = visual.TextStim(win=win, name='base_text_self_paced
     pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
-    depth=0.0);
+    depth=-1.0);
 base_key_resp_self_paced_break = keyboard.Keyboard()
 
 # Initialize components for Routine "base_after_break_pause"
@@ -656,7 +661,7 @@ base_text_pause_after_break = visual.TextStim(win=win, name='base_text_pause_aft
     pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
-    depth=0.0);
+    depth=-1.0);
 
 # Initialize components for Routine "sstm_task_end"
 sstm_task_endClock = core.Clock()
@@ -666,18 +671,8 @@ text_sstm_task_end = visual.TextStim(win=win, name='text_sstm_task_end',
     pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
-    depth=0.0);
+    depth=-1.0);
 sstm_key_resp_task_end = keyboard.Keyboard()
-
-# Initialize components for Routine "sstm_task_end_2"
-sstm_task_end_2Clock = core.Clock()
-text_please_wait = visual.TextStim(win=win, name='text_please_wait',
-    text='Please wait to calculate scores and write results',
-    font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
-    color='black', colorSpace='rgb', opacity=1, 
-    languageStyle='LTR',
-    depth=0.0);
 
 # Initialize components for Routine "base_end"
 base_endClock = core.Clock()
@@ -687,7 +682,7 @@ base_text_end = visual.TextStim(win=win, name='base_text_end',
     pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
-    depth=0.0);
+    depth=-1.0);
 base_key_resp_end = keyboard.Keyboard()
 
 # Create some handy timers
@@ -723,6 +718,8 @@ while continueRoutine:
     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
     # update/draw components on each frame
+    if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+        core.quit()
     
     # check for quit (typically the Esc key)
     if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -779,6 +776,8 @@ while continueRoutine:
     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
     # update/draw components on each frame
+    if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+        core.quit()
     
     # *base_image_instruction* updates
     if base_image_instruction.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -897,6 +896,8 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
         tThisFlipGlobal = win.getFutureFlipTime(clock=None)
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
+        if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+            core.quit()
         
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -972,6 +973,8 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
             tThisFlipGlobal = win.getFutureFlipTime(clock=None)
             frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
             # update/draw components on each frame
+            if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                core.quit()
             
             # *base_image_instruction* updates
             if base_image_instruction.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -1104,6 +1107,8 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
             tThisFlipGlobal = win.getFutureFlipTime(clock=None)
             frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
             # update/draw components on each frame
+            if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                core.quit()
             
             # *base_text_begin_task* updates
             if base_text_begin_task.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -1223,6 +1228,8 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                 frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                 # update/draw components on each frame
+                if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                    core.quit()
                 
                 # check for quit (typically the Esc key)
                 if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -1277,6 +1284,8 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                 frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                 # update/draw components on each frame
+                if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                    core.quit()
                 
                 # *mu_text_blank* updates
                 if mu_text_blank.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -1370,6 +1379,8 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                     # update/draw components on each frame
+                    if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                        core.quit()
                     
                     # *mu_text_digit* updates
                     if mu_text_digit.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -1441,6 +1452,8 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                     # update/draw components on each frame
+                    if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                        core.quit()
                     
                     # *mu_text_blank_2* updates
                     if mu_text_blank_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -1538,6 +1551,8 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                     # update/draw components on each frame
+                    if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                        core.quit()
                     
                     # *mu_text_operation* updates
                     if mu_text_operation.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -1609,6 +1624,8 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                     # update/draw components on each frame
+                    if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                        core.quit()
                     
                     # *mu_text_blank_2* updates
                     if mu_text_blank_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -1719,6 +1736,8 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                     # update/draw components on each frame
+                    if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                        core.quit()
                     
                     # *mu_text_question_mark* updates
                     if mu_text_question_mark.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -1831,6 +1850,8 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                     # update/draw components on each frame
+                    if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                        core.quit()
                     
                     # *mu_text_recall* updates
                     if mu_text_recall.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -1907,6 +1928,8 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                 frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                 # update/draw components on each frame
+                if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                    core.quit()
                 
                 # *base_text_intertrial* updates
                 if base_text_intertrial.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -2002,6 +2025,8 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                     # update/draw components on each frame
+                    if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                        core.quit()
                     
                     # *base_text_self_paced_break* updates
                     if base_text_self_paced_break.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -2095,6 +2120,8 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                     # update/draw components on each frame
+                    if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                        core.quit()
                     
                     # *base_text_pause_after_break* updates
                     if base_text_pause_after_break.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -2185,6 +2212,8 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
         tThisFlipGlobal = win.getFutureFlipTime(clock=None)
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
+        if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+            core.quit()
         
         # *base_text_task_end* updates
         if base_text_task_end.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -2307,6 +2336,8 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
         tThisFlipGlobal = win.getFutureFlipTime(clock=None)
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
+        if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+            core.quit()
         
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -2382,6 +2413,8 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
             tThisFlipGlobal = win.getFutureFlipTime(clock=None)
             frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
             # update/draw components on each frame
+            if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                core.quit()
             
             # *base_image_instruction* updates
             if base_image_instruction.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -2514,6 +2547,8 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
             tThisFlipGlobal = win.getFutureFlipTime(clock=None)
             frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
             # update/draw components on each frame
+            if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                core.quit()
             
             # *base_text_begin_task* updates
             if base_text_begin_task.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -2633,6 +2668,8 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                 tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                 frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                 # update/draw components on each frame
+                if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                    core.quit()
                 
                 # check for quit (typically the Esc key)
                 if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -2686,6 +2723,8 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                 tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                 frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                 # update/draw components on each frame
+                if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                    core.quit()
                 
                 # *os_text_fixation_cross* updates
                 if os_text_fixation_cross.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -2789,6 +2828,8 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                     # update/draw components on each frame
+                    if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                        core.quit()
                     
                     # *os_text_equation* updates
                     if os_text_equation.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -2933,6 +2974,8 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                     # update/draw components on each frame
+                    if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                        core.quit()
                     
                     # *os_text_letter* updates
                     if os_text_letter.status == NOT_STARTED and tThisFlip >= 0.-frameTolerance:
@@ -3004,6 +3047,8 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                     # update/draw components on each frame
+                    if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                        core.quit()
                     
                     # *os_text_blank* updates
                     if os_text_blank.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -3107,6 +3152,8 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                     # update/draw components on each frame
+                    if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                        core.quit()
                     
                     # *os_text_question_mark* updates
                     if os_text_question_mark.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -3226,6 +3273,8 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                     # update/draw components on each frame
+                    if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                        core.quit()
                     
                     # *os_text_recall* updates
                     if os_text_recall.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -3302,6 +3351,8 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                 tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                 frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                 # update/draw components on each frame
+                if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                    core.quit()
                 
                 # *base_text_intertrial* updates
                 if base_text_intertrial.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -3397,6 +3448,8 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                     # update/draw components on each frame
+                    if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                        core.quit()
                     
                     # *base_text_self_paced_break* updates
                     if base_text_self_paced_break.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -3490,6 +3543,8 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                     # update/draw components on each frame
+                    if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                        core.quit()
                     
                     # *base_text_pause_after_break* updates
                     if base_text_pause_after_break.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -3580,6 +3635,8 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
         tThisFlipGlobal = win.getFutureFlipTime(clock=None)
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
+        if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+            core.quit()
         
         # *base_text_task_end* updates
         if base_text_task_end.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -3702,6 +3759,8 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
         tThisFlipGlobal = win.getFutureFlipTime(clock=None)
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
+        if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+            core.quit()
         
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -3777,6 +3836,8 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
             tThisFlipGlobal = win.getFutureFlipTime(clock=None)
             frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
             # update/draw components on each frame
+            if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                core.quit()
             
             # *base_image_instruction* updates
             if base_image_instruction.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -3909,6 +3970,8 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
             tThisFlipGlobal = win.getFutureFlipTime(clock=None)
             frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
             # update/draw components on each frame
+            if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                core.quit()
             
             # *base_text_begin_task* updates
             if base_text_begin_task.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -4028,6 +4091,8 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                 tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                 frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                 # update/draw components on each frame
+                if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                    core.quit()
                 
                 # check for quit (typically the Esc key)
                 if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -4081,6 +4146,8 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                 tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                 frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                 # update/draw components on each frame
+                if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                    core.quit()
                 
                 # *ss_text_fixation_cross* updates
                 if ss_text_fixation_cross.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -4185,6 +4252,8 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                     # update/draw components on each frame
+                    if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                        core.quit()
                     
                     # *ss_text_sentence* updates
                     if ss_text_sentence.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -4329,6 +4398,8 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                     # update/draw components on each frame
+                    if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                        core.quit()
                     
                     # *ss_text_letter* updates
                     if ss_text_letter.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -4400,6 +4471,8 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                     # update/draw components on each frame
+                    if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                        core.quit()
                     
                     # *ss_text_blank* updates
                     if ss_text_blank.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -4503,6 +4576,8 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                     # update/draw components on each frame
+                    if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                        core.quit()
                     
                     # *ss_text_question_mark* updates
                     if ss_text_question_mark.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -4622,6 +4697,8 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                     # update/draw components on each frame
+                    if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                        core.quit()
                     
                     # *ss_text_display_recall* updates
                     if ss_text_display_recall.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -4698,6 +4775,8 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                 tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                 frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                 # update/draw components on each frame
+                if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                    core.quit()
                 
                 # *base_text_intertrial* updates
                 if base_text_intertrial.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -4793,6 +4872,8 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                     # update/draw components on each frame
+                    if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                        core.quit()
                     
                     # *base_text_self_paced_break* updates
                     if base_text_self_paced_break.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -4886,6 +4967,8 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                     # update/draw components on each frame
+                    if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                        core.quit()
                     
                     # *base_text_pause_after_break* updates
                     if base_text_pause_after_break.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -4976,6 +5059,8 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
         tThisFlipGlobal = win.getFutureFlipTime(clock=None)
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
+        if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+            core.quit()
         
         # *base_text_task_end* updates
         if base_text_task_end.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -5096,6 +5181,8 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
         tThisFlipGlobal = win.getFutureFlipTime(clock=None)
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
+        if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+            core.quit()
         
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -5171,6 +5258,8 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
             tThisFlipGlobal = win.getFutureFlipTime(clock=None)
             frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
             # update/draw components on each frame
+            if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                core.quit()
             
             # *base_image_instruction* updates
             if base_image_instruction.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -5303,6 +5392,8 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
             tThisFlipGlobal = win.getFutureFlipTime(clock=None)
             frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
             # update/draw components on each frame
+            if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                core.quit()
             
             # *base_text_begin_task* updates
             if base_text_begin_task.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -5422,6 +5513,8 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                 tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                 frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                 # update/draw components on each frame
+                if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                    core.quit()
                 
                 # check for quit (typically the Esc key)
                 if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -5476,6 +5569,8 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                 tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                 frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                 # update/draw components on each frame
+                if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                    core.quit()
                 
                 # *sstm_text_fixation_cross* updates
                 if sstm_text_fixation_cross.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -5548,6 +5643,8 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                 tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                 frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                 # update/draw components on each frame
+                if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                    core.quit()
                 
                 # *sstm_text_blank* updates
                 if sstm_text_blank.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -5639,6 +5736,8 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                     # update/draw components on each frame
+                    if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                        core.quit()
                     
                     # *sstm_polygon_display_dot* updates
                     if sstm_polygon_display_dot.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -5709,6 +5808,8 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                     # update/draw components on each frame
+                    if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                        core.quit()
                     
                     # *sstm_text_after_display_dot* updates
                     if sstm_text_after_display_dot.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -5786,6 +5887,8 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                 tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                 frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                 # update/draw components on each frame
+                if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                    core.quit()
                 
                 # *text_sstm_draw_dots* updates
                 if text_sstm_draw_dots.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -5871,6 +5974,9 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                 tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                 frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                 # update/draw components on each frame
+                if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                    core.quit()
+                    
                 current_trial.process_mouse_event(sstm_mouse)
                 
                 if current_trial.selected_required_count():
@@ -5992,6 +6098,8 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                 tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                 frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                 # update/draw components on each frame
+                if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                    core.quit()
                 
                 # *base_text_intertrial* updates
                 if base_text_intertrial.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -6087,6 +6195,8 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                     # update/draw components on each frame
+                    if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                        core.quit()
                     
                     # *base_text_self_paced_break* updates
                     if base_text_self_paced_break.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -6180,6 +6290,8 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                     # update/draw components on each frame
+                    if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+                        core.quit()
                     
                     # *base_text_pause_after_break* updates
                     if base_text_pause_after_break.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -6239,6 +6351,11 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
     # ------Prepare to start Routine "sstm_task_end"-------
     continueRoutine = True
     # update component parameters for each repeat
+    detailed_output_filepath = os.path.join(output_dir, 'sstm_detailed', f'{current_task.name}-{subject_id}.dat')
+    current_task.write_results(detailed_output_filepath)
+    
+    overall_output_filepath = os.path.join(output_dir, f'{current_task.name}-{subject_id}.dat')
+    current_task.write_overall_results(overall_output_filepath)
     text_sstm_task_end.setFont(config.experiment_messages.font)
     text_sstm_task_end.setHeight(config.experiment_messages.height)
     sstm_key_resp_task_end.keys = []
@@ -6267,6 +6384,8 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
         tThisFlipGlobal = win.getFutureFlipTime(clock=None)
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
+        if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+            core.quit()
         
         # *text_sstm_task_end* updates
         if text_sstm_task_end.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -6330,88 +6449,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
         do_spatial_short_term_memory_dummy.addData('sstm_key_resp_task_end.rt', sstm_key_resp_task_end.rt)
     do_spatial_short_term_memory_dummy.addData('sstm_key_resp_task_end.started', sstm_key_resp_task_end.tStartRefresh)
     do_spatial_short_term_memory_dummy.addData('sstm_key_resp_task_end.stopped', sstm_key_resp_task_end.tStopRefresh)
-    text_please_wait.setAutoDraw(True)
     # the Routine "sstm_task_end" was not non-slip safe, so reset the non-slip timer
-    routineTimer.reset()
-    
-    # ------Prepare to start Routine "sstm_task_end_2"-------
-    continueRoutine = True
-    # update component parameters for each repeat
-    text_please_wait.setHeight(config.experiment_messages.height)
-    text_please_wait.setAutoDraw(True)
-    
-    iiii = 0
-    # keep track of which components have finished
-    sstm_task_end_2Components = [text_please_wait]
-    for thisComponent in sstm_task_end_2Components:
-        thisComponent.tStart = None
-        thisComponent.tStop = None
-        thisComponent.tStartRefresh = None
-        thisComponent.tStopRefresh = None
-        if hasattr(thisComponent, 'status'):
-            thisComponent.status = NOT_STARTED
-    # reset timers
-    t = 0
-    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-    sstm_task_end_2Clock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
-    frameN = -1
-    
-    # -------Run Routine "sstm_task_end_2"-------
-    while continueRoutine:
-        # get current time
-        t = sstm_task_end_2Clock.getTime()
-        tThisFlip = win.getFutureFlipTime(clock=sstm_task_end_2Clock)
-        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-        # update/draw components on each frame
-        
-        # *text_please_wait* updates
-        if text_please_wait.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            text_please_wait.frameNStart = frameN  # exact frame index
-            text_please_wait.tStart = t  # local t and not account for scr refresh
-            text_please_wait.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(text_please_wait, 'tStartRefresh')  # time at next scr refresh
-            text_please_wait.setAutoDraw(True)
-        text_please_wait.setAutoDraw(True)
-        
-        iiii += 1
-        
-        if iiii >= 2:
-            detailed_output_filepath = os.path.join(output_dir, 'sstm_detailed', f'{current_task.name}-{subject_id}.dat')
-            current_task.write_results(detailed_output_filepath)
-        
-            overall_output_filepath = os.path.join(output_dir, f'{current_task.name}-{subject_id}.dat')
-            current_task.write_overall_results(overall_output_filepath)
-        
-            continueRoutine = False
-        
-        # check for quit (typically the Esc key)
-        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-            core.quit()
-        
-        # check if all components have finished
-        if not continueRoutine:  # a component has requested a forced-end of Routine
-            break
-        continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in sstm_task_end_2Components:
-            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                continueRoutine = True
-                break  # at least one component has not yet finished
-        
-        # refresh the screen
-        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-            win.flip()
-    
-    # -------Ending Routine "sstm_task_end_2"-------
-    for thisComponent in sstm_task_end_2Components:
-        if hasattr(thisComponent, "setAutoDraw"):
-            thisComponent.setAutoDraw(False)
-    do_spatial_short_term_memory_dummy.addData('text_please_wait.started', text_please_wait.tStartRefresh)
-    do_spatial_short_term_memory_dummy.addData('text_please_wait.stopped', text_please_wait.tStopRefresh)
-    text_please_wait.setAutoDraw(False)
-    
-    # the Routine "sstm_task_end_2" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     thisExp.nextEntry()
     
@@ -6449,6 +6487,8 @@ while continueRoutine:
     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
     # update/draw components on each frame
+    if experiment_keyboard.getKeys(keyList=[config.common.escape_key], clear=False):
+        core.quit()
     
     # *base_text_end* updates
     if base_text_end.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:

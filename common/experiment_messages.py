@@ -1,5 +1,3 @@
-from common.config import load_config
-
 class ExperimentMessages:
     def __init__(self, language, encoding,
                  filepath_pattern='languages/{language}/ExpMessages.txt'):
