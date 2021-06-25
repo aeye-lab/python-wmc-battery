@@ -191,6 +191,7 @@ class MemoryUpdateTask(GenericTask):
         frame_width = config['frames']['width']
         frame_height = config['frames']['height']
         frame_locations = config['frames']['locations']
+        frame_units = config['frames']['units']
 
         self.frames = {n_frames: [] for n_frames in frame_locations.keys()}
         
@@ -203,7 +204,8 @@ class MemoryUpdateTask(GenericTask):
                     ori=0, pos=frame_position,
                     lineWidth=1, lineColor='black', lineColorSpace='rgb',
                     fillColor=[1,1,1], fillColorSpace='rgb',
-                    opacity=1, depth=-1.0, interpolate=True)
+                    opacity=1, depth=-1.0, interpolate=True,
+                    units=frame_units)
                 self.frames[n_frames].append(this_frame)
 
     def init_trials(self, config):
