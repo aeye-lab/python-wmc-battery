@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.2.10),
-    on Tue 29 Jun 2021 03:22:45 PM CEST
+    on Tue 29 Jun 2021 08:54:57 PM CEST
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -116,6 +116,9 @@ do_sstm_task = thisExp.extraInfo['Spatial Short Term Memory']
 random_seed = thisExp.extraInfo['Random Seed']
 if random_seed is None or random_seed == '':
     random_seed = subject_id
+    
+# set text wrap width to 90% of screen width (in height units)
+text_wrap_width = win.size[0] / win.size[1] * 0.9
 
 # Initialize components for Routine "base_instruction"
 base_instructionClock = core.Clock()
@@ -157,7 +160,7 @@ base_init_taskClock = core.Clock()
 base_text_begin_task = visual.TextStim(win=win, name='base_text_begin_task',
     text='default text',
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=text_wrap_width, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -171,7 +174,7 @@ mu_init_trialClock = core.Clock()
 mu_text_blank = visual.TextStim(win=win, name='mu_text_blank',
     text=None,
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -181,7 +184,7 @@ mu_display_digitClock = core.Clock()
 mu_text_digit = visual.TextStim(win=win, name='mu_text_digit',
     text='default text',
     font='Arial',
-    pos=[0,0], height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=[0,0], height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -191,7 +194,7 @@ mu_empty_cellsClock = core.Clock()
 mu_text_blank_2 = visual.TextStim(win=win, name='mu_text_blank_2',
     text=None,
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -201,7 +204,7 @@ mu_display_operationClock = core.Clock()
 mu_text_operation = visual.TextStim(win=win, name='mu_text_operation',
     text='default text',
     font='Arial',
-    pos=[0,0], height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=[0,0], height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -211,7 +214,7 @@ mu_empty_cellsClock = core.Clock()
 mu_text_blank_2 = visual.TextStim(win=win, name='mu_text_blank_2',
     text=None,
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -221,7 +224,7 @@ mu_recallClock = core.Clock()
 mu_text_question_mark = visual.TextStim(win=win, name='mu_text_question_mark',
     text='?',
     font='Arial',
-    pos=[0,0], height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=[0,0], height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -242,7 +245,7 @@ base_intertrialClock = core.Clock()
 base_text_intertrial = visual.TextStim(win=win, name='base_text_intertrial',
     text=None,
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -252,7 +255,7 @@ base_self_paced_breakClock = core.Clock()
 base_text_self_paced_break = visual.TextStim(win=win, name='base_text_self_paced_break',
     text='default text',
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=text_wrap_width, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -263,7 +266,7 @@ base_after_break_pauseClock = core.Clock()
 base_text_pause_after_break = visual.TextStim(win=win, name='base_text_pause_after_break',
     text=None,
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -273,7 +276,7 @@ base_task_endClock = core.Clock()
 base_text_task_end = visual.TextStim(win=win, name='base_text_task_end',
     text='default text',
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=text_wrap_width, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -303,7 +306,7 @@ base_init_taskClock = core.Clock()
 base_text_begin_task = visual.TextStim(win=win, name='base_text_begin_task',
     text='default text',
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=text_wrap_width, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -317,7 +320,7 @@ os_init_trialClock = core.Clock()
 os_text_fixation_cross = visual.TextStim(win=win, name='os_text_fixation_cross',
     text='+',
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -327,7 +330,7 @@ os_equationClock = core.Clock()
 os_text_equation = visual.TextStim(win=win, name='os_text_equation',
     text='default text',
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -338,7 +341,7 @@ os_letterClock = core.Clock()
 os_text_letter = visual.TextStim(win=win, name='os_text_letter',
     text='default text',
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -348,7 +351,7 @@ os_blankClock = core.Clock()
 os_text_blank = visual.TextStim(win=win, name='os_text_blank',
     text=None,
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -358,7 +361,7 @@ os_recallClock = core.Clock()
 os_text_question_mark = visual.TextStim(win=win, name='os_text_question_mark',
     text='?',
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -369,7 +372,7 @@ os_display_recallClock = core.Clock()
 os_text_recall = visual.TextStim(win=win, name='os_text_recall',
     text='default text',
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -379,7 +382,7 @@ base_intertrialClock = core.Clock()
 base_text_intertrial = visual.TextStim(win=win, name='base_text_intertrial',
     text=None,
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -389,7 +392,7 @@ base_self_paced_breakClock = core.Clock()
 base_text_self_paced_break = visual.TextStim(win=win, name='base_text_self_paced_break',
     text='default text',
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=text_wrap_width, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -400,7 +403,7 @@ base_after_break_pauseClock = core.Clock()
 base_text_pause_after_break = visual.TextStim(win=win, name='base_text_pause_after_break',
     text=None,
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -410,7 +413,7 @@ base_task_endClock = core.Clock()
 base_text_task_end = visual.TextStim(win=win, name='base_text_task_end',
     text='default text',
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=text_wrap_width, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -440,7 +443,7 @@ base_init_taskClock = core.Clock()
 base_text_begin_task = visual.TextStim(win=win, name='base_text_begin_task',
     text='default text',
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=text_wrap_width, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -454,7 +457,7 @@ ss_init_trialClock = core.Clock()
 ss_text_fixation_cross = visual.TextStim(win=win, name='ss_text_fixation_cross',
     text='+',
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -464,7 +467,7 @@ ss_sentenceClock = core.Clock()
 ss_text_sentence = visual.TextStim(win=win, name='ss_text_sentence',
     text='default text',
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=text_wrap_width, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -475,7 +478,7 @@ ss_letterClock = core.Clock()
 ss_text_letter = visual.TextStim(win=win, name='ss_text_letter',
     text='default text',
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -485,7 +488,7 @@ ss_blankClock = core.Clock()
 ss_text_blank = visual.TextStim(win=win, name='ss_text_blank',
     text=None,
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -495,7 +498,7 @@ ss_recallClock = core.Clock()
 ss_text_question_mark = visual.TextStim(win=win, name='ss_text_question_mark',
     text='?',
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -506,7 +509,7 @@ ss_display_recallClock = core.Clock()
 ss_text_display_recall = visual.TextStim(win=win, name='ss_text_display_recall',
     text='default text',
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -516,7 +519,7 @@ base_intertrialClock = core.Clock()
 base_text_intertrial = visual.TextStim(win=win, name='base_text_intertrial',
     text=None,
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -526,7 +529,7 @@ base_self_paced_breakClock = core.Clock()
 base_text_self_paced_break = visual.TextStim(win=win, name='base_text_self_paced_break',
     text='default text',
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=text_wrap_width, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -537,7 +540,7 @@ base_after_break_pauseClock = core.Clock()
 base_text_pause_after_break = visual.TextStim(win=win, name='base_text_pause_after_break',
     text=None,
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -547,7 +550,7 @@ base_task_endClock = core.Clock()
 base_text_task_end = visual.TextStim(win=win, name='base_text_task_end',
     text='default text',
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=text_wrap_width, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -577,7 +580,7 @@ base_init_taskClock = core.Clock()
 base_text_begin_task = visual.TextStim(win=win, name='base_text_begin_task',
     text='default text',
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=text_wrap_width, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -591,7 +594,7 @@ sstm_init_trialClock = core.Clock()
 sstm_text_fixation_cross = visual.TextStim(win=win, name='sstm_text_fixation_cross',
     text='+',
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -601,7 +604,7 @@ sstm_empty_gridClock = core.Clock()
 sstm_text_blank = visual.TextStim(win=win, name='sstm_text_blank',
     text=None,
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -609,7 +612,7 @@ sstm_text_blank = visual.TextStim(win=win, name='sstm_text_blank',
 # Initialize components for Routine "sstm_display_dot"
 sstm_display_dotClock = core.Clock()
 sstm_polygon_display_dot = visual.Polygon(
-    win=win, name='sstm_polygon_display_dot',
+    win=win, name='sstm_polygon_display_dot',units='height', 
     edges=128, size=(0.04, 0.04),
     ori=0, pos=[0,0],
     lineWidth=1, lineColor=[1,1,1], lineColorSpace='rgb',
@@ -621,7 +624,7 @@ sstm_after_display_dotClock = core.Clock()
 sstm_text_after_display_dot = visual.TextStim(win=win, name='sstm_text_after_display_dot',
     text=None,
     font='Arial',
-    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -632,7 +635,7 @@ sstm_text_draw_string = expmsgs.draw_dots
 text_sstm_draw_dots = visual.TextStim(win=win, name='text_sstm_draw_dots',
     text=sstm_text_draw_string,
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=text_wrap_width, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -643,7 +646,7 @@ sstm_text_next_string = expmsgs.next_trial
 sstm_text_next = visual.TextStim(win=win, name='sstm_text_next',
     text=sstm_text_next_string,
     font='Arial',
-    pos=(10, 10), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(10, 10), height=1.0, wrapWidth=text_wrap_width, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -656,7 +659,7 @@ base_intertrialClock = core.Clock()
 base_text_intertrial = visual.TextStim(win=win, name='base_text_intertrial',
     text=None,
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -666,7 +669,7 @@ base_self_paced_breakClock = core.Clock()
 base_text_self_paced_break = visual.TextStim(win=win, name='base_text_self_paced_break',
     text='default text',
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=text_wrap_width, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -677,7 +680,7 @@ base_after_break_pauseClock = core.Clock()
 base_text_pause_after_break = visual.TextStim(win=win, name='base_text_pause_after_break',
     text=None,
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -687,7 +690,7 @@ sstm_task_endClock = core.Clock()
 text_sstm_task_end = visual.TextStim(win=win, name='text_sstm_task_end',
     text=expmsgs.task_end,
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=text_wrap_width, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -698,7 +701,7 @@ base_endClock = core.Clock()
 base_text_end = visual.TextStim(win=win, name='base_text_end',
     text=expmsgs.end,
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0, 0), height=1.0, wrapWidth=text_wrap_width, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);

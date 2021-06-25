@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" ?>
+<?xml version="1.0" ?>
 <PsychoPy2experiment version="2020.2.10" encoding="utf-8">
   <Settings>
     <Param name="Audio latency priority" val="use prefs" valType="str" updates="None"/>
@@ -133,7 +133,7 @@
       <CodeComponent name="base_code_init">
         <Param name="Before Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Before JS Experiment" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Begin Experiment" val="import datetime&amp;#10;import os&amp;#10;&amp;#10;from psychopy.hardware.keyboard import Keyboard&amp;#10;&amp;#10;from common.config import WMCConfig&amp;#10;from common.experiment_messages import ExperimentMessages&amp;#10;from common.instructions import Instructions&amp;#10;&amp;#10;# for catching experiment quit key&amp;#10;experiment_keyboard = Keyboard()&amp;#10;&amp;#10;output_dir = os.path.join(os.getcwd(), 'data')&amp;#10;&amp;#10;thisExp.extraInfo['datetime'] = datetime.datetime.today()&amp;#10;&amp;#10;subject_id = thisExp.extraInfo['Subject ID']&amp;#10;assert subject_id is not None, 'Please specify a subject id'&amp;#10;assert subject_id != '', 'Please specify a subject id'&amp;#10;&amp;#10;language = thisExp.extraInfo['Language']&amp;#10;&amp;#10;config = WMCConfig(language=language)&amp;#10;expmsgs = ExperimentMessages(language=language,&amp;#10;                             encoding=config.experiment_messages.encoding)&amp;#10;instructions = Instructions(language)&amp;#10;&amp;#10;do_mu_task = thisExp.extraInfo['Memory Update']&amp;#10;do_os_task = thisExp.extraInfo['Operation Span']&amp;#10;do_ss_task = thisExp.extraInfo['Sentence Span']&amp;#10;do_sstm_task = thisExp.extraInfo['Spatial Short Term Memory']&amp;#10;&amp;#10;random_seed = thisExp.extraInfo['Random Seed']&amp;#10;if random_seed is None or random_seed == '':&amp;#10;    random_seed = subject_id" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Experiment" val="import datetime&amp;#10;import os&amp;#10;&amp;#10;from psychopy.hardware.keyboard import Keyboard&amp;#10;&amp;#10;from common.config import WMCConfig&amp;#10;from common.experiment_messages import ExperimentMessages&amp;#10;from common.instructions import Instructions&amp;#10;&amp;#10;# for catching experiment quit key&amp;#10;experiment_keyboard = Keyboard()&amp;#10;&amp;#10;output_dir = os.path.join(os.getcwd(), 'data')&amp;#10;&amp;#10;thisExp.extraInfo['datetime'] = datetime.datetime.today()&amp;#10;&amp;#10;subject_id = thisExp.extraInfo['Subject ID']&amp;#10;assert subject_id is not None, 'Please specify a subject id'&amp;#10;assert subject_id != '', 'Please specify a subject id'&amp;#10;&amp;#10;language = thisExp.extraInfo['Language']&amp;#10;&amp;#10;config = WMCConfig(language=language)&amp;#10;expmsgs = ExperimentMessages(language=language,&amp;#10;                             encoding=config.experiment_messages.encoding)&amp;#10;instructions = Instructions(language)&amp;#10;&amp;#10;do_mu_task = thisExp.extraInfo['Memory Update']&amp;#10;do_os_task = thisExp.extraInfo['Operation Span']&amp;#10;do_ss_task = thisExp.extraInfo['Sentence Span']&amp;#10;do_sstm_task = thisExp.extraInfo['Spatial Short Term Memory']&amp;#10;&amp;#10;random_seed = thisExp.extraInfo['Random Seed']&amp;#10;if random_seed is None or random_seed == '':&amp;#10;    random_seed = subject_id&amp;#10;    &amp;#10;# set text wrap width to 90% of screen width (in height units)&amp;#10;text_wrap_width = win.size[0] / win.size[1] * 0.9" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="instruction_filepaths = instructions.get_instructions('init')&amp;#10;win.mouseVisible = False&amp;#10;sstm_mouse.setVisible(False)" valType="extendedCode" updates="constant"/>
@@ -187,7 +187,7 @@
         <Param name="stopVal" val="current_task.config.timing.inter_trial" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="" valType="extendedStr" updates="constant"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="units" val="height" valType="str" updates="None"/>
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
       </TextComponent>
     </Routine>
@@ -230,8 +230,8 @@
         <Param name="stopVal" val="" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="$expmsgs.experiment_break" valType="extendedStr" updates="set every repeat"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
-        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="units" val="height" valType="str" updates="None"/>
+        <Param name="wrapWidth" val="text_wrap_width" valType="code" updates="constant"/>
       </TextComponent>
       <KeyboardComponent name="base_key_resp_self_paced_break">
         <Param name="allowedKeys" val="'space'" valType="code" updates="constant"/>
@@ -291,7 +291,7 @@
         <Param name="stopVal" val="current_task.config.timing.after_break" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="" valType="extendedStr" updates="constant"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="units" val="height" valType="str" updates="None"/>
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
       </TextComponent>
     </Routine>
@@ -334,8 +334,8 @@
         <Param name="stopVal" val="" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="$msg_task_begin" valType="extendedStr" updates="set every repeat"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
-        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="units" val="height" valType="str" updates="None"/>
+        <Param name="wrapWidth" val="text_wrap_width" valType="code" updates="constant"/>
       </TextComponent>
       <KeyboardComponent name="base_key_resp_task_begin">
         <Param name="allowedKeys" val="'space'" valType="code" updates="constant"/>
@@ -395,8 +395,8 @@
         <Param name="stopVal" val="" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="$expmsgs.task_end" valType="extendedStr" updates="set every repeat"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
-        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="units" val="height" valType="str" updates="None"/>
+        <Param name="wrapWidth" val="text_wrap_width" valType="code" updates="constant"/>
       </TextComponent>
       <KeyboardComponent name="base_key_resp_task_end">
         <Param name="allowedKeys" val="'space'" valType="code" updates="constant"/>
@@ -475,7 +475,7 @@
         <Param name="stopVal" val="current_task.config.timing.init_trial" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="" valType="extendedStr" updates="constant"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="units" val="height" valType="str" updates="None"/>
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
       </TextComponent>
     </Routine>
@@ -518,7 +518,7 @@
         <Param name="stopVal" val="current_task.config.timing.digit" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="$current_digit" valType="extendedStr" updates="set every repeat"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="units" val="height" valType="str" updates="None"/>
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
       </TextComponent>
     </Routine>
@@ -561,7 +561,7 @@
         <Param name="stopVal" val="current_task.config.timing.inter_item" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="" valType="extendedStr" updates="constant"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="units" val="height" valType="str" updates="None"/>
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
       </TextComponent>
     </Routine>
@@ -604,7 +604,7 @@
         <Param name="stopVal" val="current_task.config.timing.operation" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="$current_operation" valType="extendedStr" updates="set every repeat"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="units" val="height" valType="str" updates="None"/>
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
       </TextComponent>
     </Routine>
@@ -647,7 +647,7 @@
         <Param name="stopVal" val="" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="?" valType="extendedStr" updates="constant"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="units" val="height" valType="str" updates="None"/>
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
       </TextComponent>
       <KeyboardComponent name="mu_key_resp_recall">
@@ -770,7 +770,7 @@
         <Param name="stopVal" val="current_task.config.timing.init_trial" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="+" valType="extendedStr" updates="constant"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="units" val="height" valType="str" updates="None"/>
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
       </TextComponent>
     </Routine>
@@ -813,7 +813,7 @@
         <Param name="stopVal" val="current_task.config.timing.inter_item" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="" valType="extendedStr" updates="constant"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="units" val="height" valType="str" updates="None"/>
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
       </TextComponent>
     </Routine>
@@ -856,7 +856,7 @@
         <Param name="stopVal" val="current_task.config.timing.equation" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="$equation_string" valType="extendedStr" updates="set every repeat"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="units" val="height" valType="str" updates="None"/>
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
       </TextComponent>
       <KeyboardComponent name="os_key_resp_equation">
@@ -917,7 +917,7 @@
         <Param name="stopVal" val="" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="?" valType="extendedStr" updates="constant"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="units" val="height" valType="str" updates="None"/>
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
       </TextComponent>
       <KeyboardComponent name="os_key_resp_recall">
@@ -978,7 +978,7 @@
         <Param name="stopVal" val="current_task.config.timing.recall" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="$letter_response.upper()" valType="extendedStr" updates="set every repeat"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="units" val="height" valType="str" updates="None"/>
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
       </TextComponent>
     </Routine>
@@ -1021,7 +1021,7 @@
         <Param name="stopVal" val="current_task.config.timing.letter" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="$letter" valType="extendedStr" updates="set every repeat"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="units" val="height" valType="str" updates="None"/>
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
       </TextComponent>
     </Routine>
@@ -1083,7 +1083,7 @@
         <Param name="stopVal" val="current_task.config.timing.init_trial" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="+" valType="extendedStr" updates="constant"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="units" val="height" valType="str" updates="None"/>
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
       </TextComponent>
     </Routine>
@@ -1126,8 +1126,8 @@
         <Param name="stopVal" val="current_task.config.timing.sentence" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="$sentence_string" valType="extendedStr" updates="set every repeat"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
-        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="units" val="height" valType="str" updates="None"/>
+        <Param name="wrapWidth" val="text_wrap_width" valType="code" updates="constant"/>
       </TextComponent>
       <KeyboardComponent name="ss_key_resp_sentence">
         <Param name="allowedKeys" val="sentence_keys" valType="code" updates="set every repeat"/>
@@ -1187,7 +1187,7 @@
         <Param name="stopVal" val="current_task.config.timing.letter" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="$letter" valType="extendedStr" updates="set every repeat"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="units" val="height" valType="str" updates="None"/>
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
       </TextComponent>
     </Routine>
@@ -1230,7 +1230,7 @@
         <Param name="stopVal" val="current_task.config.timing.inter_item" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="" valType="extendedStr" updates="constant"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="units" val="height" valType="str" updates="None"/>
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
       </TextComponent>
     </Routine>
@@ -1273,7 +1273,7 @@
         <Param name="stopVal" val="" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="?" valType="extendedStr" updates="constant"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="units" val="height" valType="str" updates="None"/>
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
       </TextComponent>
       <KeyboardComponent name="ss_key_resp_recall">
@@ -1334,7 +1334,7 @@
         <Param name="stopVal" val="current_task.config.timing.recall" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="$letter_response.upper()" valType="extendedStr" updates="set every repeat"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="units" val="height" valType="str" updates="None"/>
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
       </TextComponent>
     </Routine>
@@ -1396,7 +1396,7 @@
         <Param name="stopVal" val="current_task.config.timing.fixation_cross" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="+" valType="extendedStr" updates="constant"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="units" val="height" valType="str" updates="None"/>
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
       </TextComponent>
     </Routine>
@@ -1441,7 +1441,7 @@
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
         <Param name="stopVal" val="current_task.config.timing.dot" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="units" val="height" valType="str" updates="None"/>
       </PolygonComponent>
     </Routine>
     <Routine name="sstm_empty_grid">
@@ -1483,7 +1483,7 @@
         <Param name="stopVal" val="current_task.config.timing.init_trial" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="" valType="extendedStr" updates="constant"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="units" val="height" valType="str" updates="None"/>
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
       </TextComponent>
     </Routine>
@@ -1526,8 +1526,8 @@
         <Param name="stopVal" val="" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="$sstm_text_next_string" valType="extendedStr" updates="constant"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
-        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="units" val="height" valType="str" updates="None"/>
+        <Param name="wrapWidth" val="text_wrap_width" valType="code" updates="constant"/>
       </TextComponent>
       <MouseComponent name="sstm_mouse">
         <Param name="clickable" val="sstm_text_next" valType="code" updates="constant"/>
@@ -1587,8 +1587,8 @@
         <Param name="stopVal" val="7" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="$expmsgs.end" valType="extendedStr" updates="constant"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
-        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="units" val="height" valType="str" updates="None"/>
+        <Param name="wrapWidth" val="text_wrap_width" valType="code" updates="constant"/>
       </TextComponent>
       <KeyboardComponent name="base_key_resp_end">
         <Param name="allowedKeys" val="" valType="code" updates="constant"/>
@@ -1648,8 +1648,8 @@
         <Param name="stopVal" val="" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="$expmsgs.task_end" valType="extendedStr" updates="constant"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
-        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="units" val="height" valType="str" updates="None"/>
+        <Param name="wrapWidth" val="text_wrap_width" valType="code" updates="constant"/>
       </TextComponent>
       <KeyboardComponent name="sstm_key_resp_task_end">
         <Param name="allowedKeys" val="'space'" valType="code" updates="constant"/>
@@ -1709,8 +1709,8 @@
         <Param name="stopVal" val="current_task.config.timing.draw_request" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="$sstm_text_draw_string" valType="extendedStr" updates="constant"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
-        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="units" val="height" valType="str" updates="None"/>
+        <Param name="wrapWidth" val="text_wrap_width" valType="code" updates="constant"/>
       </TextComponent>
     </Routine>
     <Routine name="sstm_after_display_dot">
@@ -1752,7 +1752,7 @@
         <Param name="stopVal" val="current_task.config.timing.inter_item" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
         <Param name="text" val="" valType="extendedStr" updates="constant"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="units" val="height" valType="str" updates="None"/>
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
       </TextComponent>
     </Routine>
