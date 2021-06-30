@@ -24,6 +24,17 @@ sudo apt install fonts-noto-cjk
 pip install psychopy==2020.2.10 pygame wxPython numpy pandas scipy dotmap pyyaml
 ```
 
+For Chinese font support install: https://www.google.com/get/noto/help/install/
+
+
+### Windows
+
+```
+pip install psychopy==2020.2.10 pygame wxPython numpy pandas scipy dotmap pyyaml
+```
+
+For Chinese font support install: https://www.google.com/get/noto/help/install/
+
 
 ## Run WMC Battery
 
