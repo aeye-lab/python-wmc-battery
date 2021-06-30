@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.2.10),
-    on Wed 30 Jun 2021 04:35:59 PM CEST
+    on Wed 30 Jun 2021 04:43:49 PM CEST
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -111,7 +111,12 @@ experiment_messages = [
         expmsgs.sstm_end,
 ]
 n_experiment_messages = len(experiment_messages)
+print()
+print("==================================================")
+print(experiment_messages)
 print("number of experiment messages:", n_experiment_messages)
+print("==================================================")
+print()
 
 
 from tasks.sentence_span import SentenceSpanTask
@@ -123,7 +128,13 @@ ss_sentences = (
     ss_task.sentences['trials'][False]
 )
 n_ss_sentences = len(ss_sentences)
+
+print()
+print("==================================================")
+print(ss_sentences)
 print("number of ss sentences:", n_ss_sentences)
+print("==================================================")
+print()
 
 instructions = Instructions(language)
 instruction_filepaths = (
@@ -134,7 +145,11 @@ instruction_filepaths = (
     instructions.get_instructions('sstm')
 )
 n_instructions = len(instruction_filepaths)
+print()
+print("==================================================")
+print(instruction_filepaths)
 print("number of instructions:", n_instructions)
+print("==================================================")
 
 # set text wrap width to 90% of screen width (in height units)
 text_wrap_width = win.size[0] / win.size[1] * 0.9
@@ -455,14 +470,6 @@ for thisInstruction_loop in instruction_loop:
             image_instruction.tStartRefresh = tThisFlipGlobal  # on global time
             win.timeOnFlip(image_instruction, 'tStartRefresh')  # time at next scr refresh
             image_instruction.setAutoDraw(True)
-        if image_instruction.status == STARTED:
-            # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > image_instruction.tStartRefresh + 1.0-frameTolerance:
-                # keep track of stop time/frame for later
-                image_instruction.tStop = t  # not accounting for scr refresh
-                image_instruction.frameNStop = frameN  # exact frame index
-                win.timeOnFlip(image_instruction, 'tStopRefresh')  # time at next scr refresh
-                image_instruction.setAutoDraw(False)
         
         # *key_resp_instruction* updates
         waitOnFlip = False
