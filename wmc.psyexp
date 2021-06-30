@@ -1525,7 +1525,7 @@
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
         <Param name="stopVal" val="" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
-        <Param name="text" val="$expmsgs.next" valType="extendedStr" updates="set every repeat"/>
+        <Param name="text" val="$expmsgs.sstm_next" valType="extendedStr" updates="set every repeat"/>
         <Param name="units" val="height" valType="str" updates="None"/>
         <Param name="wrapWidth" val="text_wrap_width" valType="code" updates="constant"/>
       </TextComponent>
@@ -1586,7 +1586,7 @@
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
         <Param name="stopVal" val="7" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
-        <Param name="text" val="$expmsgs.end" valType="extendedStr" updates="constant"/>
+        <Param name="text" val="$expmsgs.experiment_over" valType="extendedStr" updates="set every repeat"/>
         <Param name="units" val="height" valType="str" updates="None"/>
         <Param name="wrapWidth" val="text_wrap_width" valType="code" updates="constant"/>
       </TextComponent>
@@ -1674,7 +1674,7 @@
       <CodeComponent name="code_sstm_draw_request">
         <Param name="Before Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Before JS Experiment" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Begin Experiment" val="sstm_text_draw_string = expmsgs.draw_dots" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="current_trial.grid.show(False)" valType="extendedCode" updates="constant"/>
@@ -1694,13 +1694,13 @@
         <Param name="disabled" val="False" valType="bool" updates="None"/>
         <Param name="durationEstim" val="" valType="code" updates="None"/>
         <Param name="flip" val="" valType="str" updates="constant"/>
-        <Param name="font" val="$config.experiment_messages.font" valType="str" updates="set every repeat"/>
+        <Param name="font" val="config.spatial_short_term_memory.text.draw_text.font" valType="str" updates="set every repeat"/>
         <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
-        <Param name="letterHeight" val="$config.experiment_messages.size" valType="code" updates="set every repeat"/>
+        <Param name="letterHeight" val="config.spatial_short_term_memory.text.draw_text.size" valType="code" updates="set every repeat"/>
         <Param name="name" val="text_sstm_draw_dots" valType="code" updates="None"/>
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
-        <Param name="pos" val="(0, 0)" valType="code" updates="constant"/>
+        <Param name="pos" val="(0, -0.075)" valType="code" updates="constant"/>
         <Param name="saveStartStop" val="True" valType="bool" updates="None"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
@@ -1708,9 +1708,33 @@
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
         <Param name="stopVal" val="current_task.config.timing.draw_request" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
-        <Param name="text" val="$sstm_text_draw_string" valType="extendedStr" updates="constant"/>
+        <Param name="text" val="$expmsgs.draw_dots" valType="extendedStr" updates="set every repeat"/>
         <Param name="units" val="height" valType="str" updates="None"/>
         <Param name="wrapWidth" val="text_wrap_width" valType="code" updates="constant"/>
+      </TextComponent>
+      <TextComponent name="text_sstm_presentation_end">
+        <Param name="color" val="black" valType="str" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="disabled" val="False" valType="bool" updates="None"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="flip" val="" valType="str" updates="constant"/>
+        <Param name="font" val="config.spatial_short_term_memory.text.end_text.font" valType="str" updates="set every repeat"/>
+        <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
+        <Param name="letterHeight" val="config.spatial_short_term_memory.text.end_text.size" valType="code" updates="set every repeat"/>
+        <Param name="name" val="text_sstm_presentation_end" valType="code" updates="None"/>
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="pos" val="(0, 0.075)" valType="code" updates="constant"/>
+        <Param name="saveStartStop" val="True" valType="bool" updates="None"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="stopVal" val="current_task.config.timing.draw_request" valType="code" updates="constant"/>
+        <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
+        <Param name="text" val="$expmsgs.sstm_end" valType="extendedStr" updates="set every repeat"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
       </TextComponent>
     </Routine>
     <Routine name="sstm_after_display_dot">

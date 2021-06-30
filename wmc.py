@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.2.10),
-    on Wed 30 Jun 2021 12:42:36 PM CEST
+    on Wed 30 Jun 2021 01:10:01 PM CEST
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -627,14 +627,20 @@ sstm_text_after_display_dot = visual.TextStim(win=win, name='sstm_text_after_dis
 
 # Initialize components for Routine "sstm_draw_request"
 sstm_draw_requestClock = core.Clock()
-sstm_text_draw_string = expmsgs.draw_dots
 text_sstm_draw_dots = visual.TextStim(win=win, name='text_sstm_draw_dots',
-    text=sstm_text_draw_string,
+    text='default text',
     font='Arial',
-    units='height', pos=(0, 0), height=1.0, wrapWidth=text_wrap_width, ori=0, 
+    units='height', pos=(0, -0.075), height=1.0, wrapWidth=text_wrap_width, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
+text_sstm_presentation_end = visual.TextStim(win=win, name='text_sstm_presentation_end',
+    text='default text',
+    font='Arial',
+    pos=(0, 0.075), height=1.0, wrapWidth=None, ori=0, 
+    color='black', colorSpace='rgb', opacity=1, 
+    languageStyle='LTR',
+    depth=-2.0);
 
 # Initialize components for Routine "sstm_recall"
 sstm_recallClock = core.Clock()
@@ -684,7 +690,7 @@ sstm_key_resp_task_end = keyboard.Keyboard()
 # Initialize components for Routine "base_end"
 base_endClock = core.Clock()
 base_text_end = visual.TextStim(win=win, name='base_text_end',
-    text=expmsgs.end,
+    text='default text',
     font='Arial',
     units='height', pos=(0, 0), height=1.0, wrapWidth=text_wrap_width, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
@@ -5767,10 +5773,14 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
             continueRoutine = True
             # update component parameters for each repeat
             current_trial.grid.show(False)
-            text_sstm_draw_dots.setFont(config.experiment_messages.font)
-            text_sstm_draw_dots.setHeight(config.experiment_messages.size)
+            text_sstm_draw_dots.setText(expmsgs.draw_dots)
+            text_sstm_draw_dots.setFont('config.spatial_short_term_memory.text.draw_text.font')
+            text_sstm_draw_dots.setHeight(config.spatial_short_term_memory.text.draw_text.size)
+            text_sstm_presentation_end.setText(expmsgs.sstm_end)
+            text_sstm_presentation_end.setFont('config.spatial_short_term_memory.text.end_text.font')
+            text_sstm_presentation_end.setHeight(config.spatial_short_term_memory.text.end_text.size)
             # keep track of which components have finished
-            sstm_draw_requestComponents = [text_sstm_draw_dots]
+            sstm_draw_requestComponents = [text_sstm_draw_dots, text_sstm_presentation_end]
             for thisComponent in sstm_draw_requestComponents:
                 thisComponent.tStart = None
                 thisComponent.tStop = None
@@ -5812,6 +5822,23 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                         win.timeOnFlip(text_sstm_draw_dots, 'tStopRefresh')  # time at next scr refresh
                         text_sstm_draw_dots.setAutoDraw(False)
                 
+                # *text_sstm_presentation_end* updates
+                if text_sstm_presentation_end.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                    # keep track of start time/frame for later
+                    text_sstm_presentation_end.frameNStart = frameN  # exact frame index
+                    text_sstm_presentation_end.tStart = t  # local t and not account for scr refresh
+                    text_sstm_presentation_end.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(text_sstm_presentation_end, 'tStartRefresh')  # time at next scr refresh
+                    text_sstm_presentation_end.setAutoDraw(True)
+                if text_sstm_presentation_end.status == STARTED:
+                    # is it time to stop? (based on global clock, using actual start)
+                    if tThisFlipGlobal > text_sstm_presentation_end.tStartRefresh + current_task.config.timing.draw_request-frameTolerance:
+                        # keep track of stop time/frame for later
+                        text_sstm_presentation_end.tStop = t  # not accounting for scr refresh
+                        text_sstm_presentation_end.frameNStop = frameN  # exact frame index
+                        win.timeOnFlip(text_sstm_presentation_end, 'tStopRefresh')  # time at next scr refresh
+                        text_sstm_presentation_end.setAutoDraw(False)
+                
                 # check if all components have finished
                 if not continueRoutine:  # a component has requested a forced-end of Routine
                     break
@@ -5831,6 +5858,8 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                     thisComponent.setAutoDraw(False)
             sstm_trials.addData('text_sstm_draw_dots.started', text_sstm_draw_dots.tStartRefresh)
             sstm_trials.addData('text_sstm_draw_dots.stopped', text_sstm_draw_dots.tStopRefresh)
+            sstm_trials.addData('text_sstm_presentation_end.started', text_sstm_presentation_end.tStartRefresh)
+            sstm_trials.addData('text_sstm_presentation_end.stopped', text_sstm_presentation_end.tStopRefresh)
             # the Routine "sstm_draw_request" was not non-slip safe, so reset the non-slip timer
             routineTimer.reset()
             
@@ -5840,7 +5869,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
             current_trial.grid.show(True)
             win.mouseVisible = True
             sstm_mouse.setVisible(True)
-            sstm_text_next.setText(expmsgs.next)
+            sstm_text_next.setText(expmsgs.sstm_next)
             sstm_text_next.setFont('config.spatial_short_term_memory.text.next_button.font')
             sstm_text_next.setHeight(config.spatial_short_term_memory.text.next_button.size)
             # setup some python lists for storing info about the sstm_mouse
@@ -6274,6 +6303,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
 # ------Prepare to start Routine "base_end"-------
 continueRoutine = True
 # update component parameters for each repeat
+base_text_end.setText(expmsgs.experiment_over)
 base_text_end.setFont(config.experiment_messages.font)
 base_text_end.setHeight(config.experiment_messages.size)
 base_key_resp_end.keys = []
