@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.2.10),
-    on Wed 30 Jun 2021 12:37:55 PM CEST
+    on Wed 30 Jun 2021 12:42:36 PM CEST
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -116,7 +116,13 @@ do_sstm_task = thisExp.extraInfo['Spatial Short Term Memory']
 random_seed = thisExp.extraInfo['Random Seed']
 if random_seed is None or random_seed == '':
     random_seed = subject_id
-    
+
+# task initialization is done at the experiment beginning
+# to circumvent lag when generating dots
+if do_sstm_task:
+    from tasks.spatial_short_term_memory import SpatialShortTermMemoryTask
+    sstm_task = SpatialShortTermMemoryTask(window=win, seed=random_seed, experiment_data=thisExp, config=config.spatial_short_term_memory)
+
 # set text wrap width to 90% of screen width (in height units)
 text_wrap_width = win.size[0] / win.size[1] * 0.9
 
@@ -5050,8 +5056,9 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
     # ------Prepare to start Routine "sstm_init"-------
     continueRoutine = True
     # update component parameters for each repeat
-    from tasks.spatial_short_term_memory import SpatialShortTermMemoryTask
-    current_task = SpatialShortTermMemoryTask(window=win, seed=random_seed, experiment_data=thisExp, config=config.spatial_short_term_memory)
+    # task initialization is done at the experiment beginning
+    # to circumvent lag when generating dots
+    current_task = sstm_task
     
     instruction_filepaths = instructions.get_instructions('sstm')
     n_instruction_pages = instructions.get_instruction_page_count('sstm')
