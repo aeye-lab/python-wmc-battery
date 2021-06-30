@@ -12,6 +12,12 @@ pip install -U -f https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu
 sudo apt install libxcb-xinerama0
 ```
 
+For Chinese font support:
+
+```
+sudo apt install fonts-noto-cjk
+```
+
 ### Mac OS
 
 ```
@@ -21,7 +27,9 @@ pip install psychopy==2020.2.10 pygame wxPython numpy pandas scipy dotmap pyyaml
 
 ## Run WMC Battery
 
-`python3 wmc.py`
+```
+python3 wmc.py
+```
 
 
 You can quit the experiment by pressing `F12`.
