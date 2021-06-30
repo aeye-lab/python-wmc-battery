@@ -1,7 +1,11 @@
 experiment_messages:
-  font: 'Noto Serif CJK TC'
+  font: 'Noto Sans CJK SC'
   size: 0.05
   encoding: 'utf-16le'
 
 sentence_span:
   encoding: 'utf-16le'
+  text:
+    sentences:
+      font: 'Noto Sans CJK SC'
+      size: 0.05
