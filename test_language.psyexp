@@ -76,9 +76,9 @@
         <Param name="disabled" val="False" valType="bool" updates="None"/>
         <Param name="durationEstim" val="" valType="code" updates="None"/>
         <Param name="flip" val="" valType="str" updates="constant"/>
-        <Param name="font" val="config.experiment_messages.font" valType="str" updates="set every repeat"/>
+        <Param name="font" val="$config.experiment_messages.font" valType="str" updates="set every repeat"/>
         <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
-        <Param name="letterHeight" val="config.experiment_messages.size" valType="code" updates="set every repeat"/>
+        <Param name="letterHeight" val="$config.experiment_messages.size" valType="code" updates="set every repeat"/>
         <Param name="name" val="text_experiment_message" valType="code" updates="None"/>
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
@@ -137,9 +137,9 @@
         <Param name="disabled" val="False" valType="bool" updates="None"/>
         <Param name="durationEstim" val="" valType="code" updates="None"/>
         <Param name="flip" val="" valType="str" updates="constant"/>
-        <Param name="font" val="config.sentence_span.text.sentences.font" valType="str" updates="set every repeat"/>
+        <Param name="font" val="$config.sentence_span.text.sentences.font" valType="str" updates="set every repeat"/>
         <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
-        <Param name="letterHeight" val="config.sentence_span.text.sentences.size" valType="code" updates="set every repeat"/>
+        <Param name="letterHeight" val="$config.sentence_span.text.sentences.size" valType="code" updates="set every repeat"/>
         <Param name="name" val="text_ss_sentence" valType="code" updates="None"/>
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.2.10),
-    on Wed 30 Jun 2021 04:31:31 PM CEST
+    on Wed 30 Jun 2021 04:35:59 PM CEST
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -266,7 +266,7 @@ for thisExperiment_message_loop in experiment_message_loop:
     # update component parameters for each repeat
     current_experiment_message = experiment_messages.pop(0)
     text_experiment_message.setText(current_experiment_message)
-    text_experiment_message.setFont('config.experiment_messages.font')
+    text_experiment_message.setFont(config.experiment_messages.font)
     text_experiment_message.setHeight(config.experiment_messages.size)
     key_resp_experiment_message.keys = []
     key_resp_experiment_message.rt = []
@@ -561,7 +561,7 @@ for thisSs_sentence_loop in ss_sentence_loop:
     # update component parameters for each repeat
     current_ss_sentence = ss_sentences.pop(0)
     text_ss_sentence.setText(current_ss_sentence)
-    text_ss_sentence.setFont('config.sentence_span.text.sentences.font')
+    text_ss_sentence.setFont(config.sentence_span.text.sentences.font)
     text_ss_sentence.setHeight(config.sentence_span.text.sentences.size)
     key_resp_ss_sentence.keys = []
     key_resp_ss_sentence.rt = []
