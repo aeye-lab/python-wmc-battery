@@ -49,7 +49,7 @@ class WMCConfig:
 
     def merge_dict(self, base_dict, new_dict):
         for key in new_dict.keys():
-            if hasattr(base_dict[key], 'keys'):
+            if hasattr(new_dict[key], 'keys'):
                 self.merge_dict(base_dict[key], new_dict[key])
             else:
                 base_dict[key] = new_dict[key]

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" ?>
+<?xml version="1.0" ?>
 <PsychoPy2experiment version="2020.2.10" encoding="utf-8">
   <Settings>
     <Param name="Audio latency priority" val="use prefs" valType="str" updates="None"/>
@@ -174,7 +174,7 @@
         <Param name="flip" val="" valType="str" updates="constant"/>
         <Param name="font" val="Arial" valType="str" updates="constant"/>
         <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
-        <Param name="letterHeight" val="$config.experiment_messages.height" valType="code" updates="set every repeat"/>
+        <Param name="letterHeight" val="$config.experiment_messages.size" valType="code" updates="set every repeat"/>
         <Param name="name" val="base_text_intertrial" valType="code" updates="None"/>
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
@@ -217,7 +217,7 @@
         <Param name="flip" val="" valType="str" updates="constant"/>
         <Param name="font" val="$config.experiment_messages.font" valType="str" updates="set every repeat"/>
         <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
-        <Param name="letterHeight" val="$config.experiment_messages.height" valType="code" updates="set every repeat"/>
+        <Param name="letterHeight" val="$config.experiment_messages.size" valType="code" updates="set every repeat"/>
         <Param name="name" val="base_text_self_paced_break" valType="code" updates="None"/>
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
@@ -278,7 +278,7 @@
         <Param name="flip" val="" valType="str" updates="constant"/>
         <Param name="font" val="Arial" valType="str" updates="constant"/>
         <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
-        <Param name="letterHeight" val="$config.experiment_messages.height" valType="code" updates="set every repeat"/>
+        <Param name="letterHeight" val="$config.experiment_messages.size" valType="code" updates="set every repeat"/>
         <Param name="name" val="base_text_pause_after_break" valType="code" updates="None"/>
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
@@ -321,7 +321,7 @@
         <Param name="flip" val="" valType="str" updates="constant"/>
         <Param name="font" val="$config.experiment_messages.font" valType="str" updates="set every repeat"/>
         <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
-        <Param name="letterHeight" val="$config.experiment_messages.height" valType="code" updates="set every repeat"/>
+        <Param name="letterHeight" val="$config.experiment_messages.size" valType="code" updates="set every repeat"/>
         <Param name="name" val="base_text_begin_task" valType="code" updates="None"/>
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
@@ -382,7 +382,7 @@
         <Param name="flip" val="" valType="str" updates="constant"/>
         <Param name="font" val="$config.experiment_messages.font" valType="str" updates="set every repeat"/>
         <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
-        <Param name="letterHeight" val="$config.experiment_messages.height" valType="code" updates="set every repeat"/>
+        <Param name="letterHeight" val="$config.experiment_messages.size" valType="code" updates="set every repeat"/>
         <Param name="name" val="base_text_task_end" valType="code" updates="None"/>
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
@@ -462,7 +462,7 @@
         <Param name="flip" val="" valType="str" updates="constant"/>
         <Param name="font" val="Arial" valType="str" updates="constant"/>
         <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
-        <Param name="letterHeight" val="$config.experiment_messages.height" valType="code" updates="set every repeat"/>
+        <Param name="letterHeight" val="$config.experiment_messages.size" valType="code" updates="set every repeat"/>
         <Param name="name" val="mu_text_blank" valType="code" updates="None"/>
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
@@ -755,9 +755,9 @@
         <Param name="disabled" val="False" valType="bool" updates="None"/>
         <Param name="durationEstim" val="" valType="code" updates="None"/>
         <Param name="flip" val="" valType="str" updates="constant"/>
-        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="font" val="$config.operation_span.text.fixation_cross.font" valType="str" updates="set every repeat"/>
         <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
-        <Param name="letterHeight" val="$config.experiment_messages.height" valType="code" updates="set every repeat"/>
+        <Param name="letterHeight" val="$config.operation_span.text.fixation_cross.size" valType="code" updates="set every repeat"/>
         <Param name="name" val="os_text_fixation_cross" valType="code" updates="None"/>
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
@@ -800,7 +800,7 @@
         <Param name="flip" val="" valType="str" updates="constant"/>
         <Param name="font" val="Arial" valType="str" updates="constant"/>
         <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
-        <Param name="letterHeight" val="$config.experiment_messages.height" valType="code" updates="set every repeat"/>
+        <Param name="letterHeight" val="$config.experiment_messages.size" valType="code" updates="set every repeat"/>
         <Param name="name" val="os_text_blank" valType="code" updates="None"/>
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
@@ -841,9 +841,9 @@
         <Param name="disabled" val="False" valType="bool" updates="None"/>
         <Param name="durationEstim" val="" valType="code" updates="None"/>
         <Param name="flip" val="" valType="str" updates="constant"/>
-        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="font" val="$config.operation_span.text.letters.font" valType="str" updates="set every repeat"/>
         <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
-        <Param name="letterHeight" val="$config.experiment_messages.height" valType="code" updates="set every repeat"/>
+        <Param name="letterHeight" val="$config.operation_span.text.equations.size" valType="code" updates="set every repeat"/>
         <Param name="name" val="os_text_equation" valType="code" updates="None"/>
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
@@ -902,9 +902,9 @@
         <Param name="disabled" val="False" valType="bool" updates="None"/>
         <Param name="durationEstim" val="" valType="code" updates="None"/>
         <Param name="flip" val="" valType="str" updates="constant"/>
-        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="font" val="$config.operation_span.text.letters.font" valType="str" updates="set every repeat"/>
         <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
-        <Param name="letterHeight" val="$config.experiment_messages.height" valType="code" updates="set every repeat"/>
+        <Param name="letterHeight" val="$config.operation_span.text.letters.size" valType="code" updates="set every repeat"/>
         <Param name="name" val="os_text_question_mark" valType="code" updates="None"/>
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
@@ -963,13 +963,13 @@
         <Param name="disabled" val="False" valType="bool" updates="None"/>
         <Param name="durationEstim" val="" valType="code" updates="None"/>
         <Param name="flip" val="" valType="str" updates="constant"/>
-        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="font" val="$config.operation_span.text.letters.font" valType="str" updates="set every repeat"/>
         <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
-        <Param name="letterHeight" val="$config.experiment_messages.height" valType="code" updates="set every repeat"/>
+        <Param name="letterHeight" val="$config.operation_span.text.letters.size" valType="code" updates="set every repeat"/>
         <Param name="name" val="os_text_recall" valType="code" updates="None"/>
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
-        <Param name="pos" val="(0, 0)" valType="code" updates="constant"/>
+        <Param name="pos" val="(0.075, 0)" valType="code" updates="constant"/>
         <Param name="saveStartStop" val="True" valType="bool" updates="None"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
@@ -1006,9 +1006,9 @@
         <Param name="disabled" val="False" valType="bool" updates="None"/>
         <Param name="durationEstim" val="" valType="code" updates="None"/>
         <Param name="flip" val="" valType="str" updates="constant"/>
-        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="font" val="$config.operation_span.text.letters.font" valType="str" updates="set every repeat"/>
         <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
-        <Param name="letterHeight" val="$config.experiment_messages.height" valType="code" updates="set every repeat"/>
+        <Param name="letterHeight" val="$config.operation_span.text.letters.size" valType="code" updates="set every repeat"/>
         <Param name="name" val="os_text_letter" valType="code" updates="None"/>
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
@@ -1068,9 +1068,9 @@
         <Param name="disabled" val="False" valType="bool" updates="None"/>
         <Param name="durationEstim" val="" valType="code" updates="None"/>
         <Param name="flip" val="" valType="str" updates="constant"/>
-        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="font" val="$config.sentence_span.text.fixation_cross.font" valType="str" updates="set every repeat"/>
         <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
-        <Param name="letterHeight" val="$config.experiment_messages.height" valType="code" updates="set every repeat"/>
+        <Param name="letterHeight" val="$config.sentence_span.text.fixation_cross.size" valType="code" updates="set every repeat"/>
         <Param name="name" val="ss_text_fixation_cross" valType="code" updates="None"/>
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
@@ -1111,9 +1111,9 @@
         <Param name="disabled" val="False" valType="bool" updates="None"/>
         <Param name="durationEstim" val="" valType="code" updates="None"/>
         <Param name="flip" val="" valType="str" updates="constant"/>
-        <Param name="font" val="$config.experiment_messages.font" valType="str" updates="set every repeat"/>
+        <Param name="font" val="$config.sentence_span.text.sentences.font" valType="str" updates="set every repeat"/>
         <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
-        <Param name="letterHeight" val="$config.experiment_messages.height" valType="code" updates="set every repeat"/>
+        <Param name="letterHeight" val="$config.sentence_span.text.sentences.size" valType="code" updates="set every repeat"/>
         <Param name="name" val="ss_text_sentence" valType="code" updates="None"/>
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
@@ -1172,9 +1172,9 @@
         <Param name="disabled" val="False" valType="bool" updates="None"/>
         <Param name="durationEstim" val="" valType="code" updates="None"/>
         <Param name="flip" val="" valType="str" updates="constant"/>
-        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="font" val="$config.sentence_span.text.letters.font" valType="str" updates="set every repeat"/>
         <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
-        <Param name="letterHeight" val="$config.experiment_messages.height" valType="code" updates="set every repeat"/>
+        <Param name="letterHeight" val="$config.sentence_span.text.letters.size" valType="code" updates="set every repeat"/>
         <Param name="name" val="ss_text_letter" valType="code" updates="None"/>
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
@@ -1217,7 +1217,7 @@
         <Param name="flip" val="" valType="str" updates="constant"/>
         <Param name="font" val="Arial" valType="str" updates="constant"/>
         <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
-        <Param name="letterHeight" val="$config.experiment_messages.height" valType="code" updates="set every repeat"/>
+        <Param name="letterHeight" val="$config.experiment_messages.size" valType="code" updates="set every repeat"/>
         <Param name="name" val="ss_text_blank" valType="code" updates="None"/>
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
@@ -1258,9 +1258,9 @@
         <Param name="disabled" val="False" valType="bool" updates="None"/>
         <Param name="durationEstim" val="" valType="code" updates="None"/>
         <Param name="flip" val="" valType="str" updates="constant"/>
-        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="font" val="$config.sentence_span.text.letters.font" valType="str" updates="set every repeat"/>
         <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
-        <Param name="letterHeight" val="$config.experiment_messages.height" valType="code" updates="set every repeat"/>
+        <Param name="letterHeight" val="$config.sentence_span.text.letters.size" valType="code" updates="set every repeat"/>
         <Param name="name" val="ss_text_question_mark" valType="code" updates="None"/>
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
@@ -1319,13 +1319,13 @@
         <Param name="disabled" val="False" valType="bool" updates="None"/>
         <Param name="durationEstim" val="" valType="code" updates="None"/>
         <Param name="flip" val="" valType="str" updates="constant"/>
-        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="font" val="$config.sentence_span.text.letters.font" valType="str" updates="set every repeat"/>
         <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
-        <Param name="letterHeight" val="$config.experiment_messages.height" valType="code" updates="set every repeat"/>
+        <Param name="letterHeight" val="$config.sentence_span.text.letters.size" valType="code" updates="set every repeat"/>
         <Param name="name" val="ss_text_display_recall" valType="code" updates="None"/>
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
-        <Param name="pos" val="(0, 0)" valType="code" updates="constant"/>
+        <Param name="pos" val="(0.075, 0)" valType="code" updates="constant"/>
         <Param name="saveStartStop" val="True" valType="bool" updates="None"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
@@ -1383,7 +1383,7 @@
         <Param name="flip" val="" valType="str" updates="constant"/>
         <Param name="font" val="Arial" valType="str" updates="constant"/>
         <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
-        <Param name="letterHeight" val="config.experiment_messages.height" valType="code" updates="set every repeat"/>
+        <Param name="letterHeight" val="config.experiment_messages.size" valType="code" updates="set every repeat"/>
         <Param name="name" val="sstm_text_fixation_cross" valType="code" updates="None"/>
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
@@ -1470,7 +1470,7 @@
         <Param name="flip" val="" valType="str" updates="constant"/>
         <Param name="font" val="Arial" valType="str" updates="constant"/>
         <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
-        <Param name="letterHeight" val="$config.experiment_messages.height" valType="code" updates="set every repeat"/>
+        <Param name="letterHeight" val="$config.experiment_messages.size" valType="code" updates="set every repeat"/>
         <Param name="name" val="sstm_text_blank" valType="code" updates="None"/>
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
@@ -1513,7 +1513,7 @@
         <Param name="flip" val="" valType="str" updates="constant"/>
         <Param name="font" val="$config.experiment_messages.font" valType="str" updates="set every repeat"/>
         <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
-        <Param name="letterHeight" val="$config.experiment_messages.height" valType="code" updates="set every repeat"/>
+        <Param name="letterHeight" val="$config.experiment_messages.size" valType="code" updates="set every repeat"/>
         <Param name="name" val="sstm_text_next" valType="code" updates="None"/>
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
@@ -1574,7 +1574,7 @@
         <Param name="flip" val="" valType="str" updates="constant"/>
         <Param name="font" val="$config.experiment_messages.font" valType="str" updates="set every repeat"/>
         <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
-        <Param name="letterHeight" val="$config.experiment_messages.height" valType="code" updates="set every repeat"/>
+        <Param name="letterHeight" val="$config.experiment_messages.size" valType="code" updates="set every repeat"/>
         <Param name="name" val="base_text_end" valType="code" updates="None"/>
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
@@ -1635,7 +1635,7 @@
         <Param name="flip" val="" valType="str" updates="constant"/>
         <Param name="font" val="$config.experiment_messages.font" valType="str" updates="set every repeat"/>
         <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
-        <Param name="letterHeight" val="$config.experiment_messages.height" valType="code" updates="set every repeat"/>
+        <Param name="letterHeight" val="$config.experiment_messages.size" valType="code" updates="set every repeat"/>
         <Param name="name" val="text_sstm_task_end" valType="code" updates="None"/>
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
@@ -1696,7 +1696,7 @@
         <Param name="flip" val="" valType="str" updates="constant"/>
         <Param name="font" val="$config.experiment_messages.font" valType="str" updates="set every repeat"/>
         <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
-        <Param name="letterHeight" val="$config.experiment_messages.height" valType="code" updates="set every repeat"/>
+        <Param name="letterHeight" val="$config.experiment_messages.size" valType="code" updates="set every repeat"/>
         <Param name="name" val="text_sstm_draw_dots" valType="code" updates="None"/>
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
@@ -1782,7 +1782,7 @@
         <Param name="flip" val="" valType="str" updates="constant"/>
         <Param name="font" val="$config.experiment_messages.font" valType="str" updates="set every repeat"/>
         <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
-        <Param name="letterHeight" val="$config.experiment_messages.height" valType="code" updates="set every repeat"/>
+        <Param name="letterHeight" val="$config.experiment_messages.size" valType="code" updates="set every repeat"/>
         <Param name="name" val="base_text_next_trial" valType="code" updates="None"/>
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>

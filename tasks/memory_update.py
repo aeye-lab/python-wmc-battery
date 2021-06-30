@@ -25,7 +25,7 @@ class MemoryUpdateOperation:
         return self.operator(operand_left, self.operand_right)
 
     def __repr__(self):
-        return f'{self.operator_str} {self.operand_right}'
+        return f'{self.operator_str}{self.operand_right}'
 
 
 class MemoryUpdateOperationFactory:

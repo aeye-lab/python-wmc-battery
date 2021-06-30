@@ -28,5 +28,15 @@ timing:
   inter_trial: 0.5          # blank screen duration between each trial
   after_break: 2.0          # blank screen duration after self paced break
 
-encoding: 'us-ascii'        # defines encoding of sentence file
+encoding: 'us-ascii'        # defines default encoding of sentence file
 
+text:
+  letters:
+    font: 'Arial'
+    size: 0.095
+  sentences:
+    font: 'Arial'
+    size: 0.05
+  fixation_cross:
+    font: 'Arial'
+    size: 0.095

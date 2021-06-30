@@ -38,3 +38,14 @@ timing:
   recall: 0.2               # onscreen duration of recalled response
   inter_trial: 0.5          # blank screen duration between each trial
   after_break: 2.0          # blank screen duration after self paced break
+
+text:
+  letters:
+    font: 'Arial'
+    size: 0.095
+  equations:
+    font: 'Arial'
+    size: 0.095
+  fixation_cross:
+    font: 'Arial'
+    size: 0.095

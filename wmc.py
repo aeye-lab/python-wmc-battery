@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.2.10),
-    on Wed 30 Jun 2021 09:20:39 AM CEST
+    on Wed 30 Jun 2021 10:21:43 AM CEST
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -362,7 +362,7 @@ os_display_recallClock = core.Clock()
 os_text_recall = visual.TextStim(win=win, name='os_text_recall',
     text='default text',
     font='Arial',
-    units='height', pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0.075, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -499,7 +499,7 @@ ss_display_recallClock = core.Clock()
 ss_text_display_recall = visual.TextStim(win=win, name='ss_text_display_recall',
     text='default text',
     font='Arial',
-    units='height', pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
+    units='height', pos=(0.075, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
@@ -1152,7 +1152,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
         n_trials = current_task.get_trial_count()
         base_text_begin_task.setText(msg_task_begin)
         base_text_begin_task.setFont(config.experiment_messages.font)
-        base_text_begin_task.setHeight(config.experiment_messages.height)
+        base_text_begin_task.setHeight(config.experiment_messages.size)
         base_key_resp_task_begin.keys = []
         base_key_resp_task_begin.rt = []
         _base_key_resp_task_begin_allKeys = []
@@ -1318,7 +1318,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
             # update component parameters for each repeat
             n_digits = current_trial.get_n_digits()
             n_operations = current_trial.get_n_operations()
-            mu_text_blank.setHeight(config.experiment_messages.height)
+            mu_text_blank.setHeight(config.experiment_messages.size)
             # keep track of which components have finished
             mu_init_trialComponents = [mu_text_blank]
             for thisComponent in mu_init_trialComponents:
@@ -1957,7 +1957,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                 # update component parameters for each repeat
                 base_text_next_trial.setText(expmsgs.next_trial)
                 base_text_next_trial.setFont(config.experiment_messages.font)
-                base_text_next_trial.setHeight(config.experiment_messages.height)
+                base_text_next_trial.setHeight(config.experiment_messages.size)
                 base_next_trial_key_resp.keys = []
                 base_next_trial_key_resp.rt = []
                 _base_next_trial_key_resp_allKeys = []
@@ -2056,7 +2056,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
             continueRoutine = True
             # update component parameters for each repeat
             current_task.finish_trial()
-            base_text_intertrial.setHeight(config.experiment_messages.height)
+            base_text_intertrial.setHeight(config.experiment_messages.size)
             # keep track of which components have finished
             base_intertrialComponents = [base_text_intertrial]
             for thisComponent in base_intertrialComponents:
@@ -2137,7 +2137,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
     current_task.write_results(output_filepath)
     base_text_task_end.setText(expmsgs.task_end)
     base_text_task_end.setFont(config.experiment_messages.font)
-    base_text_task_end.setHeight(config.experiment_messages.height)
+    base_text_task_end.setHeight(config.experiment_messages.size)
     base_key_resp_task_end.keys = []
     base_key_resp_task_end.rt = []
     _base_key_resp_task_end_allKeys = []
@@ -2497,7 +2497,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
         n_trials = current_task.get_trial_count()
         base_text_begin_task.setText(msg_task_begin)
         base_text_begin_task.setFont(config.experiment_messages.font)
-        base_text_begin_task.setHeight(config.experiment_messages.height)
+        base_text_begin_task.setHeight(config.experiment_messages.size)
         base_key_resp_task_begin.keys = []
         base_key_resp_task_begin.rt = []
         _base_key_resp_task_begin_allKeys = []
@@ -2662,7 +2662,8 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
             continueRoutine = True
             # update component parameters for each repeat
             n_presentations = current_trial.get_presentation_count()
-            os_text_fixation_cross.setHeight(config.experiment_messages.height)
+            os_text_fixation_cross.setFont(config.operation_span.text.fixation_cross.font)
+            os_text_fixation_cross.setHeight(config.operation_span.text.fixation_cross.size)
             # keep track of which components have finished
             os_init_trialComponents = [os_text_fixation_cross]
             for thisComponent in os_init_trialComponents:
@@ -2760,7 +2761,8 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                 thisExp.addData('os_key_resp_equation.correct_answer', correct_key)
                 
                 os_text_equation.setText(equation_string)
-                os_text_equation.setHeight(config.experiment_messages.height)
+                os_text_equation.setFont(config.operation_span.text.letters.font)
+                os_text_equation.setHeight(config.operation_span.text.equations.size)
                 os_key_resp_equation.keys = []
                 os_key_resp_equation.rt = []
                 _os_key_resp_equation_allKeys = []
@@ -2905,7 +2907,8 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                 # update component parameters for each repeat
                 letter = current_trial.get_next_letter().upper()
                 os_text_letter.setText(letter)
-                os_text_letter.setHeight(config.experiment_messages.height)
+                os_text_letter.setFont(config.operation_span.text.letters.font)
+                os_text_letter.setHeight(config.operation_span.text.letters.size)
                 # keep track of which components have finished
                 os_letterComponents = [os_text_letter]
                 for thisComponent in os_letterComponents:
@@ -2974,7 +2977,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                 # ------Prepare to start Routine "os_blank"-------
                 continueRoutine = True
                 # update component parameters for each repeat
-                os_text_blank.setHeight(config.experiment_messages.height)
+                os_text_blank.setHeight(config.experiment_messages.size)
                 # keep track of which components have finished
                 os_blankComponents = [os_text_blank]
                 for thisComponent in os_blankComponents:
@@ -3072,7 +3075,8 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                 thisExp.addData('os_key_resp_recall.correct_letter', correct_letter)
                 
                 os_allowed_keys = current_task.config.allowed_keys
-                os_text_question_mark.setHeight(config.experiment_messages.height)
+                os_text_question_mark.setFont(config.operation_span.text.letters.font)
+                os_text_question_mark.setHeight(config.operation_span.text.letters.size)
                 os_key_resp_recall.keys = []
                 os_key_resp_recall.rt = []
                 _os_key_resp_recall_allKeys = []
@@ -3192,7 +3196,8 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                 current_trial.save_letter_response(letter_response, letter_rt)
                 
                 os_text_recall.setText(letter_response.upper())
-                os_text_recall.setHeight(config.experiment_messages.height)
+                os_text_recall.setFont(config.operation_span.text.letters.font)
+                os_text_recall.setHeight(config.operation_span.text.letters.size)
                 # keep track of which components have finished
                 os_display_recallComponents = [os_text_recall]
                 for thisComponent in os_display_recallComponents:
@@ -3266,7 +3271,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
             continueRoutine = True
             # update component parameters for each repeat
             current_task.finish_trial()
-            base_text_intertrial.setHeight(config.experiment_messages.height)
+            base_text_intertrial.setHeight(config.experiment_messages.size)
             # keep track of which components have finished
             base_intertrialComponents = [base_text_intertrial]
             for thisComponent in base_intertrialComponents:
@@ -3356,7 +3361,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                 # update component parameters for each repeat
                 base_text_self_paced_break.setText(expmsgs.experiment_break)
                 base_text_self_paced_break.setFont(config.experiment_messages.font)
-                base_text_self_paced_break.setHeight(config.experiment_messages.height)
+                base_text_self_paced_break.setHeight(config.experiment_messages.size)
                 base_key_resp_self_paced_break.keys = []
                 base_key_resp_self_paced_break.rt = []
                 _base_key_resp_self_paced_break_allKeys = []
@@ -3450,7 +3455,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                 # ------Prepare to start Routine "base_after_break_pause"-------
                 continueRoutine = True
                 # update component parameters for each repeat
-                base_text_pause_after_break.setHeight(config.experiment_messages.height)
+                base_text_pause_after_break.setHeight(config.experiment_messages.size)
                 # keep track of which components have finished
                 base_after_break_pauseComponents = [base_text_pause_after_break]
                 for thisComponent in base_after_break_pauseComponents:
@@ -3535,7 +3540,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
     current_task.write_results(output_filepath)
     base_text_task_end.setText(expmsgs.task_end)
     base_text_task_end.setFont(config.experiment_messages.font)
-    base_text_task_end.setHeight(config.experiment_messages.height)
+    base_text_task_end.setHeight(config.experiment_messages.size)
     base_key_resp_task_end.keys = []
     base_key_resp_task_end.rt = []
     _base_key_resp_task_end_allKeys = []
@@ -3895,7 +3900,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
         n_trials = current_task.get_trial_count()
         base_text_begin_task.setText(msg_task_begin)
         base_text_begin_task.setFont(config.experiment_messages.font)
-        base_text_begin_task.setHeight(config.experiment_messages.height)
+        base_text_begin_task.setHeight(config.experiment_messages.size)
         base_key_resp_task_begin.keys = []
         base_key_resp_task_begin.rt = []
         _base_key_resp_task_begin_allKeys = []
@@ -4060,7 +4065,8 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
             continueRoutine = True
             # update component parameters for each repeat
             n_presentations = current_trial.get_presentation_count()
-            ss_text_fixation_cross.setHeight(config.experiment_messages.height)
+            ss_text_fixation_cross.setFont(config.sentence_span.text.fixation_cross.font)
+            ss_text_fixation_cross.setHeight(config.sentence_span.text.fixation_cross.size)
             # keep track of which components have finished
             ss_init_trialComponents = [ss_text_fixation_cross]
             for thisComponent in ss_init_trialComponents:
@@ -4158,8 +4164,8 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                 thisExp.addData('ss_key_resp_sentence.correct_answer', correct_key)
                 
                 ss_text_sentence.setText(sentence_string)
-                ss_text_sentence.setFont(config.experiment_messages.font)
-                ss_text_sentence.setHeight(config.experiment_messages.height)
+                ss_text_sentence.setFont(config.sentence_span.text.sentences.font)
+                ss_text_sentence.setHeight(config.sentence_span.text.sentences.size)
                 ss_key_resp_sentence.keys = []
                 ss_key_resp_sentence.rt = []
                 _ss_key_resp_sentence_allKeys = []
@@ -4304,7 +4310,8 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                 # update component parameters for each repeat
                 letter = current_trial.get_next_letter().upper()
                 ss_text_letter.setText(letter)
-                ss_text_letter.setHeight(config.experiment_messages.height)
+                ss_text_letter.setFont(config.sentence_span.text.letters.font)
+                ss_text_letter.setHeight(config.sentence_span.text.letters.size)
                 # keep track of which components have finished
                 ss_letterComponents = [ss_text_letter]
                 for thisComponent in ss_letterComponents:
@@ -4373,7 +4380,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                 # ------Prepare to start Routine "ss_blank"-------
                 continueRoutine = True
                 # update component parameters for each repeat
-                ss_text_blank.setHeight(config.experiment_messages.height)
+                ss_text_blank.setHeight(config.experiment_messages.size)
                 # keep track of which components have finished
                 ss_blankComponents = [ss_text_blank]
                 for thisComponent in ss_blankComponents:
@@ -4471,7 +4478,8 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                 thisExp.addData('ss_key_resp_recall.correct_letter', correct_letter)
                 
                 ss_allowed_keys = current_task.config.allowed_keys
-                ss_text_question_mark.setHeight(config.experiment_messages.height)
+                ss_text_question_mark.setFont(config.sentence_span.text.letters.font)
+                ss_text_question_mark.setHeight(config.sentence_span.text.letters.size)
                 ss_key_resp_recall.keys = []
                 ss_key_resp_recall.rt = []
                 _ss_key_resp_recall_allKeys = []
@@ -4591,7 +4599,8 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                 current_trial.save_letter_response(letter_response, letter_rt)
                 
                 ss_text_display_recall.setText(letter_response.upper())
-                ss_text_display_recall.setHeight(config.experiment_messages.height)
+                ss_text_display_recall.setFont(config.sentence_span.text.letters.font)
+                ss_text_display_recall.setHeight(config.sentence_span.text.letters.size)
                 # keep track of which components have finished
                 ss_display_recallComponents = [ss_text_display_recall]
                 for thisComponent in ss_display_recallComponents:
@@ -4665,7 +4674,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
             continueRoutine = True
             # update component parameters for each repeat
             current_task.finish_trial()
-            base_text_intertrial.setHeight(config.experiment_messages.height)
+            base_text_intertrial.setHeight(config.experiment_messages.size)
             # keep track of which components have finished
             base_intertrialComponents = [base_text_intertrial]
             for thisComponent in base_intertrialComponents:
@@ -4755,7 +4764,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                 # update component parameters for each repeat
                 base_text_self_paced_break.setText(expmsgs.experiment_break)
                 base_text_self_paced_break.setFont(config.experiment_messages.font)
-                base_text_self_paced_break.setHeight(config.experiment_messages.height)
+                base_text_self_paced_break.setHeight(config.experiment_messages.size)
                 base_key_resp_self_paced_break.keys = []
                 base_key_resp_self_paced_break.rt = []
                 _base_key_resp_self_paced_break_allKeys = []
@@ -4849,7 +4858,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                 # ------Prepare to start Routine "base_after_break_pause"-------
                 continueRoutine = True
                 # update component parameters for each repeat
-                base_text_pause_after_break.setHeight(config.experiment_messages.height)
+                base_text_pause_after_break.setHeight(config.experiment_messages.size)
                 # keep track of which components have finished
                 base_after_break_pauseComponents = [base_text_pause_after_break]
                 for thisComponent in base_after_break_pauseComponents:
@@ -4934,7 +4943,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
     current_task.write_results(output_filepath)
     base_text_task_end.setText(expmsgs.task_end)
     base_text_task_end.setFont(config.experiment_messages.font)
-    base_text_task_end.setHeight(config.experiment_messages.height)
+    base_text_task_end.setHeight(config.experiment_messages.size)
     base_key_resp_task_end.keys = []
     base_key_resp_task_end.rt = []
     _base_key_resp_task_end_allKeys = []
@@ -5292,7 +5301,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
         n_trials = current_task.get_trial_count()
         base_text_begin_task.setText(msg_task_begin)
         base_text_begin_task.setFont(config.experiment_messages.font)
-        base_text_begin_task.setHeight(config.experiment_messages.height)
+        base_text_begin_task.setHeight(config.experiment_messages.size)
         base_key_resp_task_begin.keys = []
         base_key_resp_task_begin.rt = []
         _base_key_resp_task_begin_allKeys = []
@@ -5458,7 +5467,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
             # update component parameters for each repeat
             n_presentations = current_trial.get_presentation_count()
             
-            sstm_text_fixation_cross.setHeight(config.experiment_messages.height)
+            sstm_text_fixation_cross.setHeight(config.experiment_messages.size)
             # keep track of which components have finished
             sstm_init_trialComponents = [sstm_text_fixation_cross]
             for thisComponent in sstm_init_trialComponents:
@@ -5528,7 +5537,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
             continueRoutine = True
             # update component parameters for each repeat
             current_trial.grid.show(True)
-            sstm_text_blank.setHeight(config.experiment_messages.height)
+            sstm_text_blank.setHeight(config.experiment_messages.size)
             # keep track of which components have finished
             sstm_empty_gridComponents = [sstm_text_blank]
             for thisComponent in sstm_empty_gridComponents:
@@ -5760,7 +5769,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
             # update component parameters for each repeat
             current_trial.grid.show(False)
             text_sstm_draw_dots.setFont(config.experiment_messages.font)
-            text_sstm_draw_dots.setHeight(config.experiment_messages.height)
+            text_sstm_draw_dots.setHeight(config.experiment_messages.size)
             # keep track of which components have finished
             sstm_draw_requestComponents = [text_sstm_draw_dots]
             for thisComponent in sstm_draw_requestComponents:
@@ -5834,7 +5843,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
             sstm_mouse.setVisible(True)
             sstm_text_next.setText(expmsgs.next)
             sstm_text_next.setFont(config.experiment_messages.font)
-            sstm_text_next.setHeight(config.experiment_messages.height)
+            sstm_text_next.setHeight(config.experiment_messages.size)
             # setup some python lists for storing info about the sstm_mouse
             sstm_mouse.x = []
             sstm_mouse.y = []
@@ -5964,7 +5973,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
             continueRoutine = True
             # update component parameters for each repeat
             current_task.finish_trial()
-            base_text_intertrial.setHeight(config.experiment_messages.height)
+            base_text_intertrial.setHeight(config.experiment_messages.size)
             # keep track of which components have finished
             base_intertrialComponents = [base_text_intertrial]
             for thisComponent in base_intertrialComponents:
@@ -6054,7 +6063,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                 # update component parameters for each repeat
                 base_text_self_paced_break.setText(expmsgs.experiment_break)
                 base_text_self_paced_break.setFont(config.experiment_messages.font)
-                base_text_self_paced_break.setHeight(config.experiment_messages.height)
+                base_text_self_paced_break.setHeight(config.experiment_messages.size)
                 base_key_resp_self_paced_break.keys = []
                 base_key_resp_self_paced_break.rt = []
                 _base_key_resp_self_paced_break_allKeys = []
@@ -6148,7 +6157,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                 # ------Prepare to start Routine "base_after_break_pause"-------
                 continueRoutine = True
                 # update component parameters for each repeat
-                base_text_pause_after_break.setHeight(config.experiment_messages.height)
+                base_text_pause_after_break.setHeight(config.experiment_messages.size)
                 # keep track of which components have finished
                 base_after_break_pauseComponents = [base_text_pause_after_break]
                 for thisComponent in base_after_break_pauseComponents:
@@ -6235,7 +6244,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
     overall_output_filepath = os.path.join(output_dir, f'{current_task.name}-{subject_id}.dat')
     current_task.write_overall_results(overall_output_filepath)
     text_sstm_task_end.setFont(config.experiment_messages.font)
-    text_sstm_task_end.setHeight(config.experiment_messages.height)
+    text_sstm_task_end.setHeight(config.experiment_messages.size)
     sstm_key_resp_task_end.keys = []
     sstm_key_resp_task_end.rt = []
     _sstm_key_resp_task_end_allKeys = []
@@ -6334,7 +6343,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
 continueRoutine = True
 # update component parameters for each repeat
 base_text_end.setFont(config.experiment_messages.font)
-base_text_end.setHeight(config.experiment_messages.height)
+base_text_end.setHeight(config.experiment_messages.size)
 base_key_resp_end.keys = []
 base_key_resp_end.rt = []
 _base_key_resp_end_allKeys = []

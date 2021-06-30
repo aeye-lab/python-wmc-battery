@@ -1,5 +1,7 @@
 experiment_messages:
   font: 'Arial'
-  height: 0.05
-  encoding: 'ISO-8859-1'
+  size: 0.05
+  encoding: 'ISO-8859-1'      # defines encoding of experiment message file
 
+sentence_span:
+  encoding: 'us-ascii'        # defines encoding of sentence file

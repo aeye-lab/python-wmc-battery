@@ -20,8 +20,8 @@ class Equation:
         self.correct = correct
         
     def __str__(self):
-        return (f'{self.operand_left} {self.operator} {self.operand_right}'
-                f' = {self.result}')
+        return (f'{self.operand_left}{self.operator}{self.operand_right}'
+                f'={self.result}')
 
 
 class EquationFactory:

@@ -1,6 +1,6 @@
 experiment_messages:
   font: 'Arial'
-  height: 0.05
+  size: 0.05
   encoding: 'ISO-8859-1'
 
 sentence_span:
