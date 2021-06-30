@@ -1496,7 +1496,7 @@
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="current_trial.grid.show(True)&amp;#10;win.mouseVisible = True&amp;#10;sstm_mouse.setVisible(True)" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
-        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()&amp;#10;    &amp;#10;current_trial.process_mouse_event(sstm_mouse)&amp;#10;&amp;#10;if current_trial.selected_required_count():&amp;#10;    sstm_text_next.pos = (-0.325, -0.425)&amp;#10;else:&amp;#10;    sstm_text_next.pos = (10, 10)" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()&amp;#10;    &amp;#10;current_trial.process_mouse_event(sstm_mouse)&amp;#10;&amp;#10;active_position = config.spatial_short_term_memory.text.next_button.position&amp;#10;if current_trial.selected_required_count():&amp;#10;    sstm_text_next.pos = active_position&amp;#10;else:&amp;#10;    sstm_text_next.pos = (10, 10)" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
         <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
@@ -1511,9 +1511,9 @@
         <Param name="disabled" val="False" valType="bool" updates="None"/>
         <Param name="durationEstim" val="" valType="code" updates="None"/>
         <Param name="flip" val="" valType="str" updates="constant"/>
-        <Param name="font" val="$config.experiment_messages.font" valType="str" updates="set every repeat"/>
+        <Param name="font" val="config.spatial_short_term_memory.text.next_button.font" valType="str" updates="set every repeat"/>
         <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
-        <Param name="letterHeight" val="$config.experiment_messages.size" valType="code" updates="set every repeat"/>
+        <Param name="letterHeight" val="config.spatial_short_term_memory.text.next_button.size" valType="code" updates="set every repeat"/>
         <Param name="name" val="sstm_text_next" valType="code" updates="None"/>
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>

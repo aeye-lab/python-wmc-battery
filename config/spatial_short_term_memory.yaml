@@ -33,3 +33,7 @@ text:
   fixation_cross:
     font: 'Arial'
     size: 0.05
+  next_button:
+    font: 'Arial'
+    size: 0.05
+    position: [0, -0.45]

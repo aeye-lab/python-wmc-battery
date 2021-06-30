@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.2.10),
-    on Wed 30 Jun 2021 12:30:21 PM CEST
+    on Wed 30 Jun 2021 12:37:55 PM CEST
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -5834,8 +5834,8 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
             win.mouseVisible = True
             sstm_mouse.setVisible(True)
             sstm_text_next.setText(expmsgs.next)
-            sstm_text_next.setFont(config.experiment_messages.font)
-            sstm_text_next.setHeight(config.experiment_messages.size)
+            sstm_text_next.setFont('config.spatial_short_term_memory.text.next_button.font')
+            sstm_text_next.setHeight(config.spatial_short_term_memory.text.next_button.size)
             # setup some python lists for storing info about the sstm_mouse
             sstm_mouse.x = []
             sstm_mouse.y = []
@@ -5874,8 +5874,9 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                     
                 current_trial.process_mouse_event(sstm_mouse)
                 
+                active_position = config.spatial_short_term_memory.text.next_button.position
                 if current_trial.selected_required_count():
-                    sstm_text_next.pos = (-0.325, -0.425)
+                    sstm_text_next.pos = active_position
                 else:
                     sstm_text_next.pos = (10, 10)
                 
