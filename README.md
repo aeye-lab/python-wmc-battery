@@ -25,4 +25,6 @@ pip install psychopy==2020.2.10 pygame wxPython numpy pandas scipy dotmap pyyaml
 
 
 You can quit the experiment by pressing `F12`.
+
+
 It is advised to mark the arrow-keys on your physical keyboard for the *Operation Span* and *Sentence Span* tasks. You can configure the keys in the `yaml`-config files in the `config` folder (`key_map` field).
