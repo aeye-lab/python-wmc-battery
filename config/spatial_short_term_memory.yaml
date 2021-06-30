@@ -28,3 +28,8 @@ timing:
   draw_request: 1.0         # onscreen duration of draw request text
   inter_trial: 1.0          # blank screen duration between each trial
   after_break: 2.0          # blank screen duration after self paced break
+
+text:
+  fixation_cross:
+    font: 'Arial'
+    size: 0.05

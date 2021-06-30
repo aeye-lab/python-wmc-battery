@@ -1381,9 +1381,9 @@
         <Param name="disabled" val="False" valType="bool" updates="None"/>
         <Param name="durationEstim" val="" valType="code" updates="None"/>
         <Param name="flip" val="" valType="str" updates="constant"/>
-        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="font" val="config.spatial_short_term_memory.text.fixation_cross.font" valType="str" updates="set every repeat"/>
         <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
-        <Param name="letterHeight" val="config.experiment_messages.size" valType="code" updates="set every repeat"/>
+        <Param name="letterHeight" val="config.spatial_short_term_memory.text.fixation_cross.size" valType="code" updates="set every repeat"/>
         <Param name="name" val="sstm_text_fixation_cross" valType="code" updates="None"/>
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>

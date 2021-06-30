@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.2.10),
-    on Wed 30 Jun 2021 11:41:01 AM CEST
+    on Wed 30 Jun 2021 12:30:21 PM CEST
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -5457,7 +5457,8 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
             # update component parameters for each repeat
             n_presentations = current_trial.get_presentation_count()
             
-            sstm_text_fixation_cross.setHeight(config.experiment_messages.size)
+            sstm_text_fixation_cross.setFont('config.spatial_short_term_memory.text.fixation_cross.font')
+            sstm_text_fixation_cross.setHeight(config.spatial_short_term_memory.text.fixation_cross.size)
             # keep track of which components have finished
             sstm_init_trialComponents = [sstm_text_fixation_cross]
             for thisComponent in sstm_init_trialComponents:
