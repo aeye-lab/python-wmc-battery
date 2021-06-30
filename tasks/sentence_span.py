@@ -79,13 +79,15 @@ class SentenceSpanTrialFactory:
             n_true = list_length // 2 + extra_true * list_length % 2
             n_false = list_length // 2 + extra_false * list_length % 2
 
+            true_sentences = self.true_sentences.copy()
+            false_sentences = self.false_sentences.copy()
             trial_sentences = []
             for _ in range(n_true):
-                sentence_string = self.true_sentences.pop()
+                sentence_string = true_sentences.pop()
                 sentence = SentenceSpanSentence(sentence_string, True)
                 trial_sentences.append(sentence)
             for _ in range(n_false):
-                sentence_string = self.false_sentences.pop()
+                sentence_string = false_sentences.pop()
                 sentence = SentenceSpanSentence(sentence_string, False)
                 trial_sentences.append(sentence)
 
