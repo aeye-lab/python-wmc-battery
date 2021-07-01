@@ -1,23 +1,19 @@
-init: [
-  instructions/InitInstruct.jpg
-  ]
+init: 
+  - instructions/InitInstruct.jpg
 
-mu: [
-  instructions/MUInstruct1.jpg,
-  instructions/MUInstruct2.jpg
-]
+mu:
+  - instructions/MUInstruct1.jpg
+  - instructions/MUInstruct2.jpg
 
-os: [
-  instructions/OSInstruct1.jpg,
-  instructions/OSInstruct2.jpg
-]
+os:
+  - instructions/OSInstruct1.jpg
+  - instructions/OSInstruct2.jpg
 
-ss: [
-  instructions/SSInstruct1.jpg,
-  instructions/SSInstruct2.jpg
-]
 
-sstm: [
-  instructions/SSTMInstruct1.jpg,
-  instructions/SSTMInstruct2.jpg
-]
+ss:
+  - instructions/SSInstruct1.jpg
+  - instructions/SSInstruct2.jpg
+
+sstm:
+  - instructions/SSTMInstruct1.jpg
+  - instructions/SSTMInstruct2.jpg
