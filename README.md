@@ -52,3 +52,13 @@ You can quit the experiment by pressing `F12`.
 
 
 It is advised to mark the arrow-keys on your physical keyboard for the *Operation Span* and *Sentence Span* tasks. You can configure the keys in the `yaml`-config files in the `config` folder (`key_map` field).
+
+## Test language files
+
+You can test your language files by running the following command:
+
+```
+python3 test_language.py
+```
+
+You will move through all experiment messages, instruction pages, a summary for sentence span sentences and all sentence span sentences with the respective label. For the sentence summary, moving on is possible only after one second has passed to prevent accidental skipping.
