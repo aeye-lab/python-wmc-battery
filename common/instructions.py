@@ -1,30 +1,17 @@
+import yaml
+
 class Instructions:
     def __init__(self, language):
-        self.instructions = {
-            'init': [
-                f'languages/{language}/instructions/InitInstruct.jpg'
-            ],
-            'mu': [
-                f'languages/{language}/instructions/MUInstruct1.jpg',
-                f'languages/{language}/instructions/MUInstruct2.jpg',
-                f'languages/{language}/instructions/MUInstruct3.jpg',
-            ],
-            'os': [
-                f'languages/{language}/instructions/OSInstruct1.jpg',
-                f'languages/{language}/instructions/OSInstruct2.jpg',
-            ],
-            'ss': [
-                f'languages/{language}/instructions/SSInstruct1.jpg',
-                f'languages/{language}/instructions/SSInstruct2.jpg',
-            ],
-            'sstm': [
-                f'languages/{language}/instructions/SSTMInstruct1.jpg',
-                f'languages/{language}/instructions/SSTMInstruct2.jpg',
-            ],
-        }
 
-        if language.startswith('Chinese'):
-            self.instructions['mu'] = self.instructions['mu'][:-1]
+        pathformat = f'languages/{language}/' + '{}'
+        filepath = f'languages/{language}/instructions.yaml'
+
+        with open(filepath, 'r') as stream:
+            instructions = yaml.safe_load(stream)
+        
+        for key in instructions.keys():
+            instructions[key] = list(map(pathformat.format, instructions[key]))
+        self.instructions = instructions
 
     def get_instructions(self, task):
         return self.instructions[task]
