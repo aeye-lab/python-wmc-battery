@@ -25,6 +25,7 @@ pip install psychopy==2020.2.10 pygame wxPython numpy pandas scipy dotmap pyyaml
 ```
 
 For Chinese, please download and install the required font package 'Noto Serif CJK SC': https://www.google.com/get/noto/
+
 The support for font install : https://www.google.com/get/noto/help/install/
 
 
@@ -36,6 +37,7 @@ pip install psychopy==2020.2.10 pygame wxPython numpy pandas scipy dotmap pyyaml
 ```
 
 For Chinese, please download and install the required font package 'Noto Serif CJK SC': https://www.google.com/get/noto/
+
 The support for font install : https://www.google.com/get/noto/help/install/
 
 
