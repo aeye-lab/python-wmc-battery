@@ -37,7 +37,7 @@
       <CodeComponent name="init_code">
         <Param name="Before Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Before JS Experiment" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Begin Experiment" val="import datetime&amp;#10;import os&amp;#10;&amp;#10;from common.config import WMCConfig&amp;#10;from common.experiment_messages import ExperimentMessages&amp;#10;from common.instructions import Instructions&amp;#10;&amp;#10;# for catching experiment quit key&amp;#10;from psychopy.hardware.keyboard import Keyboard&amp;#10;experiment_keyboard = Keyboard()&amp;#10;&amp;#10;thisExp.extraInfo['datetime'] = datetime.datetime.today()&amp;#10;&amp;#10;language = thisExp.extraInfo['Language']&amp;#10;&amp;#10;config = WMCConfig(language=language)&amp;#10;expmsgs = ExperimentMessages(language=language,&amp;#10;                             encoding=config.experiment_messages.encoding)&amp;#10;&amp;#10;experiment_messages = list(expmsgs.items())&amp;#10;n_experiment_messages = len(experiment_messages)&amp;#10;print()&amp;#10;print(&quot;==================================================&quot;)&amp;#10;print(experiment_messages)&amp;#10;print(&quot;number of experiment messages:&quot;, n_experiment_messages)&amp;#10;print(&quot;==================================================&quot;)&amp;#10;print()&amp;#10;&amp;#10;&amp;#10;from tasks.sentence_span import SentenceSpanTask&amp;#10;ss_task = SentenceSpanTask(language=language, seed=0, config=config.sentence_span)&amp;#10;ss_sentences = (&amp;#10;    ss_task.sentences['practice'][True] +&amp;#10;    ss_task.sentences['practice'][False] + &amp;#10;    ss_task.sentences['trials'][True] + &amp;#10;    ss_task.sentences['trials'][False]&amp;#10;)&amp;#10;n_ss_sentences = len(ss_sentences)&amp;#10;&amp;#10;print()&amp;#10;print(&quot;==================================================&quot;)&amp;#10;print(ss_sentences)&amp;#10;print(&quot;number of ss sentences:&quot;, n_ss_sentences)&amp;#10;print(&quot;==================================================&quot;)&amp;#10;print()&amp;#10;&amp;#10;instructions = Instructions(language)&amp;#10;instruction_filepaths = (&amp;#10;    instructions.get_instructions('init') + &amp;#10;    instructions.get_instructions('mu') + &amp;#10;    instructions.get_instructions('os') + &amp;#10;    instructions.get_instructions('ss') + &amp;#10;    instructions.get_instructions('sstm')&amp;#10;)&amp;#10;n_instructions = len(instruction_filepaths)&amp;#10;print()&amp;#10;print(&quot;==================================================&quot;)&amp;#10;print(instruction_filepaths)&amp;#10;print(&quot;number of instructions:&quot;, n_instructions)&amp;#10;print(&quot;==================================================&quot;)&amp;#10;&amp;#10;# set text wrap width to 90% of screen width (in height units)&amp;#10;text_wrap_width = win.size[0] / win.size[1] * 0.9" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Experiment" val="import datetime&amp;#10;import os&amp;#10;&amp;#10;from common.config import WMCConfig&amp;#10;from common.experiment_messages import ExperimentMessages&amp;#10;from common.instructions import Instructions&amp;#10;&amp;#10;# for catching experiment quit key&amp;#10;from psychopy.hardware.keyboard import Keyboard&amp;#10;experiment_keyboard = Keyboard()&amp;#10;&amp;#10;thisExp.extraInfo['datetime'] = datetime.datetime.today()&amp;#10;&amp;#10;language = thisExp.extraInfo['Language']&amp;#10;&amp;#10;config = WMCConfig(language=language)&amp;#10;expmsgs = ExperimentMessages(language=language,&amp;#10;                             encoding=config.experiment_messages.encoding)&amp;#10;&amp;#10;experiment_messages = list(expmsgs.items())&amp;#10;n_experiment_messages = len(experiment_messages)&amp;#10;print()&amp;#10;print(&quot;==================================================&quot;)&amp;#10;print(experiment_messages)&amp;#10;print(&quot;number of experiment messages:&quot;, n_experiment_messages)&amp;#10;print(&quot;==================================================&quot;)&amp;#10;print()&amp;#10;&amp;#10;&amp;#10;instructions = Instructions(language)&amp;#10;instruction_filepaths = (&amp;#10;    instructions.get_instructions('init') + &amp;#10;    instructions.get_instructions('mu') + &amp;#10;    instructions.get_instructions('os') + &amp;#10;    instructions.get_instructions('ss') + &amp;#10;    instructions.get_instructions('sstm')&amp;#10;)&amp;#10;n_instructions = len(instruction_filepaths)&amp;#10;print()&amp;#10;print(&quot;==================================================&quot;)&amp;#10;print(instruction_filepaths)&amp;#10;print(&quot;number of instructions:&quot;, n_instructions)&amp;#10;print(&quot;==================================================&quot;)&amp;#10;&amp;#10;# set text wrap width to 90% of screen width (in height units)&amp;#10;text_wrap_width = win.size[0] / win.size[1] * 0.9" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="" valType="extendedCode" updates="constant"/>
@@ -70,6 +70,30 @@
         <Param name="disabled" val="False" valType="bool" updates="None"/>
         <Param name="name" val="code_experiment_message" valType="code" updates="None"/>
       </CodeComponent>
+      <TextComponent name="text_experiment_message_key">
+        <Param name="color" val="black" valType="str" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="disabled" val="False" valType="bool" updates="None"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="flip" val="" valType="str" updates="constant"/>
+        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
+        <Param name="letterHeight" val="0.05" valType="code" updates="constant"/>
+        <Param name="name" val="text_experiment_message_key" valType="code" updates="None"/>
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="pos" val="(0, 0.25)" valType="code" updates="constant"/>
+        <Param name="saveStartStop" val="True" valType="bool" updates="None"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="stopVal" val="" valType="code" updates="constant"/>
+        <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
+        <Param name="text" val="$current_expmsg_key" valType="extendedStr" updates="set every repeat"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+      </TextComponent>
       <TextComponent name="text_experiment_message">
         <Param name="color" val="black" valType="str" updates="constant"/>
         <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
@@ -82,7 +106,7 @@
         <Param name="name" val="text_experiment_message" valType="code" updates="None"/>
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
-        <Param name="pos" val="(0, -0.1)" valType="code" updates="constant"/>
+        <Param name="pos" val="(0, 0)" valType="code" updates="constant"/>
         <Param name="saveStartStop" val="True" valType="bool" updates="None"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
@@ -112,30 +136,6 @@
         <Param name="storeCorrect" val="False" valType="bool" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="constant"/>
       </KeyboardComponent>
-      <TextComponent name="text_experiment_message_key">
-        <Param name="color" val="black" valType="str" updates="constant"/>
-        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
-        <Param name="disabled" val="False" valType="bool" updates="None"/>
-        <Param name="durationEstim" val="" valType="code" updates="None"/>
-        <Param name="flip" val="" valType="str" updates="constant"/>
-        <Param name="font" val="$config.experiment_messages.font" valType="str" updates="set every repeat"/>
-        <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
-        <Param name="letterHeight" val="$config.experiment_messages.size" valType="code" updates="set every repeat"/>
-        <Param name="name" val="text_experiment_message_key" valType="code" updates="None"/>
-        <Param name="opacity" val="1" valType="code" updates="constant"/>
-        <Param name="ori" val="0" valType="code" updates="constant"/>
-        <Param name="pos" val="(0, 0.1)" valType="code" updates="constant"/>
-        <Param name="saveStartStop" val="True" valType="bool" updates="None"/>
-        <Param name="startEstim" val="" valType="code" updates="None"/>
-        <Param name="startType" val="time (s)" valType="str" updates="None"/>
-        <Param name="startVal" val="0.0" valType="code" updates="None"/>
-        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
-        <Param name="stopVal" val="" valType="code" updates="constant"/>
-        <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
-        <Param name="text" val="$current_expmsg_key" valType="extendedStr" updates="set every repeat"/>
-        <Param name="units" val="from exp settings" valType="str" updates="None"/>
-        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
-      </TextComponent>
     </Routine>
     <Routine name="ss_sentence">
       <CodeComponent name="code_ss_sentence">
@@ -144,7 +144,7 @@
         <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Begin Routine" val="current_ss_sentence = ss_sentences.pop(0)" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Routine" val="current_ss_sentence = ss_sentences.pop(0)&amp;#10;current_ss_description = ss_descriptions.pop(0)&amp;#10;current_ss_description = (f'{current_ss_description[0]}, '&amp;#10;                          f'{current_ss_description[1]}')" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
         <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
@@ -155,6 +155,30 @@
         <Param name="disabled" val="False" valType="bool" updates="None"/>
         <Param name="name" val="code_ss_sentence" valType="code" updates="None"/>
       </CodeComponent>
+      <TextComponent name="text_ss_description">
+        <Param name="color" val="black" valType="str" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="disabled" val="False" valType="bool" updates="None"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="flip" val="" valType="str" updates="constant"/>
+        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
+        <Param name="letterHeight" val="0.05" valType="code" updates="constant"/>
+        <Param name="name" val="text_ss_description" valType="code" updates="None"/>
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="pos" val="(0, 0.25)" valType="code" updates="constant"/>
+        <Param name="saveStartStop" val="True" valType="bool" updates="None"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="stopVal" val="" valType="code" updates="constant"/>
+        <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
+        <Param name="text" val="$current_ss_description" valType="extendedStr" updates="set every repeat"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+      </TextComponent>
       <TextComponent name="text_ss_sentence">
         <Param name="color" val="black" valType="str" updates="constant"/>
         <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
@@ -301,6 +325,67 @@
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
       </TextComponent>
     </Routine>
+    <Routine name="ss_sentence_summary">
+      <CodeComponent name="code_ss_sentence_summary">
+        <Param name="Before Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Before JS Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Begin JS Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Routine" val="from tasks.sentence_span import SentenceSpanTask&amp;#10;ss_task = SentenceSpanTask(language=language, seed=0, config=config.sentence_span)&amp;#10;&amp;#10;ss_sentences = (&amp;#10;    ss_task.sentences['practice'][True] +&amp;#10;    ss_task.sentences['practice'][False] + &amp;#10;    ss_task.sentences['trials'][True] + &amp;#10;    ss_task.sentences['trials'][False]&amp;#10;)&amp;#10;ss_descriptions = (&amp;#10;    [('practice', True) for _ in ss_task.sentences['practice'][True]] + &amp;#10;    [('practice', False) for _ in ss_task.sentences['practice'][False]] + &amp;#10;    [('trials', True) for _ in ss_task.sentences['trials'][True]] + &amp;#10;    [('trials', False) for _ in ss_task.sentences['trials'][False]]&amp;#10;)&amp;#10;&amp;#10;n_ss_sentences = len(ss_sentences)&amp;#10;n_ss_practice = (len(ss_task.sentences['practice'][True]) +&amp;#10;                 len(ss_task.sentences['practice'][False]))&amp;#10;n_ss_practice_t = len(ss_task.sentences['practice'][True])&amp;#10;n_ss_practice_f = len(ss_task.sentences['practice'][False])&amp;#10;n_ss_trials = (len(ss_task.sentences['trials'][True]) +&amp;#10;               len(ss_task.sentences['trials'][False]))&amp;#10;n_ss_trials_t = len(ss_task.sentences['trials'][True])&amp;#10;n_ss_trials_f = len(ss_task.sentences['trials'][False])&amp;#10;&amp;#10;&amp;#10;ss_summary = (&amp;#10;    f'sentence span summary: \n\n'&amp;#10;    f'total number of sentences: {n_ss_sentences}\n\n'&amp;#10;    f'total number of practice sentences: {n_ss_practice}\n'&amp;#10;    f'true: {n_ss_practice_t}, false: {n_ss_practice_f}\n\n'&amp;#10;    f'total number of trial sentences: {n_ss_trials}\n'&amp;#10;    f'true: {n_ss_trials_t}, false: {n_ss_trials_f}\n\n'&amp;#10;)&amp;#10;&amp;#10;print()&amp;#10;print(&quot;==================================================&quot;)&amp;#10;print(ss_sentences)&amp;#10;print(&quot;number of ss sentences:&quot;, n_ss_sentences)&amp;#10;print(&quot;==================================================&quot;)&amp;#10;print()&amp;#10;&amp;#10;" valType="extendedCode" updates="constant"/>
+        <Param name="Code Type" val="Py" valType="str" updates="None"/>
+        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End JS Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="disabled" val="False" valType="bool" updates="None"/>
+        <Param name="name" val="code_ss_sentence_summary" valType="code" updates="None"/>
+      </CodeComponent>
+      <TextComponent name="text_ss_sentence_summary">
+        <Param name="color" val="black" valType="str" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="disabled" val="False" valType="bool" updates="None"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="flip" val="" valType="str" updates="constant"/>
+        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
+        <Param name="letterHeight" val="0.05" valType="code" updates="constant"/>
+        <Param name="name" val="text_ss_sentence_summary" valType="code" updates="None"/>
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="pos" val="(0, 0)" valType="code" updates="constant"/>
+        <Param name="saveStartStop" val="True" valType="bool" updates="None"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="stopVal" val="" valType="code" updates="constant"/>
+        <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
+        <Param name="text" val="$ss_summary" valType="extendedStr" updates="set every repeat"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+      </TextComponent>
+      <KeyboardComponent name="key_resp_ss_sentence_summary">
+        <Param name="allowedKeys" val="" valType="code" updates="constant"/>
+        <Param name="correctAns" val="" valType="str" updates="constant"/>
+        <Param name="disabled" val="False" valType="bool" updates="None"/>
+        <Param name="discard previous" val="True" valType="bool" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="forceEndRoutine" val="True" valType="bool" updates="constant"/>
+        <Param name="name" val="key_resp_ss_sentence_summary" valType="code" updates="None"/>
+        <Param name="saveStartStop" val="True" valType="bool" updates="None"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="1" valType="code" updates="None"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="stopVal" val="" valType="code" updates="constant"/>
+        <Param name="store" val="last key" valType="str" updates="constant"/>
+        <Param name="storeCorrect" val="False" valType="bool" updates="constant"/>
+        <Param name="syncScreenRefresh" val="True" valType="bool" updates="constant"/>
+      </KeyboardComponent>
+    </Routine>
   </Routines>
   <Flow>
     <Routine name="init"/>
@@ -330,6 +415,7 @@
     </LoopInitiator>
     <Routine name="instruction"/>
     <LoopTerminator name="instruction_loop"/>
+    <Routine name="ss_sentence_summary"/>
     <LoopInitiator loopType="TrialHandler" name="ss_sentence_loop">
       <Param name="Selected rows" val="" valType="str" updates="None"/>
       <Param name="conditions" val="None" valType="str" updates="None"/>

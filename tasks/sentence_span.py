@@ -1,6 +1,7 @@
 import os
 import random
 import pandas as pd
+import yaml
 
 from tasks.generic_task import GenericTask, GenericTrial
 
@@ -118,40 +119,25 @@ class SentenceSpanTask(GenericTask):
         self.init_results(config)
 
     def load_sentences(self, language, encoding):
-        language_dirpath = os.path.join('languages', language)
-        true_sentences_filepath = os.path.join(
-            language_dirpath, 'SS_SentencesTrue.txt')
-        false_sentences_filepath = os.path.join(
-            language_dirpath, 'SS_SentencesFalse.txt')
-        true_practice_sentences_filepath = os.path.join(
-            language_dirpath, 'SS_SentencesTruePractice.txt')
-        false_practice_sentences_filepath = os.path.join(
-            language_dirpath, 'SS_SentencesFalsePractice.txt')
-
-        self.sentences = {
-            'trials': {
-                True: self.load_sentences_(true_sentences_filepath, encoding),
-                False: self.load_sentences_(false_sentences_filepath, encoding),
-            },
-            'practice': {
-                True: self.load_sentences_(true_practice_sentences_filepath,
-                                           encoding),
-                False: self.load_sentences_(false_practice_sentences_filepath,
-                                            encoding),
-            },
-        }
-
-
-    def load_sentences_(self, filepath, encoding):
-        sentences = []
+        filepath = os.path.join('languages', language,
+                                'sentence_span_sentences.yaml')
         with open(filepath, mode='r', encoding=encoding) as f:
-            sentence_strings = f.readlines()
-        for sentence_string in sentence_strings:
-            if not sentence_string.isspace() and len(sentence_string) > 0:
-                sentence = sentence_string.rstrip('\n')
-                sentences.append(sentence)
+            self.sentences = yaml.safe_load(f)
+
+        self.sentences['practice'][True] = SentenceSpanTask.strip_sentences(
+            self.sentences['practice'][True])
+        self.sentences['practice'][False] = SentenceSpanTask.strip_sentences(
+            self.sentences['practice'][False])
+        self.sentences['trials'][True] = SentenceSpanTask.strip_sentences(
+            self.sentences['trials'][True])
+        self.sentences['trials'][False] = SentenceSpanTask.strip_sentences(
+            self.sentences['trials'][False])
+
+    @staticmethod
+    def strip_sentences(sentences):
+        sentences = [sentence.lstrip().rstrip() for sentence in sentences]
+        sentences = [sentence for sentence in sentences if len(sentence) > 0]
         return sentences
-        
         
     def init_trials(self, config):
         practice_trial_factory = SentenceSpanTrialFactory(

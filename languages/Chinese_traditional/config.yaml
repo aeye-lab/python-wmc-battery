@@ -4,7 +4,7 @@ experiment_messages:
   encoding: 'utf-8'
 
 sentence_span:
-  encoding: 'utf-16le'
+  encoding: 'utf-8'
   text:
     sentences:
       font: 'Noto Serif CJK SC'

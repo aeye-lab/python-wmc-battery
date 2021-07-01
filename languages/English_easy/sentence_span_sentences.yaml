@@ -1,0 +1,120 @@
+practice:
+  True:
+    - Earth has a moon.
+    - A horse is larger than a mouse.
+    - A salmon is a fish.
+    - There is a screen in the cinema.
+    - Multiple steps make a stair.
+    - All doctors went to university.
+    - White is lighter than black.
+    - A power plant produces electricity.
+  False:
+    - A human has a tail.
+    - The earth is larger than the sun.
+    - Hair only grows on the head.
+    - Marriage is a crime.
+    - A fridge consumes lots of coal.
+    - All shirts are made of leather.
+    - You play soccer in the swimming pool.
+    - In every cloud there is a spider.
+
+trials:
+  True:
+    - All people have a father.
+    - All houses have doors.
+    - Every rabbit has fur.
+    - All bumblebees can fly.
+    - Every finger has a nail.
+    - All dinosaurs are dead.
+    - Every book has pages.
+    - Every bird hatched from an egg.
+    - The rich have the most money.
+    - Many children go to school.
+    - Lightning precedes thunder.
+    - Furniture is often made of wood.
+    - The day starts with the morning.
+    - Many bottles are made of glass.
+    - There is sugar in candy.
+    - A plant needs light.
+    - Theft violates the law.
+    - A car needs fuel.
+    - There is music at a concert.
+    - A tyre is made of rubber.
+    - Matches can light fire.
+    - Seawater is usually salty.
+    - Some animals are dangerous.
+    - Caterpillars become butterflies.
+    - Rocks consist of stone.
+    - Pilots fly airplanes.
+    - Cork floats on water.
+    - Basketball players tend to be tall.
+    - Lead is heavier than hay.
+    - Melons are larger than apples.
+    - Vegetables are healthier than sweets.
+    - Children are younger than adults.
+    - A hammer is a tool.
+    - Happiness is a feeling.
+    - An orange is a fruit.
+    - Tennis is a sport.
+    - An elephant has a trunk.
+    - A banana has a yellow skin.
+    - A parrot has a beak.
+    - An oak has a root.
+    - A week has seven days.
+    - A human has a nose.
+    - Penguins can swim.
+    - Ice cubes can melt.
+    - Snakes can bite.
+    - All trees are plants.
+    - Every day has twenty-four hours.
+    - A radiator emits heat.
+  False:
+    - All men wear beards.
+    - All nurses have a dog.
+    - Every motorbike is red.
+    - All birds live in the city.
+    - Every country has a king.
+    - All plates are made of tin.
+    - Every flower is a rose.
+    - All lawyers are female.
+    - Post offices sell groceries. 
+    - Tomorrow is in the past.
+    - The sun fits into a closet.
+    - Multiple sentences form a word.
+    - Trees usually bloom in winter.
+    - Juice contains a lot of fat.
+    - Freeways always lead to the sea.
+    - Clouds consist of copper.
+    - Grass grows on the moon.
+    - Numbers make up the alphabet.
+    - Bakers makes sausages.
+    - Cows live underground.
+    - Lakes freeze in summer.
+    - Trains ride on roads.
+    - You need a net for cooking.
+    - Shoes are always made of wool.
+    - Rivers usually flow uphill.
+    - Cotton is fragile.
+    - Restaurants offer free food.
+    - Most people have three kidneys.
+    - Wood is harder than iron.
+    - Frogs are heavier than elephants.
+    - Lemons are sweeter than cherries.
+    - Water is lighter than air.
+    - A tulip is a tree.
+    - Plastic is a metal.
+    - A python is a mammal.
+    - A kangaroo is an insect.
+    - The sky has a corner.
+    - An eagle has a fin.
+    - Carrots have blue feathers.
+    - A chair has fingers.
+    - A minute has twenty-four seconds.
+    - A bicycle has air conditioning.
+    - Crocodiles can sting.
+    - Cats can read.
+    - Paper can rust.
+    - Silver is more precious than gold.
+    - All women wear glasses.
+    - Most snow falls in spring.
+

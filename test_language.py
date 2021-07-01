@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.2.10),
-    on Thu 01 Jul 2021 03:52:39 PM CEST
+    on Thu 01 Jul 2021 05:44:25 PM CEST
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -109,23 +109,6 @@ print("==================================================")
 print()
 
 
-from tasks.sentence_span import SentenceSpanTask
-ss_task = SentenceSpanTask(language=language, seed=0, config=config.sentence_span)
-ss_sentences = (
-    ss_task.sentences['practice'][True] +
-    ss_task.sentences['practice'][False] + 
-    ss_task.sentences['trials'][True] + 
-    ss_task.sentences['trials'][False]
-)
-n_ss_sentences = len(ss_sentences)
-
-print()
-print("==================================================")
-print(ss_sentences)
-print("number of ss sentences:", n_ss_sentences)
-print("==================================================")
-print()
-
 instructions = Instructions(language)
 instruction_filepaths = (
     instructions.get_instructions('init') + 
@@ -146,21 +129,21 @@ text_wrap_width = win.size[0] / win.size[1] * 0.9
 
 # Initialize components for Routine "experiment_message"
 experiment_messageClock = core.Clock()
-text_experiment_message = visual.TextStim(win=win, name='text_experiment_message',
-    text='default text',
-    font='Arial',
-    pos=(0, -0.1), height=1.0, wrapWidth=text_wrap_width, ori=0, 
-    color='black', colorSpace='rgb', opacity=1, 
-    languageStyle='LTR',
-    depth=-1.0);
-key_resp_experiment_message = keyboard.Keyboard()
 text_experiment_message_key = visual.TextStim(win=win, name='text_experiment_message_key',
     text='default text',
     font='Arial',
-    pos=(0, 0.1), height=1.0, wrapWidth=None, ori=0, 
+    pos=(0, 0.25), height=0.05, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
-    depth=-3.0);
+    depth=-1.0);
+text_experiment_message = visual.TextStim(win=win, name='text_experiment_message',
+    text='default text',
+    font='Arial',
+    pos=(0, 0), height=1.0, wrapWidth=text_wrap_width, ori=0, 
+    color='black', colorSpace='rgb', opacity=1, 
+    languageStyle='LTR',
+    depth=-2.0);
+key_resp_experiment_message = keyboard.Keyboard()
 
 # Initialize components for Routine "instruction"
 instructionClock = core.Clock()
@@ -178,15 +161,33 @@ aperture_dummy = visual.Aperture(
     units='norm', size=10, pos=(0, 0))
 aperture_dummy.disable()  # disable until its actually used
 
+# Initialize components for Routine "ss_sentence_summary"
+ss_sentence_summaryClock = core.Clock()
+text_ss_sentence_summary = visual.TextStim(win=win, name='text_ss_sentence_summary',
+    text='default text',
+    font='Arial',
+    pos=(0, 0), height=0.05, wrapWidth=None, ori=0, 
+    color='black', colorSpace='rgb', opacity=1, 
+    languageStyle='LTR',
+    depth=-1.0);
+key_resp_ss_sentence_summary = keyboard.Keyboard()
+
 # Initialize components for Routine "ss_sentence"
 ss_sentenceClock = core.Clock()
+text_ss_description = visual.TextStim(win=win, name='text_ss_description',
+    text='default text',
+    font='Arial',
+    pos=(0, 0.25), height=0.05, wrapWidth=None, ori=0, 
+    color='black', colorSpace='rgb', opacity=1, 
+    languageStyle='LTR',
+    depth=-1.0);
 text_ss_sentence = visual.TextStim(win=win, name='text_ss_sentence',
     text='default text',
     font='Arial',
     pos=(0, 0), height=1.0, wrapWidth=text_wrap_width, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
-    depth=-1.0);
+    depth=-2.0);
 key_resp_ss_sentence = keyboard.Keyboard()
 
 # Initialize components for Routine "end"
@@ -279,17 +280,15 @@ for thisExperiment_message_loop in experiment_message_loop:
     current_expmsg_key, current_expmsg_string = experiment_messages.pop(0)
     
     
+    text_experiment_message_key.setText(current_expmsg_key)
     text_experiment_message.setText(current_expmsg_string)
     text_experiment_message.setFont(config.experiment_messages.font)
     text_experiment_message.setHeight(config.experiment_messages.size)
     key_resp_experiment_message.keys = []
     key_resp_experiment_message.rt = []
     _key_resp_experiment_message_allKeys = []
-    text_experiment_message_key.setText(current_expmsg_key)
-    text_experiment_message_key.setFont(config.experiment_messages.font)
-    text_experiment_message_key.setHeight(config.experiment_messages.size)
     # keep track of which components have finished
-    experiment_messageComponents = [text_experiment_message, key_resp_experiment_message, text_experiment_message_key]
+    experiment_messageComponents = [text_experiment_message_key, text_experiment_message, key_resp_experiment_message]
     for thisComponent in experiment_messageComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -313,6 +312,15 @@ for thisExperiment_message_loop in experiment_message_loop:
         # update/draw components on each frame
         if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):
             core.quit()
+        
+        # *text_experiment_message_key* updates
+        if text_experiment_message_key.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            text_experiment_message_key.frameNStart = frameN  # exact frame index
+            text_experiment_message_key.tStart = t  # local t and not account for scr refresh
+            text_experiment_message_key.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text_experiment_message_key, 'tStartRefresh')  # time at next scr refresh
+            text_experiment_message_key.setAutoDraw(True)
         
         # *text_experiment_message* updates
         if text_experiment_message.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -345,15 +353,6 @@ for thisExperiment_message_loop in experiment_message_loop:
                 # a response ends the routine
                 continueRoutine = False
         
-        # *text_experiment_message_key* updates
-        if text_experiment_message_key.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            text_experiment_message_key.frameNStart = frameN  # exact frame index
-            text_experiment_message_key.tStart = t  # local t and not account for scr refresh
-            text_experiment_message_key.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(text_experiment_message_key, 'tStartRefresh')  # time at next scr refresh
-            text_experiment_message_key.setAutoDraw(True)
-        
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
             core.quit()
@@ -375,6 +374,8 @@ for thisExperiment_message_loop in experiment_message_loop:
     for thisComponent in experiment_messageComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
+    experiment_message_loop.addData('text_experiment_message_key.started', text_experiment_message_key.tStartRefresh)
+    experiment_message_loop.addData('text_experiment_message_key.stopped', text_experiment_message_key.tStopRefresh)
     experiment_message_loop.addData('text_experiment_message.started', text_experiment_message.tStartRefresh)
     experiment_message_loop.addData('text_experiment_message.stopped', text_experiment_message.tStopRefresh)
     # check responses
@@ -385,8 +386,6 @@ for thisExperiment_message_loop in experiment_message_loop:
         experiment_message_loop.addData('key_resp_experiment_message.rt', key_resp_experiment_message.rt)
     experiment_message_loop.addData('key_resp_experiment_message.started', key_resp_experiment_message.tStartRefresh)
     experiment_message_loop.addData('key_resp_experiment_message.stopped', key_resp_experiment_message.tStopRefresh)
-    experiment_message_loop.addData('text_experiment_message_key.started', text_experiment_message_key.tStartRefresh)
-    experiment_message_loop.addData('text_experiment_message_key.stopped', text_experiment_message_key.tStopRefresh)
     # the Routine "experiment_message" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     thisExp.nextEntry()
@@ -557,6 +556,147 @@ for thisInstruction_loop in instruction_loop:
 # completed n_instructions repeats of 'instruction_loop'
 
 
+# ------Prepare to start Routine "ss_sentence_summary"-------
+continueRoutine = True
+# update component parameters for each repeat
+from tasks.sentence_span import SentenceSpanTask
+ss_task = SentenceSpanTask(language=language, seed=0, config=config.sentence_span)
+
+ss_sentences = (
+    ss_task.sentences['practice'][True] +
+    ss_task.sentences['practice'][False] + 
+    ss_task.sentences['trials'][True] + 
+    ss_task.sentences['trials'][False]
+)
+ss_descriptions = (
+    [('practice', True) for _ in ss_task.sentences['practice'][True]] + 
+    [('practice', False) for _ in ss_task.sentences['practice'][False]] + 
+    [('trials', True) for _ in ss_task.sentences['trials'][True]] + 
+    [('trials', False) for _ in ss_task.sentences['trials'][False]]
+)
+
+n_ss_sentences = len(ss_sentences)
+n_ss_practice = (len(ss_task.sentences['practice'][True]) +
+                 len(ss_task.sentences['practice'][False]))
+n_ss_practice_t = len(ss_task.sentences['practice'][True])
+n_ss_practice_f = len(ss_task.sentences['practice'][False])
+n_ss_trials = (len(ss_task.sentences['trials'][True]) +
+               len(ss_task.sentences['trials'][False]))
+n_ss_trials_t = len(ss_task.sentences['trials'][True])
+n_ss_trials_f = len(ss_task.sentences['trials'][False])
+
+
+ss_summary = (
+    f'sentence span summary: \n\n'
+    f'total number of sentences: {n_ss_sentences}\n\n'
+    f'total number of practice sentences: {n_ss_practice}\n'
+    f'true: {n_ss_practice_t}, false: {n_ss_practice_f}\n\n'
+    f'total number of trial sentences: {n_ss_trials}\n'
+    f'true: {n_ss_trials_t}, false: {n_ss_trials_f}\n\n'
+)
+
+print()
+print("==================================================")
+print(ss_sentences)
+print("number of ss sentences:", n_ss_sentences)
+print("==================================================")
+print()
+
+
+text_ss_sentence_summary.setText(ss_summary)
+key_resp_ss_sentence_summary.keys = []
+key_resp_ss_sentence_summary.rt = []
+_key_resp_ss_sentence_summary_allKeys = []
+# keep track of which components have finished
+ss_sentence_summaryComponents = [text_ss_sentence_summary, key_resp_ss_sentence_summary]
+for thisComponent in ss_sentence_summaryComponents:
+    thisComponent.tStart = None
+    thisComponent.tStop = None
+    thisComponent.tStartRefresh = None
+    thisComponent.tStopRefresh = None
+    if hasattr(thisComponent, 'status'):
+        thisComponent.status = NOT_STARTED
+# reset timers
+t = 0
+_timeToFirstFrame = win.getFutureFlipTime(clock="now")
+ss_sentence_summaryClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+frameN = -1
+
+# -------Run Routine "ss_sentence_summary"-------
+while continueRoutine:
+    # get current time
+    t = ss_sentence_summaryClock.getTime()
+    tThisFlip = win.getFutureFlipTime(clock=ss_sentence_summaryClock)
+    tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+    # update/draw components on each frame
+    
+    # *text_ss_sentence_summary* updates
+    if text_ss_sentence_summary.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        text_ss_sentence_summary.frameNStart = frameN  # exact frame index
+        text_ss_sentence_summary.tStart = t  # local t and not account for scr refresh
+        text_ss_sentence_summary.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(text_ss_sentence_summary, 'tStartRefresh')  # time at next scr refresh
+        text_ss_sentence_summary.setAutoDraw(True)
+    
+    # *key_resp_ss_sentence_summary* updates
+    waitOnFlip = False
+    if key_resp_ss_sentence_summary.status == NOT_STARTED and tThisFlip >= 1-frameTolerance:
+        # keep track of start time/frame for later
+        key_resp_ss_sentence_summary.frameNStart = frameN  # exact frame index
+        key_resp_ss_sentence_summary.tStart = t  # local t and not account for scr refresh
+        key_resp_ss_sentence_summary.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(key_resp_ss_sentence_summary, 'tStartRefresh')  # time at next scr refresh
+        key_resp_ss_sentence_summary.status = STARTED
+        # keyboard checking is just starting
+        waitOnFlip = True
+        win.callOnFlip(key_resp_ss_sentence_summary.clock.reset)  # t=0 on next screen flip
+        win.callOnFlip(key_resp_ss_sentence_summary.clearEvents, eventType='keyboard')  # clear events on next screen flip
+    if key_resp_ss_sentence_summary.status == STARTED and not waitOnFlip:
+        theseKeys = key_resp_ss_sentence_summary.getKeys(keyList=None, waitRelease=False)
+        _key_resp_ss_sentence_summary_allKeys.extend(theseKeys)
+        if len(_key_resp_ss_sentence_summary_allKeys):
+            key_resp_ss_sentence_summary.keys = _key_resp_ss_sentence_summary_allKeys[-1].name  # just the last key pressed
+            key_resp_ss_sentence_summary.rt = _key_resp_ss_sentence_summary_allKeys[-1].rt
+            # a response ends the routine
+            continueRoutine = False
+    
+    # check for quit (typically the Esc key)
+    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+        core.quit()
+    
+    # check if all components have finished
+    if not continueRoutine:  # a component has requested a forced-end of Routine
+        break
+    continueRoutine = False  # will revert to True if at least one component still running
+    for thisComponent in ss_sentence_summaryComponents:
+        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+            continueRoutine = True
+            break  # at least one component has not yet finished
+    
+    # refresh the screen
+    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+        win.flip()
+
+# -------Ending Routine "ss_sentence_summary"-------
+for thisComponent in ss_sentence_summaryComponents:
+    if hasattr(thisComponent, "setAutoDraw"):
+        thisComponent.setAutoDraw(False)
+thisExp.addData('text_ss_sentence_summary.started', text_ss_sentence_summary.tStartRefresh)
+thisExp.addData('text_ss_sentence_summary.stopped', text_ss_sentence_summary.tStopRefresh)
+# check responses
+if key_resp_ss_sentence_summary.keys in ['', [], None]:  # No response was made
+    key_resp_ss_sentence_summary.keys = None
+thisExp.addData('key_resp_ss_sentence_summary.keys',key_resp_ss_sentence_summary.keys)
+if key_resp_ss_sentence_summary.keys != None:  # we had a response
+    thisExp.addData('key_resp_ss_sentence_summary.rt', key_resp_ss_sentence_summary.rt)
+thisExp.addData('key_resp_ss_sentence_summary.started', key_resp_ss_sentence_summary.tStartRefresh)
+thisExp.addData('key_resp_ss_sentence_summary.stopped', key_resp_ss_sentence_summary.tStopRefresh)
+thisExp.nextEntry()
+# the Routine "ss_sentence_summary" was not non-slip safe, so reset the non-slip timer
+routineTimer.reset()
+
 # set up handler to look after randomisation of conditions etc
 ss_sentence_loop = data.TrialHandler(nReps=n_ss_sentences, method='sequential', 
     extraInfo=expInfo, originPath=-1,
@@ -580,6 +720,10 @@ for thisSs_sentence_loop in ss_sentence_loop:
     continueRoutine = True
     # update component parameters for each repeat
     current_ss_sentence = ss_sentences.pop(0)
+    current_ss_description = ss_descriptions.pop(0)
+    current_ss_description = (f'{current_ss_description[0]}, '
+                              f'{current_ss_description[1]}')
+    text_ss_description.setText(current_ss_description)
     text_ss_sentence.setText(current_ss_sentence)
     text_ss_sentence.setFont(config.sentence_span.text.sentences.font)
     text_ss_sentence.setHeight(config.sentence_span.text.sentences.size)
@@ -587,7 +731,7 @@ for thisSs_sentence_loop in ss_sentence_loop:
     key_resp_ss_sentence.rt = []
     _key_resp_ss_sentence_allKeys = []
     # keep track of which components have finished
-    ss_sentenceComponents = [text_ss_sentence, key_resp_ss_sentence]
+    ss_sentenceComponents = [text_ss_description, text_ss_sentence, key_resp_ss_sentence]
     for thisComponent in ss_sentenceComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -611,6 +755,15 @@ for thisSs_sentence_loop in ss_sentence_loop:
         # update/draw components on each frame
         if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):
             core.quit()
+        
+        # *text_ss_description* updates
+        if text_ss_description.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            text_ss_description.frameNStart = frameN  # exact frame index
+            text_ss_description.tStart = t  # local t and not account for scr refresh
+            text_ss_description.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text_ss_description, 'tStartRefresh')  # time at next scr refresh
+            text_ss_description.setAutoDraw(True)
         
         # *text_ss_sentence* updates
         if text_ss_sentence.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -664,6 +817,8 @@ for thisSs_sentence_loop in ss_sentence_loop:
     for thisComponent in ss_sentenceComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
+    ss_sentence_loop.addData('text_ss_description.started', text_ss_description.tStartRefresh)
+    ss_sentence_loop.addData('text_ss_description.stopped', text_ss_description.tStopRefresh)
     ss_sentence_loop.addData('text_ss_sentence.started', text_ss_sentence.tStartRefresh)
     ss_sentence_loop.addData('text_ss_sentence.stopped', text_ss_sentence.tStopRefresh)
     # check responses
