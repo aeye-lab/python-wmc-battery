@@ -37,7 +37,7 @@
       <CodeComponent name="init_code">
         <Param name="Before Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Before JS Experiment" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Begin Experiment" val="import datetime&amp;#10;import os&amp;#10;&amp;#10;from common.config import WMCConfig&amp;#10;from common.experiment_messages import ExperimentMessages&amp;#10;from common.instructions import Instructions&amp;#10;&amp;#10;# for catching experiment quit key&amp;#10;from psychopy.hardware.keyboard import Keyboard&amp;#10;experiment_keyboard = Keyboard()&amp;#10;&amp;#10;thisExp.extraInfo['datetime'] = datetime.datetime.today()&amp;#10;&amp;#10;language = thisExp.extraInfo['Language']&amp;#10;&amp;#10;config = WMCConfig(language=language)&amp;#10;expmsgs = ExperimentMessages(language=language,&amp;#10;                             encoding=config.experiment_messages.encoding)&amp;#10;&amp;#10;experiment_messages = [&amp;#10;        expmsgs.begin_practice,&amp;#10;        expmsgs.begin_task,&amp;#10;        expmsgs.next_trial,&amp;#10;        expmsgs.experiment_break,&amp;#10;        expmsgs.task_end,&amp;#10;        expmsgs.experiment_over,&amp;#10;        expmsgs.draw_dots,&amp;#10;        expmsgs.sstm_next,&amp;#10;        expmsgs.sstm_end,&amp;#10;]&amp;#10;n_experiment_messages = len(experiment_messages)&amp;#10;print()&amp;#10;print(&quot;==================================================&quot;)&amp;#10;print(experiment_messages)&amp;#10;print(&quot;number of experiment messages:&quot;, n_experiment_messages)&amp;#10;print(&quot;==================================================&quot;)&amp;#10;print()&amp;#10;&amp;#10;&amp;#10;from tasks.sentence_span import SentenceSpanTask&amp;#10;ss_task = SentenceSpanTask(language=language, seed=0, config=config.sentence_span)&amp;#10;ss_sentences = (&amp;#10;    ss_task.sentences['practice'][True] +&amp;#10;    ss_task.sentences['practice'][False] + &amp;#10;    ss_task.sentences['trials'][True] + &amp;#10;    ss_task.sentences['trials'][False]&amp;#10;)&amp;#10;n_ss_sentences = len(ss_sentences)&amp;#10;&amp;#10;print()&amp;#10;print(&quot;==================================================&quot;)&amp;#10;print(ss_sentences)&amp;#10;print(&quot;number of ss sentences:&quot;, n_ss_sentences)&amp;#10;print(&quot;==================================================&quot;)&amp;#10;print()&amp;#10;&amp;#10;instructions = Instructions(language)&amp;#10;instruction_filepaths = (&amp;#10;    instructions.get_instructions('init') + &amp;#10;    instructions.get_instructions('mu') + &amp;#10;    instructions.get_instructions('os') + &amp;#10;    instructions.get_instructions('ss') + &amp;#10;    instructions.get_instructions('sstm')&amp;#10;)&amp;#10;n_instructions = len(instruction_filepaths)&amp;#10;print()&amp;#10;print(&quot;==================================================&quot;)&amp;#10;print(instruction_filepaths)&amp;#10;print(&quot;number of instructions:&quot;, n_instructions)&amp;#10;print(&quot;==================================================&quot;)&amp;#10;&amp;#10;# set text wrap width to 90% of screen width (in height units)&amp;#10;text_wrap_width = win.size[0] / win.size[1] * 0.9" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Experiment" val="import datetime&amp;#10;import os&amp;#10;&amp;#10;from common.config import WMCConfig&amp;#10;from common.experiment_messages import ExperimentMessages&amp;#10;from common.instructions import Instructions&amp;#10;&amp;#10;# for catching experiment quit key&amp;#10;from psychopy.hardware.keyboard import Keyboard&amp;#10;experiment_keyboard = Keyboard()&amp;#10;&amp;#10;thisExp.extraInfo['datetime'] = datetime.datetime.today()&amp;#10;&amp;#10;language = thisExp.extraInfo['Language']&amp;#10;&amp;#10;config = WMCConfig(language=language)&amp;#10;expmsgs = ExperimentMessages(language=language,&amp;#10;                             encoding=config.experiment_messages.encoding)&amp;#10;&amp;#10;experiment_messages = list(expmsgs.items())&amp;#10;n_experiment_messages = len(experiment_messages)&amp;#10;print()&amp;#10;print(&quot;==================================================&quot;)&amp;#10;print(experiment_messages)&amp;#10;print(&quot;number of experiment messages:&quot;, n_experiment_messages)&amp;#10;print(&quot;==================================================&quot;)&amp;#10;print()&amp;#10;&amp;#10;&amp;#10;from tasks.sentence_span import SentenceSpanTask&amp;#10;ss_task = SentenceSpanTask(language=language, seed=0, config=config.sentence_span)&amp;#10;ss_sentences = (&amp;#10;    ss_task.sentences['practice'][True] +&amp;#10;    ss_task.sentences['practice'][False] + &amp;#10;    ss_task.sentences['trials'][True] + &amp;#10;    ss_task.sentences['trials'][False]&amp;#10;)&amp;#10;n_ss_sentences = len(ss_sentences)&amp;#10;&amp;#10;print()&amp;#10;print(&quot;==================================================&quot;)&amp;#10;print(ss_sentences)&amp;#10;print(&quot;number of ss sentences:&quot;, n_ss_sentences)&amp;#10;print(&quot;==================================================&quot;)&amp;#10;print()&amp;#10;&amp;#10;instructions = Instructions(language)&amp;#10;instruction_filepaths = (&amp;#10;    instructions.get_instructions('init') + &amp;#10;    instructions.get_instructions('mu') + &amp;#10;    instructions.get_instructions('os') + &amp;#10;    instructions.get_instructions('ss') + &amp;#10;    instructions.get_instructions('sstm')&amp;#10;)&amp;#10;n_instructions = len(instruction_filepaths)&amp;#10;print()&amp;#10;print(&quot;==================================================&quot;)&amp;#10;print(instruction_filepaths)&amp;#10;print(&quot;number of instructions:&quot;, n_instructions)&amp;#10;print(&quot;==================================================&quot;)&amp;#10;&amp;#10;# set text wrap width to 90% of screen width (in height units)&amp;#10;text_wrap_width = win.size[0] / win.size[1] * 0.9" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin Routine" val="" valType="extendedCode" updates="constant"/>
@@ -59,7 +59,7 @@
         <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Experiment" val="" valType="extendedCode" updates="constant"/>
         <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant"/>
-        <Param name="Begin Routine" val="current_experiment_message = experiment_messages.pop(0)" valType="extendedCode" updates="constant"/>
+        <Param name="Begin Routine" val="current_expmsg_key, current_expmsg_string = experiment_messages.pop(0)&amp;#10;&amp;#10;" valType="extendedCode" updates="constant"/>
         <Param name="Code Type" val="Py" valType="str" updates="None"/>
         <Param name="Each Frame" val="if experiment_keyboard.getKeys(keyList=[config.common.abort_key], clear=False):&amp;#10;    core.quit()" valType="extendedCode" updates="constant"/>
         <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant"/>
@@ -82,7 +82,7 @@
         <Param name="name" val="text_experiment_message" valType="code" updates="None"/>
         <Param name="opacity" val="1" valType="code" updates="constant"/>
         <Param name="ori" val="0" valType="code" updates="constant"/>
-        <Param name="pos" val="(0, 0)" valType="code" updates="constant"/>
+        <Param name="pos" val="(0, -0.1)" valType="code" updates="constant"/>
         <Param name="saveStartStop" val="True" valType="bool" updates="None"/>
         <Param name="startEstim" val="" valType="code" updates="None"/>
         <Param name="startType" val="time (s)" valType="str" updates="None"/>
@@ -90,7 +90,7 @@
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
         <Param name="stopVal" val="" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
-        <Param name="text" val="$current_experiment_message" valType="extendedStr" updates="set every repeat"/>
+        <Param name="text" val="$current_expmsg_string" valType="extendedStr" updates="set every repeat"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
         <Param name="wrapWidth" val="text_wrap_width" valType="code" updates="constant"/>
       </TextComponent>
@@ -112,6 +112,30 @@
         <Param name="storeCorrect" val="False" valType="bool" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="constant"/>
       </KeyboardComponent>
+      <TextComponent name="text_experiment_message_key">
+        <Param name="color" val="black" valType="str" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="disabled" val="False" valType="bool" updates="None"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="flip" val="" valType="str" updates="constant"/>
+        <Param name="font" val="$config.experiment_messages.font" valType="str" updates="set every repeat"/>
+        <Param name="languageStyle" val="LTR" valType="str" updates="None"/>
+        <Param name="letterHeight" val="$config.experiment_messages.size" valType="code" updates="set every repeat"/>
+        <Param name="name" val="text_experiment_message_key" valType="code" updates="None"/>
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="pos" val="(0, 0.1)" valType="code" updates="constant"/>
+        <Param name="saveStartStop" val="True" valType="bool" updates="None"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="stopVal" val="" valType="code" updates="constant"/>
+        <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
+        <Param name="text" val="$current_expmsg_key" valType="extendedStr" updates="set every repeat"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+      </TextComponent>
     </Routine>
     <Routine name="ss_sentence">
       <CodeComponent name="code_ss_sentence">

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" ?>
+<?xml version="1.0" ?>
 <PsychoPy2experiment version="2020.2.10" encoding="utf-8">
   <Settings>
     <Param name="Audio latency priority" val="use prefs" valType="str" updates="None"/>
@@ -229,7 +229,7 @@
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
         <Param name="stopVal" val="" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
-        <Param name="text" val="$expmsgs.experiment_break" valType="extendedStr" updates="set every repeat"/>
+        <Param name="text" val="$expmsgs.self_paced_break" valType="extendedStr" updates="set every repeat"/>
         <Param name="units" val="height" valType="str" updates="None"/>
         <Param name="wrapWidth" val="text_wrap_width" valType="code" updates="constant"/>
       </TextComponent>
@@ -394,7 +394,7 @@
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
         <Param name="stopVal" val="" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
-        <Param name="text" val="$expmsgs.task_end" valType="extendedStr" updates="set every repeat"/>
+        <Param name="text" val="$expmsgs.task_over" valType="extendedStr" updates="set every repeat"/>
         <Param name="units" val="height" valType="str" updates="None"/>
         <Param name="wrapWidth" val="text_wrap_width" valType="code" updates="constant"/>
       </TextComponent>
@@ -1525,7 +1525,7 @@
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
         <Param name="stopVal" val="" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
-        <Param name="text" val="$expmsgs.sstm_next" valType="extendedStr" updates="set every repeat"/>
+        <Param name="text" val="$expmsgs.word_next" valType="extendedStr" updates="set every repeat"/>
         <Param name="units" val="height" valType="str" updates="None"/>
         <Param name="wrapWidth" val="text_wrap_width" valType="code" updates="constant"/>
       </TextComponent>
@@ -1647,7 +1647,7 @@
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
         <Param name="stopVal" val="" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
-        <Param name="text" val="$expmsgs.task_end" valType="extendedStr" updates="constant"/>
+        <Param name="text" val="$expmsgs.task_over" valType="extendedStr" updates="constant"/>
         <Param name="units" val="height" valType="str" updates="None"/>
         <Param name="wrapWidth" val="text_wrap_width" valType="code" updates="constant"/>
       </TextComponent>
@@ -1732,7 +1732,7 @@
         <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
         <Param name="stopVal" val="current_task.config.timing.draw_request" valType="code" updates="constant"/>
         <Param name="syncScreenRefresh" val="True" valType="bool" updates="None"/>
-        <Param name="text" val="$expmsgs.sstm_end" valType="extendedStr" updates="set every repeat"/>
+        <Param name="text" val="$expmsgs.word_end" valType="extendedStr" updates="set every repeat"/>
         <Param name="units" val="from exp settings" valType="str" updates="None"/>
         <Param name="wrapWidth" val="" valType="code" updates="constant"/>
       </TextComponent>

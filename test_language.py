@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.2.10),
-    on Wed 30 Jun 2021 04:43:49 PM CEST
+    on Thu 01 Jul 2021 03:52:39 PM CEST
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -99,17 +99,7 @@ config = WMCConfig(language=language)
 expmsgs = ExperimentMessages(language=language,
                              encoding=config.experiment_messages.encoding)
 
-experiment_messages = [
-        expmsgs.begin_practice,
-        expmsgs.begin_task,
-        expmsgs.next_trial,
-        expmsgs.experiment_break,
-        expmsgs.task_end,
-        expmsgs.experiment_over,
-        expmsgs.draw_dots,
-        expmsgs.sstm_next,
-        expmsgs.sstm_end,
-]
+experiment_messages = list(expmsgs.items())
 n_experiment_messages = len(experiment_messages)
 print()
 print("==================================================")
@@ -159,11 +149,18 @@ experiment_messageClock = core.Clock()
 text_experiment_message = visual.TextStim(win=win, name='text_experiment_message',
     text='default text',
     font='Arial',
-    pos=(0, 0), height=1.0, wrapWidth=text_wrap_width, ori=0, 
+    pos=(0, -0.1), height=1.0, wrapWidth=text_wrap_width, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
 key_resp_experiment_message = keyboard.Keyboard()
+text_experiment_message_key = visual.TextStim(win=win, name='text_experiment_message_key',
+    text='default text',
+    font='Arial',
+    pos=(0, 0.1), height=1.0, wrapWidth=None, ori=0, 
+    color='black', colorSpace='rgb', opacity=1, 
+    languageStyle='LTR',
+    depth=-3.0);
 
 # Initialize components for Routine "instruction"
 instructionClock = core.Clock()
@@ -279,15 +276,20 @@ for thisExperiment_message_loop in experiment_message_loop:
     # ------Prepare to start Routine "experiment_message"-------
     continueRoutine = True
     # update component parameters for each repeat
-    current_experiment_message = experiment_messages.pop(0)
-    text_experiment_message.setText(current_experiment_message)
+    current_expmsg_key, current_expmsg_string = experiment_messages.pop(0)
+    
+    
+    text_experiment_message.setText(current_expmsg_string)
     text_experiment_message.setFont(config.experiment_messages.font)
     text_experiment_message.setHeight(config.experiment_messages.size)
     key_resp_experiment_message.keys = []
     key_resp_experiment_message.rt = []
     _key_resp_experiment_message_allKeys = []
+    text_experiment_message_key.setText(current_expmsg_key)
+    text_experiment_message_key.setFont(config.experiment_messages.font)
+    text_experiment_message_key.setHeight(config.experiment_messages.size)
     # keep track of which components have finished
-    experiment_messageComponents = [text_experiment_message, key_resp_experiment_message]
+    experiment_messageComponents = [text_experiment_message, key_resp_experiment_message, text_experiment_message_key]
     for thisComponent in experiment_messageComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -343,6 +345,15 @@ for thisExperiment_message_loop in experiment_message_loop:
                 # a response ends the routine
                 continueRoutine = False
         
+        # *text_experiment_message_key* updates
+        if text_experiment_message_key.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            text_experiment_message_key.frameNStart = frameN  # exact frame index
+            text_experiment_message_key.tStart = t  # local t and not account for scr refresh
+            text_experiment_message_key.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text_experiment_message_key, 'tStartRefresh')  # time at next scr refresh
+            text_experiment_message_key.setAutoDraw(True)
+        
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
             core.quit()
@@ -374,6 +385,8 @@ for thisExperiment_message_loop in experiment_message_loop:
         experiment_message_loop.addData('key_resp_experiment_message.rt', key_resp_experiment_message.rt)
     experiment_message_loop.addData('key_resp_experiment_message.started', key_resp_experiment_message.tStartRefresh)
     experiment_message_loop.addData('key_resp_experiment_message.stopped', key_resp_experiment_message.tStopRefresh)
+    experiment_message_loop.addData('text_experiment_message_key.started', text_experiment_message_key.tStartRefresh)
+    experiment_message_loop.addData('text_experiment_message_key.stopped', text_experiment_message_key.tStopRefresh)
     # the Routine "experiment_message" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     thisExp.nextEntry()

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.2.10),
-    on Wed 30 Jun 2021 01:10:01 PM CEST
+    on Thu 01 Jul 2021 04:01:59 PM CEST
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -679,7 +679,7 @@ base_text_intertrial = visual.TextStim(win=win, name='base_text_intertrial',
 # Initialize components for Routine "sstm_task_end"
 sstm_task_endClock = core.Clock()
 text_sstm_task_end = visual.TextStim(win=win, name='text_sstm_task_end',
-    text=expmsgs.task_end,
+    text=expmsgs.task_over,
     font='Arial',
     units='height', pos=(0, 0), height=1.0, wrapWidth=text_wrap_width, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
@@ -2137,7 +2137,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
     # update component parameters for each repeat
     output_filepath = os.path.join(output_dir, f'{current_task.name}-{subject_id}.dat')
     current_task.write_results(output_filepath)
-    base_text_task_end.setText(expmsgs.task_end)
+    base_text_task_end.setText(expmsgs.task_over)
     base_text_task_end.setFont(config.experiment_messages.font)
     base_text_task_end.setHeight(config.experiment_messages.size)
     base_key_resp_task_end.keys = []
@@ -3361,7 +3361,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                 # ------Prepare to start Routine "base_self_paced_break"-------
                 continueRoutine = True
                 # update component parameters for each repeat
-                base_text_self_paced_break.setText(expmsgs.experiment_break)
+                base_text_self_paced_break.setText(expmsgs.self_paced_break)
                 base_text_self_paced_break.setFont(config.experiment_messages.font)
                 base_text_self_paced_break.setHeight(config.experiment_messages.size)
                 base_key_resp_self_paced_break.keys = []
@@ -3540,7 +3540,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
     # update component parameters for each repeat
     output_filepath = os.path.join(output_dir, f'{current_task.name}-{subject_id}.dat')
     current_task.write_results(output_filepath)
-    base_text_task_end.setText(expmsgs.task_end)
+    base_text_task_end.setText(expmsgs.task_over)
     base_text_task_end.setFont(config.experiment_messages.font)
     base_text_task_end.setHeight(config.experiment_messages.size)
     base_key_resp_task_end.keys = []
@@ -4764,7 +4764,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                 # ------Prepare to start Routine "base_self_paced_break"-------
                 continueRoutine = True
                 # update component parameters for each repeat
-                base_text_self_paced_break.setText(expmsgs.experiment_break)
+                base_text_self_paced_break.setText(expmsgs.self_paced_break)
                 base_text_self_paced_break.setFont(config.experiment_messages.font)
                 base_text_self_paced_break.setHeight(config.experiment_messages.size)
                 base_key_resp_self_paced_break.keys = []
@@ -4943,7 +4943,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
     # update component parameters for each repeat
     output_filepath = os.path.join(output_dir, f'{current_task.name}-{subject_id}.dat')
     current_task.write_results(output_filepath)
-    base_text_task_end.setText(expmsgs.task_end)
+    base_text_task_end.setText(expmsgs.task_over)
     base_text_task_end.setFont(config.experiment_messages.font)
     base_text_task_end.setHeight(config.experiment_messages.size)
     base_key_resp_task_end.keys = []
@@ -5776,7 +5776,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
             text_sstm_draw_dots.setText(expmsgs.draw_dots)
             text_sstm_draw_dots.setFont('config.spatial_short_term_memory.text.draw_text.font')
             text_sstm_draw_dots.setHeight(config.spatial_short_term_memory.text.draw_text.size)
-            text_sstm_presentation_end.setText(expmsgs.sstm_end)
+            text_sstm_presentation_end.setText(expmsgs.word_end)
             text_sstm_presentation_end.setFont('config.spatial_short_term_memory.text.end_text.font')
             text_sstm_presentation_end.setHeight(config.spatial_short_term_memory.text.end_text.size)
             # keep track of which components have finished
@@ -5869,7 +5869,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
             current_trial.grid.show(True)
             win.mouseVisible = True
             sstm_mouse.setVisible(True)
-            sstm_text_next.setText(expmsgs.sstm_next)
+            sstm_text_next.setText(expmsgs.word_next)
             sstm_text_next.setFont('config.spatial_short_term_memory.text.next_button.font')
             sstm_text_next.setHeight(config.spatial_short_term_memory.text.next_button.size)
             # setup some python lists for storing info about the sstm_mouse
