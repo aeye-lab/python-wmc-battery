@@ -1,0 +1,20 @@
+name: wmc-battery
+channels:
+  - conda-forge
+dependencies:
+  - python=3.6
+  - psychopy=2020.2.10
+  - numpy
+  - pandas
+  - scipy
+  - pytest
+  - pyyaml
+  - pip
+  - pip:
+    - psychtoolbox==3.0.16
+    - pygame
+    - pyo
+    - pyparallel; platform_system != "Windows"
+    - SoundFile; platform_system == "Windows"
+    - websocket_client
+    - dotmap
