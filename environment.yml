@@ -3,7 +3,7 @@ channels:
   - conda-forge
 dependencies:
   - python=3.6
-  - psychopy=2020.2.10
+  - psychopy=2021.2.3
   - numpy
   - pandas
   - scipy
@@ -11,7 +11,7 @@ dependencies:
   - pyyaml
   - pip
   - pip:
-    - psychtoolbox==3.0.16
+    - psychtoolbox
     - pygame
     - pyo
     - pyparallel; platform_system != "Windows"
