@@ -1,8 +1,8 @@
 ﻿#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-This experiment was created using PsychoPy3 Experiment Builder (v2020.2.10),
-    on Thu 01 Jul 2021 04:01:59 PM CEST
+This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
+    on January 25, 2022, at 13:30
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -16,14 +16,14 @@ from __future__ import absolute_import, division
 from psychopy import locale_setup
 from psychopy import prefs
 prefs.hardware['audioLib'] = 'pygame'
-from psychopy import sound, gui, visual, core, data, event, logging, clock
+from psychopy import sound, gui, visual, core, data, event, logging, clock, colors
 from psychopy.constants import (NOT_STARTED, STARTED, PLAYING, PAUSED,
                                 STOPPED, FINISHED, PRESSED, RELEASED, FOREVER)
 
 import numpy as np  # whole numpy lib is available, prepend 'np.'
 from numpy import (sin, cos, tan, log, log10, pi, average,
                    sqrt, std, deg2rad, rad2deg, linspace, asarray)
-from numpy.random import random, randint, normal, shuffle
+from numpy.random import random, randint, normal, shuffle, choice as randchoice
 import os  # handy system and path functions
 import sys  # to get file system encoding
 
@@ -36,7 +36,7 @@ _thisDir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(_thisDir)
 
 # Store info about the experiment session
-psychopyVersion = '2020.2.10'
+psychopyVersion = '2021.2.3'
 expName = 'wmc'  # from the Builder filename that created this script
 expInfo = {'Subject ID': '', 'Language': ['English', 'English_easy', 'Deutsch', 'Chinese_simplified', 'Chinese_traditional'], 'Memory Update': True, 'Operation Span': True, 'Sentence Span': True, 'Spatial Short Term Memory': True, 'Random Seed': ''}
 dlg = gui.DlgFromDict(dictionary=expInfo, sortKeys=False, title=expName)
@@ -52,7 +52,7 @@ filename = _thisDir + os.sep + u'data/psychopy_logs/%s_%s_%s' % (expInfo['Subjec
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='/home/krakowczyk/workspace/wmc-battery/wmc_lastrun.py',
+    originPath='C:\\Users\\danie\\Documents\\workspace\\wmc-battery\\wmc_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -75,6 +75,9 @@ if expInfo['frameRate'] != None:
     frameDur = 1.0 / round(expInfo['frameRate'])
 else:
     frameDur = 1.0 / 60.0  # could not measure, so guess
+
+# Setup eyetracking
+ioDevice = ioConfig = ioSession = ioServer = eyetracker = None
 
 # create a default keyboard (e.g. to check for escape)
 defaultKeyboard = keyboard.Keyboard()
@@ -164,7 +167,7 @@ base_aperture_instruction.disable()  # disable until its actually used
 # Initialize components for Routine "base_init_task"
 base_init_taskClock = core.Clock()
 base_text_begin_task = visual.TextStim(win=win, name='base_text_begin_task',
-    text='default text',
+    text='',
     font='Arial',
     units='height', pos=(0, 0), height=1.0, wrapWidth=text_wrap_width, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
@@ -188,7 +191,7 @@ mu_text_blank = visual.TextStim(win=win, name='mu_text_blank',
 # Initialize components for Routine "mu_display_digit"
 mu_display_digitClock = core.Clock()
 mu_text_digit = visual.TextStim(win=win, name='mu_text_digit',
-    text='default text',
+    text='',
     font='Arial',
     units='height', pos=[0,0], height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
@@ -208,7 +211,7 @@ mu_text_blank_2 = visual.TextStim(win=win, name='mu_text_blank_2',
 # Initialize components for Routine "mu_display_operation"
 mu_display_operationClock = core.Clock()
 mu_text_operation = visual.TextStim(win=win, name='mu_text_operation',
-    text='default text',
+    text='',
     font='Arial',
     units='height', pos=[0,0], height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
@@ -239,7 +242,7 @@ mu_key_resp_recall = keyboard.Keyboard()
 # Initialize components for Routine "mu_display_recall"
 mu_display_recallClock = core.Clock()
 mu_text_recall = visual.TextStim(win=win, name='mu_text_recall',
-    text='default text',
+    text='',
     font='Arial',
     pos=[0,0], height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
@@ -249,7 +252,7 @@ mu_text_recall = visual.TextStim(win=win, name='mu_text_recall',
 # Initialize components for Routine "base_next_trial"
 base_next_trialClock = core.Clock()
 base_text_next_trial = visual.TextStim(win=win, name='base_text_next_trial',
-    text='default text',
+    text='',
     font='Arial',
     pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
@@ -270,7 +273,7 @@ base_text_intertrial = visual.TextStim(win=win, name='base_text_intertrial',
 # Initialize components for Routine "base_task_end"
 base_task_endClock = core.Clock()
 base_text_task_end = visual.TextStim(win=win, name='base_text_task_end',
-    text='default text',
+    text='',
     font='Arial',
     units='height', pos=(0, 0), height=1.0, wrapWidth=text_wrap_width, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
@@ -300,7 +303,7 @@ base_aperture_instruction.disable()  # disable until its actually used
 # Initialize components for Routine "base_init_task"
 base_init_taskClock = core.Clock()
 base_text_begin_task = visual.TextStim(win=win, name='base_text_begin_task',
-    text='default text',
+    text='',
     font='Arial',
     units='height', pos=(0, 0), height=1.0, wrapWidth=text_wrap_width, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
@@ -324,7 +327,7 @@ os_text_fixation_cross = visual.TextStim(win=win, name='os_text_fixation_cross',
 # Initialize components for Routine "os_equation"
 os_equationClock = core.Clock()
 os_text_equation = visual.TextStim(win=win, name='os_text_equation',
-    text='default text',
+    text='',
     font='Arial',
     units='height', pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
@@ -335,7 +338,7 @@ os_key_resp_equation = keyboard.Keyboard()
 # Initialize components for Routine "os_letter"
 os_letterClock = core.Clock()
 os_text_letter = visual.TextStim(win=win, name='os_text_letter',
-    text='default text',
+    text='',
     font='Arial',
     units='height', pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
@@ -366,7 +369,7 @@ os_key_resp_recall = keyboard.Keyboard()
 # Initialize components for Routine "os_display_recall"
 os_display_recallClock = core.Clock()
 os_text_recall = visual.TextStim(win=win, name='os_text_recall',
-    text='default text',
+    text='',
     font='Arial',
     units='height', pos=(0.075, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
@@ -386,7 +389,7 @@ base_text_intertrial = visual.TextStim(win=win, name='base_text_intertrial',
 # Initialize components for Routine "base_self_paced_break"
 base_self_paced_breakClock = core.Clock()
 base_text_self_paced_break = visual.TextStim(win=win, name='base_text_self_paced_break',
-    text='default text',
+    text='',
     font='Arial',
     units='height', pos=(0, 0), height=1.0, wrapWidth=text_wrap_width, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
@@ -407,7 +410,7 @@ base_text_pause_after_break = visual.TextStim(win=win, name='base_text_pause_aft
 # Initialize components for Routine "base_task_end"
 base_task_endClock = core.Clock()
 base_text_task_end = visual.TextStim(win=win, name='base_text_task_end',
-    text='default text',
+    text='',
     font='Arial',
     units='height', pos=(0, 0), height=1.0, wrapWidth=text_wrap_width, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
@@ -437,7 +440,7 @@ base_aperture_instruction.disable()  # disable until its actually used
 # Initialize components for Routine "base_init_task"
 base_init_taskClock = core.Clock()
 base_text_begin_task = visual.TextStim(win=win, name='base_text_begin_task',
-    text='default text',
+    text='',
     font='Arial',
     units='height', pos=(0, 0), height=1.0, wrapWidth=text_wrap_width, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
@@ -461,7 +464,7 @@ ss_text_fixation_cross = visual.TextStim(win=win, name='ss_text_fixation_cross',
 # Initialize components for Routine "ss_sentence"
 ss_sentenceClock = core.Clock()
 ss_text_sentence = visual.TextStim(win=win, name='ss_text_sentence',
-    text='default text',
+    text='',
     font='Arial',
     units='height', pos=(0, 0), height=1.0, wrapWidth=text_wrap_width, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
@@ -472,7 +475,7 @@ ss_key_resp_sentence = keyboard.Keyboard()
 # Initialize components for Routine "ss_letter"
 ss_letterClock = core.Clock()
 ss_text_letter = visual.TextStim(win=win, name='ss_text_letter',
-    text='default text',
+    text='',
     font='Arial',
     units='height', pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
@@ -503,7 +506,7 @@ ss_key_resp_recall = keyboard.Keyboard()
 # Initialize components for Routine "ss_display_recall"
 ss_display_recallClock = core.Clock()
 ss_text_display_recall = visual.TextStim(win=win, name='ss_text_display_recall',
-    text='default text',
+    text='',
     font='Arial',
     units='height', pos=(0.075, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
@@ -523,7 +526,7 @@ base_text_intertrial = visual.TextStim(win=win, name='base_text_intertrial',
 # Initialize components for Routine "base_self_paced_break"
 base_self_paced_breakClock = core.Clock()
 base_text_self_paced_break = visual.TextStim(win=win, name='base_text_self_paced_break',
-    text='default text',
+    text='',
     font='Arial',
     units='height', pos=(0, 0), height=1.0, wrapWidth=text_wrap_width, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
@@ -544,7 +547,7 @@ base_text_pause_after_break = visual.TextStim(win=win, name='base_text_pause_aft
 # Initialize components for Routine "base_task_end"
 base_task_endClock = core.Clock()
 base_text_task_end = visual.TextStim(win=win, name='base_text_task_end',
-    text='default text',
+    text='',
     font='Arial',
     units='height', pos=(0, 0), height=1.0, wrapWidth=text_wrap_width, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
@@ -574,7 +577,7 @@ base_aperture_instruction.disable()  # disable until its actually used
 # Initialize components for Routine "base_init_task"
 base_init_taskClock = core.Clock()
 base_text_begin_task = visual.TextStim(win=win, name='base_text_begin_task',
-    text='default text',
+    text='',
     font='Arial',
     units='height', pos=(0, 0), height=1.0, wrapWidth=text_wrap_width, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
@@ -607,12 +610,11 @@ sstm_text_blank = visual.TextStim(win=win, name='sstm_text_blank',
 
 # Initialize components for Routine "sstm_display_dot"
 sstm_display_dotClock = core.Clock()
-sstm_polygon_display_dot = visual.Polygon(
-    win=win, name='sstm_polygon_display_dot',units='height', 
-    edges=128, size=[1.0, 1.0],
+sstm_polygon_display_dot = visual.ShapeStim(
+    win=win, name='sstm_polygon_display_dot', vertices=128,units='height', 
+    size=[1.0, 1.0],
     ori=0, pos=[0,0],
-    lineWidth=1, lineColor=[1,1,1], lineColorSpace='rgb',
-    fillColor='black', fillColorSpace='rgb',
+    lineWidth=1,     colorSpace='rgb',  lineColor=[1,1,1], fillColor='black',
     opacity=1, depth=-1.0, interpolate=True)
 
 # Initialize components for Routine "sstm_after_display_dot"
@@ -628,14 +630,14 @@ sstm_text_after_display_dot = visual.TextStim(win=win, name='sstm_text_after_dis
 # Initialize components for Routine "sstm_draw_request"
 sstm_draw_requestClock = core.Clock()
 text_sstm_draw_dots = visual.TextStim(win=win, name='text_sstm_draw_dots',
-    text='default text',
+    text='',
     font='Arial',
     units='height', pos=(0, -0.075), height=1.0, wrapWidth=text_wrap_width, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
 text_sstm_presentation_end = visual.TextStim(win=win, name='text_sstm_presentation_end',
-    text='default text',
+    text='',
     font='Arial',
     pos=(0, 0.075), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
@@ -645,7 +647,7 @@ text_sstm_presentation_end = visual.TextStim(win=win, name='text_sstm_presentati
 # Initialize components for Routine "sstm_recall"
 sstm_recallClock = core.Clock()
 sstm_text_next = visual.TextStim(win=win, name='sstm_text_next',
-    text='default text',
+    text='',
     font='Arial',
     units='height', pos=(10, 10), height=1.0, wrapWidth=text_wrap_width, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
@@ -658,7 +660,7 @@ sstm_mouse.mouseClock = core.Clock()
 # Initialize components for Routine "base_next_trial"
 base_next_trialClock = core.Clock()
 base_text_next_trial = visual.TextStim(win=win, name='base_text_next_trial',
-    text='default text',
+    text='',
     font='Arial',
     pos=(0, 0), height=1.0, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
@@ -690,7 +692,7 @@ sstm_key_resp_task_end = keyboard.Keyboard()
 # Initialize components for Routine "base_end"
 base_endClock = core.Clock()
 base_text_end = visual.TextStim(win=win, name='base_text_end',
-    text='default text',
+    text='',
     font='Arial',
     units='height', pos=(0, 0), height=1.0, wrapWidth=text_wrap_width, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
@@ -847,7 +849,7 @@ while continueRoutine:
             # a response ends the routine
             continueRoutine = False
     
-    # *base_aperture_instruction* updates
+# *base_aperture_instruction* updates
     if base_aperture_instruction.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
         # keep track of start time/frame for later
         base_aperture_instruction.frameNStart = frameN  # exact frame index
@@ -1076,7 +1078,7 @@ for thisDo_memory_update_dummy in do_memory_update_dummy:
                     # a response ends the routine
                     continueRoutine = False
             
-            # *base_aperture_instruction* updates
+# *base_aperture_instruction* updates
             if base_aperture_instruction.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
                 # keep track of start time/frame for later
                 base_aperture_instruction.frameNStart = frameN  # exact frame index
@@ -2421,7 +2423,7 @@ for thisDo_operation_span_dummy in do_operation_span_dummy:
                     # a response ends the routine
                     continueRoutine = False
             
-            # *base_aperture_instruction* updates
+# *base_aperture_instruction* updates
             if base_aperture_instruction.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
                 # keep track of start time/frame for later
                 base_aperture_instruction.frameNStart = frameN  # exact frame index
@@ -3824,7 +3826,7 @@ for thisDo_sentence_span_dummy in do_sentence_span_dummy:
                     # a response ends the routine
                     continueRoutine = False
             
-            # *base_aperture_instruction* updates
+# *base_aperture_instruction* updates
             if base_aperture_instruction.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
                 # keep track of start time/frame for later
                 base_aperture_instruction.frameNStart = frameN  # exact frame index
@@ -5226,7 +5228,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                     # a response ends the routine
                     continueRoutine = False
             
-            # *base_aperture_instruction* updates
+# *base_aperture_instruction* updates
             if base_aperture_instruction.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
                 # keep track of start time/frame for later
                 base_aperture_instruction.frameNStart = frameN  # exact frame index
@@ -5470,7 +5472,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
             # update component parameters for each repeat
             n_presentations = current_trial.get_presentation_count()
             
-            sstm_text_fixation_cross.setFont('config.spatial_short_term_memory.text.fixation_cross.font')
+            sstm_text_fixation_cross.setFont(config.spatial_short_term_memory.text.fixation_cross.font)
             sstm_text_fixation_cross.setHeight(config.spatial_short_term_memory.text.fixation_cross.size)
             # keep track of which components have finished
             sstm_init_trialComponents = [sstm_text_fixation_cross]
@@ -5774,10 +5776,10 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
             # update component parameters for each repeat
             current_trial.grid.show(False)
             text_sstm_draw_dots.setText(expmsgs.draw_dots)
-            text_sstm_draw_dots.setFont('config.spatial_short_term_memory.text.draw_text.font')
+            text_sstm_draw_dots.setFont(config.spatial_short_term_memory.text.draw_text.font)
             text_sstm_draw_dots.setHeight(config.spatial_short_term_memory.text.draw_text.size)
             text_sstm_presentation_end.setText(expmsgs.word_end)
-            text_sstm_presentation_end.setFont('config.spatial_short_term_memory.text.end_text.font')
+            text_sstm_presentation_end.setFont(config.spatial_short_term_memory.text.end_text.font)
             text_sstm_presentation_end.setHeight(config.spatial_short_term_memory.text.end_text.size)
             # keep track of which components have finished
             sstm_draw_requestComponents = [text_sstm_draw_dots, text_sstm_presentation_end]
@@ -5870,7 +5872,7 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
             win.mouseVisible = True
             sstm_mouse.setVisible(True)
             sstm_text_next.setText(expmsgs.word_next)
-            sstm_text_next.setFont('config.spatial_short_term_memory.text.next_button.font')
+            sstm_text_next.setFont(config.spatial_short_term_memory.text.next_button.font)
             sstm_text_next.setHeight(config.spatial_short_term_memory.text.next_button.size)
             # setup some python lists for storing info about the sstm_mouse
             sstm_mouse.x = []
@@ -5940,7 +5942,12 @@ for thisDo_spatial_short_term_memory_dummy in do_spatial_short_term_memory_dummy
                         if sum(buttons) > 0:  # state changed to a new click
                             # check if the mouse was inside our 'clickable' objects
                             gotValidClick = False
-                            for obj in [sstm_text_next]:
+                            try:
+                                iter(sstm_text_next)
+                                clickableList = sstm_text_next
+                            except:
+                                clickableList = [sstm_text_next]
+                            for obj in clickableList:
                                 if obj.contains(sstm_mouse):
                                     gotValidClick = True
                                     sstm_mouse.clicked_name.append(obj.name)
