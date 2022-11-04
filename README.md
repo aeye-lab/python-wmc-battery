@@ -2,21 +2,33 @@
 
 Python reimplementation of the WMC battery described in Lewandowsky, Oberauer, Yang, & Ecker (2010), Behavior Research Methods.
 
-## Install psychopy
+## Installation
 
 ### Ubuntu 20.04
+You may need to put `.local/bin` in your `PATH` by adding this to your `.bashrc` in your home folder:
+```
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+```
 
 ```
-pip install psychopy==2020.2.10 pygame numpy pandas scipy dotmap pyyaml
-pip install -U -f https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-20.04 wxPython
-sudo apt install libxcb-xinerama0
+sudo apt-get install psychopy python3-pip python3-wxgtk-webview4.0 libxcb-xinerama0
+
+pip3 install --upgrade pip
+pip3 install -r requirements.txt
+pip3 install -U -f https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-20.04 wxPython==4.1.1
 ```
 
 For Chinese font support:
 
 ```
-sudo apt install fonts-noto-cjk
+sudo apt-get install fonts-noto-cjk
 ```
+
+To run the
+
 
 ### Mac OS
 
@@ -43,8 +55,27 @@ The support for font install : https://www.google.com/get/noto/help/install/
 
 ## Run WMC Battery
 
+### Ubuntu 20.04
+
+
 ```
-python3 wmc.py
+python3 wmc_ubuntu.py
+```
+
+
+### MacOS
+
+
+```
+python3 wmc_mac.py
+```
+
+
+### Windows
+
+
+```
+python3 wmc_windows.py
 ```
 
 
