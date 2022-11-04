@@ -27,8 +27,6 @@ For Chinese font support:
 sudo apt-get install fonts-noto-cjk
 ```
 
-To run the
-
 
 ### Mac OS
 
