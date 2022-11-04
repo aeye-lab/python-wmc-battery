@@ -13,6 +13,8 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 ```
 
+After that, create a new terminal and close the old one to reload the configuration.
+
 ```
 sudo apt-get install psychopy python3-pip python3-wxgtk-webview4.0 libxcb-xinerama0
 
