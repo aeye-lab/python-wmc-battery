@@ -1,1 +1,1 @@
-abort_key: 'f12'
+abort_key: 'f12'  # keycode for aborting experiment. *default:* 'f12'

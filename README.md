@@ -1,6 +1,18 @@
 # WMC-Battery
 
-Python reimplementation of the WMC battery described in Lewandowsky, Oberauer, Yang, & Ecker (2010), Behavior Research Methods.
+Python re-implementation of the WMC battery described in Lewandowsky, S., Oberauer, K., Yang, L. X., & Ecker, U. K. (2010). A working memory test battery for MATLAB. Behavior research methods, 42(2), 571–585. https://doi.org/10.3758/BRM.42.2.571
+
+This implementation is a minute reproduction of the original MATLAB implementation and uses the same file output format.
+This way the accompanying R-script of the original implementation can still be used for data processing.
+
+
+## Differences to original MATLAB implementation
+
+- implementation limited to the following tasks: Memory Update, Operation Span, Sentence Span, and Spatial Short-Term Memory  (left out Choice Reaction Test, Task Switching, and Word Recognition as not references in paper)
+- random seed can be either set explictly or will be automatically determined by the session name / subject id
+- Spatial Short-Term Memory trials are dynamically generated for each new experiment run
+- corrections in chinese language files (instruction pages, experiment messages and sentences for Sentence Span task)
+
 
 ## Installation
 
@@ -79,10 +91,13 @@ python3 wmc_windows.py
 ```
 
 
+## Usage
+
 You can quit the experiment by pressing `F12`.
 
 
 It is advised to mark the arrow-keys on your physical keyboard for the *Operation Span* and *Sentence Span* tasks. You can configure the keys in the `yaml`-config files in the `config` folder (`key_map` field).
+
 
 ## Test language files
 
