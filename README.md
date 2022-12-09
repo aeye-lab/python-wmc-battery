@@ -9,7 +9,7 @@ This way the accompanying R-script of the original implementation can still be u
 ## Differences to original MATLAB implementation
 
 - implementation limited to the following tasks: Memory Update, Operation Span, Sentence Span, and Spatial Short-Term Memory  (left out Choice Reaction Test, Task Switching, and Word Recognition as not references in paper)
-- random seed can be either set explictly or will be automatically determined by the session name / subject id
+- random seed can be either set explicitly or will be automatically determined by the session name / subject id
 - Spatial Short-Term Memory trials are dynamically generated for each new experiment run
 - corrections in chinese language files (instruction pages, experiment messages and sentences for Sentence Span task)
 
